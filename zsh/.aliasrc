@@ -1,0 +1,205 @@
+
+# ============================================================================
+# 			      ~/.config/aliasrc
+# ============================================================================
+
+alias c="clear"
+alias chrweb="ssh meister@188.166.164.214"
+alias diff='colordiff'
+# alias e="emacs"
+alias e="exit"
+# alias h="history"
+alias howmessyami="ls -a ~ | wc -l"
+# alias md="mongod"
+alias mkdir="mkdir -pv"    # create parent dirs on demand
+alias o="open"
+# alias path="echo -e ${PATH//:/\\n}"
+alias pdfl="pdflatex"
+alias pwd="pwd -P"
+alias pytube3="pytube3"
+alias r="ranger"
+alias sozsh="source ~/.config/zsh/.zshrc"
+alias spotify='echo && spotify'
+alias ta="tierarzt"
+alias tierarzt='sudo python3 ~/.config/symlinks/ta/main.py'
+alias tmux="tmux"  # -f /Users/meister/.tmux.conf"
+alias v="nvim"
+alias wget="wget --hsts-file /Users/meister/.config/wget/wget-hsts"
+alias ytdl="yes | pytube3 $1 -a -f -t='/Users/meister/Downloads/'"
+
+# =============================================================================
+#                                                      homebrew package manager
+alias bci="brew cask install"
+alias bi="brew install"
+alias bs="brew search"
+alias bt="brew tap"
+alias bu="brew uninstall"
+# -----------------------------------------------------------------------------
+#                                                              change directory
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+#                                                                  copy / paste
+# copy(){
+#     test -z $1 && echo "No file input!" && return
+#     test ! -e $1 && echo "File not exist!" && return
+#     export orig_path="$PWD/$1"
+#     export orig_name="$1"
+# }
+# paste(){
+    # test -z $orig_path && echo "No copied file!" && return
+    # if [ "$#" -lt 1 ];then
+    #     dist_name="$PWD/$orig_name"
+    #     if [ -d $orig_path ];then
+    #         cp -r $orig_path $dist_name
+    #     else
+    #         cp $orig_path $dist_name
+    #     fi
+    #     echo "$orig_name pasted."
+    # else
+    #     dist_name="$PWD/$1"
+    #     if [ -d $orig_path ];then
+    #         cp -r $orig_path $dist_name
+    #     else
+    #         cp $orig_path $dist_name
+    #     fi
+    #     echo "\"$1\" pasted."
+    # fi
+# }
+# -----------------------------------------------------------------------------
+#                                                                    fuzzy find 
+# alias f="fzf"
+# alias fe="fzf --exact"
+# alias fv="v $(fzf --height 40%)"
+# alias fo="open $(fzf)"
+# function find() {
+#     if [ $# = 1 ];
+#     then
+#         command find . -iname "*$@*"
+#     else
+#         command find "$@"
+#     fi
+# }
+# -----------------------------------------------------------------------------
+#                                                           git version control
+alias g="git"
+alias gg='git status'
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gl="git pull"
+alias grm="git rm"
+#                                                                         gotop 
+# -----------------------------------------------------------------------------
+alias gotop="gotop --color=monokai"
+alias top="gotop" 
+# -----------------------------------------------------------------------------
+#                                                                          grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+# -----------------------------------------------------------------------------
+#                                                                       jupyter
+alias jn="jupyter notebook"
+# -----------------------------------------------------------------------------
+#                                                                            ls
+alias ls='clear && echo && lsd'
+alias lsa='ls -a'
+alias l='ls --tree --depth=1'
+alias la='ls -la'
+alias ll=''
+alias lt='ls --tree'
+# -----------------------------------------------------------------------------
+#                                                                           man
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+# -----------------------------------------------------------------------------
+#                                                                        python
+alias pip="pip3"
+alias py2="python"
+alias py3="python3"
+alias py="py3"
+# -----------------------------------------------------------------------------
+#                                                                            rm
+alias del="rmtrash"
+alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
+# -----------------------------------------------------------------------------
+#                                                                     spotlight
+alias spot="mdfind -name"
+# -----------------------------------------------------------------------------
+#                                                     taskwarrior / timewarrior
+alias t="clear && task"
+alias tn="t next"
+alias ts="t short"
+tp () {t project:$1}
+alias tt="t +ACTIVE or +OVERDUE or due:today or scheduled:today"
+# alias tw="t due:today"
+alias tbd="t burndown.daily"
+alias tbw="t burndown.weekly"
+alias tbm="t burndown.monthly"
+alias tc="t calendar"
+alias tl="t list"
+alias ttbd=''
+alias ttbw=''
+alias ttbm=''
+alias ttc=''
+#                                                             add item to inbox
+alias in='t add +in'
+#                                                    add deferred item to inbox
+tickle () {  #                                 usage e.g.: tick monday do stuff
+    deadline=$1
+    shift
+    in +tickle wait:$deadline $@
+}
+alias tick=tickle
+#                                  add item to inbox that I need to think about 
+alias think='tickle +1d'  
+#                                                                   timewarrior
+alias tw='clear && timew'
+alias twd='tw day'
+alias tww='tw week'
+
+# =============================================================================
+#                                                               other fun stuff
+alias fortunecow='fortune -s | cowsay'
+alias lc='echo && lolcat -a'
+alias lolcat='echo && lolcat'
+# cmatrix, sl, cowsay, cowthink, figlet, fortune, sc-im
+# wifi-password, tldr, archey, watch, rtv, geoiplookup, links, tree, fuck
+function gif2vid {
+    local in="$1"
+    local out="$2"
+    ffmpeg -i $in -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" $out
+}
+# function start_minecraft_server {
+#     local server="$1"
+#     java -Xmx1024M -Xms1024M -jar $server nogui
+# }
+# alias speedtest="speedtest-cli"
+
+# alias esl="./node_modules/.bin/eslint"
+# alias mount="mount |column -t"  # mount in human readable format
+
+# alias ag='ag --path-to-ignore ~/.ignore'
+
+# redefine ls commands for more displayed information
+# alias ls='ls $LS_OPTIONS -ahFG'
+# alias l='clear && ls $LS_OPTIONS -lAhFG'
+
+# alias mpil="ssh -Y mader@bachelor-login"
+# alias mpiv="ssh -Y mader@bachelor-vis"
+
+# alias ccust="python3 ~/Documents/chronos-web/flask_backend/py/custom.py"
+# alias cmain="python3 ~/Documents/chronos-web/flask_backend/py/main.py"
+
+# alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
+
+# npm config set ignore-scripts true
+
+# lock computer
+# alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
