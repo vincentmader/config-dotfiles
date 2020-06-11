@@ -5,6 +5,7 @@
 
 alias c="clear"
 alias chrweb="ssh meister@188.166.164.214"
+alias cp="cp -iv"
 alias diff='colordiff'
 # alias e="emacs"
 alias e="exit"
