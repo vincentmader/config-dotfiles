@@ -1,0 +1,503 @@
+#								        imports 
+# =============================================================================
+snippet usepackage_amsmath ""
+\usepackage{amsmath}
+endsnippet
+
+snippet usepackage_amsfonts ""
+\usepackage{amsfonts}
+endsnippet
+
+snippet usepackage_chemformula ""
+\usepackage{chemformula}
+endsnippet
+
+snippet usepackage_fancyhdr ""
+\usepackage{fancyhdr}
+endsnippet
+
+snippet usepackage_geometry ""
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+endsnippet
+
+snippet usepackage_graphicx ""
+\usepackage{graphicx}
+endsnippet
+
+snippet usepackage_hyperref ""
+\usepackage[hidelinks]{hyperref}
+endsnippet
+
+snippet usepackage_listings "" b
+\usepackage{listings}
+endsnippet
+
+snippet usepackage_siunitx ""
+\usepackage{siunitx}
+endsnippet
+
+snippet usepackage_xcolor ""
+\usepackage{xcolor}
+endsnippet
+
+
+
+
+
+
+
+
+
+
+snippet author ""
+\author{}
+endsnippet
+
+snippet align ""
+\begin{align}
+    $1
+\end{align}
+endsnippet
+
+
+snippet autoref "autoref"
+\autoref{$1:}
+endsnippet
+
+
+snippet begin "begin and end tag"
+\begin{$1}
+    
+\end{$1}
+endsnippet
+
+
+snippet bibitem "entry in bibliography"
+\bibitem{$1}
+\textit{Lorem ipsum dolor sit amet} \\\
+\url{https://www.youtube.com/watch?v=dQw4w9WgXcQ}
+
+endsnippet
+
+
+snippet bibliography "template for bibliography file"
+
+\begin{thebibliography}{00}
+
+    \bibitem{lorem}
+    \textit{Lorem ipsum dolor sit amet} \\\
+    \url{https://www.youtube.com/watch?v=dQw4w9WgXcQ}
+
+\end{thebibliography}
+
+endsnippet
+
+
+snippet blue "blue colored text"
+\blue{$1}
+endsnippet
+
+
+snippet bold "\textbf{}"
+\textbf{$1}
+endsnippet
+
+
+snippet caption "caption"
+\caption{$1}
+endsnippet
+
+
+snippet center "center tag"
+\begin{center}
+    $1
+\end{center}
+endsnippet
+
+
+snippet centering "centering"
+\centering
+endsnippet
+
+
+snippet chapter "chapter"
+\chapter{$1}
+endsnippet
+
+
+snippet cite "cite"
+\cite{$1}
+endsnippet
+
+
+snippet citeauthor "cite author"
+\citeauthor{$1}
+endsnippet
+
+
+snippet citeyear "cite year"
+\citeyear{$1}
+endsnippet
+
+
+snippet citelater "red tag indicating missing citation"
+\red{[cite]}
+endsnippet
+
+
+snippet clearpage "clearpage"
+\clearpage
+endsnippet
+
+
+snippet cmd "latex command"
+\\$1{}
+endsnippet
+
+
+snippet code "lstlisting"
+\begin{lstlisting}
+    $1
+\end{lstlisting}
+endsnippet
+
+
+snippet code_inline "lstinline code"
+\lstinline{$1}
+endsnippet
+
+
+snippet column "beamer column"
+\begin{column}{0.5\textwidth}
+
+\end{column}
+endsnippet
+
+
+snippet doc_article "basic article document"
+\documentclass[11 pt]{article}
+
+
+\begin{document}
+
+    $1
+
+\end{document}
+endsnippet
+
+
+snippet doc_beamer "basic beamer document"
+\documentclass[11pt]{beamer}
+
+
+\usepackage[utf8]{inputenc}
+
+\usetheme{default}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+
+\title{Title}
+\subtitle{Subtitle}
+\author{Vincent Mader}
+\institute{Universität Heidelberg}
+\date{\today}
+
+\graphicspath{{../figures/}}
+
+
+\begin{document}
+    \begin{frame}
+    \titlepage
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+    \end{frame}
+
+    \section{Section 1}
+
+    \subsection{Subsection 1}
+
+    \begin{frame}
+      Hello world! 
+    \end{frame}
+
+\end{document}
+endsnippet
+
+
+snippet draw "tikz draw"
+\draw
+endsnippet
+
+
+snippet end "end"
+\end{$1}
+endsnippet
+
+
+snippet enumerate "enumerate"
+\begin{enumerate}
+    \item $1
+    \item
+    \item
+    \item
+    \item
+\end{enumerate}
+endsnippet
+
+
+snippet equation "equation"
+\begin{equation}
+    $1
+    \label{}
+\end{equation}
+endsnippet
+
+
+snippet figure "figure"
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{$1}
+    \caption{$2}
+    \label{$3}
+\end{figure} \ \\\ 
+endsnippet
+
+
+snippet footnote "footnote"
+\footnote{}
+endsnippet
+
+
+snippet frac "fraction"
+\frac{$1}{}
+endsnippet
+
+
+snippet frame "beamer slide"
+\begin{frame}
+    \frametitle{$1}
+\end{frame}
+endsnippet
+
+
+snippet frametitle "frame title tag"
+\frametitle{$1}
+endsnippet
+
+
+snippet graphics_path "Description"
+\graphicspath{{../figures/}}
+endsnippet
+
+
+snippet green "green colored text"
+\green{$1}
+endsnippet
+
+
+snippet header ""
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{}
+\chead{}
+\rhead{}
+endsnippet
+
+
+snippet hline "hline"
+\hline
+endsnippet
+
+
+snippet import "usepackage"
+\usepackage{$1}
+endsnippet
+
+
+snippet input "input other tex file"
+\input{$1}
+endsnippet
+
+
+snippet italic "\textit{}"
+\textit{$1}
+endsnippet
+
+
+snippet item "itemize entry"
+\item $1
+endsnippet
+
+
+snippet itemize "itemize"
+\begin{itemize}
+    \item $1
+    \item
+    \item
+    \item
+    \item
+\end{itemize}
+endsnippet
+
+
+snippet label "label"
+\label{$1}
+endsnippet
+
+
+snippet larrow "left arrow"
+\Leftarrow 
+endsnippet
+
+
+snippet linewidth "linewidth"
+\linewidth
+endsnippet
+
+
+snippet maketitle ""
+\maketitle
+endsnippet
+
+
+snippet minipage "mutiple figures in grid"
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{.5\linewidth}
+      \centering
+      \subfloat[]{
+        \label{:a}
+        \includegraphics[scale=.5]{}
+      }
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+      \centering
+      \subfloat[]{
+        \label{:b}
+        \includegraphics[scale=.5]{}
+      }
+    \end{minipage}
+    \subfloat[]{
+      \label{:e}
+      \includegraphics[scale=.5]{}
+    }
+    \caption{}
+    \label{}
+\end{figure} \ \\\
+endsnippet
+
+snippet newpage "newpage"
+\newpage
+endsnippet
+
+
+snippet noindent "noindent"
+\noindent
+endsnippet
+
+
+snippet paragraph "myparagraph snip"
+\myparagraph{$1}
+
+endsnippet
+
+
+snippet pause "beamer pause"
+\pause
+endsnippet
+
+
+snippet red "red colored text"
+\red{$1}
+endsnippet
+
+
+snippet rarrow "right arrow"
+\Rightarrow 
+endsnippet
+
+
+snippet section "section tag"
+\section{$1}
+endsnippet
+
+
+snippet setcounter "setcounter command"
+\setcounter{$1}{$2}
+endsnippet
+
+
+snippet siunitx "\SI{}{}"
+\SI{$1}{}
+endsnippet
+
+
+snippet subsection "subsection tag"
+\subsection{$1}
+endsnippet
+
+
+snippet subsubsection "subsubsection tag"
+\subsubsection{$1}
+endsnippet
+
+
+snippet sqrt "sqrt tag"
+\sqrt{$1}
+endsnippet
+
+
+snippet table "table"
+\begin{table}[h!]
+    \begin{center}
+	\caption{$1}
+	\begin{tabular}{$2}
+	    
+	\end{tabular}
+    \end{center}
+\end{table} \ \\\ 
+endsnippet
+
+
+snippet tabular "tabular"
+\begin{center}
+    \begin{tabular}{$2}
+      	
+    \end{tabular}
+\end{center}
+endsnippet
+
+
+snippet textcolor "\textcolor{}{}"
+\textcolor{red}{$1}
+endsnippet
+
+
+snippet textwidth "textwidth"
+\textwidth
+endsnippet
+
+
+snippet title "title"
+\title{$1}
+endsnippet
+
+
+snippet tikzpic "tikzpicture"
+\begin{tikzpicture}
+    $1
+\end{tikzpicture}
+endsnippet
+
+
+snippet underline "\underline{}"
+\underline{$1}
+endsnippet
+
+
+snippet usepackage "usepackage"
+\usepackage{$1}
+endsnippet

@@ -1,0 +1,17 @@
+snippet for_basic "basic for loop"
+for i in ${1:file}; do
+  echo $i
+done
+endsnippet
+
+snippet for_c "c-like for loop"
+for ((i = 0; i < 100; i++)); do
+  echo $i
+done
+endsnippet
+
+snippet func "function declaration"
+function ${1:function name}() {
+    echo "hello world"
+}
+endsnippet

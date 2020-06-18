@@ -1,0 +1,18 @@
+# The Snippet Snippet
+# ===========================================================================
+
+snippet snip "The Snippet Snippet"
+snippet ${1:Trigger} "${2:Description}"
+${0}
+`echo endsnippet`
+endsnippet
+
+# Various
+# ===========================================================================
+
+snippet html_tag "HTML tag"
+<$1>
+    `echo $1`
+</$1>
+endsnippet
+

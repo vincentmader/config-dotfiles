@@ -1,0 +1,260 @@
+# imports (standard library)
+
+
+snippet import "import"
+import $1
+endsnippet
+
+snippet import_datetime "from datetime import datetime as dt"
+from datetime import datetime as dt
+endsnippet
+
+snippet import_timedelta "from datetime import timedelta as td"
+from datetime import timedelta as td
+endsnippet
+
+# imports (other)
+
+snippet import_config "import config"
+import config
+endsnippet
+
+snippet import_matplotlib "import matplotlib as mpl"
+import matplotlib as mpl
+endsnippet
+
+snippet import_numpy "import numpy as np"
+import numpy as np
+endsnippet
+
+snippet import_pyplot "import matplotlib.pyplot as plt"
+import matplotlib.pyplot as plt
+endsnippet
+
+snippet import_scipy "import scipy"
+import scipy
+endsnippet
+
+# functions 
+
+snippet fmain "def main():"
+def main():
+    $1
+endsnippet
+
+# exception handling 
+
+snippet try "try: ... except ..."
+try:
+    pass
+except $1:
+    pass
+endsnippet
+
+# code readability and doc strings
+
+snippet docstr "doc string"
+"""${1:description}
+
+Parameters:
+    ${2:parameter 1}
+    ${3:parameter 1}
+Returns:
+    ${4:return value}
+endsnippet
+
+# with ... as
+
+snippet with_open_as_fp "with open(...) as fp:"
+with open($1) as fp:
+    content = fp.readlines()
+endsnippet
+
+# numpy
+
+snippet linspace ""
+np.linspace($1)
+endsnippet
+
+# pyplot
+
+snippet figure ""
+plt.figure(figsize=(8, 4))
+endsnippet
+
+snippet legend ""
+plt.legend(loc='best')
+endsnippet
+
+snippet plot ""
+plt.plot($1)
+endsnippet
+
+snippet scatter ""
+plt.scatter($1)
+endsnippet
+
+snippet savefig ""
+plt.savefig('$1')
+endsnippet
+
+snippet subplot ""
+plt.subplot($1)
+endsnippet
+
+snippet xlabel ""
+plt.xlabel($1)
+endsnippet
+
+snippet xlim ""
+plt.xlim($1)
+endsnippet
+
+snippet xticks ""
+plt.xticks($1)
+endsnippet
+
+snippet ylabel ""
+plt.ylabel($1)
+endsnippet
+
+snippet ylim ""
+plt.ylim($1)
+endsnippet
+
+snippet yticks ""
+plt.yticks($1)
+endsnippet
+
+
+
+
+
+
+
+
+# basic syntax
+
+snippet if "if, elif, else"
+if $1:
+    pass
+elif $2:
+    pass 
+else:
+    pass
+endsnippet
+
+
+
+
+
+
+
+
+
+
+
+
+snippet bang "hashbang & encoding"
+#!/usr/local/bin/python3
+# -*- coding: utf8 -*-
+endsnippet
+
+
+snippet class "Description"
+class $1():
+    def __init__(self):
+        pass
+
+endsnippet
+
+snippet docstring "docstring for a function"
+"""
+$1
+
+Parameters:
+-----------
+x: type
+Description
+
+Returns:
+--------
+y: type
+Description
+
+"""
+endsnippet
+
+snippet func "function delaration"
+def $1():
+    """
+
+    Parameters
+    ----------
+
+    Returns
+    --------
+
+
+    """
+
+    pass
+
+endsnippet
+
+
+snippet funcfile "structure for function in new file"
+
+#!/usr/local/bin/python3
+# -*- coding: utf8 -*-
+
+
+def main($1):
+    """
+
+    Parameters
+    ----------
+
+    Returns
+    --------
+
+
+    """
+
+    pass
+
+
+if __name__ == '__main__':
+    main()
+
+endsnippet
+
+
+snippet import_plotting "common imports for scientific plotting"
+import os 
+import sys
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+import config
+endsnippet
+
+
+snippet main "if __name__ == '__main__: ...'"
+if __name__ == '__main__':
+    main()
+
+endsnippet
+
+
+snippet plt_legend "pyplot legend"
+plt.legend(loc='best')
+endsnippet
+
+
+snippet plt_sci_labels "scientific y-labels"
+plt.gca().ticklabel_format(style='sci', scilimits=(0, 0), axis='y')
+endsnippet
+
+

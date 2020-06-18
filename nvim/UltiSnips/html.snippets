@@ -1,0 +1,78 @@
+# Tags 
+# =============================================================================
+
+snippet body "body tag"
+<body>
+    $1
+</body>
+endsnippet
+
+snippet cdn "CDN link"
+<script src="$1">
+endsnippet
+
+snippet document "template for new document"
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        $1
+    </body>
+</html>
+endsnippet
+
+snippet head "head tag"
+<head>
+    $1
+</head>
+endsnippet
+
+snippet html "html tag"
+<html>
+    $1
+</html>
+endsnippet
+
+snippet script "script tag"
+<script>
+    $1
+</script>
+endsnippet
+
+snippet tag "html tag" b
+<${1:div}>
+    
+</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet div "div tag"
+<div>
+    $1
+</div>
+endsnippet
+
+snippet divclass "div tag with class argument"
+<div class="$1">
+    $1
+</div>
+endsnippet
+
+snippet divid "div tag with id argument"
+<div id="$1">
+    $1
+</div>
+endsnippet
+
+
+
+
+
+
+
+
+snippet stylesheet "include external stylesheet"
+<link rel="stylesheet" type="text/css" href="$1">
+endsnippet
