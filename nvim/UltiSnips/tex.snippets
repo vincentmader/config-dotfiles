@@ -28,8 +28,12 @@ snippet usepackage_hyperref ""
 \usepackage[hidelinks]{hyperref}
 endsnippet
 
-snippet usepackage_listings "" b
+snippet usepackage_listings ""
 \usepackage{listings}
+endsnippet
+
+snippet  "usepackage_multicol"
+\usepackage{multicol}
 endsnippet
 
 snippet usepackage_siunitx ""
@@ -98,6 +102,13 @@ snippet blue "blue colored text"
 endsnippet
 
 
+snippet pmatrix "pmatrix"
+\begin{pmatrix}
+    $1
+\end{pmatrix}
+endsnippet
+
+
 snippet bold "\textbf{}"
 \textbf{$1}
 endsnippet
@@ -105,6 +116,13 @@ endsnippet
 
 snippet caption "caption"
 \caption{$1}
+endsnippet
+
+
+snippet cases ""
+\begin{cases}
+    $1
+\end{cases}
 endsnippet
 
 
@@ -304,6 +322,7 @@ snippet header ""
 \lhead{}
 \chead{}
 \rhead{}
+\setlength{\headheight}{15pt}
 endsnippet
 
 
@@ -389,6 +408,12 @@ snippet minipage "mutiple figures in grid"
 \end{figure} \ \\\
 endsnippet
 
+snippet multicol "multicol"
+\begin{multicol}
+    $1
+\end{multicol}
+endsnippet
+
 snippet newpage "newpage"
 \newpage
 endsnippet
@@ -405,8 +430,20 @@ snippet paragraph "myparagraph snip"
 endsnippet
 
 
+snippet partial "partial"
+\partial
+endsnippet
+
+
 snippet pause "beamer pause"
 \pause
+endsnippet
+
+
+snippet pmatrix "pmatrix"
+\begin{pmatrix}
+    $1
+\end{pmatrix}
 endsnippet
 
 
@@ -426,7 +463,7 @@ endsnippet
 
 
 snippet setcounter "setcounter command"
-\setcounter{$1}{$2}
+\setcounter{${1:countername}}{${2:value}}
 endsnippet
 
 
@@ -471,8 +508,18 @@ snippet tabular "tabular"
 endsnippet
 
 
+snippet text ""
+\text{$1}
+endsnippet
+
+
 snippet textcolor "\textcolor{}{}"
 \textcolor{red}{$1}
+endsnippet
+
+
+snippet textnormal ""
+\textnormal{$1}
 endsnippet
 
 
@@ -500,4 +547,11 @@ endsnippet
 
 snippet usepackage "usepackage"
 \usepackage{$1}
+endsnippet
+
+
+snippet vmatrix "pmatrix"
+\begin{pmatrix}
+    $1
+\end{pmatrix}
 endsnippet
