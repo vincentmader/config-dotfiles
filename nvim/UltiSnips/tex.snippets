@@ -331,6 +331,11 @@ snippet hline "hline"
 endsnippet
 
 
+snippet indent "indent"
+\indent 
+endsnippet
+
+
 snippet import "usepackage"
 \usepackage{$1}
 endsnippet
@@ -409,9 +414,13 @@ snippet minipage "mutiple figures in grid"
 endsnippet
 
 snippet multicol "multicol"
-\begin{multicol}
-    $1
+\begin{multicol}{${1:cols}
+    $2
 \end{multicol}
+endsnippet
+
+snippet newcommand "newcommand"
+\newcommand{${1:name}[${2:arg_num}]{${3:definition}
 endsnippet
 
 snippet newpage "newpage"
@@ -437,6 +446,11 @@ endsnippet
 
 snippet pause "beamer pause"
 \pause
+endsnippet
+
+
+snippet permille "permille sign"
+\text{\textperthousand}
 endsnippet
 
 
