@@ -1,0 +1,5 @@
+import readline
+
+
+# disable command history from being written to ~/.python_history
+readline.write_history_file = lambda *args: None
