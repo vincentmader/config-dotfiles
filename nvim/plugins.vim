@@ -9,7 +9,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 "                                                               install plugins
 call plug#begin('~/.config/nvim/plugged')
     " 						   		code completion
@@ -39,14 +38,14 @@ call plug#begin('~/.config/nvim/plugged')
     "                                                                  MARKDOWN
     "                                               folding markdown by section
     Plug 'masukomi/vim-markdown-folding'  
-    " preview markdown, automatic reloads (?)
+    "                                   preview markdown, automatic reloads (?)
     " Plug 'kannokanno/previm'
     "                                very nice tables, activate with <leader>tm
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'coderifous/textobj-word-column.vim'
     "                                                                    PYTHON
     Plug 'jmcantrell/vim-virtualenv'
-    " Plug 'vim-scripts/indentpython.vim'
+    Plug 'vim-scripts/indentpython.vim'
     " Plug 'nvie/vim-flake8'              " PEP8 checking
     Plug 'tmhedberg/SimpylFold'           " indentation based folding
     Plug 'Konfekt/FastFold'               " speeds up folding
@@ -61,7 +60,6 @@ call plug#begin('~/.config/nvim/plugged')
     " -------------------------------------------------------------------------
     "                                                    fzf: fuzzy file search
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
-    " Plug 'junegunn/fzf.vim'
     Plug 'yuki-ycino/fzf-preview.vim'
     "                                   silver searcher: find files by c-string
     Plug 'mileszs/ack.vim'
@@ -99,12 +97,14 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jceb/vim-orgmode'
     Plug 'tpope/vim-speeddating'
     Plug 'vimwiki/vimwiki'
+    " Plug 'mattn/calendar-vim'
+    Plug 'itchyny/calendar.vim'
     "  						                version control
     " -------------------------------------------------------------------------
     "                          very nice git plugin, everything from inside vim
     Plug 'tpope/vim-fugitive'
     "                                         extension of fugitive, compatible
-    " Plug 'gregsexton/gitv'                
+    Plug 'gregsexton/gitv'                
     "                                       show git information in sign column
     Plug 'airblade/vim-gitgutter'
     "                                               show git status in NerdTree
