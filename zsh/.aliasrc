@@ -9,6 +9,7 @@ alias cp="cp -iv"
 alias diff='colordiff'
 # alias e="emacs"
 alias e="exit"
+alias f="fuck"
 # alias h="history"
 alias howmessyami="ls -a ~ | wc -l"
 # alias md="mongod"
@@ -35,6 +36,7 @@ alias bi="brew install"
 alias bs="brew search"
 alias bt="brew tap"
 alias bu="brew uninstall"
+alias buu="brew update && brew upgrade"
 # -----------------------------------------------------------------------------
 #                                                              change directory
 alias cd..='cd ..'
@@ -149,8 +151,12 @@ alias ttbd=''
 alias ttbw=''
 alias ttbm=''
 alias ttc=''
+alias td='t due:today'
+alias tm='t due:tomorrow'
 #                                                             add item to inbox
 alias in='t add +in'
+#                                                      add item to grocery list
+alias gro='t add +groceries'
 #                                                    add deferred item to inbox
 tickle () {  #                                 usage e.g.: tick monday do stuff
     deadline=$1
@@ -204,3 +210,5 @@ function gif2vid {
 
 # lock computer
 # alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
+alias npxcra="npx create-react-app"
