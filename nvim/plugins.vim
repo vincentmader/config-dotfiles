@@ -97,8 +97,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jceb/vim-orgmode'
     Plug 'tpope/vim-speeddating'
     Plug 'vimwiki/vimwiki'
-    " Plug 'mattn/calendar-vim'
-    Plug 'itchyny/calendar.vim'
+    Plug 'mattn/calendar-vim'
+    " Plug 'itchyny/calendar.vim'
     "  						                version control
     " -------------------------------------------------------------------------
     "                          very nice git plugin, everything from inside vim
