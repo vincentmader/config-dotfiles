@@ -1,4 +1,3 @@
-" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'mdvimwiki'}]
 " /Users/meister/Library/Mobile Documents/com~apple~CloudDocs/Documents/notes/vimwiki
 "
 " au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
