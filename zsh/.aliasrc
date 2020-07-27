@@ -86,7 +86,7 @@ alias ...='cd ../..'
 # -----------------------------------------------------------------------------
 #                                                           git version control
 alias g="git"
-alias gg='git status'
+alias gg='clear && git status'
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
