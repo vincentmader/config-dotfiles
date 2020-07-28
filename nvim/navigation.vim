@@ -1,10 +1,10 @@
 
 " =============================================================================
-"                                                                    NAVIGATION
+"                                   NAVIGATION
 " =============================================================================
 
-"                                                               cursor movement 
-" -----------------------------------------------------------------------------
+"                                             cursor movement inside buffer {{{
+" =============================================================================
 "                                                                activate mouse 
 set mouse=a  
 "                                                move vertically by visual line
@@ -17,14 +17,18 @@ au BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
     \ |   exe "normal! g`\""
     \ | endif
-"                                                                 buffer search
-" -----------------------------------------------------------------------------
+
+" }}}
+"                                           searching and switching buffers {{{
+" =============================================================================
 "            search incrementally as characters are entered & highlight matches
 set incsearch hlsearch
 "             case insensitive except if capital letters are entered explicitly
 set ignorecase smartcase
-"                                                                    vim splits
-" -----------------------------------------------------------------------------
+
+" }}}
+"                                                                vim splits {{{
+" =============================================================================
 "                                        new vim splits go to the right & below
 set splitbelow
 set splitright
@@ -33,8 +37,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-"                                                   easymotion quick-navigation
-" -----------------------------------------------------------------------------
+
+" }}}
+"                                               easymotion quick-navigation {{{
+" =============================================================================
 "<Leader>f{char} to move to {char}
 "map  <Leader>f <Plug>(easymotion-bd-f)
 "nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -46,15 +52,19 @@ nnoremap <C-L> <C-W><C-L>
 " Move to word
 " map  <Leader>w <Plug>(easymotion-bd-w)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
-""                                                find file by c-string with ag
-"" ----------------------------------------------------------------------------
+
+" }}}
+"                                ag/silver searcher (find file by c-string) {{{
+" =============================================================================
 " use the silver searcher (a.k.a. ag) instead of ack (only if installed)
 if executable('ag')
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 nnoremap <leader>a :Ack! -Q ""<Left>
-""                                            file search by file name with fzf
-"" ----------------------------------------------------------------------------
+
+" }}}
+"                                            fzf (file search by file name) {{{
+" =============================================================================
 "set rtp+=/usr/local/opt/fzf
 "command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)" split/vsplit settings
 "" " floating fzf
@@ -79,8 +89,10 @@ nnoremap <leader>a :Ack! -Q ""<Left>
 ""  
 ""   call nvim_open_win(buf, v:true, opts)
 "" endfunction
-"                                                       file manager (NERDTree)
-" -----------------------------------------------------------------------------
+
+" }}}
+"                                            NERDTree (visual file manager) {{{
+" =============================================================================
 """ open with <leader>t
 ""map <leader>nt :NERDTreeTabsToggle<CR>
 """ let files/directories be created/removed/modified
@@ -124,3 +136,5 @@ nnoremap <leader>a :Ack! -Q ""<Left>
 """  \ 'Ignored'   : '☒',
 """  \ 'Unknown'   : '?'
 """  \ }
+
+" }}}

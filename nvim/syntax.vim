@@ -1,10 +1,11 @@
 
 " =============================================================================
-"                                                                        SYNTAX
+"                                    SYNTAX
 " =============================================================================
 
 "                                                      syntastic sytax checking
 " -----------------------------------------------------------------------------
+"
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -23,6 +24,7 @@
 
 "                                                           ALE SYNTAX CHECKING
 " -----------------------------------------------------------------------------
+"
 "                        only run linters named in ale_linters settings (-> ft)
 let g:ale_linters_explicit = 1
 "                              don't run on startup, but do after saves & edits

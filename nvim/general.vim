@@ -1,14 +1,15 @@
 
 " =============================================================================
-"                                                     GENERAL VIM CONFIGURATION
+"                            GENERAL VIM CONFIGURATION
 " =============================================================================
 
 set autoread  " automatically reload files from disk on change
-set backspace=indent,eol,start  " allow backspace in insert mode
+" set backspace=indent,eol,start  " allow backspace in insert mode
 set encoding=utf-8
 set hidden  " buffers can exist in background, common behavior for editors
+
 "                                              copy & paste to system clipboard
-" -----------------------------------------------------------------------------
+" =============================================================================
 if has('clipboard')
     set clipboard=unnamed
     if has('unnamedplus')  " X11 support
@@ -17,8 +18,9 @@ if has('clipboard')
 endif
 vnoremap <C-c> :w !pbcopy<CR><CR>
 noremap <C-v> :r !pbpaste<CR><CR>
+
 "                                                  default indentation settings
-" -----------------------------------------------------------------------------
+" =============================================================================
 set softtabstop=4
 set shiftwidth=4
 set expandtab

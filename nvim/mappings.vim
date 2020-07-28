@@ -1,26 +1,27 @@
 
 " =============================================================================
-"                                                                    KEY REMAPS
+"                                   KEY REMAPS
 " =============================================================================
 
 "                                                                   LEADER KEYS
 " -----------------------------------------------------------------------------
 let mapleader="\<space>"
 let maplocalleader ="\<tab>"
+
 "                                                                  EDITOR MODES
 " -----------------------------------------------------------------------------
 "                                                quick-exit insert mode with jk 
 inoremap jk <Esc>
-"                create newline below current line without entering insert mode
-nmap <CR> o<C-c>
 "                                                                quick-exit vim
 map zz :wq<CR>
+
 "                                                                    NAVIGATION
 " -----------------------------------------------------------------------------
 "                                                         cycle through buffers
 map gn :bn<cr>
 map gp :bp<cr>
 " map gd :bd<cr> 
+"
 "                                                       QUICK-OPEN CONFIG FILES
 " -----------------------------------------------------------------------------
 "                                                                           zsh
@@ -55,6 +56,7 @@ nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
 "" --follow: Follow symlinks
 "" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 "" --color: Search color options
+
 "                                                   SWITCH TO MINIMALIST EDITOR
 " -----------------------------------------------------------------------------
 " Goyo
@@ -73,16 +75,19 @@ autocmd! User GoyoLeave call MinimalistSetupDisable()
 " let g:limelight_bop = '^\s'
 " let g:limelight_eop = '\ze\n^\s'
 " let g:limelight_paragraph_span = 2
+"
 "                                                               VERSION CONTROL
 map <Leader>va :Git add %<CR>
 map <Leader>vc :Git commit<CR>
 map <Leader>vp :Git push<CR>
+
 "                                                         TASKWARRIOR & VIMWIKI
 " -----------------------------------------------------------------------------
 " nnoremap <leader>t :tabnew <bar> :TW<CR>
 map <leader>x :ChecklistToggleCheckbox<CR>
 map <leader>y :CalendarH<CR>
 "                                                                       VARIOUS
+"
 " -----------------------------------------------------------------------------
 "                                                           reload current file
 " map <M-r> :e % <CR>
@@ -97,7 +102,7 @@ xnoremap <leader>j :m'>+<cr>gv=gv
 map <Leader>sfd :pu=strftime('%Y-%m-%d')<CR>
 map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
 "                                                      spellcheck (orthography)
-map <leader>o: :setlocal spell! spelllang=en_US<CR>
+" map <leader>o: :setlocal spell! spelllang=en_US<CR>
 "                                                                       sorting
 " map <Leader>ss :sort<CR>
 "                                              terminal emulation (a bit buggy)
@@ -113,3 +118,9 @@ map <leader>t :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zs
 
 "                                                               run python code
 "map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 python3 % <CR>
+
+"                create newline below current line without entering insert mode
+nmap <CR> o<C-c>
+
+"                                    go back to last opened file with backspace
+nmap <BS> <C-^>

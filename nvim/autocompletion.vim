@@ -1,13 +1,11 @@
 
 " =============================================================================
-"                                                               AUTO COMPLETION
+"                                AUTO COMPLETION
 " =============================================================================
 
-" makes command mode file auto completion prettier 
-set wildmode=longest,list,full  " TODO: really necessary? i also have coc...
-
-"                                                       conqueror of completion
-" -----------------------------------------------------------------------------
+"                                                   conqueror of completion {{{
+" =============================================================================
+"
 set updatetime=300
 " select first list item by default, confirm with return
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
@@ -28,8 +26,11 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 
 " python
 " set statusline^=%{coc#status()}
-"                                                                     ultisnips
-" -----------------------------------------------------------------------------
+"
+" }}}
+"                                                                 ultisnips {{{
+" =============================================================================
+"
 " save snippets to
 let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips/'
 " load snippets from
@@ -48,8 +49,11 @@ let g:UltiSnipsEditSplit='tabdo'
 
 " use Python 3
 let g:UltiSnipsUsePythonVersion=3
-"                                                                      quickTEX
-" -----------------------------------------------------------------------------
+
+" }}}
+"                                                                  quickTEX {{{
+" =============================================================================
+"
 let g:quicktex_tex = {
     \' '   : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
 \}
@@ -65,8 +69,12 @@ let g:quicktex_math = {
     \'set'   : '\{ <+++> \} <++>',
     \'tau'  : '\tau',
 \}
-"                                                                       various
-" -----------------------------------------------------------------------------
+
+" }}}
+"                                                                   various {{{
+" =============================================================================
+
+"
 " autoclose brackets (obsolete with plugin
 " inoremap ( ()<left>
 " inoremap [ []<left>
@@ -77,3 +85,7 @@ let g:quicktex_math = {
 " define filetypes for checklist autocompletion on "- [ ] <CR>"
 let g:checklist_filetypes = ['markdown', 'text', 'org']
 
+" makes command mode file auto completion prettier 
+set wildmode=longest,list,full  " TODO: really necessary? i also have coc...
+
+" }}}
