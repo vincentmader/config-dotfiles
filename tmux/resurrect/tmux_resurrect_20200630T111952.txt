@@ -1,0 +1,28 @@
+pane	code	0	:org	0	:-	0	:/Users/meister	1	zsh	:
+pane	code	1	:conf	1	:*	0	:/Users/meister/.config/nvim/ftplugin	1	zsh	:
+pane	code	2	:jupyter	0	:	0	:/Users/meister/.config/nvim	1	zsh	:
+pane	code	3	:chronos	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/chronos-web/testing/friends	1	nvim	:nvim main.py
+pane	code	3	:chronos	0	:	1	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/chronos-web/testing/friends	0	zsh	:
+pane	review	0	:org	1	:*	0	:/Users/meister	1	zsh	:
+pane	review	1	:daily	0	:-	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/chronos-web/miscellaneous/raw_data/daily_note	1	zsh	:
+pane	uni	0	:org	1	:*	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc	1	zsh	:
+pane	uni	1	:compvis	0	:-	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/computer_vision/exercises/ex08	1	Python	:/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS/Python /usr/local/bin/jupyter-notebook ex08.ipynb
+pane	uni	2	:climate	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/env_climate_2/exercises	1	zsh	:
+pane	uni	3	:3D	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/computer_vision_3D/lecture_notes	1	zsh	:
+pane	uni	4	:bic	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/brain_inspired_computing/exercises/ex_08	1	nvim	:nvim ex_08.tex
+pane	uni	5	:aqua	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/env_aquatic_systems/exercises	1	zsh	:
+pane	uni	6	:env	0	:M	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/environment	1	zsh	:
+window	code	0	0	:-	c3be,173x36,0,0,1
+window	code	1	1	:*	c3bf,173x36,0,0,2
+window	code	2	0	:	6219,173x36,0,0,39
+window	code	3	0	:	eea2,173x36,0,0{86x36,0,0,4,86x36,87,0,40}
+window	review	0	1	:*	6212,173x36,0,0,51
+window	review	1	0	:-	c3c6,173x36,0,0,9
+window	uni	0	1	:*	6211,173x36,0,0,12
+window	uni	1	0	:-	620f,173x36,0,0,10
+window	uni	2	0	:	6212,173x36,0,0,13
+window	uni	3	0	:	6213,173x36,0,0,14
+window	uni	4	0	:	6214,173x36,0,0,15
+window	uni	5	0	:	6210,173x36,0,0,11
+window	uni	6	0	:M	e216,173x36,0,0,27
+state	review	uni

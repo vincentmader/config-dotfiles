@@ -1,0 +1,40 @@
+pane	code	0	:org	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code	1	zsh	:
+pane	code	1	:conf	0	:	0	:/Users/meister/.config/nvim	1	zsh	:
+pane	code	2	:jupyter	0	:	0	:/Users/meister/.config/nvim	1	zsh	:
+pane	code	3	:chronos	1	:*	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/chronos-web/testing	0	nvim	:nvim daily_note_transfer/main.py
+pane	code	3	:chronos	1	:*	1	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/chronos-web/miscellaneous/raw_data/google_takeout/Vincent/Takeout_2020-02-27/YouTube	0	zsh	:
+pane	code	3	:chronos	1	:*	2	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/chronos-web/testing/daily_note_transfer	1	zsh	:
+pane	code	4	:ta	0	:-	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/tierarzt/site/media	1	zsh	:
+pane	review	0	:org	0	:-	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents	1	zsh	:
+pane	review	1	:daily	1	:*	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/code/chronos-web/miscellaneous/raw_data/daily_note	1	nvim	:nvim 2020-07.txt
+pane	review	2	:nvim	0	:	0	:/Users/meister/.config/nvim	1	nvim	:nvim plugins.vim
+pane	review	2	:nvim	0	:	1	:/Users/meister/.config/nvim	0	nvim	:nvim ftplugin/vimwiki.vim
+pane	review	3	:nvim	0	:	0	:/Users/meister/vimwiki	0	nvim	:nvim
+pane	review	3	:nvim	0	:	1	:/Users/meister/vimwiki	1	nvim	:nvim vimwiki.wiki
+pane	uni	0	:org	1	:*	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc	1	nvim	:nvim synopsis.md
+pane	uni	1	:compvis	0	:-	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/computer_vision/exercises	1	zsh	:
+pane	uni	2	:climate	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/env_climate_2/exercises	1	zsh	:
+pane	uni	3	:3D	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/computer_vision_3D/exercises	1	Python	:/usr/local/Cellar/python/3.7.8/Frameworks/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS/Python /usr/local/bin/jupyter-notebook 4.0-tl-mnist.ipynb
+pane	uni	4	:bic	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/brain_inspired_computing/exercises/ex_08	1	zsh	:
+pane	uni	5	:aqua	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/env_aquatic_systems/exercises	1	zsh	:
+pane	uni	6	:env	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/environment/lecture_notes	0	nvim	:nvim lecture_05.md
+pane	uni	6	:env	0	:	1	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/environment/lecture_notes	1	nvim	:nvim important_equations.md
+pane	uni	7	:nvim	0	:	0	:/Users/meister/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/education/uni/semester_08_msc/environment/cheat_sheet	1	nvim	:nvim env_cheat_sheet.tex
+window	code	0	0	:	bbbe,173x34,0,0,1
+window	code	1	0	:	bbbf,173x34,0,0,2
+window	code	2	0	:	bbc0,173x34,0,0,3
+window	code	3	1	:*	e40e,173x34,0,0{86x34,0,0,4,86x34,87,0[86x17,87,0,5,86x16,87,18,6]}
+window	code	4	0	:-	de12,173x34,0,0,23
+window	review	0	0	:-	bbc4,173x34,0,0,7
+window	review	1	1	:*	bbc5,173x34,0,0,8
+window	review	2	0	:	7952,173x34,0,0{86x34,0,0,32,86x34,87,0,33}
+window	review	3	0	:	f95f,173x34,0,0{86x34,0,0,29,86x34,87,0,34}
+window	uni	0	1	:*	bbc6,173x34,0,0,9
+window	uni	1	0	:-	5e0f,173x34,0,0,10
+window	uni	2	0	:	5e10,173x34,0,0,11
+window	uni	3	0	:	5e11,173x34,0,0,12
+window	uni	4	0	:	5e12,173x34,0,0,13
+window	uni	5	0	:	5e13,173x34,0,0,14
+window	uni	6	0	:	7957,173x34,0,0{86x34,0,0,15,86x34,87,0,16}
+window	uni	7	0	:	5e16,173x34,0,0,17
+state	code	review
