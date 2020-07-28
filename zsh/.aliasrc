@@ -176,8 +176,9 @@ alias tww='tw week'
 alias fortunecow='fortune -s | cowsay'
 alias lc='echo && lolcat -a'
 alias lolcat='echo && lolcat'
+alias archey='clear && archey'
 # cmatrix, sl, cowsay, cowthink, figlet, fortune, sc-im
-# wifi-password, tldr, archey, watch, rtv, geoiplookup, links, tree, fuck
+# wifi-password, tldr, watch, rtv, geoiplookup, links, tree, fuck
 function gif2vid {
     local in="$1"
     local out="$2"
