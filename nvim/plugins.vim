@@ -22,7 +22,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'wellle/tmux-complete.vim'
     "                                                              file manager
     " ------------------------------------------------------------------------
-    "                                                                  nerdtree
+    "                                                                  NERDTree
     " Plug 'scrooloose/nerdtree'
     " keep NERDTree consistent across vim tabs
     " Plug 'jistr/vim-nerdtree-tabs'
@@ -31,24 +31,24 @@ call plug#begin('~/.config/nvim/plugged')
     "                                                         language specific
     " -------------------------------------------------------------------------
     "                                                                      HTML
-    Plug 'Valloric/MatchTagAlways'
+    Plug 'Valloric/MatchTagAlways', {'for': 'html'}
     "                                                                     LATEX
-    Plug 'lervag/vimtex'               
-    Plug 'brennier/quicktex'
+    Plug 'lervag/vimtex', {'for': 'tex'}               
+    Plug 'brennier/quicktex', {'for': 'tex'}
     "                                                                  MARKDOWN
     "                                               folding markdown by section
-    Plug 'masukomi/vim-markdown-folding'  
+    Plug 'masukomi/vim-markdown-folding', {'for': 'markdown'}
     "                                   preview markdown, automatic reloads (?)
     " Plug 'kannokanno/previm'
     "                                very nice tables, activate with <leader>tm
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'coderifous/textobj-word-column.vim'
     "                                                                    PYTHON
-    Plug 'jmcantrell/vim-virtualenv'
-    Plug 'vim-scripts/indentpython.vim'
-    " Plug 'nvie/vim-flake8'              " PEP8 checking
-    Plug 'tmhedberg/SimpylFold'           " indentation based folding
-    Plug 'Konfekt/FastFold'               " speeds up folding
+    Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+    Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+    " Plug 'nvie/vim-flake8'                        " PEP8 checking
+    Plug 'tmhedberg/SimpylFold', {'for': 'python'}  " indentation based folding
+    Plug 'Konfekt/FastFold', {'for': 'python'}      " speeds up folding
     " Plug 'thalesmello/vim-textobj-multiline-str'
     "                                                      minimalist vim setup
     " -------------------------------------------------------------------------
