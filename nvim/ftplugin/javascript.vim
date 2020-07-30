@@ -1,1 +1,3 @@
+ALEDisable
+
 inoremap < <><left>

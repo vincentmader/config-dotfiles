@@ -1,4 +1,5 @@
 ALEDisable
+autocmd BufEnter * IndentLinesEnable
 
 " python with virtualenv support
 py3 << EOF

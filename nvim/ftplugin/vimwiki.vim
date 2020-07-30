@@ -11,6 +11,4 @@
 " let g:vimwiki_listsyms = '✗○◐●✓'
 
 " Goyo
-autocmd BufEnter IndentLinesDisable
-autocmd BufLeave IndentLinesEnable
 " set nocursorline

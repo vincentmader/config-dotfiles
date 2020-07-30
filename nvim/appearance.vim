@@ -73,5 +73,8 @@ let g:task_readonly=0
 " hi Conceal guibg=NONE
 
 " setlocal cole=1
-"
+
+"                                              turn off indent lines by default
+autocmd BufEnter * IndentLinesDisable
+
 " }}}
