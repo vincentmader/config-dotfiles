@@ -24,7 +24,7 @@ alias sozsh="source ~/.config/zsh/.zshrc"
 alias spotify='echo && spotify'
 alias ta="tierarzt"
 alias tierarzt='sudo python3 ~/.config/symlinks/ta/main.py'
-alias tmux="tmux -f /Users/meister/.config/tmux/.tmux.conf"
+alias tmux="tmux -f /Users/meister/.config/tmux/tmux.conf"
 alias v="nvim"
 alias wget="wget --hsts-file /Users/meister/.config/wget/wget-hsts"
 alias ytdl="yes | pytube3 $1 -a -f -t='/Users/meister/Downloads/'"
@@ -137,7 +137,7 @@ alias spot="mdfind -name"
 # -----------------------------------------------------------------------------
 #                                                     taskwarrior / timewarrior
 alias t="clear && task"
-alias tn="t next"
+alias tn="t next limit:29"
 alias ts="t short"
 tp () {t project:$1}
 alias tt="t +ACTIVE or +OVERDUE or due:today or scheduled:today"

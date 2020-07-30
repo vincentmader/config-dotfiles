@@ -14,7 +14,8 @@ export MYVIMRC="$HOME/.config/nvim/init.vim"
 export PYTHONSTARTUP="$HOME/.config/python/.pythonrc"
 export ZSH="$HOME/.config/zsh/.oh-my-zsh"
 # export VIMRUNTIME="$HOME/.config/nvim/"
-export PATH=$PATH:/opt/local/bin  # I added this because of MacPorts
+export PATH=$PATH:/opt/local/bin  # added because of MacPorts
+export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
 # 							  default applications
 # =============================================================================
 export EDITOR="nvim"
@@ -46,7 +47,7 @@ autoload -U colors && colors
 
 function prompter() {
     prompt_username="%{$fg[green]%}%n%{$reset_color%}"
-    prompt_computername="%{$fg[red]%}HAL9000%{$reset_color%}"
+    prompt_computername="%{$fg[red]%}hal9000%{$reset_color%}"
     prompt_location="%{$fg[blue]%}%1~%{$reset_color%}"
     prompt_in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}"
     prompt_due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
