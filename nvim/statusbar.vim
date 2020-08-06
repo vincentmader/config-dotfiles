@@ -39,5 +39,5 @@ let g:tmuxline_preset = {
     \'win'  : '#I #W',
     \'cwin' : '#I #W',
     \'x'    : '',
-    \'y'    : '%a %R',
+    \'y'    : '%a %d, %R',
     \'z'    : ''}
