@@ -1,5 +1,6 @@
 {
     "suggest.snippetIndicator": " ►",
+    "editor.snippetSuggestions": "top",
     // Run prettier (and others)
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
