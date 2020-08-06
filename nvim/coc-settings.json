@@ -1,3 +1,14 @@
 {
-    "suggest.snippetIndicator": " ►"
+    "suggest.snippetIndicator": " ►",
+    // Run prettier (and others)
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "Markdown",
+        "javascript",
+        "javascriptreact",
+        "python",
+        "typescript",
+        "typescriptreact"
+    ],
 }
