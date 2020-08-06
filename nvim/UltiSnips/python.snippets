@@ -1,6 +1,5 @@
 # imports (standard library)
 
-
 snippet import "import"
 import $1
 endsnippet
@@ -27,6 +26,13 @@ snippet import_numpy "import numpy as np"
 import numpy as np
 endsnippet
 
+snippet import_plotting "common imports for scientific plotting"
+import os 
+
+import matplotlib.pyplot as plt
+import numpy as np
+endsnippet
+
 snippet import_pyplot "import matplotlib.pyplot as plt"
 import matplotlib.pyplot as plt
 endsnippet
@@ -37,9 +43,79 @@ endsnippet
 
 # functions 
 
-snippet fmain "def main():"
+snippet docstring "docstring for a function"
+"""
+$1
+
+Parameters:
+-----------
+x: type
+Description
+
+Returns:
+--------
+y: type
+Description
+
+"""
+endsnippet
+
+snippet func
+def ${1:funcname}(${2:arg1}$3)
+"""${1:Does something}
+Args:
+    ${2:arg1} (${3:type}): $4
+
+Return:
+    ${5:type}. ${6:description}
+"""
+$0
+endsnippet
+
+snippet funcfile "structure for function in new file"
+
+#!/usr/local/bin/python3
+# -*- coding: utf8 -*-
+
+
+def main($1):
+    """
+
+    Parameters
+    ----------
+
+    Returns
+    --------
+
+
+    """
+
+    pass
+
+
+if __name__ == '__main__':
+    main()
+
+endsnippet
+
+snippet main "Create a main function"
 def main():
-    $1
+    """$1
+    """
+    $0
+
+if __name__ == "__main__":
+    main()
+
+endsnippet
+
+# classes 
+
+snippet class "Description"
+class $1():
+    def __init__(self):
+        pass
+
 endsnippet
 
 # exception handling 
@@ -90,6 +166,10 @@ snippet plot ""
 plt.plot($1)
 endsnippet
 
+snippet plt_sci_labels "scientific y-labels"
+plt.gca().ticklabel_format(style='sci', scilimits=(0, 0), axis='y')
+endsnippet
+
 snippet scatter ""
 plt.scatter($1)
 endsnippet
@@ -126,14 +206,18 @@ snippet yticks ""
 plt.yticks($1)
 endsnippet
 
+# debugging
 
+snippet hw
+print("Hello, World!")
+endsnippet
 
+# various
 
-
-
-
-
-# basic syntax
+snippet bang "hashbang & encoding"
+#!/usr/local/bin/python3
+# -*- coding: utf8 -*-
+endsnippet
 
 snippet if "if, elif, else"
 if $1:
@@ -143,118 +227,3 @@ elif $2:
 else:
     pass
 endsnippet
-
-
-
-
-
-
-
-
-
-
-
-
-snippet bang "hashbang & encoding"
-#!/usr/local/bin/python3
-# -*- coding: utf8 -*-
-endsnippet
-
-
-snippet class "Description"
-class $1():
-    def __init__(self):
-        pass
-
-endsnippet
-
-snippet docstring "docstring for a function"
-"""
-$1
-
-Parameters:
------------
-x: type
-Description
-
-Returns:
---------
-y: type
-Description
-
-"""
-endsnippet
-
-snippet func "function delaration"
-def $1():
-    """
-
-    Parameters
-    ----------
-
-    Returns
-    --------
-
-
-    """
-
-    pass
-
-endsnippet
-
-
-snippet funcfile "structure for function in new file"
-
-#!/usr/local/bin/python3
-# -*- coding: utf8 -*-
-
-
-def main($1):
-    """
-
-    Parameters
-    ----------
-
-    Returns
-    --------
-
-
-    """
-
-    pass
-
-
-if __name__ == '__main__':
-    main()
-
-endsnippet
-
-
-snippet import_plotting "common imports for scientific plotting"
-import os 
-import sys
-
-import matplotlib.pyplot as plt
-import numpy as np
-
-import config
-endsnippet
-
-
-snippet main "if __name__ == '__main__: ...'"
-if __name__ == '__main__':
-    main()
-
-endsnippet
-
-
-snippet plt_legend "pyplot legend"
-plt.legend(loc='best')
-endsnippet
-
-
-snippet plt_sci_labels "scientific y-labels"
-plt.gca().ticklabel_format(style='sci', scilimits=(0, 0), axis='y')
-endsnippet
-
-
