@@ -1,0 +1,90 @@
+# =============================================================================
+#                              TASK WARRIOR CONFIG
+# =============================================================================
+#
+#                                                                       general
+# =============================================================================
+confirmation=off
+verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
+active.indicator=>
+# files
+data.location=~/.config/taskwarrior
+
+#                                                                       aliases
+# =============================================================================
+alias.rm=delete
+alias.in=in limit:15
+alias.next=next limit:20
+alias.short=short limit:15
+
+#                                                       user-defined attributes
+# =============================================================================
+# brain power 
+uda.brainpower.label=Brainpower
+uda.brainpower.type=string
+uda.brainpower.values=H,M,L
+uda.brainpower.default=M
+# approximate time for completion
+uda.estimate.label=Estimate
+uda.estimate.type=duration
+
+#                                                                       reports
+# =============================================================================
+# inbox report
+report.in.columns           = id,description
+report.in.description       = Inbox
+report.in.filter            = status:pending limit:page (+in)
+report.in.labels            = ID,Description
+
+# short report
+report.short.columns        = id,project,description
+report.short.filter         = status:pending limit:page 
+report.short.description    = Short
+report.short.labels         = ID,Project,Description
+report.short.sort           = due+
+
+# next items report
+report.next.columns         = id,depends,urgency,priority,project,tags,scheduled.countdown,due.remaining,until.remaining,description,estimate,brainpower
+# report.next.description     = Most urgent tasks
+# report.next.filter          = status:pending and +next
+report.next.labels          = ID,Deps,U,P,Project,Tags,Sch,Due,Until,Description,EST,BP
+# report.next.sort            = brainpower-,priority-,urgency-
+report.next.sort            = due+
+
+report.list.columns         = id,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,brainpower
+# report.next.description     = Most urgent tasks
+# report.next.filter          = status:pending and +next
+report.list.labels          = ID,Deps,P,Project,Tag,Recur,Sch,Due,Until,Description,BP
+report.uni.sort            = due+
+
+report.uni.columns         = id,due.remaining,depends,project,until.remaining,description,brainpower
+# report.uni.description     = Most urgent tasks
+report.uni.filter          = project:uni and status:pending #and +next
+report.uni.labels          = ID,due,Deps,Project,Until,Description,BP
+report.uni.sort            = due+
+
+#                                                                        themes
+# =============================================================================
+include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
+# color.due=bold yellow
+color.overdue=bold red 
+# color.tag.in=blue
+
+# color.calendar.today=gray on white
+# color.calendar.due=red
+# color.calendar.overdue=red
+# color.calendar.due-today=red
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/light-16.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/light-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-16.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-red-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-green-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-blue-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-violets-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-yellow-green.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-blue-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-dark-256.theme
+# include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
+include /Users/meister/.config/taskwarrior/colorthemes/mytheme.theme
