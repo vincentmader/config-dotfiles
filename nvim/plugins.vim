@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
     " auto completion engine
     Plug 'neoclide/coc.nvim', {'branch': 'release'}   
     "  snippet engine
-    Plug 'SirVer/ultisnips' 
+    " Plug 'SirVer/ultisnips' 
     " Plug 'honza/vim-snippets'
     " all words on screen are available in autocompletion
     Plug 'wellle/tmux-complete.vim'
@@ -122,7 +122,8 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'sheerun/vim-polyglot'
     Plug 'machakann/vim-highlightedyank'
     "                   colorize everything that has the format #rgb or #rrggbb
-    Plug 'chrisbra/colorizer'
+    " Plug 'chrisbra/colorizer'
+    Plug 'norcalli/nvim-colorizer.lua'
     "                                                  show indentation markers
     Plug 'yggdroot/indentline'
     "                                     preview range, pattern and substitute
