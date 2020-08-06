@@ -5,7 +5,6 @@
 
 "                                                   conqueror of completion {{{
 " =============================================================================
-"
 set updatetime=300
 " select first list item by default, confirm with return
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
@@ -16,7 +15,20 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " jump to prev/next diagnostic position (does not work)
 " inoremap <leader>n :call CocAction("diagnosticNext")<CR>
-"
+
+    " \ 'coc-snippets',
+    " \ 'coc-pairs',
+    " \ 'coc-tsserver',
+    " \ 'coc-eslint',
+    " \ 'coc-jedi',
+let g:coc_global_extensions = [
+    \ 'coc-css',
+    \ 'coc-html',
+    \ 'coc-python',
+    \ 'coc-prettier',
+    \ 'coc-json',
+    \ ]
+
 "" Use `[g` and `]g` to navigate diagnostics
 " nmap <silent> [g <Plug>(coc-diagnostic-prev)
 " nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -83,9 +95,9 @@ let g:quicktex_math = {
 " inoremap ' ''<left>
 
 " define filetypes for checklist autocompletion on "- [ ] <CR>"
-let g:checklist_filetypes = ['markdown', 'text', 'org']
+let g:checklist_filetypes = ['markdown', 'text', 'org']  ", 'wiki', 'vimwiki']
 
 " makes command mode file auto completion prettier 
-set wildmode=longest,list,full  " TODO: really necessary? i also have coc...
+" set wildmode=longest,list,full  " TODO: really necessary? i also have coc...
 
 " }}}
