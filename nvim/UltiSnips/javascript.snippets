@@ -1,5 +1,5 @@
 # imports (default)
-# ===========================================================================
+# =============================================================================
 
 snippet import "import ... from ..."
 import $1 from '$2';
@@ -18,7 +18,7 @@ import { useState } from 'react';
 endsnippet
 
 # import (modules)
-# ===========================================================================
+# =============================================================================
 
 snippet import_from_material_ui_core "import from @material-ui/core"
 import { $1 } from '@material-ui/core';
@@ -37,7 +37,7 @@ import { Spring } from 'react-spring/renderprops';
 endsnippet
 
 # JSX tags (default)
-# ===========================================================================
+# =============================================================================
 
 snippet body "JSX body tag"
 <body>
@@ -170,7 +170,7 @@ snippet ul "JSX unordered list tag"
 endsnippet
 
 # JSX tags (modules)
-# ===========================================================================
+# =============================================================================
 
 snippet Button "JSX Button tag (material-ui)"
 <Button onClick={() => $1}>
@@ -255,7 +255,7 @@ snippet Typography "JSX Typography tag (material-ui)"
 endsnippet
 
 # React components
-# ===========================================================================
+# =============================================================================
 
 snippet export_default "export default..."
 export default $1;
@@ -284,7 +284,7 @@ const $1 = () => {
 endsnippet
 
 # React hooks
-# ===========================================================================
+# =============================================================================
 
 snippet useEffect "React useEffect hook"
 useEffect(() => {
@@ -297,14 +297,14 @@ const [$1, set$1] = React.useState($2);
 endsnippet
 
 # React JSX tag arguments
-# ===========================================================================
+# =============================================================================
 
 snippet onClick "React JSX tag onClick argument"
 onClick={() => $1}
 endsnippet
 
 # Styles 
-# ===========================================================================
+# =============================================================================
 
 snippet className "className={classes. ... }"
 className={classes.$1}
@@ -322,6 +322,12 @@ snippet useStyles "const classes = useStyles();"
 const classes = useStyles();
 endsnippet
 
+# Debugging
+# =============================================================================
+
+snippet cl "console.log(...)" b
+console.log($0);
+endsnippet
 
 
 
