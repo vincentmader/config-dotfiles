@@ -9,12 +9,14 @@ syntax on
 "                                                                    EDITOR {{{
 " =============================================================================
 "
-set cursorline
+" set cursorline
 set number relativenumber
 set showcmd
 
 "                                                                   colorscheme
-colorscheme solarized
+" colorscheme solarized
+" colorscheme codedark
+colorscheme gruvbox
 let g:solarized_termcolors=256
 set background=dark
 
@@ -36,7 +38,8 @@ set showmatch
 set matchpairs+=<:>
 
 "                                         use the colorizer pugin for hex codes 
-autocmd BufEnter * :ColorHighlight <CR>
+" autocmd BufEnter * :ColorHighlight <CR>
+" lua require'colorizer'.setup()
 
 "                                                     flag erroneous whitespace
 " au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
