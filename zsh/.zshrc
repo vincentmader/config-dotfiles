@@ -9,9 +9,11 @@
 export HOME="/Users/meister"
 
 export CDPATH="$HOME/.config/symlinks"
+export CONF="$HOME/.config"
 # export FZF_BASE="/usr/local/bin/fzf"
 export MYVIMRC="$HOME/.config/nvim/init.vim"
 export PYTHONSTARTUP="$HOME/.config/python/.pythonrc"
+export TASKRC="$CONF/taskwarrior/.taskrc"
 export ZSH="$HOME/.config/zsh/.oh-my-zsh"
 # export VIMRUNTIME="$HOME/.config/nvim/"
 export PATH=$PATH:/opt/local/bin  # added because of MacPorts
