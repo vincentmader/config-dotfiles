@@ -23,6 +23,8 @@ let g:airline_section_z=''  " disables location in file
 "                                                                 AIRLINE THEME
 " -----------------------------------------------------------------------------
 " let g:airline_theme='minimalist' 
+" let g:airline_theme='codedark' 
+" let g:airline_theme='solarized' 
 " let g:airline_theme='distinguished' 
 " let g:airline_theme='murmur' 
 " let g:airline_theme='powerlineish' 
