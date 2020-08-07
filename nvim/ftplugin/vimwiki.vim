@@ -12,3 +12,6 @@
 
 " Goyo
 " set nocursorline
+
+autocmd! User GoyoEnter Limelight!
+
