@@ -1,5 +1,6 @@
 ALEDisable
-autocmd BufEnter * IndentLinesEnable
+
+let g:indentLine_char = '▏'
 
 " python with virtualenv support
 py3 << EOF

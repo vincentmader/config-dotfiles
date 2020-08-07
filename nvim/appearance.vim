@@ -14,9 +14,9 @@ set number relativenumber
 set showcmd
 
 "                                                                   colorscheme
-" colorscheme solarized
+colorscheme solarized
 " colorscheme codedark
-colorscheme gruvbox
+" colorscheme gruvbox
 let g:solarized_termcolors=256
 set background=dark
 
@@ -45,10 +45,6 @@ set matchpairs+=<:>
 " au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 "
 "                                                      show indentation markers
-let g:indentLine_char = '▏'
-autocmd BufLeave * :IndentLinesEnable
-autocmd BufEnter *.tex :IndentLinesDisable 
-autocmd BufEnter *.vim :IndentLinesDisable 
 
 " }}}
 "                                                                   VARIOUS {{{
@@ -78,6 +74,6 @@ let g:task_readonly=0
 " setlocal cole=1
 
 "                                              turn off indent lines by default
-autocmd BufEnter * IndentLinesDisable
+" autocmd BufEnter * IndentLinesDisable
 
 " }}}

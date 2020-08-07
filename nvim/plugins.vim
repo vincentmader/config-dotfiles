@@ -127,7 +127,7 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'chrisbra/colorizer'
     Plug 'norcalli/nvim-colorizer.lua'
     "                                                  show indentation markers
-    Plug 'yggdroot/indentline'
+    Plug 'yggdroot/indentline', {'for': ['python', 'javascript']}
     "                                     preview range, pattern and substitute
     " Plug 'markonm/traces.vim'
     "                                                           devicons in vim
