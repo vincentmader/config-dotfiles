@@ -35,6 +35,7 @@ command! -nargs=? Ftedit execute "tabe $HOME/.config/nvim/ftplugin/" . ("<args>"
 map <Leader>cvft :Ftedit <CR>
 map <Leader>ccoc :CocConfig <CR>
 map <leader>csnp :UltiSnipsEdit <CR>
+" map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
 " map <Leader>cpl :tabnew ~/.pylintrc <CR>
 "                                                                    FUZZY FIND
 "" use <leader>fz to open fuzzy finder (type ' next for exact search)
