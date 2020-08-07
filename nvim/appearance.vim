@@ -27,7 +27,7 @@ highlight clear SignColumn
 "                                     display column to signify the 81st column
 set textwidth=80
 set colorcolumn=+1
-highlight ColorColumn ctermbg=236
+highlight ColorColumn ctermbg=235
 
 " }}}
 "                                                       SYNTAX HIGHLIGHTING {{{
