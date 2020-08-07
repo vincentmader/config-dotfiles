@@ -114,6 +114,8 @@ call plug#begin('~/.config/nvim/plugged')
     "                                                              colorschemes
     Plug 'altercation/vim-colors-solarized'
     " Plug 'lifepillar/vim-solarized8'
+    Plug 'tomasiser/vim-code-dark'
+    Plug 'morhetz/gruvbox'
     "                                                           syntax checking
     Plug 'dense-analysis/ale'
     " Plug 'maximbaz/lightline-ale'
