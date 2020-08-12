@@ -212,4 +212,5 @@ function gif2vid {
 # lock computer
 # alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
+alias diskutil="clear && diskutil"
 alias npxcra="npx create-react-app"
