@@ -108,7 +108,7 @@ preexec() { echo -ne '\e[5 q' ;}
 # save/load History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE="/Users/meister/.cache/zsh/history"
+HISTFILE="$HOME/.cache/zsh/history"
  
 
 # Autocompletion and other stuff like that
@@ -122,7 +122,7 @@ _comp_options+=(globdots)		# Include hidden files.
 eval $(thefuck --alias)
 
 # define location of zsh autocompletion dump (speeds up auto completion)
-compinit -d /Users/meister/.config/zsh/zcompdump
+compinit -d "$HOME/.config/zsh/zcompdump"
 
 
 
