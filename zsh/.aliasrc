@@ -24,10 +24,10 @@ alias sozsh="source ~/.config/zsh/.zshrc"
 alias spotify='echo && spotify'
 alias ta="tierarzt"
 alias tierarzt='sudo python3 ~/.config/symlinks/ta/main.py'
-alias tmux="tmux -f /Users/meister/.config/tmux/tmux.conf"
+alias tmux="tmux -f '$CONF/tmux/tmux.conf'"
 alias v="nvim"
-alias wget="wget --hsts-file /Users/meister/.config/wget/wget-hsts"
-alias ytdl="yes | pytube3 $1 -a -f -t='/Users/meister/Downloads/'"
+alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
+alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
 
 # =============================================================================
 #                                                      homebrew package manager
