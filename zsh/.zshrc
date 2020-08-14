@@ -10,6 +10,7 @@ export HOME="/Users/meister"
 
 export CONF="$HOME/.config"
 export CDPATH="$CONF/symlinks"
+export DROPBOX="$HOME/Public/Dropbox"
 # export FZF_BASE="/usr/local/bin/fzf"
 export MYVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
