@@ -31,7 +31,7 @@ alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
 
 # =============================================================================
 #                                                      homebrew package manager
-if [[ "$OSTYPE" == "darwin"* ]]> then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     alias bci="brew cask install"
     alias bi="brew install"
     alias bs="brew search"
