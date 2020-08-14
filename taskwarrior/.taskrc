@@ -8,7 +8,7 @@ confirmation=off
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 active.indicator=>
 # files
-data.location=~/.config/taskwarrior
+data.location=/Users/meister/Public/Dropbox/taskwarrior
 
 #                                                                       aliases
 # =============================================================================
