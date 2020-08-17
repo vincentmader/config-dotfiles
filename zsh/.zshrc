@@ -251,6 +251,10 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 # 					                   source config files
 # =============================================================================
 source "$CONF/zsh/aliasrc"
+# tell tmux to source from config
+tmux source "$CONF/tmux/tmux.conf"
+# check if tmux is running, if not: start it
+[ -z "${TMUX}" ] && tmux 
 
 # Load zsh-syntax-highlighting; should be last.
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
