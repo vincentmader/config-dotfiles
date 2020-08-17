@@ -11,6 +11,8 @@ export CONF="$HOME/dotfiles"
 export DROPBOX="$HOME/Dropbox"
 
 export CDPATH="$CONF/symlinks"
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
 # export FZF_BASE="/usr/local/bin/fzf"
 export MYVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
