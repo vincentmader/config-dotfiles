@@ -25,7 +25,8 @@ alias spotify='echo && spotify'
 alias ta="tierarzt"
 alias tierarzt="sudo python3 '$CONF/symlinks/ta/main.py'"
 alias tmux="tmux -f '$CONF/tmux/tmux.conf'"
-alias v="nvim -u '$CONF/nvim/init.vim'"
+alias nvim="nvim -u '$CONF/nvim/init.vim'"
+alias v="nvim"
 alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
 alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
 
