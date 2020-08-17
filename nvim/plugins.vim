@@ -61,6 +61,9 @@ call plug#begin('$CONF/nvim/plugged')
     "                                                    fzf: fuzzy file search
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
     Plug 'yuki-ycino/fzf-preview.vim'
+    "                                                                     ranger
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
     "                                   silver searcher: find files by c-string
     Plug 'mileszs/ack.vim'
     "                                          easymotion: vim motions on speed
