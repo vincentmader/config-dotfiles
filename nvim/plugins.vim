@@ -4,13 +4,13 @@
 " =============================================================================
 
 "                                         make sure plugin manager is installed
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
+if empty(glob('$CONF/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
 	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 "                                                               install plugins
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('$CONF/nvim/plugged')
     " 						   		code completion
     " -------------------------------------------------------------------------
     " auto completion engine
