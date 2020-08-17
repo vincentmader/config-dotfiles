@@ -6,11 +6,11 @@
 
 # 							        path variables
 # =============================================================================
-export HOME="/Users/meister"
+export HOME="/home/meister"
+export CONF="$HOME/dotfiles"
+export DROPBOX="$HOME/Dropbox"
 
-export CONF="$HOME/.config"
 export CDPATH="$CONF/symlinks"
-export DROPBOX="$HOME/Public/Dropbox"
 # export FZF_BASE="/usr/local/bin/fzf"
 export MYVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
@@ -41,7 +41,7 @@ plugins=(
     sudo                            # press esc twice to sudo repeat cmd
     taskwarrior                     # auto completion for taskwarrior
     # zsh-autosuggestions
-    zsh-syntax-highlighting
+    # zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 #								        prompt
