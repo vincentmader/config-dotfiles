@@ -14,8 +14,8 @@ export CDPATH="$CONF/symlinks"
 # export FZF_BASE="/usr/local/bin/fzf"
 export MYVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
-export TASKRC="$CONF/taskwarrior/.taskrc"
-export ZSH="$CONF/zsh/.oh-my-zsh"
+export TASKRC="$CONF/taskwarrior/taskrc"
+export ZSH="$CONF/zsh/oh-my-zsh"
 # export VIMRUNTIME="$HOME/.config/nvim/"
 export PATH=$PATH:/opt/local/bin  # added because of MacPorts
 export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
@@ -248,7 +248,7 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 
 # 					                   source config files
 # =============================================================================
-source "$CONF/zsh/.aliasrc"
+source "$CONF/zsh/aliasrc"
 
 # Load zsh-syntax-highlighting; should be last.
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
