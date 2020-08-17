@@ -63,6 +63,12 @@ endif
 nnoremap <leader>a :Ack! -Q ""<Left>
 
 " }}}
+"                                                                        ranger
+" =============================================================================
+" deactivate default mapping (<leader>f)
+let g:ranger_map_keys = 0 
+
+" }}}
 "                                            fzf (file search by file name) {{{
 " =============================================================================
 "set rtp+=/usr/local/opt/fzf
