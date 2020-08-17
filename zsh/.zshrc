@@ -11,8 +11,6 @@ export CONF="$HOME/dotfiles"
 export DROPBOX="$HOME/Dropbox"
 
 export CDPATH="$CONF/symlinks"
-export VISUAL="nvim"
-export EDITOR="$VISUAL"
 # export FZF_BASE="/usr/local/bin/fzf"
 export MYVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
@@ -23,7 +21,8 @@ export PATH=$PATH:/opt/local/bin  # added because of MacPorts
 export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
 # 							  default applications
 # =============================================================================
-export EDITOR="nvim"
+export VISUAL="nvim -u $CONF/nvim/init.vim"
+export EDITOR="$VISUAL"
 # 					           	     locale / encoding
 # =============================================================================
 export LC_ALL=en_US.UTF-8
