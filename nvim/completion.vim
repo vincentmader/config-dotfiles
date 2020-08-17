@@ -44,9 +44,9 @@ let g:coc_global_extensions = [
 " =============================================================================
 "
 " save snippets to
-let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips/'
+let g:UltiSnipsSnippetsDir='$CONF/nvim/UltiSnips/'
 " load snippets from
-let g:UltiSnipsSnippetDirectory='~/.config/nvim/UltiSnips/'
+let g:UltiSnipsSnippetDirectory='$CONF/nvim/UltiSnips/'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 
 " open new tab when editing running UltiSnipsEdit
