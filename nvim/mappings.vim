@@ -25,8 +25,8 @@ map gp :bp<cr>
 "                                                       QUICK-OPEN CONFIG FILES
 " -----------------------------------------------------------------------------
 "                                                                           zsh
-map <Leader>cali :tabnew $CONF/zsh/.aliasrc <CR>
-map <Leader>czsh :tabnew $CONF/zsh/.zshrc <CR>
+map <Leader>cali :tabnew $CONF/zsh/aliasrc <CR>
+map <Leader>czsh :tabnew $CONF/zsh/zshrc <CR>
 "                                                                          tmux
 map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
 "                                                                          nvim
