@@ -68,7 +68,7 @@ nnoremap <leader>a :Ack! -Q ""<Left>
 " deactivate default mapping (<leader>f)
 let g:ranger_map_keys = 0 
 " change default ranger command
-let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+let g:ranger_command_override = 'ranger --confdir=$CONF/ranger'
 
 " }}}
 "                                            fzf (file search by file name) {{{
