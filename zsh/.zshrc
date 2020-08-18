@@ -15,6 +15,7 @@ export DROPBOX="$HOME/Public/Dropbox"
 export MYVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
 export TASKRC="$CONF/taskwarrior/.taskrc"
+export TIMEWARRIORDB="$DROPBOX/timewarrior"
 export ZSH="$CONF/zsh/.oh-my-zsh"
 # export VIMRUNTIME="$HOME/.config/nvim/"
 export PATH=$PATH:/opt/local/bin  # added because of MacPorts
