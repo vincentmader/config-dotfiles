@@ -8,13 +8,14 @@
 # =============================================================================
 export HOME="/home/vinc"
 export CONF="$HOME/dotfiles"
-export DROPBOX="$HOME/Dropbox"
+export DROPBOX="$HOME/Public/Dropbox"
 
 export CDPATH="$CONF/symlinks"
 # export FZF_BASE="/usr/local/bin/fzf"
 export MYVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
 export TASKRC="$CONF/taskwarrior/taskrc"
+export TIMEWARRIORDB="$DROPBOX/timewarrior"
 export ZSH="$CONF/zsh/oh-my-zsh"
 # export VIMRUNTIME="$HOME/.config/nvim/"
 export PATH=$PATH:/opt/local/bin  # added because of MacPorts
@@ -280,4 +281,4 @@ tmux source "$CONF/tmux/tmux.conf"
 [ -z "${TMUX}" ] && tmux 
 
 # Load zsh-syntax-highlighting; should be last.
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
