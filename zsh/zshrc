@@ -6,7 +6,7 @@
 
 # 							        path variables
 # =============================================================================
-export HOME="/home/meister"
+export HOME="/home/vinc"
 export CONF="$HOME/dotfiles"
 export DROPBOX="$HOME/Dropbox"
 
