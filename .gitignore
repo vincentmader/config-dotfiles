@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__
+coc
+configstore
+filezilla
+nvim/backups
+plugged
+ranger/*.pyo
+taskwarrior/*.data
+taskwarrior/.vim_tw.history
+zsh/.zcompdump*
+zsh/zcompdump*
+zsh/.zsh_history
+nvim/.netrwhist
+tmux/resurrect
