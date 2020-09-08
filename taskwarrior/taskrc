@@ -8,7 +8,8 @@ confirmation=off
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 active.indicator=>
 # files
-data.location=/home/meister/Dropbox/taskwarrior
+data.location=/home/vinc/Public/Dropbox/taskwarrior
+# data.location=/home/vinc/tw_test
 
 #                                                                       aliases
 # =============================================================================
@@ -65,7 +66,7 @@ report.uni.sort            = due+
 
 #                                                                        themes
 # =============================================================================
-include /home/meister/dotfiles/taskwarrior/colorthemes/no-color.theme
+include /home/vinc/.config/taskwarrior/colorthemes/no-color.theme
 # color.due=bold yellow
 color.overdue=bold red 
 # color.tag.in=blue
@@ -87,4 +88,4 @@ color.overdue=bold red
 # include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-blue-256.theme
 # include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-dark-256.theme
 # include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
-include /home/meister/dotfiles/taskwarrior/colorthemes/mytheme.theme
+include /home/vinc/.config/taskwarrior/colorthemes/mytheme.theme
