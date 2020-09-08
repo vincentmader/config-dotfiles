@@ -7,7 +7,7 @@
 # 							        path variables
 # =============================================================================
 export HOME="/home/vinc"
-export CONF="$HOME/dotfiles"
+export CONF="$HOME/.config"
 export DROPBOX="$HOME/Public/Dropbox"
 
 export CDPATH="$CONF/symlinks"
@@ -36,7 +36,7 @@ plugins=(
     # emoji-clock			# use to display time (30min accuracy)
     # fzf                             # enables fuzzy auto-completion 
     # git
-    npm
+    # npm
     osx
     # pip
     # python
@@ -90,6 +90,7 @@ $prompt_venv$prompt_git_branch
  ╰─> "
 }
 precmd() { eval prompter }
+export PS1="hello"
 #								       vi mode
 # =============================================================================
 bindkey -v

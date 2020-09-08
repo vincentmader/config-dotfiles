@@ -1,0 +1,5 @@
+./symlinks/
+nvim/node_modules
+nvim/plugged
+zsh/zcompdump
+nvim/yarn.lock

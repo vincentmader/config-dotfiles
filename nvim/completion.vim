@@ -16,7 +16,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 " jump to prev/next diagnostic position (does not work)
 " inoremap <leader>n :call CocAction("diagnosticNext")<CR>
 
-    " \ 'coc-snippets',
     " \ 'coc-pairs',
     " \ 'coc-tsserver',
     " \ 'coc-eslint',
@@ -26,8 +25,17 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-python',
     \ 'coc-prettier',
+    \ 'coc-snippets',
     \ 'coc-json',
-    \ ]
+\ ]
+
+" Use <Tab> and <S-Tab> to navigate the completion list:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <CR> to confirm completion
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" Close the preview window when completion is done. (TODO: necessary?)
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "" Use `[g` and `]g` to navigate diagnostics
 " nmap <silent> [g <Plug>(coc-diagnostic-prev)
