@@ -19,6 +19,8 @@ colorscheme solarized
 " colorscheme gruvbox
 let g:solarized_termcolors=256
 set background=dark
+                                                  " make background transparent
+highlight Normal guibg=None ctermbg=None
 
 "                                         always display column where errors go
 set signcolumn=yes
@@ -75,5 +77,6 @@ let g:task_readonly=0
 
 "                                              turn off indent lines by default
 " autocmd BufEnter * IndentLinesDisable
+"
 
 " }}}

@@ -85,4 +85,4 @@ command! FixWhitespace :%s/\s\+$//e
 " calendar
 " let g:calendar_frame = 'default'
 "
-let g:vimwiki_list = [{'path': '~/Public/Dropbox/vimwiki'}]
+let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki'}]

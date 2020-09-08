@@ -25,13 +25,13 @@ map gp :bp<cr>
 "                                                       QUICK-OPEN CONFIG FILES
 " -----------------------------------------------------------------------------
 "                                                                           zsh
-map <Leader>cali :tabnew $HOME/.config/zsh/.aliasrc <CR>
-map <Leader>czsh :tabnew $HOME/.config/zsh/.zshrc <CR>
+map <Leader>cali :tabnew $CONF/zsh/aliasrc <CR>
+map <Leader>czsh :tabnew $CONF/zsh/zshrc <CR>
 "                                                                          tmux
 map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
 "                                                                          nvim
-map <Leader>cvim :tabnew $HOME/.config/nvim/init.vim <CR>
-command! -nargs=? Ftedit execute "tabe $HOME/.config/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
+map <Leader>cvim :tabnew $CONF/nvim/init.vim <CR>
+command! -nargs=? Ftedit execute "tabe $CONF/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
 map <Leader>cvft :Ftedit <CR>
 map <Leader>ccoc :CocConfig <CR>
 map <leader>csnp :UltiSnipsEdit <CR>
@@ -114,7 +114,8 @@ map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
 
 map <leader>u :UndotreeToggle <CR>
 
-map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 ranger <CR>
+" map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 ranger <CR>
+map <leader>r :Ranger<CR>
 map <leader>t :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center <CR>
 
 "                                                               run python code

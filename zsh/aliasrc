@@ -19,15 +19,21 @@ alias o="open"
 alias pdfl="pdflatex"
 alias pwd="pwd -P"
 alias pytube3="pytube3"
-alias r="ranger"
-alias sozsh="source $CONF/zsh/.zshrc"
+alias r="ranger --confdir $CONF/ranger"
+alias sozsh="source $CONF/zsh/zshrc"
 alias spotify='echo && spotify'
 alias ta="tierarzt"
 alias tierarzt="sudo python3 '$CONF/symlinks/ta/main.py'"
 alias tmux="tmux -f '$CONF/tmux/tmux.conf'"
+alias nvim="nvim -u '$CONF/nvim/init.vim'"
 alias v="nvim"
 alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
 alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
+
+# manjaro
+alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
+alias py37="$HOME/Downloads/Python-3.7.7/python"
+alias st="st -f 'Liberation Mono:size=12'"
 
 # =============================================================================
 #                                                      homebrew package manager

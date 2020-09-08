@@ -1,3 +1,8 @@
+symlinks
+nvim/node_modules
+nvim/plugged
+zsh/zcompdump
+nvim/yarn.lock
 .DS_Store
 __pycache__
 coc
