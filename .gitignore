@@ -18,3 +18,4 @@ zsh/zcompdump*
 zsh/.zsh_history
 nvim/.netrwhist
 tmux/resurrect
+tmux/plugins
