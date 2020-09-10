@@ -6,7 +6,11 @@
 
 # 							        path variables
 # =============================================================================
-export HOME="/home/vinc"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export HOME="/Users/meister"
+else
+    export HOME="/home/vinc"
+fi
 export CONF="$HOME/.config"
 export DROPBOX="$HOME/Public/Dropbox"
 
