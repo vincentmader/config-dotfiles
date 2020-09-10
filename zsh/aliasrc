@@ -118,9 +118,10 @@ alias jn="jupyter notebook"
 alias ls='clear && echo && lsd'
 alias lsa='ls -a'
 alias l='ls --tree --depth=1'
-alias la='ls -la'
-alias ll=''
-alias lt='ls --tree'
+alias la='ls -a --tree --depth=1'
+# alias la='ls -a'
+alias ll='ls -la'
+# alias lt='ls --tree'
 # -----------------------------------------------------------------------------
 #                                                                           man
 # configure colors
