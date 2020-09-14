@@ -96,7 +96,7 @@ call plug#begin('$CONF/nvim/plugged')
     "                                                                       gtd
     " -------------------------------------------------------------------------
     Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-    Plug 'BlindFS/vim-taskwarrior', { 'for': 'vimwiki' }
+    Plug 'BlindFS/vim-taskwarrior'
     Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
     Plug 'tpope/vim-speeddating'
     " Plug 'itchyny/calendar.vim'
@@ -118,6 +118,7 @@ call plug#begin('$CONF/nvim/plugged')
     "                                                              colorschemes
     Plug 'altercation/vim-colors-solarized'
     " Plug 'lifepillar/vim-solarized8'
+    "
     Plug 'tomasiser/vim-code-dark'
     Plug 'morhetz/gruvbox'
     "                                                           syntax checking
