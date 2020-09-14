@@ -46,8 +46,9 @@ plugins=(
     # python
     sudo                            # press esc twice to sudo repeat cmd
     taskwarrior                     # auto completion for taskwarrior
+    # wd                            # warp directory
     # zsh-autosuggestions
-    # zsh-syntax-highlighting
+    zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 #								        prompt
@@ -286,4 +287,5 @@ tmux source "$CONF/tmux/tmux.conf"
 [ -z "${TMUX}" ] && tmux 
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
