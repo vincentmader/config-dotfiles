@@ -96,7 +96,7 @@ call plug#begin('$CONF/nvim/plugged')
     "                                                                       gtd
     " -------------------------------------------------------------------------
     Plug 'BlindFS/vim-taskwarrior'
-    Plug 'evansalter/vim-checklist'
+    " Plug 'evansalter/vim-checklist'
     Plug 'jceb/vim-orgmode'
     Plug 'tpope/vim-speeddating'
     Plug 'vimwiki/vimwiki'
