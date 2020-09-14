@@ -1,4 +1,5 @@
 symlinks
+symlinks/*
 nvim/node_modules
 nvim/plugged
 zsh/zcompdump
