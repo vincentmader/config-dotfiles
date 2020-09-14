@@ -95,14 +95,14 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
     "                                                                       gtd
     " -------------------------------------------------------------------------
-    " Plug 'BlindFS/vim-taskwarrior'
     Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-    Plug 'tools-life/taskwiki'
+    Plug 'BlindFS/vim-taskwarrior', { 'for': 'vimwiki' }
+    Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
+    Plug 'tpope/vim-speeddating'
+    " Plug 'itchyny/calendar.vim'
+    Plug 'mattn/calendar-vim', { 'for': 'vimwiki' }
     " Plug 'evansalter/vim-checklist'
     " Plug 'jceb/vim-orgmode'
-    Plug 'tpope/vim-speeddating'
-    Plug 'mattn/calendar-vim'
-    " Plug 'itchyny/calendar.vim'
     "  						                version control
     " -------------------------------------------------------------------------
     "                          very nice git plugin, everything from inside vim
