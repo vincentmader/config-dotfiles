@@ -34,12 +34,12 @@ let g:airline_section_z=''  " disables location in file
 " -----------------------------------------------------------------------------
 " let g:airline#extensions#coc#enabled = 1
 "                                                 same theme for TMUX statusbar
-let g:tmuxline_preset = {
-    \'a'    : '#S',
-    \'b'    : '',
-    \'c'    : '',
-    \'win'  : '#I #W',
-    \'cwin' : '#I #W',
-    \'x'    : '',
-    \'y'    : '%a %d, %R',
-    \'z'    : ''}
+" let g:tmuxline_preset = {
+"     \'a'    : '#S',
+"     \'b'    : '',
+"     \'c'    : '',
+"     \'win'  : '#I #W',
+"     \'cwin' : '#I #W',
+"     \'x'    : '',
+"     \'y'    : '%a %d, %R',
+"     \'z'    : ''}

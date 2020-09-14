@@ -75,7 +75,7 @@ call plug#begin('$CONF/nvim/plugged')
     " -------------------------------------------------------------------------
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'edkolev/tmuxline.vim'
+    " Plug 'edkolev/tmuxline.vim'
     "  						                        various
     " -------------------------------------------------------------------------
     Plug 'tpope/vim-surround'

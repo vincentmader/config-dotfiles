@@ -24,19 +24,25 @@ map gp :bp<cr>
 "
 "                                                       QUICK-OPEN CONFIG FILES
 " -----------------------------------------------------------------------------
-"                                                                           zsh
-map <Leader>cali :tabnew $CONF/zsh/aliasrc <CR>
-map <Leader>czsh :tabnew $CONF/zsh/zshrc <CR>
-"                                                                          tmux
-map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
+"                                                                           dwm
+map <Leader>cdwm :tabnew $CONF/dwm/config.h <CR>
 "                                                                          nvim
 map <Leader>cvim :tabnew $CONF/nvim/init.vim <CR>
 command! -nargs=? Ftedit execute "tabe $CONF/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
 map <Leader>cvft :Ftedit <CR>
 map <Leader>ccoc :CocConfig <CR>
 map <leader>csnp :UltiSnipsEdit <CR>
+"                                                                            st
+map <Leader>cst :tabnew $CONF/st/config.h <CR>
+"                                                                          tmux
+map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
+"                                                                           zsh
+map <Leader>cali :tabnew $CONF/zsh/aliasrc <CR>
+map <Leader>czsh :tabnew $CONF/zsh/zshrc <CR>
+
 " map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
 " map <Leader>cpl :tabnew ~/.pylintrc <CR>
+
 "                                                                    FUZZY FIND
 "" use <leader>fz to open fuzzy finder (type ' next for exact search)
 nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
