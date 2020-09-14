@@ -23,11 +23,11 @@ call plug#begin('$CONF/nvim/plugged')
     "                                                              file manager
     " ------------------------------------------------------------------------
     "                                                                  NERDTree
-    " Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree'
     " keep NERDTree consistent across vim tabs
-    " Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'jistr/vim-nerdtree-tabs'
     " press m-x on file in NerdTree to quickly open files with default app
-    " Plug 'ivalkeen/nerdtree-execute'
+    Plug 'ivalkeen/nerdtree-execute'
     "                                                         language specific
     " -------------------------------------------------------------------------
     "                                                                      HTML
@@ -95,11 +95,12 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
     "                                                                       gtd
     " -------------------------------------------------------------------------
-    Plug 'BlindFS/vim-taskwarrior'
+    " Plug 'BlindFS/vim-taskwarrior'
+    Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+    Plug 'tools-life/taskwiki'
     " Plug 'evansalter/vim-checklist'
-    Plug 'jceb/vim-orgmode'
+    " Plug 'jceb/vim-orgmode'
     Plug 'tpope/vim-speeddating'
-    Plug 'vimwiki/vimwiki'
     Plug 'mattn/calendar-vim'
     " Plug 'itchyny/calendar.vim'
     "  						                version control
@@ -111,7 +112,7 @@ call plug#begin('$CONF/nvim/plugged')
     "                                       show git information in sign column
     Plug 'airblade/vim-gitgutter'
     "                                               show git status in NerdTree
-    " Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     "  						                         visual
     " -------------------------------------------------------------------------
     "                                                              colorschemes

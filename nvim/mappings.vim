@@ -121,8 +121,8 @@ map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
 map <leader>u :UndotreeToggle <CR>
 
 " map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 ranger <CR>
-map <leader>r :Ranger<CR>
-map <leader>t :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center <CR>
+map <leader>or :Ranger<CR>
+map <leader>ot :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center <CR>
 
 "                                                               run python code
 "map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 python3 % <CR>
@@ -132,3 +132,7 @@ nmap <CR> o<C-c>
 
 "                                    go back to last opened file with backspace
 nmap <BS> <C-^>
+
+
+" open NERDTree with <leader>nt
+map <leader>nt :NERDTreeTabsToggle<CR>

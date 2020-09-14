@@ -86,3 +86,6 @@ command! FixWhitespace :%s/\s\+$//e
 " let g:calendar_frame = 'default'
 "
 let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki'}]
+let g:taskwiki_taskrc_location = '$TASKRC'
+let g:taskwiki_data_location = '~/Public/Dropbox/taskwarrior'
+let taskwiki_data_location = '~/Public/Dropbox/taskwarrior'

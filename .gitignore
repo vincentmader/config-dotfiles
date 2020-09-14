@@ -1,7 +1,6 @@
 *.pyc
 *.pyo
 .DS_Store
-.DS_Store
 BraveSoftware
 Epic
 QtProject.conf
@@ -17,10 +16,7 @@ manjaro-settings-manager-Notifier.conf
 nvim/.netrwhist
 nvim/backups
 nvim/node_modules
-nvim/node_modules
 nvim/plugged
-nvim/plugged
-nvim/yarn.lock
 nvim/yarn.lock
 pamac
 plugged
@@ -29,8 +25,6 @@ qpdfview
 qt5ct
 ranger/*.pyo
 symlinks
-symlinks
-symlinks/*
 symlinks/*
 taskwarrior/*.data
 taskwarrior/.vim_tw.history
@@ -45,6 +39,5 @@ zsh/.zcompdump*
 zsh/.zsh_history
 zsh/oh-my-zsh/plugins/
 zsh/oh-my-zsh/plugins/*
-zsh/zcompdump
 zsh/zcompdump
 zsh/zcompdump*

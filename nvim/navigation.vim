@@ -101,8 +101,6 @@ let g:ranger_command_override = 'ranger --confdir=$CONF/ranger'
 " }}}
 "                                            NERDTree (visual file manager) {{{
 " =============================================================================
-""" open with <leader>t
-""map <leader>nt :NERDTreeTabsToggle<CR>
 """ let files/directories be created/removed/modified
 ""set modifiable
 """ change window size
