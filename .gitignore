@@ -33,6 +33,7 @@ viewnior
 volumeicon
 xfce4
 zsh/oh-my-zsh/plugins/*
+zsh/oh-my-zsh/plugins/
 zsh/zcompdump
 zsh/.zcompdump*
 zsh/zcompdump*
