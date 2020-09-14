@@ -16,7 +16,7 @@ export DROPBOX="$HOME/Public/Dropbox"
 
 export CDPATH="$CONF/symlinks"
 # export FZF_BASE="/usr/local/bin/fzf"
-export MYVIMRC="$CONF/nvim/init.vim"
+export NVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
 export TASKRC="$CONF/taskwarrior/taskrc"
 export TIMEWARRIORDB="$DROPBOX/timewarrior"
