@@ -45,3 +45,6 @@ zsh/zcompdump
 zsh/.zcompdump*
 zsh/zcompdump*
 zsh/.zsh_history
+Epic
+autostart
+dconf
