@@ -23,3 +23,10 @@ Setup:
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     * install all other plugins with
         :PlugInstall 
+
+    * other packages (e.g. from AUR or homebrew)
+        * lsd
+        * fzf
+        * top/gtop
+        * ...
+        * sl, cmatrix, cowsay, fortune

@@ -7,7 +7,7 @@
 if empty(glob('$CONF/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
 	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    autocmd VimEnter * PlugInstall --sync | source $NVIMRC
 endif
 "                                                               install plugins
 call plug#begin('$CONF/nvim/plugged')
@@ -95,14 +95,14 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
     "                                                                       gtd
     " -------------------------------------------------------------------------
-    " Plug 'BlindFS/vim-taskwarrior'
     Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-    Plug 'tools-life/taskwiki'
+    Plug 'BlindFS/vim-taskwarrior'
+    Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
+    Plug 'tpope/vim-speeddating'
+    " Plug 'itchyny/calendar.vim'
+    Plug 'mattn/calendar-vim', { 'for': 'vimwiki' }
     " Plug 'evansalter/vim-checklist'
     " Plug 'jceb/vim-orgmode'
-    Plug 'tpope/vim-speeddating'
-    Plug 'mattn/calendar-vim'
-    " Plug 'itchyny/calendar.vim'
     "  						                version control
     " -------------------------------------------------------------------------
     "                          very nice git plugin, everything from inside vim
@@ -118,6 +118,7 @@ call plug#begin('$CONF/nvim/plugged')
     "                                                              colorschemes
     Plug 'altercation/vim-colors-solarized'
     " Plug 'lifepillar/vim-solarized8'
+    "
     Plug 'tomasiser/vim-code-dark'
     Plug 'morhetz/gruvbox'
     "                                                           syntax checking

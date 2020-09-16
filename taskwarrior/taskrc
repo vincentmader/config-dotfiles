@@ -45,10 +45,10 @@ report.short.labels         = ID,Project,Description
 report.short.sort           = due+
 
 # next items report
-report.next.columns         = id,depends,urgency,priority,project,tags,scheduled.countdown,due.remaining,until.remaining,description,estimate,brainpower
+report.next.columns         = id,depends,project,tags,scheduled.countdown,due.remaining,until.remaining,description,estimate,brainpower
 # report.next.description     = Most urgent tasks
 # report.next.filter          = status:pending and +next
-report.next.labels          = ID,Deps,U,P,Project,Tags,Sch,Due,Until,Description,EST,BP
+report.next.labels          = ID,Deps,Project,Tags,Sch,Due,Until,Description,EST,BP
 # report.next.sort            = brainpower-,priority-,urgency-
 report.next.sort            = due+
 
