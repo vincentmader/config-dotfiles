@@ -33,7 +33,6 @@ alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
 # manjaro
 alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
 alias py37="$HOME/Downloads/Python-3.7.7/python"
-alias st="st -f 'Liberation Mono:size=12'"
 
 # =============================================================================
 #                                                      homebrew package manager
