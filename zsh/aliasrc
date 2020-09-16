@@ -230,3 +230,11 @@ function gif2vid {
 alias diskutil="clear && diskutil"
 alias npxcra="npx create-react-app"
 alias soenv="source env/bin/activate"
+
+# manjaro-specific
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    alias dwmr="sudo killall dwm && dwm"
+    alias dwms="sudo killall xfwm4 && dwm"
+fi
+
+alias smi="sudo make install"
