@@ -46,11 +46,11 @@ c.completion.web_history.max_items = -1
 # history items to hide in completion
 c.completion.web_history.exclude = []
 # default page
-# c.url.default_page = '188.166.164.214'
+# c.url.default_page = 'https://mynoise.net/Data/OCEAN/fb.jpg'
 # search engine
 c.url.searchengines = {
-    'DEFAULT': 'https://duckduckgo.com/?q={}',
-    # 'DEFAULT': 'https://google.com/?q={}',  # TODO: what must the URL be?
+    # 'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'DEFAULT': 'https://google.com/search?q={}',  # TODO: what must the URL be?
 }
 #                                                                      MAPPINGS
 # =============================================================================
