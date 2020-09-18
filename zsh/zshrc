@@ -10,6 +10,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/meister"
 else
     export HOME="/home/vinc"
+    export XINITRC="/etc/xdg/xfce4/xinitrc"
 fi
 export CONF="$HOME/.config"
 export DROPBOX="$HOME/Public/Dropbox"
@@ -21,6 +22,7 @@ export PYTHONSTARTUP="$CONF/python/.pythonrc"
 export TASKRC="$CONF/taskwarrior/taskrc"
 export TIMEWARRIORDB="$DROPBOX/timewarrior"
 export ZSH="$CONF/zsh/oh-my-zsh"
+export ZSHRC="$CONF/zsh/zshrc"
 # export VIMRUNTIME="$HOME/.config/nvim/"
 export PATH=$PATH:/opt/local/bin  # added because of MacPorts
 export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
@@ -28,6 +30,9 @@ export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
 # =============================================================================
 export VISUAL="nvim -u $CONF/nvim/init.vim"
 export EDITOR="$VISUAL"
+# 					           	      config variables
+# ============================================================================+
+# export ST_FONT="Hack Nerd Font:size=14"
 # 					           	     locale / encoding
 # =============================================================================
 export LC_ALL=en_US.UTF-8
@@ -35,16 +40,16 @@ export LC_ALL=en_US.UTF-8
 # =============================================================================
 plugins=(
     # colored-man-pages
-    copyfile			# use to copy file to clipboard
-    copydir				# use to copy pwd to clipboard
+    # copyfile			# use to copy file to clipboard
+    # copydir				# use to copy pwd to clipboard
     # emoji-clock			# use to display time (30min accuracy)
     # fzf                             # enables fuzzy auto-completion 
     # git
     # npm
-    osx
+    # osx
     # pip
     # python
-    sudo                            # press esc twice to sudo repeat cmd
+    # sudo                            # press esc twice to sudo repeat cmd
     taskwarrior                     # auto completion for taskwarrior
     # wd                            # warp directory
     # zsh-autosuggestions
@@ -54,48 +59,8 @@ source $ZSH/oh-my-zsh.sh
 #								        prompt
 # =============================================================================
 autoload -U colors && colors
-
-function prompter() {
-    function set_prompt_git() {
-        branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')"
-    
-        if [ -z "$branch" ]; then
-            prompt_git_branch=""
-        else
-            prompt_git_branch="─${branch:1}"
-        fi
-    }
-    function set_prompt_venv() {
-        if test -z "$VIRTUAL_ENV"; then
-            PYTHON_VIRTUAL_ENV=""
-        else
-            PYTHON_VIRTUAL_ENV="`basename \"$VIRTUAL_ENV\"`"
-        fi
-        if [ -z "$PYTHON_VIRTUAL_ENV" ]; then
-            prompt_venv=""
-        else
-            prompt_venv="─($PYTHON_VIRTUAL_ENV)"
-        fi
-    }
-    set_prompt_venv
-    set_prompt_git
-    prompt_username="%{$fg[green]%}%n%{$reset_color%}"
-    prompt_computername="%{$fg[red]%}hal9000%{$reset_color%}"
-    prompt_location="%{$fg[blue]%}%1~%{$reset_color%}"
-    prompt_in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}"
-    prompt_due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
-    prompt_overdue_count="${fg[red]%}$(task +OVERDUE count)%{$reset_color%}"
-    # prompt_tw_tracking='──(${fg[green]%}tracking%{$reset_color%})'
-    # $prompt_tw_tracking
-
-    export PS1="
- ╭────[$prompt_username|$prompt_location]─\
-($prompt_overdue_count|$prompt_due_today_count|$prompt_in_count)\
-$prompt_venv$prompt_git_branch
- ╰─> "
-}
-precmd() { eval prompter }
-export PS1="hello"
+source $CONF/zsh/prompter.sh
+# export PS3="hello"
 #								       vi mode
 # =============================================================================
 bindkey -v
@@ -278,14 +243,20 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 #}
 
 
+# xclip -o | xclip -selection clipboard -i
+
 # 					                   source config files
 # =============================================================================
-source "$CONF/zsh/aliasrc"
-# tell tmux to source from config
-tmux source "$CONF/tmux/tmux.conf"
-# check if tmux is running, if not: start it
-[ -z "${TMUX}" ] && tmux 
-
-# Load zsh-syntax-highlighting; should be last.
+# Load zsh-syntax-highlighting; (should be last?)
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# source aliases
+source "$CONF/zsh/aliasrc"
+
+# tell tmux to source from config
+# tmux source "$CONF/tmux/tmux.conf"
+# check if tmux is running, if not: start it
+# [ -z "${TMUX}" ] && tmux 
+if [ "$TMUX" = "" ]; then tmux; fi
+
