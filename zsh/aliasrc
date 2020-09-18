@@ -91,6 +91,7 @@ alias ...='cd ../..'
 #         command find "$@"
 #     fi
 # }
+# alias vf="v $(fzf)"
 # -----------------------------------------------------------------------------
 #                                                           git version control
 alias g="git"
@@ -237,3 +238,5 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
 fi
 
 alias smi="sudo make install"
+alias smidwmr="cd $CONF/dwm && sudo make install && killall dwm && dwm"
+alias smist="cd $CONF/st && sudo make install"
