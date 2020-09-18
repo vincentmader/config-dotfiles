@@ -32,20 +32,24 @@ command! -nargs=? Ftedit execute "tabe $CONF/nvim/ftplugin/" . ("<args>" == "" ?
 map <Leader>cvft :Ftedit <CR>
 map <Leader>ccoc :CocConfig <CR>
 map <leader>csnp :UltiSnipsEdit <CR>
+"                                                                   qutebrowser
+map <leader>cqtb :tabnew $CONF/qutebrowser/config.py <CR>
 "                                                                            st
 map <Leader>cst :tabnew $CONF/st/config.h <CR>
 "                                                                          tmux
 map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
 "                                                                           zsh
 map <Leader>cali :tabnew $CONF/zsh/aliasrc <CR>
-map <Leader>czsh :tabnew $CONF/zsh/zshrc <CR>
+map <Leader>cxrc :tabnew $XINITRC <CR>
+map <Leader>czsh :tabnew $ZSHRC <CR>
 
 " map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
 " map <Leader>cpl :tabnew ~/.pylintrc <CR>
 
 "                                                                    FUZZY FIND
 "" use <leader>fz to open fuzzy finder (type ' next for exact search)
-nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
+" nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
+nnoremap <silent> <leader>f :FZF <CR>
 "nnoremap <silent> <leader>fg :FzfPreviewProjectFiles<CR>
 "nnoremap <silent> <leader>fb :FzfPreviewBuffers <CR>
 "nnoremap <silent> <leader>fc :Commits<CR>
