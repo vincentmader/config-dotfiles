@@ -3,6 +3,7 @@
 .DS_Store
 BraveSoftware
 Epic
+Mousepad
 QtProject.conf
 Slack
 Thunar
@@ -11,8 +12,12 @@ autostart
 coc
 configstore
 dconf
+dwm
 filezilla
 manjaro-settings-manager-Notifier.conf
+mimeapps.list
+mps-youtube
+node_modules
 nvim/.netrwhist
 nvim/backups
 nvim/node_modules
@@ -24,6 +29,7 @@ pulse
 qpdfview
 qt5ct
 ranger/*.pyo
+st
 symlinks
 symlinks/*
 taskwarrior/*.data
