@@ -2,6 +2,10 @@
 
 Setup:
    
+* dwm 
+    * install patches
+        * fibonacci
+
 * oh-my-zsh
     * install oh-my-zsh 
         sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -16,6 +20,9 @@ Setup:
         git clone https://github.com/tmux-plugins/tpm $CONF/tmux/plugins/tpm
     * install plugins with 
         prefix + I
+
+* st 
+    * install patches
     
 * vim
     * install vimplug (this should be done automatically at vim startup) via
@@ -29,4 +36,4 @@ Setup:
         * fzf
         * top/gtop
         * ...
-        * sl, cmatrix, cowsay, fortune
+        * sl, cmatrix, cowsay, fortune, ytdl
