@@ -14,6 +14,7 @@ else
 fi
 export CONF="$HOME/.config"
 export DROPBOX="$HOME/Public/Dropbox"
+export WIKI="$DROPBOX/vimwiki"
 
 export CDPATH="$CONF/symlinks"
 # export FZF_BASE="/usr/local/bin/fzf"
