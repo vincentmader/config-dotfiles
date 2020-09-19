@@ -1,0 +1,89 @@
+#!/usr/bin/python
+import random
+import os
+import sys
+import datetime
+from datetime import timedelta as td
+
+now = datetime.datetime.now()
+date_str = now.strftime('%a, %d. %b %Y')
+today_iso = now.strftime('%Y-%m-%d')
+tomorrow_iso = (now + td(hours=24)).strftime('%Y-%m-%d')
+
+
+def get_random_quote():
+    if sys.platform == 'darwin':
+        HOME = '/Users/meister/'
+    elif sys.platform in ['linux', 'linux2']:
+        HOME = '/home/vinc/'
+    else:
+        pass
+
+    path_to_quotes = os.path.join(
+        HOME, 'Public/Dropbox/vimwiki/library/quotes.wiki'
+    )
+    with open(path_to_quotes) as fp:
+        content = fp.readlines()
+
+    quotes = ''.join(content).split('\n\n')
+    return random.choice(quotes)
+
+
+TEMPLATE = """# {}
+
+{}
+
+== Daily Checklist (META) ==
+- [ ] 07:00 morning routine
+    - [ ] exercise
+    - [ ] shower
+    - [ ] breakfast & hot drink
+    - [ ] plan for today
+            What fixed-time events are there today?
+            When is time for remaining TODOs?
+- [ ] 12:00 noon routine
+    - [ ] lunch
+    - [ ] quick review on daily progress
+    - [ ] plan for the second half of today
+    - [ ] short walk
+- [ ] 18:00 end-of-work routine
+    - [ ] clear inbox (GTD & mail)
+    - [ ] plan for tomorrow
+    - [ ] monthly/yearly review if relevant
+    - [ ] short walk
+- [ ] 22:00 evening routine
+    - [ ] review of today
+    - [ ] drink tea
+    - [ ] read book
+    - [ ] brush teeth
+
+== Today's Actions | due:{} ==
+
+== Overdue | +OVERDUE ==
+
+== Upcoming | due:{} ==
+
+== Review ==
+    - diet
+        - [ ] vegetarian
+        - [ ] vegan
+        - [ ] meat
+        - [ ] fish
+    - drug consumption
+        - [ ] alcohol
+        - [ ] marihuana
+        - [ ] caffeine
+        - [ ] tabacco
+    - mood
+        - [ ] great
+        - [ ] good
+        - [ ] bad
+        - [ ] terrible
+
+== Daily Log ==
+
+""".format(
+    date_str, get_random_quote(), today_iso, tomorrow_iso
+)
+
+print(TEMPLATE)

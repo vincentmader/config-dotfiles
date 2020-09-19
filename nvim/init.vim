@@ -17,3 +17,5 @@ source $CONF/nvim/navigation.vim
 source $CONF/nvim/statusbar.vim
 source $CONF/nvim/syntax.vim
 source $CONF/nvim/version_control.vim
+
+source $CONF/nvim/gtd.vim
