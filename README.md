@@ -30,10 +30,12 @@ Setup:
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     * install all other plugins with
         :PlugInstall 
+    * make vim bin scripts executable
 
-    * other packages (e.g. from AUR or homebrew)
-        * lsd
-        * fzf
-        * top/gtop
-        * ...
-        * sl, cmatrix, cowsay, fortune, ytdl
+* other packages (e.g. from AUR or homebrew)
+    * lsd
+    * fzf
+    * top/gtop
+    * task, tasksh, timew
+    * ...
+    * sl, cmatrix, cowsay, fortune, ytdl
