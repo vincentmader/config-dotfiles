@@ -12,6 +12,7 @@ autostart
 coc
 configstore
 dconf
+htop
 dwm
 filezilla
 manjaro-settings-manager-Notifier.conf
