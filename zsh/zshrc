@@ -50,7 +50,7 @@ plugins=(
     # osx
     # pip
     # python
-    # sudo                            # press esc twice to sudo repeat cmd
+    sudo                            # press esc twice to sudo repeat cmd
     taskwarrior                     # auto completion for taskwarrior
     # wd                            # warp directory
     # zsh-autosuggestions
@@ -258,6 +258,6 @@ source "$CONF/zsh/aliasrc"
 # tell tmux to source from config
 # tmux source "$CONF/tmux/tmux.conf"
 # check if tmux is running, if not: start it
-# [ -z "${TMUX}" ] && tmux 
-if [ "$TMUX" = "" ]; then tmux; fi
+[ -z "${TMUX}" ] && tmux 
+# if [ "$TMUX" = "" ]; then tmux; fi
 
