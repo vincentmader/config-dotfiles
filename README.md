@@ -13,7 +13,8 @@ Setup:
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
     
 * ranger
-    download devicons & image preview package
+    * download devicons
+    * download image preview package
 
 * tmux
     * install tmux package manager via
@@ -31,6 +32,9 @@ Setup:
     * install all other plugins with
         :PlugInstall 
     * make vim bin scripts executable
+
+* X server
+    * xinitrc
 
 * other packages (e.g. from AUR or homebrew)
     * lsd
