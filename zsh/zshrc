@@ -6,28 +6,7 @@
 
 # 							        path variables
 # =============================================================================
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export HOME="/Users/meister"
-else
-    export HOME="/home/vinc"
-    export XINITRC="/etc/xdg/xfce4/xinitrc"
-fi
-export CONF="$HOME/.config"
-export DROPBOX="$HOME/Public/Dropbox"
-export WIKI="$DROPBOX/vimwiki"
-
-export CDPATH="$CONF/symlinks"
-# export FZF_BASE="/usr/local/bin/fzf"
-export NVIMRC="$CONF/nvim/init.vim"
-export PYTHONSTARTUP="$CONF/python/.pythonrc"
-export TASKRC="$CONF/taskwarrior/taskrc"
-export TIMEWARRIORDB="$DROPBOX/timewarrior"
-export ZSH="$CONF/zsh/oh-my-zsh"
-export ZSHRC="$CONF/zsh/zshrc"
-# export VIMRUNTIME="$HOME/.config/nvim/"
-export PATH=$PATH:/opt/local/bin  # added because of MacPorts
-export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
-# 							  default applications
+source ~/.config/zsh/pathrc
 # =============================================================================
 export VISUAL="nvim -u $CONF/nvim/init.vim"
 export EDITOR="$VISUAL"
