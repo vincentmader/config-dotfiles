@@ -1,0 +1,24 @@
+#!/usr/bin/sh
+# -----------------------------------------------------------------------------
+
+# change screen resolution
+xrandr --output eDP --mode 1920x1200
+
+
+# dwm statusbar loop (run in background)
+while true; do
+  xsetroot -name "$(/home/vinc/.config/dwm/mypatches/dwm-bar/dwm_bar.sh)"
+  sleep 1  # update every second
+done &
+
+
+# set background to mars
+~/.fehbg &
+
+
+# increase max key press frequency
+xset r rate 250 50
+
+# execute dwm on startup
+# -----------------------------------------------------------------------------
+exec dwm 
