@@ -21,7 +21,7 @@ alias pwd="pwd -P"
 alias pytube3="pytube3"
 alias r="ranger --confdir $CONF/ranger"
 alias sozsh="source $CONF/zsh/zshrc"
-alias spotify='echo && spotify'
+alias spotify='spotify'
 alias ta="tierarzt"
 alias tierarzt="sudo python3 '$CONF/symlinks/ta/main.py'"
 alias nvim="nvim -u '$CONF/nvim/init.vim'"
@@ -114,7 +114,7 @@ alias egrep='egrep --color=auto'
 alias jn="jupyter notebook"
 # -----------------------------------------------------------------------------
 #                                                                            ls
-alias ls='clear && echo && lsd'
+alias ls='clear && lsd'
 alias lsa='ls -a'
 alias l='ls --tree --depth=1'
 alias la='ls -a --tree --depth=1'
@@ -188,8 +188,8 @@ alias tww='tw week'
 # =============================================================================
 #                                                               other fun stuff
 alias fortunecow='fortune -s | cowsay'
-alias lc='echo && lolcat -a'
-alias lolcat='echo && lolcat'
+alias lc='lolcat -a'
+alias lolcat='lolcat'
 alias archey='clear && archey'
 # cmatrix, sl, cowsay, cowthink, figlet, fortune, sc-im
 # wifi-password, tldr, watch, rtv, geoiplookup, links, tree, fuck
@@ -239,3 +239,5 @@ fi
 alias smi="sudo make install"
 alias smidwmr="cd $CONF/dwm && sudo make install && killall dwm && dwm"
 alias smist="cd $CONF/st && sudo make install"
+
+alias vol="amixer set Master"
