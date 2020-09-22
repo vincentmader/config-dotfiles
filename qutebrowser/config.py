@@ -23,6 +23,8 @@ c.content.cookies.accept = 'all'
 c.content.cookies.store = True
 # maximum number of undo items to save (per tab)
 c.tabs.undo_stack_size = -1
+# disable video playback
+c.content.autoplay = False
 #                                                                    COMPLETION
 # =============================================================================
 # minimum number of chars needed to update completion list (for :open cmd)
