@@ -145,7 +145,7 @@ alias del="rmtrash"
 alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
 # -----------------------------------------------------------------------------
 #                                                                     spotlight
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     alias spot="mdfind -name"
 fi
 # -----------------------------------------------------------------------------
