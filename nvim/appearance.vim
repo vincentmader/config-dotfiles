@@ -79,4 +79,7 @@ let g:task_readonly=0
 " autocmd BufEnter * IndentLinesDisable
 "
 
+
+let g:limelight_conceal_ctermfg = "239"  " this color is used by solarized for comments
+
 " }}}
