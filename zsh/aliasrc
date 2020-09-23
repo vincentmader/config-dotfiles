@@ -3,31 +3,31 @@
 # 			      $CONF/zsh/.aliasrc
 # ============================================================================
 
+alias r="ranger --confdir $CONF/ranger"
+alias nvim="nvim -u '$CONF/nvim/init.vim'"
+alias v="nvim"
+alias f="fuck"
 alias c="clear"
-alias chrweb="ssh meister@188.166.164.214"
+alias e="exit"
+
 alias cp="cp -iv"
 alias diff='colordiff'
-# alias e="emacs"
-alias e="exit"
-alias f="fuck"
-# alias h="history"
 alias howmessyami="ls -a ~ | wc -l"
-# alias md="mongod"
 alias mkdir="mkdir -pv"    # create parent dirs on demand
-alias o="open"
-# alias path="echo -e ${PATH//:/\\n}"
+alias chrweb="ssh meister@188.166.164.214"
 alias pdfl="pdflatex"
 alias pwd="pwd -P"
 alias pytube3="pytube3"
-alias r="ranger --confdir $CONF/ranger"
 alias sozsh="source $CONF/zsh/zshrc"
 alias spotify='spotify'
 alias ta="tierarzt"
 alias tierarzt="sudo python3 '$CONF/symlinks/ta/main.py'"
-alias nvim="nvim -u '$CONF/nvim/init.vim'"
-alias v="nvim"
 alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
 alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
+# alias e="emacs"
+# alias h="history"
+# alias md="mongod"
+# alias path="echo -e ${PATH//:/\\n}"
 
 # manjaro
 alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
@@ -36,6 +36,7 @@ alias py37="$HOME/Downloads/Python-3.7.7/python"
 # =============================================================================
 #                                                      homebrew package manager
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias o="open"
     alias bci="brew cask install"
     alias bi="brew install"
     alias bs="brew search"
