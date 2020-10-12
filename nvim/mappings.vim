@@ -42,6 +42,7 @@ map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
 map <Leader>cali :tabnew $CONF/zsh/aliasrc <CR>
 map <Leader>cxrc :tabnew $XINITRC <CR>
 map <Leader>czsh :tabnew $ZSHRC <CR>
+map <Leader>cxrc :tabnew $CONF/x/xinitrc <CR>
 
 " map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
 " map <Leader>cpl :tabnew ~/.pylintrc <CR>
@@ -77,8 +78,9 @@ xmap <Leader>g :Goyo<CR>
 " LimeLight
 autocmd! User GoyoEnter Limelight
 function MinimalistSetupDisable()
-    Limelight!
-    highlight clear SignColumn
+    " Limelight!
+    " highlight clear SignColumn
+    source $CONF/nvim/appearance.vim
 endfunction
 autocmd! User GoyoLeave call MinimalistSetupDisable()
 " nmap <Leader>l <Plug>(Limelight)
@@ -103,7 +105,7 @@ map <leader>y :CalendarH<CR>
 "                                                           reload current file
 " map <M-r> :e % <CR>
 "                         define shortcut to turn off search match highlighting
-nnoremap <leader><space><space> :nohlsearch<CR>
+nnoremap <leader>/ :nohlsearch<CR>
 "                                                             move lines around
 nnoremap <leader>k :m-2<cr>==
 xnoremap <leader>k :m-2<cr>gv=gv
