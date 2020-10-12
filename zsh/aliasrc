@@ -96,11 +96,13 @@ alias ...='cd ../..'
 #                                                           git version control
 alias g="git"
 alias gg='clear && git status'
-alias ga="git add"
+alias gl="git pull"
 alias gc="git commit"
 alias gp="git push"
-alias gl="git pull"
+alias ga="git add"
 alias grm="git rm"
+alias gch="git checkout"
+alias gbr="git branch"
 #                                                                         gotop 
 # -----------------------------------------------------------------------------
 alias gotop="gotop --color=monokai"

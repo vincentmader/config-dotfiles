@@ -1,6 +1,21 @@
 # Tags 
 # =============================================================================
 
+snippet !html_doc "Description" b
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$1</title>
+</head>
+<body>
+    $2
+</body>
+</html>
+endsnippet
+
 snippet body "body tag"
 <body>
     $1
@@ -18,13 +33,15 @@ endsnippet
 snippet document "template for new document"
 <!DOCTYPE html>
 
-<html>
-    <head>
-
-    </head>
-    <body>
-        $1
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$1</title>
+</head>
+<body>
+    $2
+</body>
 </html>
 endsnippet
 
@@ -90,13 +107,34 @@ snippet title "title"
 <title>$1</title>
 endsnippet
 
-
-
-
-
-
-
-
-snippet stylesheet "include external stylesheet"
+snippet link_css "include external stylesheet"
 <link rel="stylesheet" type="text/css" href="$1">
+endsnippet
+
+snippet stylesheet_css "include external stylesheet"
+<link rel="stylesheet" type="text/css" href="$1">
+endsnippet
+
+snippet table "table"
+<table>
+    $1	
+</table>
+endsnippet
+
+snippet tr "tr"
+<tr>
+    $1	
+</tr>
+endsnippet
+
+snippet th "th"
+<th>
+    $1	
+</th>
+endsnippet
+
+snippet td "td"
+<td>
+    $1	
+</td>
 endsnippet

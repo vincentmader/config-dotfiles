@@ -11,7 +11,7 @@ Setup:
         sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     * install zsh-syntax-highlighting
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-
+        -> move repo to $CONF/zsh/oh-my-zsh/plugins
 * tex
     * on manjaro
         * texlive-most
@@ -53,6 +53,6 @@ Setup:
     * task, tasksh, timew
     * ...
     * neomutt
-    * sl, cmatrix, cowsay, fortune, ytdl
+    * sl, cmatrix, cowsay, fortune, ytdl, colordiff
     * sxiv
     * colorpicker
