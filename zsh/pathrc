@@ -1,5 +1,8 @@
 #/usr/bin/sh
 
+# This file is being loaded by $CONF/zsh/zshrc 
+# as well as /etc/xdg/xfce4/xinitrc (on manjaro startup only)
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/meister"
 else
