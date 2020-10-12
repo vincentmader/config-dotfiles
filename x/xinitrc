@@ -8,7 +8,7 @@ xrandr --output eDP --mode 1920x1200
 # dwm statusbar loop (run in background)
 while true; do
   xsetroot -name "$(/home/vinc/.config/dwm/mypatches/dwm-bar/dwm_bar.sh)"
-  sleep 1  # update every second
+  sleep 0.5  # update every second
 done &
 
 
