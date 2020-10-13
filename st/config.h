@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "Hack Nerd Font:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 0;
+static int borderpx = 20;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -96,15 +96,14 @@ unsigned int tabspaces = 4;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#333333",
+	"#222222",
 	"red3",
 	"green3",
 	"yellow3",
 	"#0088FF",
 	"magenta3",
 	"cyan3",
-	"#FFFFFF",
-            /* "gray90", */
+	"#FFFFFF", /* "gray90", */
 
 	/* 8 bright colors */
 	"gray50",
@@ -143,11 +142,24 @@ static unsigned int defaultrcs = 257;
 static unsigned int cursorshape = 2;
 
 /*
+ * Whether to use pixel geometry or cell geometry
+ */
+
+static Geometry geometry = CellGeometry;
+
+/*
  * Default columns and rows numbers
  */
 
 static unsigned int cols = 80;
 static unsigned int rows = 24;
+
+/*
+ * Default width and height (including borders!)
+ */
+
+static unsigned int width = 564;
+static unsigned int height = 364;
 
 /*
  * Default colour and shape of the mouse cursor

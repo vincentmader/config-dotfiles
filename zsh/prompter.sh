@@ -34,9 +34,9 @@ function prompter() {
     # $prompt_tw_tracking
 
     export PS1="
- ╭────[$prompt_username|$prompt_location]─\
+╭────[$prompt_username|$prompt_location]─\
 ($prompt_overdue_count|$prompt_due_today_count|$prompt_in_count)\
 $prompt_venv$prompt_git_branch
- ╰─> "
+╰─> "
 }
 precmd() { eval prompter }

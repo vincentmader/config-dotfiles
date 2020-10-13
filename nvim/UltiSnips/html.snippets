@@ -22,6 +22,10 @@ snippet body "body tag"
 </body>
 endsnippet
 
+snippet canvas "cavas"
+<canvas id="$1"></canvas id="$1">
+endsnippet
+
 snippet cdn "CDN link"
 <script src="$1">
 endsnippet
@@ -59,6 +63,22 @@ snippet script "script tag"
 </script>
 endsnippet
 
+snippet script_source "script tag"
+<script src="$1"></script>
+endsnippet
+
+snippet span "span"
+<span>
+    $1
+</span>
+endsnippet
+
+snippet style "style"
+<style>
+    $1	
+</style>
+endsnippet
+
 snippet tag "html tag" b
 <${1:div}>
     
@@ -83,8 +103,8 @@ snippet divid "div tag with id argument"
 </div>
 endsnippet
 
-snippet canvas "canvas"
-<canvas id="$1" width=200 height=200></canvas>
+snippet title "title"
+<title>$1</title>
 endsnippet
 
 snippet link_css "include external stylesheet"
