@@ -7,10 +7,9 @@ xrandr --output eDP --mode 1920x1200
 
 # dwm statusbar loop (run in background)
 while true; do
-  xsetroot -name "$(/home/vinc/.config/dwm/mypatches/dwm-bar/dwm_bar.sh)"
+  xsetroot -name "$(/home/vinc/.config/dwm/patches/statusbar/statusbar.sh)"
   sleep 0.5  # update every second
 done &
-
 
 # set background to mars
 ~/.fehbg &
