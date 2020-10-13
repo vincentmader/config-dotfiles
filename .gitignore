@@ -47,6 +47,7 @@ xfce4
 zsh/.zcompdump*
 zsh/.zsh_history
 zsh/oh-my-zsh/plugins/
+zsh/oh-my-zsh/
 zsh/oh-my-zsh/plugins/*
 zsh/zcompdump
 zsh/zcompdump*

@@ -53,6 +53,6 @@ Setup:
     * task, tasksh, timew
     * ...
     * neomutt
-    * sl, cmatrix, cowsay, fortune, ytdl, colordiff
+    * sl, cmatrix, cowsay, fortune, ytdl, colordiff, rtv
     * sxiv
     * colorpicker
