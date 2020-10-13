@@ -25,6 +25,26 @@ c.content.cookies.store = True
 c.tabs.undo_stack_size = -1
 # disable video playback
 c.content.autoplay = False
+
+#                                                                SEARCH ENGINES
+# =============================================================================
+c.url.searchengines = {
+    # 'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'DEFAULT': 'https://google.com/search?q={}',
+    'aw': 'https://wiki.archlinux.org/?search={}',
+    'yt': 'https://youtube.com/results?search_query={}',
+    'tw': 'https://twitter.com/{}',
+    'r': 'https://reddit.com/r/{}',
+    '4': 'https://4chan.org/{}',
+    'w': 'https://en.wikipedia.org/?search={}',
+    'wt': 'https://en.wiktionary.org/?search={}',
+    'eb': 'https://ebay.com/sch/{}',
+    'ebk': 'https://ebay-kleinanzeigen.de/s-{}/k0',
+    'az': 'https://amazon.de/s?k={}',
+    # 'tpb': 'https://thepiratebay.org/search/{}',
+}
+
+
 #                                                                    COMPLETION
 # =============================================================================
 # minimum number of chars needed to update completion list (for :open cmd)
@@ -49,11 +69,6 @@ c.completion.web_history.max_items = -1
 c.completion.web_history.exclude = []
 # default page
 # c.url.default_page = 'https://mynoise.net/Data/OCEAN/fb.jpg'
-# search engine
-c.url.searchengines = {
-    # 'DEFAULT': 'https://duckduckgo.com/?q={}',
-    'DEFAULT': 'https://google.com/search?q={}',  # TODO: what must the URL be?
-}
 #                                                                      MAPPINGS
 # =============================================================================
 # aliases
@@ -71,9 +86,17 @@ c.bindings.commands['normal'] = {
 #                                                                        VISUAL
 # =============================================================================
 # position of tab bar
-c.tabs.position = 'bottom'
+c.tabs.position = 'top'
 # render all pages with dark mode
 # c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 # c.colors.webpage.darkmode.contrast = 0.0
 # c.colors.webpage.darkmode.grayscale.all = False
 # c.colors.webpage.darkmode.policy.images = 'never
+
+
+# c.content.user_stylesheets = [
+#     './themes/solarized-dark.css',
+#     './themes/custom_solarized.css'
+# ]
+
+c.fonts.hints = 'Hack Nerd Font'  # TODO: increase font size
