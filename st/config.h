@@ -76,9 +76,6 @@ static int bellvolume = 0;
 /* default TERM value */
 char *termname = "st-256color";
 
-/* alpha patch */
-/* float alpha = 0.5; */
-
 /*
  * spaces per tab
  *
@@ -106,8 +103,7 @@ static const char *colorname[] = {
 	"#0088FF",
 	"magenta3",
 	"cyan3",
-	"#FFFFFF",
-            /* "gray90", */
+	"#FFFFFF", /* "gray90", */
 
 	/* 8 bright colors */
 	"gray50",
@@ -146,11 +142,24 @@ static unsigned int defaultrcs = 257;
 static unsigned int cursorshape = 2;
 
 /*
+ * Whether to use pixel geometry or cell geometry
+ */
+
+static Geometry geometry = CellGeometry;
+
+/*
  * Default columns and rows numbers
  */
 
 static unsigned int cols = 80;
 static unsigned int rows = 24;
+
+/*
+ * Default width and height (including borders!)
+ */
+
+static unsigned int width = 564;
+static unsigned int height = 364;
 
 /*
  * Default colour and shape of the mouse cursor
