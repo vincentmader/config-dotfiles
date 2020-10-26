@@ -13,28 +13,36 @@
 
     * install zsh-syntax-highlighting
 
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
       -> move repo to $CONF/zsh/oh-my-zsh/plugins
 
 * tmux
     * install tmux
     * install tmux package manager via
-        git clone https://github.com/tmux-plugins/tpm $CONF/tmux/plugins/tpm
+
+            git clone https://github.com/tmux-plugins/tpm $CONF/tmux/plugins/tpm
+
     * install plugins with 
-        prefix + I
+
+            prefix + I
 
 * vim
     * install vimplug (this should be done automatically at vim startup) via
-        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+            curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
     * install all other plugins with
-        :PlugInstall 
+
+            :PlugInstall 
+
     * make vim bin scripts executable
     * install python requirements
     * install tasklib for taskwiki
-        * cd into plugged/taskwiki
-        * pip3 install -r requirements
+
+            cd ./nvim/plugged/taskwiki
+            pip3 install -r requirements
 
 * x server
     * xinitrc
