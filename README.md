@@ -13,12 +13,13 @@
 
     * install zsh-syntax-highlighting
 
-            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-
-      -> move repo to $CONF/zsh/oh-my-zsh/plugins
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
 
 * tmux
     * install tmux
+    
+            yay -S tmux 
+    
     * install tmux package manager via
 
             git clone https://github.com/tmux-plugins/tpm $CONF/tmux/plugins/tpm
@@ -38,19 +39,28 @@
             :PlugInstall 
 
     * make vim bin scripts executable
+    
+            chmod +x ./nvim/bin/*
+        
     * install python requirements
+    
+            pip3 install ./nvim/requirements.txt 
+        
     * install tasklib for taskwiki
 
             cd ./nvim/plugged/taskwiki
             pip3 install -r requirements
 
 * x server
-    * xinitrc
-    * install xcompmgr
-    * source xinitrc from /etc/xdg/xfce4/xinitrc
+    * on manjaro
+        * source ./x/xinitrc from /etc/xdg/xfce4/xinitrc
+    * if not yet installed: install xcompmgr
 
 * dwm 
     * download & compile from source
+    
+            git clone https://git.suckless.org/dwm
+    
     * install patches
         * bar-height
         * bottomstack
@@ -61,6 +71,9 @@
 
 * st 
     * download & compile from source
+
+            git clone https://git.suckless.org/st
+
     * install patches
         * alpha
         * anygeometry
@@ -74,11 +87,10 @@
 
 * tex
     * on manjaro
-        * texlive-most
-        * latex-mk
+        * install texlive-most
     * on mac
-        * macTex
-        * latex-mk
+        * install macTex
+    * install latex-mk (for vimtex)
 
 * other packages (e.g. from AUR, npm, pip or homebrew)
     * AUR
@@ -94,7 +106,9 @@
         * ncdu, tldr
         * sl, cmatrix, cowsay, fortune
     * npm
-        * weather-cli, emoji-finder, nasa-cli, cli-fireplace, carbon-now-cli
+        * weather-cli, nasa-cli
+        * cli-fireplace, carbon-now-cli
+        * emoji-finder
     * pip3
         * ricksay, YuleLog
     * various / as of yet uncategorized
