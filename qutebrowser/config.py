@@ -6,6 +6,8 @@
 # config inspirations:
 #     * ii.com/qutebrowser-configpy
 
+# c.content.user_stylesheets = 'solarized.css'
+
 #                                                                       GENERAL
 # =============================================================================
 # always restore last session
@@ -32,6 +34,7 @@ c.url.searchengines = {
     # 'DEFAULT': 'https://duckduckgo.com/?q={}',
     'DEFAULT': 'https://google.com/search?q={}',
     'aw': 'https://wiki.archlinux.org/?search={}',
+    'gh': 'https://github.com/search?q={}',
     'yt': 'https://youtube.com/results?search_query={}',
     'tw': 'https://twitter.com/{}',
     'r': 'https://reddit.com/r/{}',
@@ -40,6 +43,7 @@ c.url.searchengines = {
     'wt': 'https://en.wiktionary.org/?search={}',
     'eb': 'https://ebay.com/sch/{}',
     'ebk': 'https://ebay-kleinanzeigen.de/s-{}/k0',
+    'ud': 'https://urbandictionary.com/define.php?term={}',
     'az': 'https://amazon.de/s?k={}',
     # 'tpb': 'https://thepiratebay.org/search/{}',
 }
