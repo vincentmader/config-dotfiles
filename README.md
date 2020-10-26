@@ -8,10 +8,14 @@
             yay -S zsh
 
     * install oh-my-zsh 
-        sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+            sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
     * install zsh-syntax-highlighting
+
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-        -> move repo to $CONF/zsh/oh-my-zsh/plugins
+
+      -> move repo to $CONF/zsh/oh-my-zsh/plugins
 
 * tmux
     * install tmux
