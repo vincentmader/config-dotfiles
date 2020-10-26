@@ -27,7 +27,19 @@ static const int user_bh = 40;                  /* height of status bar */
 
 /* tagging */
 static const char *tags[] = { 
-    "", "", "", "", "", "", "", "", "" 
+    /* "", "", "", "", "", "", "", "", "" */ 
+    "", 
+    /* "", */ 
+    "",
+    "", 
+    "",
+    "",
+    "", 
+    "",
+    "", 
+    "", 
+    /* "", */ 
+    /* "" */ 
 };
 
 static const Rule rules[] = {
