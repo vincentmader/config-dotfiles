@@ -3,17 +3,12 @@
 "                                   KEY REMAPS
 " =============================================================================
 
-"                                                                   LEADER KEYS
-" -----------------------------------------------------------------------------
-let mapleader="\<space>"
-let maplocalleader ="\<tab>"
-
 "                                                                  EDITOR MODES
 " -----------------------------------------------------------------------------
 "                                                quick-exit insert mode with jk 
 inoremap jk <Esc>
 "                                                                quick-exit vim
-map zz :wq<CR>
+map zz :wq!<CR>
 
 "                                                                    NAVIGATION
 " -----------------------------------------------------------------------------
@@ -76,13 +71,14 @@ nmap <Leader>g :Goyo<CR>
 xmap <Leader>g :Goyo<CR>
 
 " LimeLight
-autocmd! User GoyoEnter Limelight
+" autocmd! User GoyoEnter Limelight
 function MinimalistSetupDisable()
-    " Limelight!
-    " highlight clear SignColumn
+    Limelight!
+    highlight clear SignColumn
     source $CONF/nvim/appearance.vim
 endfunction
 autocmd! User GoyoLeave call MinimalistSetupDisable()
+nmap <Leader>l :Limelight!!<CR>
 " nmap <Leader>l <Plug>(Limelight)
 " xmap <Leader>l <Plug>(Limelight)
 " let g:limelight_bop = '^\s'
@@ -97,7 +93,7 @@ map <Leader>vp :Git push<CR>
 "                                                         TASKWARRIOR & VIMWIKI
 " -----------------------------------------------------------------------------
 " nnoremap <leader>t :tabnew <bar> :TW<CR>
-map <leader>x :ChecklistToggleCheckbox<CR>
+" map <leader>x :ChecklistToggleCheckbox<CR>
 map <leader>y :CalendarH<CR>
 "                                                                       VARIOUS
 "
@@ -125,7 +121,7 @@ map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
 
 " map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 ranger <CR>
 map <leader>or :Ranger<CR>
-map <leader>ot :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center <CR>
+map <leader>ot :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center<CR>
 "                                                               run python code
 "map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 python3 % <CR>
 "                create newline below current line without entering insert mode

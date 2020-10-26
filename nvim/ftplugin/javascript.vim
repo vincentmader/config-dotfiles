@@ -1,4 +1,4 @@
-ALEDisable
+" ALEDisable
 
 let g:indentLine_char = '▏'
 

@@ -8,6 +8,12 @@ set autoread  " automatically reload files from disk on change
 set encoding=utf-8
 set hidden  " buffers can exist in background, common behavior for editors
 
+"                                restore last cursor position and marks on open
+au BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+
 "                                              copy & paste to system clipboard
 " =============================================================================
 if has('clipboard')
@@ -27,7 +33,8 @@ set expandtab
 set autoindent
 
 
-
+" better macro performance
+set lazyredraw  
 
 
 
@@ -85,7 +92,3 @@ command! FixWhitespace :%s/\s\+$//e
 " calendar
 " let g:calendar_frame = 'default'
 "
-let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki'}]
-let g:taskwiki_taskrc_location = '$TASKRC'
-let g:taskwiki_data_location = '~/Public/Dropbox/taskwarrior'
-let taskwiki_data_location = '~/Public/Dropbox/taskwarrior'

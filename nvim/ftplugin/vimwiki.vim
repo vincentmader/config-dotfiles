@@ -10,8 +10,12 @@
 "
 " let g:vimwiki_listsyms = '✗○◐●✓'
 
-" Goyo
-" set nocursorline
-
 autocmd! User GoyoEnter Limelight!
+set scrolloff=0
 
+" autocmd BufEnter Goyo
+" set nocursorline
+" autocmd BufEnter :Goyo <CR>
+" Goyo
+
+nmap <leader><space> :

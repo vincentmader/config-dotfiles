@@ -1,4 +1,8 @@
-ALEDisable
+" ALEDisable
+
+nmap <leader>r :CocCommand python.execInTerminal<CR>
+
+
 
 let g:indentLine_char = '▏'
 

@@ -8,28 +8,50 @@ syntax on
 
 "                                                                    EDITOR {{{
 " =============================================================================
-"
-" set cursorline
-set number relativenumber
-set showcmd
-
 "                                                                   colorscheme
-colorscheme solarized
-" colorscheme codedark
-" colorscheme gruvbox
+colorscheme solarized  " gruvbox, codedark, solarized
 let g:solarized_termcolors=256
+"                                                                    background
 set background=dark
-                                                  " make background transparent
-highlight Normal guibg=None ctermbg=None
+highlight Normal guibg=None ctermbg=None  " transparent
+
+"                         show on which line I am by highlighting the whole row
+" set cursorline
+"                                                                  show command
+" set showcmd
+"                                                          display line numbers
+set number relativenumber
+" highlight clear LineNr 
+
+"                                                 make folds less awful-looking
+highlight clear Folded
 
 "                                         always display column where errors go
 set signcolumn=yes
 highlight clear SignColumn
 
 "                                     display column to signify the 81st column
-set textwidth=80
-set colorcolumn=+1
-highlight ColorColumn ctermbg=235
+" set textwidth=80
+" set colorcolumn=+1
+" highlight ColorColumn ctermbg=235
+"                                         new idea: color text red after col 80
+" au BufEnter *.wiki let b:is_wiki_file=1
+" au BufEnter *.vimwiki let b:is_wiki_file=1
+" if !exists("b:is_wiki_file")
+"     " echo exists("b:is_wiki_file")
+"     " echo b:is_wiki_file
+"     autocmd BufEnter * match Error /\%>80c/
+" endif
+
+" deactivate tildes on the left side of the screen
+highlight EndOfBuffer ctermfg=black ctermbg=black
+
+" deactivate welcome text by setting its color to background
+" autocmd BufEnter * :highlight NonText guifg=bg<CR>
+
+"                     always have at least 5 lines above/below cursor on screen
+set scrolloff=12
+
 
 " }}}
 "                                                       SYNTAX HIGHLIGHTING {{{
@@ -63,10 +85,12 @@ let g:task_readonly=0
 " endif
 
 " " Custom conceal
-" syntax match todoCheckbox "\[\ \]" conceal cchar=
-" syntax match todoCheckbox "\[x\]" conceal cchar=
-" syntax match todoCheckbox "- \[\ \]" conceal cchar=
-" syntax match todoCheckbox "- \[x\]" conceal cchar=
+syntax match todoCheckbox "\[\ \]" conceal cchar=
+syntax match todoCheckbox "\[X\]" conceal cchar=
+syntax match todoCheckbox "- \[\ \]" conceal cchar=
+syntax match todoCheckbox "- \[X\]" conceal cchar=
+syntax match todoCheckbox "* \[\ \]" conceal cchar=
+syntax match todoCheckbox "* \[X\]" conceal cchar=
 
 " let b:current_syntax = "todo"
 

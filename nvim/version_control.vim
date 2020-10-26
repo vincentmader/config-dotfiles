@@ -9,6 +9,7 @@
 set noswapfile
 set nobackup
 set nowritebackup
+
 "                                                                      vim undo
 " -----------------------------------------------------------------------------
 " undo history across sessions, by storing in file. only works all the time.
@@ -17,6 +18,7 @@ if has('persistent_undo')
     set undodir=$HOME/.config/nvim/backups
     set undofile
 endif
+
 "                                                                           git
 " -----------------------------------------------------------------------------
 " TODO: setup

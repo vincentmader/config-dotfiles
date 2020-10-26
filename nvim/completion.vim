@@ -3,51 +3,6 @@
 "                                AUTO COMPLETION
 " =============================================================================
 
-"                                                   conqueror of completion {{{
-" =============================================================================
-set updatetime=300
-" select first list item by default, confirm with return
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-" navigate list with tab and shift-tab
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" confirm completion with return
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" jump to prev/next diagnostic position (does not work)
-" inoremap <leader>n :call CocAction("diagnosticNext")<CR>
-
-    " \ 'coc-pairs',
-    " \ 'coc-tsserver',
-    " \ 'coc-eslint',
-    " \ 'coc-jedi',
-let g:coc_global_extensions = [
-    \ 'coc-css',
-    \ 'coc-html',
-    \ 'coc-python',
-    \ 'coc-prettier',
-    \ 'coc-snippets',
-    \ 'coc-json',
-\ ]
-
-" Use <Tab> and <S-Tab> to navigate the completion list:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" Use <CR> to confirm completion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-" Close the preview window when completion is done. (TODO: necessary?)
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-"" Use `[g` and `]g` to navigate diagnostics
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-"
-"" Use K to show documentation in preview window.
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" python
-" set statusline^=%{coc#status()}
-"
-" }}}
 "                                                                 ultisnips {{{
 " =============================================================================
 "

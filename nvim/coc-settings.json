@@ -1,6 +1,5 @@
 {
     "suggest.snippetIndicator": " ►",
-    "editor.snippetSuggestions": "top",
     // Run prettier (and others)
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
@@ -11,5 +10,7 @@
         "python",
         "typescript",
         "typescriptreact"
-    ]
+    ], "eslint.options": {
+        "configFile": "/home/vinc/.config/eslint/eslintrc"
+    }
 }

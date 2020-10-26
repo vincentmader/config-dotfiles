@@ -4,6 +4,34 @@ snippet import "import"
 import $1
 endsnippet
 
+snippet import_bokeh "import bokeh"
+import bokeh
+endsnippet
+
+snippet import_bokeh_embed_components "import bokeh_embed_components"
+from bokeh.embed import components
+endsnippet
+
+snippet import_bokeh_plotting_figure "import bokeh_plotting_figure"
+from bokeh.plotting import figure
+endsnippet
+
+snippet import_bokeh_models_Square "import bokeh_models_square"
+from bokeh.models import Square
+endsnippet
+
+snippet import_bokeh_models_Line "import bokeh_models_line"
+from bokeh.models import Line
+endsnippet
+
+snippet import_bokeh_models_Circle "import bokeh_models_circle"
+from bokeh.models import Circle
+endsnippet
+
+snippet import_bokeh_models_ColumnDataSource "import bokeh_models_ColumnDataSource"
+from bokeh.models import ColumnDataSource
+endsnippet
+
 snippet import_datetime "from datetime import datetime as dt"
 from datetime import datetime as dt
 endsnippet
@@ -206,6 +234,14 @@ snippet yticks ""
 plt.yticks($1)
 endsnippet
 
+# error handling
+snippet tryexcept "try ... except"
+try:
+    $1
+except Exception:
+    pass
+endsnippet
+
 # debugging
 
 snippet hw
@@ -217,4 +253,8 @@ endsnippet
 snippet bang "hashbang & encoding"
 #!/usr/local/bin/python3
 # -*- coding: utf8 -*-
+endsnippet
+
+snippet print "print()"
+print($1)
 endsnippet

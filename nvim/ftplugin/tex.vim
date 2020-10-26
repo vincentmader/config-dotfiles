@@ -1,4 +1,4 @@
-ALEDisable
+" ALEDisable
 
 " deletes aux tex files (build files) when closing editor
 augroup vimtex_config
