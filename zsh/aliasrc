@@ -29,9 +29,6 @@ alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
 # alias md="mongod"
 # alias path="echo -e ${PATH//:/\\n}"
 
-# manjaro
-alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
-alias py37="$HOME/Downloads/Python-3.7.7/python"
 
 # =============================================================================
 #                                                      homebrew package manager
@@ -43,6 +40,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias bt="brew tap"
     alias bu="brew uninstall"
     alias buu="brew update && brew upgrade"
+else                                                              # linux stuff
+    alias dwmr="sudo killall dwm && dwm"
+    alias dwms="sudo killall xfwm4 && dwm"
+    alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
+
+    alias smi="sudo make install"
+    alias smidwmr="cd $CONF/dwm && sudo make install && killall dwm && dwm"
+    alias smist="cd $CONF/st && sudo make install"
 fi
 # -----------------------------------------------------------------------------
 #                                                              change directory
@@ -79,7 +84,7 @@ alias ...='cd ../..'
 # }
 # -----------------------------------------------------------------------------
 #                                                                    fuzzy find 
-# alias f="fzf"
+alias fzf="fzf --preview='head -$LINES {}'"
 # alias fe="fzf --exact"
 # alias fv="v $(fzf --height 40%)"
 # alias fo="open $(fzf)"
@@ -113,9 +118,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 # -----------------------------------------------------------------------------
-#                                                                       jupyter
-alias jn="jupyter notebook"
-# -----------------------------------------------------------------------------
 #                                                                            ls
 alias ls='clear && lsd'
 alias lsa='ls -a'
@@ -137,14 +139,17 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # -----------------------------------------------------------------------------
 #                                                                        python
 alias pip="pip3"
+alias pipi="pip install"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias py2="python"
 fi
 alias py3="python3"
 alias py="python3"
+alias jn="jupyter notebook"
+alias sov="source venv/bin/activate"
 # -----------------------------------------------------------------------------
 #                                                                            rm
-alias del="rmtrash"
+alias del="rmtrash -r"
 alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
 # -----------------------------------------------------------------------------
 #                                                                     spotlight
@@ -184,9 +189,9 @@ alias tick=tickle
 #                                  add item to inbox that I need to think about 
 alias think='tickle +1d'  
 #                                                                   timewarrior
-alias tw='clear && timew'
-alias twd='tw day'
-alias tww='tw week'
+# alias tw='clear && timew'
+# alias twd='tw day'
+alias tww='clear && timew week'
 
 # =============================================================================
 #                                                               other fun stuff
@@ -205,7 +210,8 @@ function gif2vid {
 #     local server="$1"
 #     java -Xmx1024M -Xms1024M -jar $server nogui
 # }
-# alias speedtest="speedtest-cli"
+
+alias speedtest="speedtest-cli"
 
 # alias esl="./node_modules/.bin/eslint"
 # alias mount="mount |column -t"  # mount in human readable format
@@ -222,7 +228,7 @@ function gif2vid {
 # alias ccust="python3 ~/Documents/chronos-web/flask_backend/py/custom.py"
 # alias cmain="python3 ~/Documents/chronos-web/flask_backend/py/main.py"
 
-# alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
+alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
 
 # npm config set ignore-scripts true
 
@@ -231,16 +237,9 @@ function gif2vid {
 
 alias diskutil="clear && diskutil"
 alias npxcra="npx create-react-app"
-alias soenv="source env/bin/activate"
-
-# manjaro-specific
-if [[ "$OSTYPE" != "darwin"* ]]; then
-    alias dwmr="sudo killall dwm && dwm"
-    alias dwms="sudo killall xfwm4 && dwm"
-fi
-
-alias smi="sudo make install"
-alias smidwmr="cd $CONF/dwm && sudo make install && killall dwm && dwm"
-alias smist="cd $CONF/st && sudo make install"
-
 alias vol="amixer set Master"
+alias du="ncdu"
+alias map="telnet mapscii.me"
+alias starwars="telnet towel.blinkenlights.nl"
+alias zzz="sleep 1; xset dpms force off"
+alias yay="yay --mflags --skipinteg"

@@ -13,29 +13,31 @@ export EDITOR="$VISUAL"
 # 					           	      config variables
 # ============================================================================+
 # export ST_FONT="Hack Nerd Font:size=14"
+# export FZF_DEFAULT_COMMAND='rg --files'
 # 					           	     locale / encoding
 # =============================================================================
 export LC_ALL=en_US.UTF-8
+
 # 						     plugin manager: oh-my-zsh
 # =============================================================================
-plugins=(
-    # colored-man-pages
-    # copyfile			# use to copy file to clipboard
-    # copydir				# use to copy pwd to clipboard
-    # emoji-clock			# use to display time (30min accuracy)
-    # fzf                             # enables fuzzy auto-completion 
-    # git
-    # npm
-    # osx
-    # pip
-    # python
-    sudo                            # press esc twice to sudo repeat cmd
-    taskwarrior                     # auto completion for taskwarrior
-    # wd                            # warp directory
-    # zsh-autosuggestions
-    zsh-syntax-highlighting
-)
-source $ZSH/oh-my-zsh.sh
+# plugins=(
+#     # colored-man-pages
+#     # copyfile			# use to copy file to clipboard
+#     # copydir				# use to copy pwd to clipboard
+#     # emoji-clock			# use to display time (30min accuracy)
+#     # fzf                             # enables fuzzy auto-completion 
+#     # git
+#     # npm
+#     # osx
+#     # pip
+#     # python
+#     sudo                            # press esc twice to sudo repeat cmd
+#     taskwarrior                     # auto completion for taskwarrior
+#     # wd                            # warp directory
+#     # zsh-autosuggestions
+#     zsh-syntax-highlighting
+# )
+# source $ZSH/oh-my-zsh.sh
 #								        prompt
 # =============================================================================
 autoload -U colors && colors
@@ -135,8 +137,8 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 
 # # add color to grep
 # alias grep='grep --color'
-# # add color to man (I have as of yet only changed those with 38;5 at
-# # the start, those are from the color set of size 256)
+# add color to man (I have as of yet only changed those with 38;5 at
+# the start, those are from the color set of size 256)
 # export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
 # export LESS_TERMCAP_md=$(printf '\e[38;5;33m') # enter double-bright mode – bold, magenta
 # export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
@@ -146,6 +148,15 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 # export LESS_TERMCAP_us=$(printf '\e[38;5;118m') # enter underline mode – cyan
 
 
+
+#determines search program for fzf
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+fi
+#refer rg over ag
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+fi
 
 # fuzzy finder source
   # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -237,6 +248,5 @@ source "$CONF/zsh/aliasrc"
 # tell tmux to source from config
 # tmux source "$CONF/tmux/tmux.conf"
 # check if tmux is running, if not: start it
-[ -z "${TMUX}" ] && tmux 
-# if [ "$TMUX" = "" ]; then tmux; fi
-
+[ -z "${TMUX}" ] && tmux
+# if [ "$TMUX" = "" ]; then tmux; fi 

@@ -24,19 +24,18 @@ function prompter() {
     }
     set_prompt_venv
     set_prompt_git
-    prompt_username="%{$fg[green]%}%n%{$reset_color%}"
-    prompt_computername="%{$fg[red]%}hal9000%{$reset_color%}"
-    prompt_location="%{$fg[blue]%}%1~%{$reset_color%}"
-    prompt_in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}"
-    prompt_due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
-    prompt_overdue_count="${fg[red]%}$(task +OVERDUE count)%{$reset_color%}"
+    username="%{$fg[green]%}%n%{$reset_color%}"
+    computername="%{$fg[red]%}hal9000%{$reset_color%}"
+    location="%{$fg[blue]%}%1~%{$reset_color%}"
+    in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}"
+    due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
+    overdue_count="${fg[red]%}$(task +OVERDUE count)%{$reset_color%}"
     # prompt_tw_tracking='──(${fg[green]%}tracking%{$reset_color%})'
     # $prompt_tw_tracking
 
     export PS1="
-╭────[$prompt_username|$prompt_location]─\
-($prompt_overdue_count|$prompt_due_today_count|$prompt_in_count)\
-$prompt_venv$prompt_git_branch
+╭────[$username|$location]─\
+($overdue_count|$due_today_count|$in_count)$venv$git_branch
 ╰─> "
 }
 precmd() { eval prompter }
