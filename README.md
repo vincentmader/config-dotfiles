@@ -5,7 +5,7 @@
 * zsh
     * install zsh
 
-        yay -S zsh
+            yay -S zsh
 
     * install oh-my-zsh 
         sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
