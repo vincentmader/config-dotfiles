@@ -55,6 +55,9 @@
     * on manjaro
         * source ./x/xinitrc from /etc/xdg/xfce4/xinitrc
     * if not yet installed: install xcompmgr
+    * create symlink from home dir into config repo
+    
+            ln -s $CONF/x/
 
 * dwm 
     * download & compile from source
@@ -105,6 +108,7 @@
         * colorpicker
         * ncdu, tldr
         * sl, cmatrix, cowsay, fortune
+        * xclip, xsel ? x... ?
     * npm
         * weather-cli, nasa-cli
         * cli-fireplace, carbon-now-cli

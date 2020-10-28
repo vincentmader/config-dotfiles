@@ -8,7 +8,7 @@ xrandr --output eDP --mode 1920x1200
 # dwm statusbar loop (run in background)
 while true; do
   xsetroot -name "$(/home/vinc/.config/dwm/patches/statusbar/statusbar.sh)"
-  sleep 0.5  # update every second
+  sleep 0.5
 done &
 
 # set background to mars
@@ -17,6 +17,11 @@ done &
 
 # increase max key press frequency
 xset r rate 250 50
+
+# exec ./scripts/decrease_speaker_volume.py
+# exec ./scripts/increase_speaker_volume.py
+# exec ./scripts/decrease_sound_volume.py
+# exec ./scripts/increase_sound_volume.py
 
 # execute dwm on startup
 # -----------------------------------------------------------------------------
