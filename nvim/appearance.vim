@@ -31,9 +31,9 @@ set signcolumn=yes
 highlight clear SignColumn
 
 "                                     display column to signify the 81st column
-" set textwidth=80
-" set colorcolumn=+1
-" highlight ColorColumn ctermbg=235
+set textwidth=80
+set colorcolumn=+1
+highlight ColorColumn ctermbg=235
 "                                         new idea: color text red after col 80
 " au BufEnter *.wiki let b:is_wiki_file=1
 " au BufEnter *.vimwiki let b:is_wiki_file=1

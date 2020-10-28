@@ -11,14 +11,14 @@ let g:coc_global_extensions = [
     \ 'coc-eslint',
     \ 'coc-fzf-preview',
     \ 'coc-html',
-    \ 'coc-java',
     \ 'coc-jedi',
     \ 'coc-json',
     \ 'coc-pairs',
-    \ 'coc-python',
     \ 'coc-prettier',
+    \ 'coc-python',
     \ 'coc-snippets',
     \ 'coc-tsserver',
+    \ 'coc-vimtex',
 \ ]
 
 "                                                               code completion 

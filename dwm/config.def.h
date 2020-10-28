@@ -5,7 +5,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 20;       /* gaps between windows */
+static const unsigned int gappx     = 25;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const char *fonts[]          = { "Font Awesome:size=18" };
 static const char dmenufont[]       = "monospace:size=10";
@@ -14,10 +14,11 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_green[]       = "#006600";
+static const char col_white[]       = "#666666";
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
-    [SchemeSel]  = { col_green, col_gray1, col_green },
+    [SchemeSel]  = { col_green, col_gray1, col_white },
 };
 
 /* status bar */
@@ -53,7 +54,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -67,12 +68,12 @@ static const Layout layouts[] = {
 	/* { "===",      bstackhoriz },  /1* alt-o *1/ */
   	/* { "[@]",      spiral },       /1* alt-r *1/ */
   	/* { "[\\]",     dwindle },      /1* alt-shift-r *1/ */
+  	{ "",      spiral },       /* alt-r */
 	{ "",      tile },         /* first entry is default */
 	{ "",      NULL },         /* no layout function means floating behavior */
 	{ "",      monocle },
 	{ "",      bstack },       /* alt-u */
 	{ "",      bstackhoriz },  /* alt-o */
-  	{ "",      spiral },       /* alt-r */
   	{ "",      dwindle },      /* alt-shift-r */
 };
 
@@ -124,12 +125,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
- 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[5]} },
+ 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[5]} },
  	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },

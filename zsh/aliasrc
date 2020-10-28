@@ -237,7 +237,6 @@ alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
 
 alias diskutil="clear && diskutil"
 alias npxcra="npx create-react-app"
-alias vol="amixer set Master"
 alias du="ncdu"
 alias map="telnet mapscii.me"
 alias starwars="telnet towel.blinkenlights.nl"
