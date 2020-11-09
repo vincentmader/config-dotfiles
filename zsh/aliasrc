@@ -11,18 +11,18 @@ alias c="clear"
 alias e="exit"
 
 alias cp="cp -iv"
-alias diff='colordiff'
-alias howmessyami="ls -a ~ | wc -l"
 alias mkdir="mkdir -pv"    # create parent dirs on demand
-alias chrweb="ssh meister@188.166.164.214"
-alias pdfl="pdflatex"
 alias pwd="pwd -P"
+alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
+
+alias diff='colordiff'
+alias chrweb="ssh meister@188.166.164.214"
 alias pytube3="pytube3"
 alias sozsh="source $CONF/zsh/zshrc"
 alias spotify='spotify'
+alias pdfl="pdflatex"
 alias ta="tierarzt"
 alias tierarzt="sudo python3 '$CONF/symlinks/ta/main.py'"
-alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
 alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
 # alias e="emacs"
 # alias h="history"
@@ -161,7 +161,7 @@ fi
 alias t="clear && task"
 alias tn="t next limit:29"
 alias ts="t short"
-tp () {t project:$1}
+# tp () {t project:$1}
 alias tt="t +ACTIVE or +OVERDUE or due:today or scheduled:today"
 # alias tw="t due:today"
 alias tbd="t burndown.daily"
@@ -236,9 +236,12 @@ alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
 # alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
 alias diskutil="clear && diskutil"
+alias fdisk="clear && fdisk"
+
 alias npxcra="npx create-react-app"
 alias du="ncdu"
 alias map="telnet mapscii.me"
 alias starwars="telnet towel.blinkenlights.nl"
 alias zzz="sleep 1; xset dpms force off"
 alias yay="yay --mflags --skipinteg"
+alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"

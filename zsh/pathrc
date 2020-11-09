@@ -10,8 +10,9 @@ else
     export XINITRC="/etc/xdg/xfce4/xinitrc"
 fi
 
-export CONF="$HOME/.config"
 export CDPATH="$CONF/symlinks"
+export CONF="$HOME/.config"
+export DOCS="$HOME/Documents"
 
 export DROPBOX="$HOME/Public/Dropbox"
 export WIKI="$DROPBOX/vimwiki"
