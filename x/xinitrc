@@ -18,7 +18,7 @@ done &
 xset r rate 250 50
 
 # bind e.g. function keys
-xbindkeys
+xbindkeys -f "$CONF/x/xbindkeysrc"
 
 # execute dwm on startup
 # -----------------------------------------------------------------------------
