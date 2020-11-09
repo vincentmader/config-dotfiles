@@ -25,12 +25,14 @@ nvim/node_modules
 nvim/plugged
 nvim/yarn.lock
 pamac
+pipewire-media-session
 plugged
 pulse
 qpdfview
 qutebrowser/autoconfig.yml
 qt5ct
 ranger/*.pyo
+spotify
 st
 symlinks
 symlinks/*

@@ -1,6 +1,56 @@
 # dotfiles
 
-### Setup:
+%% ## Preparations
+
+%%     * create a new disk partition
+%%     * prepare a bootable Arch installation medium
+%%     * boot into that medium
+
+%% ## install Arch essentials
+
+%%     * verify boot mode
+    
+%%             ls /sys/firmware/efi/efivars
+
+%%     * connect to the internet
+    
+%%             iwctl
+            
+%%             [iwd]# station wlan0 get-networks
+%%             [iwd]# station wlan0 connect <network-name>
+    
+%%             ping google.com
+
+%%     * update pacman's AUR keyring & mirrors; then run system upgrade
+    
+%%             sudo pacman -Sy archlinux-keyring
+%%             sudo pacman -Sy
+%%             sudo pacman -Syu
+
+%%     * Partition the disks & create the following two partitions: a small 
+%%       (~200M) "Linux swap" partition and a big "Linux root (x86-64)" partition. 
+    
+%%             sudo cfdisk
+
+%%     * format the partitions
+        
+%%             mkfs.ext4 /dev/<root_partition>
+%%             mkswap /dev/<swap_partition>
+    
+%%     * mount the file systems
+        
+%%             mount /dev/<root_partition>
+%%             swapon /dev/<swap_partition>
+
+    
+%%     * pacstrap
+%%     * create users
+%%     * follow Arch wiki installation guide
+
+%% ## setup dev env inside Arch
+
+
+
 
 * zsh
     * install zsh
@@ -103,12 +153,16 @@
         * ripgrep (rg), needed for fzf-preview
         * top/gtop
         * neomutt
-        * ytdl, rtv
+        * rtv
         * colordiff
         * colorpicker
         * ncdu, tldr
         * sl, cmatrix, cowsay, fortune
+        * figlet, toilet
         * xclip, xsel ? x... ?
+        * xbindkeys
+	* alsa-utils
+        * wget
     * npm
         * weather-cli, nasa-cli
         * cli-fireplace, carbon-now-cli
@@ -123,3 +177,4 @@
         * pass (pw manager)
         * sxiv
         * bpython, mycli
+        * ytdl
