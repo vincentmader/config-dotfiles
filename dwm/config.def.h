@@ -7,7 +7,7 @@
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 25;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const char *fonts[]          = { "Font Awesome:size=18" };
+static const char *fonts[]          = { "Font Awesome:size=32" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 /* status bar */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const int user_bh = 40;                  /* height of status bar */
+static const int user_bh = 60;                  /* height of status bar */
 
 /* tagging */
 static const char *tags[] = { 

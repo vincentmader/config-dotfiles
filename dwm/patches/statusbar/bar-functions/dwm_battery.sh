@@ -10,7 +10,7 @@ dwm_battery () {
     STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
     if [ $STATUS = "Charging" ]; then
-        CHARGE_ICON="⭍"
+        CHARGE_ICON="↯"
     else
         CHARGE_ICON=""
     fi
