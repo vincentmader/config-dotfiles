@@ -1,0 +1,5 @@
+source /home/vinc/.config/zsh/pathrc
+source /home/vinc/.config/zsh/aliasrc
+
+
+# exec startx
