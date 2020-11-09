@@ -103,4 +103,11 @@ c.tabs.position = 'top'
 #     './themes/custom_solarized.css'
 # ]
 
-c.fonts.hints = 'Hack Nerd Font'  # TODO: increase font size
+c.fonts.hints = '20pt Hack Nerd Font'  # TODO: increase font size
+c.fonts.default_size = '20pt'
+c.fonts.completion.entry = '18pt Hack Nerd Font'  # TODO: increase font size
+
+c.zoom.default = '200%'
+c.colors.statusbar.url.success.https.fg = 'white'
+
+c.fonts.default_family = 'Hack Nerd Font'
