@@ -18,7 +18,7 @@ call plug#begin('$CONF/nvim/plugged')
     " auto completion engine
     Plug 'neoclide/coc.nvim', {'branch': 'release'}   
     "  snippet engine
-    " Plug 'SirVer/ultisnips' 
+    Plug 'SirVer/ultisnips' 
     " Plug 'honza/vim-snippets'
     " all words on screen are available in autocompletion
 "    Plug 'wellle/tmux-complete.vim'

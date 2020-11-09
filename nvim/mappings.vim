@@ -136,3 +136,5 @@ map <leader>nt :NERDTreeTabsToggle<CR>
 
 map <leader>ml :set bg=light<CR>
 map <leader>md :set bg=dark<CR>
+
+map <leader>u :UndotreeToggle<CR>

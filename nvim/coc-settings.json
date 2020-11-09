@@ -11,5 +11,8 @@
         "typescriptreact"
     ], "eslint.options": {
         "configFile": "/home/vinc/.config/eslint/eslintrc"
-    }
+    },
+  "python.linting.pylintEnabled": false,
+  "python.linting.pep8Enabled": true,
+  "python.linting.enabled": true
 }
