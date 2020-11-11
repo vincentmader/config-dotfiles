@@ -15,13 +15,13 @@ export CONF="$HOME/.config"
 export DOCS="$HOME/Documents"
 
 export DROPBOX="$HOME/Public/Dropbox"
-export WIKI="$DROPBOX/vimwiki"
+export WIKI="~/"
 
 export NVIMRC="$CONF/nvim/init.vim"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
 
 export TASKRC="$CONF/taskwarrior/taskrc"
-export TIMEWARRIORDB="$DROPBOX/timewarrior"
+export TIMEWARRIORDB="$HOME/gtd/timewarrior"
 
 export ZSH="$CONF/zsh/oh-my-zsh"
 export ZSHRC="$CONF/zsh/zshrc"
