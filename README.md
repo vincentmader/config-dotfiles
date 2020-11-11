@@ -102,12 +102,7 @@
             pip3 install -r requirements
 
 * x server
-    * on manjaro
-        * source ./x/xinitrc from /etc/xdg/xfce4/xinitrc
-    * if not yet installed: install xcompmgr
-    * create symlink from home dir into config repo
-    
-            ln -s $CONF/x/
+    * source ./x/xinitrc from ~/.xinitrc
 
 * dwm 
     * download & compile from source
@@ -161,8 +156,10 @@
         * figlet, toilet
         * xclip, xsel ? x... ?
         * xbindkeys
+        * xcompmgr
 	* alsa-utils
         * wget
+        * mpv
     * npm
         * weather-cli, nasa-cli
         * cli-fireplace, carbon-now-cli

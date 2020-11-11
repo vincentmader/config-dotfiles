@@ -1,3 +1,12 @@
 [submodule "ranger/plugins/ranger_devicons"]
 	path = ranger/plugins/ranger_devicons
 	url = https://github.com/alexanderjeurissen/ranger_devicons
+[submodule "st"]
+	path = st
+	url = https://github.com/vincentmader/st
+[submodule "dwm"]
+	path = dwm
+	url = https://github.com/vincentmader/dwm
+[submodule "dmenu"]
+	path = dmenu
+	url = https://github.com/vincentmader/dmenu
