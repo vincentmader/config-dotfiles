@@ -35,7 +35,7 @@ function prompter() {
 
     export PS1="
 ╭────[$username|$location]─\
-($overdue_count|$due_today_count|$in_count)$venv$git_branch
+($overdue_count|$due_today_count|$in_count)$prompt_venv$prompt_git_branch
 ╰─> "
 }
 precmd() { eval prompter }
