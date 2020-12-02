@@ -1,29 +1,29 @@
 #!/usr/bin/zsh
 
 function prompter() {
-    function set_prompt_git() {
+    function set_git() {
         branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')"
     
         if [ -z "$branch" ]; then
-            prompt_git_branch=""
+            git_branch=""
         else
-            prompt_git_branch="─${branch:1}"
+            git_branch="─(%{$fg[green]%}${branch:2:-1}%{$reset_color%})"
         fi
     }
-    function set_prompt_venv() {
+    function set_venv() {
         if test -z "$VIRTUAL_ENV"; then
             PYTHON_VIRTUAL_ENV=""
         else
             PYTHON_VIRTUAL_ENV="`basename \"$VIRTUAL_ENV\"`"
         fi
         if [ -z "$PYTHON_VIRTUAL_ENV" ]; then
-            prompt_venv=""
+            venv=""
         else
-            prompt_venv="─($PYTHON_VIRTUAL_ENV)"
+            venv="─(%{$fg[blue]%}$PYTHON_VIRTUAL_ENV%{$reset_color%})"
         fi
     }
-    set_prompt_venv
-    set_prompt_git
+    set_venv
+    set_git
     username="%{$fg[green]%}%n%{$reset_color%}"
     computername="%{$fg[red]%}hal9000%{$reset_color%}"
     location="%{$fg[blue]%}%1~%{$reset_color%}"
@@ -35,7 +35,7 @@ function prompter() {
 
     export PS1="
 ╭────[$username|$location]─\
-($overdue_count|$due_today_count|$in_count)$prompt_venv$prompt_git_branch
+($overdue_count|$due_today_count|$in_count)$venv$git_branch
 ╰─> "
 }
 precmd() { eval prompter }
