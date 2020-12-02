@@ -10,3 +10,6 @@
 [submodule "dmenu"]
 	path = dmenu
 	url = https://github.com/vincentmader/dmenu
+[submodule "tabbed"]
+	path = tabbed
+	url = https://git.suckless.org/tabbed

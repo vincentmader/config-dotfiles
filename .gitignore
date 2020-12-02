@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 .DS_Store
+.wiki
 BraveSoftware
 Epic
 Mousepad
@@ -43,6 +44,7 @@ transmission
 user-dirs.dirs
 user-dirs.locale
 viewnior
+vimb
 vlc/vlc-qt-interface.conf
 volumeicon
 xfce4

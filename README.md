@@ -145,6 +145,7 @@
         * task, tasksh, timew
         * lsd
         * fzf
+        * ncdu
         * ripgrep (rg), needed for fzf-preview
         * top/gtop
         * neomutt
@@ -157,15 +158,18 @@
         * xclip, xsel ? x... ?
         * xbindkeys
         * xcompmgr
-	* alsa-utils
+	* alsa-utils, imagemagick
         * wget
         * mpv
+        * pandoc
+        * zip, unzip, tar
     * npm
         * weather-cli, nasa-cli
         * cli-fireplace, carbon-now-cli
         * emoji-finder
     * pip3
         * ricksay, YuleLog
+        * rope, pep8, autopep8
     * various / as of yet uncategorized
         * dropbox
         * pipes.sh
