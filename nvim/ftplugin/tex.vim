@@ -7,3 +7,5 @@ augroup vimtex_config
 augroup END
 
 inoremap $ $$<left>
+
+let g:tex_conceal = ''
