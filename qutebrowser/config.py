@@ -10,7 +10,8 @@
 # =============================================================================
 
 # start page
-c.url.start_pages = ['mader.xyz/qutebrowser']
+c.url.start_pages = ['mader.xyz']
+# c.url.start_pages = ['/home/vinc/.config/qutebrowser/startpage.html']
 # default zoom level
 c.zoom.default = '200%'
 # downloads directory
@@ -59,6 +60,7 @@ c.url.searchengines = {
     '4':        'https://4chan.org/{}',
     'pb':       'https://piratebay.party/search/{}/1/99/0',
     'r':        'https://reddit.com/r/{}',
+    'ta':       'http://xn--tierarztpraxis-schuffelen-2ec.de/gallery_{}.html',
     'yt':       'https://youtube.com/results?search_query={}',
 }
 
@@ -133,7 +135,7 @@ c.colors.webpage.prefers_color_scheme_dark = True
 # c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 # c.colors.webpage.darkmode.contrast = 0.0
 # c.colors.webpage.darkmode.grayscale.all = False
-c.colors.webpage.darkmode.policy.images = 'never'
+# c.colors.webpage.darkmode.policy.images = 'never'
 c.colors.webpage.bg = '#222222'
 c.colors.tabs.odd.bg = '#222222'
 c.colors.tabs.even.bg = '#555555'
