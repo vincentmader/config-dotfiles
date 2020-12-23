@@ -19,7 +19,7 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}   
     "  snippet engine
     Plug 'SirVer/ultisnips' 
-    " Plug 'honza/vim-snippets'
+    Plug 'honza/vim-snippets'
     " all words on screen are available in autocompletion
 "    Plug 'wellle/tmux-complete.vim'
 
@@ -40,7 +40,7 @@ call plug#begin('$CONF/nvim/plugged')
 "    Plug 'Valloric/MatchTagAlways', {'for': 'html'}
     "                                                                     LATEX
     Plug 'lervag/vimtex', {'for': 'tex'}               
-    Plug 'brennier/quicktex', {'for': 'tex'}
+    " Plug 'brennier/quicktex', {'for': 'tex'}
     "                                                                  MARKDOWN
     "                                               folding markdown by section
     Plug 'masukomi/vim-markdown-folding', {'for': 'markdown'}
@@ -144,7 +144,7 @@ call plug#begin('$CONF/nvim/plugged')
     "Plug 'chrisbra/colorizer'
     " Plug 'norcalli/nvim-colorizer.lua'
     "                                                  show indentation markers
-    Plug 'yggdroot/indentline', {'for': ['python', 'javascript', 'tex', 'c', 'html']}
+    " Plug 'yggdroot/indentline', {'for': ['python', 'javascript', 'tex', 'c', 'html']}
     "                                     preview range, pattern and substitute
     " Plug 'markonm/traces.vim'
     "                                                           devicons in vim
