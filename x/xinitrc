@@ -20,6 +20,9 @@ xset r rate 250 50
 # bind e.g. function keys
 xbindkeys -f "$CONF/x/xbindkeysrc"
 
+# start compositing manager in background
+xcompmgr &
+
 # execute dwm on startup
 # -----------------------------------------------------------------------------
 exec dwm 
