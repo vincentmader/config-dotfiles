@@ -2,6 +2,7 @@
 # ============================================================================
 # 			      $CONF/zsh/.aliasrc
 # ============================================================================
+# shopt -s autocd
 
 alias r="ranger --confdir $CONF/ranger"
 alias nvim="nvim -u '$CONF/nvim/init.vim'"
@@ -9,6 +10,7 @@ alias v="nvim"
 alias f="fuck"
 alias c="clear"
 alias e="exit"
+alias mv="mv -i"
 
 alias cp="cp -iv"
 alias mkdir="mkdir -pv"    # create parent dirs on demand
@@ -119,13 +121,13 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 # -----------------------------------------------------------------------------
 #                                                                            ls
-alias ls='clear && lsd'
-alias lsa='ls -a'
-alias l='ls --tree --depth=1'
-alias la='ls -a --tree --depth=1'
-# alias la='ls -a'
-alias ll='ls -la'
-# alias lt='ls --tree'
+alias ls='clear && pwd && echo && exa'
+alias l="ls -T -L 1 --icons --group-directories-first" # 'ls --tree --depth=1'
+alias la="ls -T -a -L 1 --icons --group-directories-first" # 'ls --tree --depth=1'
+alias ll="ls -l -h --icons --group-directories-first --git" # 'ls -lA'
+alias lla="ls -a -l -h --icons --group-directories-first --git" # 'ls -lA'
+alias lt="ls -T -I \"__pychache__|venv|env|node_modules|.DS_Store|*.pyc|*.pyo\" --group-directories-first"
+# alias lsa='ls -A'
 # -----------------------------------------------------------------------------
 #                                                                           man
 # configure colors
@@ -159,7 +161,7 @@ fi
 # -----------------------------------------------------------------------------
 #                                                     taskwarrior / timewarrior
 alias t="clear && task"
-alias tn="t next limit:29"
+alias tn="t next limit:30"
 alias ts="t short"
 # tp () {t project:$1}
 alias tt="t +ACTIVE or +OVERDUE or due:today or scheduled:today"
