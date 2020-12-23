@@ -55,6 +55,21 @@
  m:0x0 + c:233
  XF86MonBrightnessUp
 
+# Cmd-D
+"dmenu_run"
+ m:0x40 + c:40
+
+# Cmd-Shift-D
+"dmenu_run -c -g 4 -l 4 -h 100" 
+ m:0x1 + m:0x40 + c:40
+
+# "feh --bg-scale /home/vinc/Pictures/mars_planet.jpg"
+#  m:0x8 + c:11
+#  Alt + 2
+
+# "feh --bg-scale /home/vinc/Pictures/blue.jpg"
+#  m:0x8 + c:12
+#  Alt + 3
 
 # "xbindkeys_show" 
 #   control+shift + q
