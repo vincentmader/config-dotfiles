@@ -1,34 +1,34 @@
 #/usr/bin/sh
 
-# This file is being loaded by $CONF/zsh/zshrc 
-# as well as /etc/xdg/xfce4/xinitrc (on manjaro startup only)
+# This file is being sourced from $CONF/zsh/zshrc
+# as well as ~/.xinitrc (on X startup)
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/meister"
 else
     export HOME="/home/vinc"
-    export XINITRC="/etc/xdg/xfce4/xinitrc"
+    export XINITRC="$HOME/.xinitrc"
 fi
 
 export CDPATH="$CONF/symlinks"
 export CONF="$HOME/.config"
-export DOCS="$HOME/Documents"
 
-export DROPBOX="$HOME/Public/Dropbox"
-export WIKI="~/"
-
+export EDITOR="$VISUAL"
+export VISUAL="nvim -u $CONF/nvim/init.vim"
 export NVIMRC="$CONF/nvim/init.vim"
+export ZSH="$CONF/zsh/oh-my-zsh"
+export ZSHRC="$CONF/zsh/zshrc"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
+
+export DOCS="$HOME/Documents"
+export DROPBOX="$HOME/Public/Dropbox"
 
 export TASKRC="$CONF/taskwarrior/taskrc"
 export TIMEWARRIORDB="$HOME/gtd/timewarrior"
-
-export ZSH="$CONF/zsh/oh-my-zsh"
-export ZSHRC="$CONF/zsh/zshrc"
+export WIKI="~/"
 
 # export FZF_BASE="/usr/local/bin/fzf"
 # export VIMRUNTIME="$HOME/.config/nvim/"
-#
+
 export PATH=$PATH:/opt/local/bin  # added because of MacPorts
 export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
-# 							  default applications
