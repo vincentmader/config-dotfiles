@@ -7,7 +7,7 @@ set adjust-open "best-fit"
 
 # stop at page boundaries
 set scroll-page-aware "true"
-set smooth-scroll "true"
+# set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 
