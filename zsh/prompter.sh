@@ -22,11 +22,28 @@ function prompter() {
             venv="─(%{$fg[blue]%}$PYTHON_VIRTUAL_ENV%{$reset_color%})"
         fi
     }
+    function set_battery_status() {
+        battery_level="$(cat /sys/class/power_supply/BAT0/capacity)"
+        if [ "$battery_level" -lt "25" ]; then
+            battery="%{$fg[red]%}↯$battery_level%%%{$reset_color%}"
+        elif [ "$battery_level" -lt "50" ]; then
+            battery="%{$fg[yellow]%}↯$battery_level%%%{$reset_color%}"
+        else
+            battery="%{$fg[green]%}↯$battery_level%%%{$reset_color%}"
+        fi
+    }
+    function set_clock() {
+        time=$(echo $(date)| cut -d' ' -f 4)
+        foo=${time%:*}
+        clock="%{$fg[blue]%}$foo%{$reset_color%}"
+    }
     set_venv
     set_git
-    username="%{$fg[green]%}%n%{$reset_color%}"
+    set_battery_status
+    set_clock
+    username="%{$fg[blue]%}%n%{$reset_color%}"
     computername="%{$fg[red]%}hal9000%{$reset_color%}"
-    location="%{$fg[blue]%}%1~%{$reset_color%}"
+    location="%{$fg[green]%}%1~%{$reset_color%}"
     in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}"
     due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
     overdue_count="${fg[red]%}$(task +OVERDUE count)%{$reset_color%}"
@@ -34,8 +51,10 @@ function prompter() {
     # $prompt_tw_tracking
 
     export PS1="
-╭────[$username|$location]─\
-($overdue_count|$due_today_count|$in_count)$venv$git_branch
-╰─> "
+╭────[$username|$location]─$git_branch$venv
+╰─➤ "
+# ($overdue_count|$due_today_count|$in_count)
+# ($battery_status)
+# ($clock)
 }
 precmd() { eval prompter }
