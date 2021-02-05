@@ -6,7 +6,10 @@ import subprocess
 
 amixer_output = subprocess.check_output('amixer')
 val = int(str(amixer_output).split(' [')[1][:-2])
-val -= 5
+if val < 5:
+    val = 0
+else:
+    val -= 5
 
 os.system(f'amixer set Master {val}%')
 os.system('xsetroot -name "$($CONF/dwm/patches/statusbar/statusbar.sh)"')
