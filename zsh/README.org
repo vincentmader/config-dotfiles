@@ -2,7 +2,7 @@
 #+latex_class_options: a4paper
 #+latex_compiler: pdflatex
 #+latex_class_options:
-#+latex_header: \input{/home/vinc/library/documents/LaTeX/reportheader.tex}
+#+latex_header: \input{/home/vinc/docs/LaTeX/reportheader.tex}
 #+latex_header_extra:
 #+description:
 #+keywords:

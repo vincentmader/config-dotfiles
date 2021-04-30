@@ -2,12 +2,12 @@
 # -----------------------------------------------------------------------------
 
 # change screen resolution
-xrandr --output eDP --mode 1920x1200
+# xrandr --output eDP --mode 1920x1200
 
 
 # dwm statusbar loop (run in background)
 while true; do
-  xsetroot -name "$(/home/vinc/.config/dwm/patches/statusbar/statusbar.sh)"
+  xsetroot -name "$(/home/vinc/.config/dwm/statusbar/statusbar.sh)"
   sleep 0.5
 done &
 
@@ -18,11 +18,17 @@ done &
 xset r rate 250 50
 
 # bind e.g. function keys
-xbindkeys -f "$CONF/x/xbindkeysrc"
+xbindkeys -f "/home/vinc/.config/x/xbindkeysrc"
 
 # start compositing manager in background
 xcompmgr &
 
 # execute dwm on startup
 # -----------------------------------------------------------------------------
-exec dwm 
+exec dwm
+
+#exec emacs
+# (sleep 2 && emacs ) &
+# (sleep 2 && qutebrowser ) &
+# (sleep 2 && st -e "cowsay Hello there" ) &
+# (sleep 2 && xterm -title "irssi" -e irssi ) &

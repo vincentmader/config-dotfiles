@@ -1,21 +1,22 @@
 source ~/.config/zsh/pathrc
+# cd $(cat $CONF/zsh/pwd)  # load last saved pwd from file
 
+# oh-my-zsh plugins
 plugins=(
 #     # colored-man-pages
 #     # copyfile			# use to copy file to clipboard
 #     # copydir				# use to copy pwd to clipboard
 #     # emoji-clock			# use to display time (30min accuracy)
-#     # fzf                             # enables fuzzy auto-completion
+    fzf                             # enables fuzzy auto-completion
 #     # git
 #     # npm
 #     # osx
 #     # pip
 #     # python
     sudo                            # press esc twice to sudo repeat cmd
-#     taskwarrior                     # auto completion for taskwarrior
+    taskwarrior                     # auto completion for taskwarrior
 #     # wd                            # warp directory
       # zsh-autosuggestions
-    # zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -129,11 +130,11 @@ autoload -U colors && colors
 source $CONF/zsh/prompter.sh
 # export PS3="hello"
 
-#determines search program for fzf
+# determines search program for fzf
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 fi
-#refer rg over ag
+# prefer rg over ag
 if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden'
 fi
@@ -214,14 +215,15 @@ fi
 
 # xclip -o | xclip -selection clipboard -i
 
-# source aliases
-source "$CONF/zsh/aliasrc"
-# Load zsh-syntax-highlighting; (should be last?)
-source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # tmux source "$CONF/tmux/tmux.conf"
 # check if tmux is running, if not: start it
 [ -z "${TMUX}" ] && tmux
 # if [ "$TMUX" = "" ]; then tmux; fi
+
+# load aliases
+source $CONF/zsh/aliasrc
+
+# load zsh-syntax-highlighting; (should be last?)
+source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # eval "$(starship init zsh)"

@@ -11,6 +11,13 @@ alias f="fuck"
 alias c="clear"
 alias e="exit"
 alias mv="mv -i"
+alias t="touch"
+alias z="zathura"
+
+# alias emacs="emacs -u $CONF/emacs"
+# alias emacs="env HOME=/home/vinc/.config/ emacs"
+# alias emacs='emacs -q --load "/home/vinc/.config/emacs/init.el"'
+# ^ don't work :(
 
 alias cp="cp -iv"
 alias mkdir="mkdir -pv"    # create parent dirs on demand
@@ -53,9 +60,18 @@ else                                                              # linux stuff
 fi
 # -----------------------------------------------------------------------------
 #                                                              change directory
+# alias cd='rm $CONF/zsh/pwd && pwd > $CONF/zsh/pwd && cd'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
+
+# save pdw to file
+# function savepwd_cd {
+#     rm $CONF/zsh/pwd
+#     cd $1
+#     pwd > $CONF/zsh/pwd
+# }
+# alias cd='savepwd_cd'
 #                                                                  copy / paste
 # -----------------------------------------------------------------------------
 # copy(){
@@ -103,6 +119,7 @@ alias fzf="fzf --preview='head -$LINES {}'"
 #                                                           git version control
 alias g="git"
 alias gg='clear && git status'
+alias ggs='clear && git status --short'
 alias gl="git pull"
 alias gc="git commit"
 alias gp="git push"
@@ -152,7 +169,7 @@ alias sov="source venv/bin/activate"
 # -----------------------------------------------------------------------------
 #                                                                            rm
 alias del="rmtrash -r"
-alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
+# alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
 # -----------------------------------------------------------------------------
 #                                                                     spotlight
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -160,40 +177,40 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 # -----------------------------------------------------------------------------
 #                                                     taskwarrior / timewarrior
-alias t="clear && task"
-alias tn="t next limit:30"
-alias ts="t short"
-# tp () {t project:$1}
-alias tt="t +ACTIVE or +OVERDUE or due:today or scheduled:today"
-# alias tw="t due:today"
-alias tbd="t burndown.daily"
-alias tbw="t burndown.weekly"
-alias tbm="t burndown.monthly"
-alias tc="t calendar"
-alias tl="t list"
-alias ttbd=''
-alias ttbw=''
-alias ttbm=''
-alias ttc=''
-alias td='t due:today'
-alias tm='t due:tomorrow'
-#                                                             add item to inbox
-alias in='t add +in'
-#                                                      add item to grocery list
-alias gro='t add +groceries'
-#                                                    add deferred item to inbox
-tickle () {  #                                 usage e.g.: tick monday do stuff
-    deadline=$1
-    shift
-    in +tickle wait:$deadline $@
-}
-alias tick=tickle
-#                                  add item to inbox that I need to think about 
-alias think='tickle +1d'  
-#                                                                   timewarrior
-# alias tw='clear && timew'
-# alias twd='tw day'
-alias tww='clear && timew week'
+# alias t="clear && task"
+# alias tn="t next limit:30"
+# alias ts="t short"
+# # tp () {t project:$1}
+# alias tt="t +ACTIVE or +OVERDUE or due:today or scheduled:today"
+# # alias tw="t due:today"
+# alias tbd="t burndown.daily"
+# alias tbw="t burndown.weekly"
+# alias tbm="t burndown.monthly"
+# alias tc="t calendar"
+# alias tl="t list"
+# alias ttbd=''
+# alias ttbw=''
+# alias ttbm=''
+# alias ttc=''
+# alias td='t due:today'
+# alias tm='t due:tomorrow'
+# #                                                             add item to inbox
+# alias in='t add +in'
+# #                                                      add item to grocery list
+# alias gro='t add +groceries'
+# #                                                    add deferred item to inbox
+# # tickle () {  #                                 usage e.g.: tick monday do stuff
+# #     deadline=$1
+# #     shift
+# #     in +tickle wait:$deadline $@
+# # }
+# # alias tick=tickle
+# # #                                  add item to inbox that I need to think about 
+# # alias think='tickle +1d'  
+# #                                                                   timewarrior
+# # alias tw='clear && timew'
+# # alias twd='tw day'
+# alias tww='clear && timew week'
 
 # =============================================================================
 #                                                               other fun stuff
@@ -247,3 +264,7 @@ alias starwars="telnet towel.blinkenlights.nl"
 alias zzz="sleep 1; xset dpms force off"
 alias yay="yay --mflags --skipinteg"
 alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"
+
+alias fehf='feh --full-screen'
+
+alias qutebrowser="qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4"

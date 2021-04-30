@@ -142,26 +142,31 @@
 
 * other packages (e.g. from AUR, npm, pip or homebrew)
     * AUR
-        * task, tasksh, timew
+        * # task, tasksh, timew
         * lsd
         * fzf
         * ncdu
-        * ripgrep (rg), needed for fzf-preview
+        * ripgrep (rg), needed for fzf / fzf-preview
         * top/gtop
         * neomutt
+        * mupdf
+        * zathura-pdf-mupdf
         * rtv
-        * colordiff
+        * # colordiff
         * colorpicker
-        * ncdu, tldr
+        * tldr
         * sl, cmatrix, cowsay, fortune
         * figlet, toilet
         * xclip, xsel ? x... ?
         * xbindkeys
         * xcompmgr
+        * vlc
+        * simplescreenrecorder
 	* alsa-utils, imagemagick
         * wget
         * mpv
         * pandoc
+        * cmake
         * zip, unzip, tar
     * npm
         * weather-cli, nasa-cli
@@ -172,6 +177,7 @@
         * rope, pep8, autopep8
     * various / as of yet uncategorized
         * dropbox
+        * starship prompt (curl -fsSL https://starhip.rs/install.sh | bash)
         * pipes.sh
         * s (search)
         * mdv (markdown viewer)

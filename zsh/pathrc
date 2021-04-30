@@ -7,7 +7,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/meister"
 else
     export HOME="/home/vinc"
-    export XINITRC="$HOME/.xinitrc"
+    export XINITRC="$CONF/x/.xinitrc"
 fi
 
 export CDPATH="$CONF/symlinks"
@@ -29,6 +29,8 @@ export WIKI="~/"
 
 # export FZF_BASE="/usr/local/bin/fzf"
 # export VIMRUNTIME="$HOME/.config/nvim/"
+
+export PATH=$PATH:~/.local/bin  # added when installing virtualenv
 
 export PATH=$PATH:/opt/local/bin  # added because of MacPorts
 export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts

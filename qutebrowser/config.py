@@ -9,11 +9,13 @@
 #                                                                       GENERAL
 # =============================================================================
 
+config.load_autoconfig(False)
+
 # start page
 c.url.start_pages = ['mader.xyz']
 # c.url.start_pages = ['/home/vinc/.config/qutebrowser/startpage.html']
 # default zoom level
-c.zoom.default = '200%'
+c.zoom.default = '125%'
 # downloads directory
 c.downloads.location.directory = '/home/vinc/downloads'
 
@@ -54,7 +56,7 @@ c.url.searchengines = {
     'ghv':      'https://github.com/vincentmader/{}',
     # shopping
     'az':       'https://amazon.de/s?k={}',
-    'eb':       'https://ebay.com/sch/{}',
+    'eb':       'https://ebay.de/sch/{}',
     'ebk':      'https://ebay-kleinanzeigen.de/s-{}/k0',
     # misc
     '4':        'https://4chan.org/{}',
@@ -107,31 +109,33 @@ c.bindings.commands['normal'] = {
 
 # set default fonts
 c.fonts.default_family = 'Hack Nerd Font'
-c.fonts.default_size = '20pt'
-c.fonts.completion.entry = '16pt Hack Nerd Font'
-c.fonts.statusbar = '16pt Hack Nerd Font'
-c.fonts.tabs.selected = '16pt Hack Nerd Font'
-c.fonts.tabs.unselected = '16pt Hack Nerd Font'
-c.fonts.hints = '20pt Hack Nerd Font'
+c.fonts.default_size = '12pt'
+c.fonts.completion.entry = '12pt Hack Nerd Font'
+c.fonts.statusbar = '12pt Hack Nerd Font'
+c.fonts.tabs.selected = '12pt Hack Nerd Font'
+c.fonts.tabs.unselected = '12pt Hack Nerd Font'
+c.fonts.hints = '16pt Hack Nerd Font'
 # set font paddings
-c.tabs.padding = {'bottom': 12, 'top': 12, 'right': 5, 'left': 5}
-c.statusbar.padding = {'bottom': 12, 'top': 12, 'right': 5, 'left': 5}
+c.tabs.padding = {'bottom': 9, 'top': 9, 'right': 5, 'left': 5}
+c.statusbar.padding = {'bottom': 9, 'top': 9, 'right': 5, 'left': 5}
 # set font color for successfully loaded urls
 c.colors.statusbar.url.success.https.fg = 'white'
 
 # tab bar
-c.tabs.position = 'top'
-c.tabs.min_width = 300
-c.tabs.favicons.scale = 1.0
-c.tabs.title.format = '{audio} {current_title}'
+c.tabs.position = 'bottom'
+c.tabs.show = 'multiple'  # hide when only one is open (always/never/switching)
+c.tabs.min_width = 30  # 300
+c.tabs.favicons.scale = 1.3
+c.tabs.title.format = '{current_title}'  # '{audio} {current_title}'
 # completion window
-c.completion.height = '50%'
+c.completion.height = '30%'
 c.completion.scrollbar.width = 10  # completion scrollbar handle width in px
 c.completion.scrollbar.padding = 2  # handle padding in px
 
 # render all pages with dark mode
 c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.prefers_color_scheme_dark = True
+# c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.preferred_color_scheme = "dark"
 # c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 # c.colors.webpage.darkmode.contrast = 0.0
 # c.colors.webpage.darkmode.grayscale.all = False
@@ -146,3 +150,5 @@ c.colors.tabs.even.bg = '#555555'
 #     './themes/custom_solarized.css'
 # ]
 # c.content.user_stylesheets = 'solarized.css'
+
+c.statusbar.show = "in-mode"

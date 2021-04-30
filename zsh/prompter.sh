@@ -51,7 +51,7 @@ function prompter() {
     # $prompt_tw_tracking
 
     export PS1="
-╭────[$username|$location]─$git_branch$venv
+╭────[$username|$location]─($clock)$git_branch$venv
 ╰─➤ "
 # ($overdue_count|$due_today_count|$in_count)
 # ($battery_status)

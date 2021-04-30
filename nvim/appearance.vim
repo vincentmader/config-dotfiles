@@ -20,7 +20,15 @@ highlight Normal guibg=None ctermbg=None  " transparent
 "                                                                  show command
 " set showcmd
 "                                                          display line numbers
+
+" switch to abs/rel line numbering when in insert/normal mode
 set number relativenumber
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
 " highlight clear LineNr 
 
 "                                                 make folds less awful-looking
@@ -32,8 +40,8 @@ highlight clear SignColumn
 
 "                                     display column to signify the 81st column
 set textwidth=80
-set colorcolumn=+1
-highlight ColorColumn ctermbg=235
+" set colorcolumn=+1
+" highlight ColorColumn ctermbg=235
 "                                         new idea: color text red after col 80
 " au BufEnter *.wiki let b:is_wiki_file=1
 " au BufEnter *.vimwiki let b:is_wiki_file=1

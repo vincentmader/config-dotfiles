@@ -52,26 +52,26 @@ endsnippet
 # vanilla JS
 # =============================================================================
 
-snippet for_idx "for loop (index)"
+snippet for "for loop (index)"
 for (let idx = 0; idx < $1.length; idx++) {
     $2
 }
 endsnippet
 
-snippet for_idx "for loop (of array)"
-for (item in $1) {
-    $2
+snippet for_in "for loop (of array)"
+for ($1 in $2) {
+    $3
 }
 endsnippet
 
-snippet for_idx "for loop (in object)"
-for (key in $1) {
-    $2
+snippet for_of "for of loop" b
+for (const $1 of $2) {
+    $3
 }
 endsnippet
 
 snippet for_each "for each loop" b
-$1.forEach(($1) => {
+$1.forEach(($2) => {
     $3
 });
 endsnippet
