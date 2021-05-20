@@ -139,6 +139,7 @@ alias egrep='egrep --color=auto'
 # -----------------------------------------------------------------------------
 #                                                                            ls
 alias ls='clear && pwd && echo && exa'
+alias lsa='ls -a'
 alias l="ls -T -L 1 --icons --group-directories-first" # 'ls --tree --depth=1'
 alias la="ls -T -a -L 1 --icons --group-directories-first" # 'ls --tree --depth=1'
 alias ll="ls -l -h --icons --group-directories-first --git" # 'ls -lA'

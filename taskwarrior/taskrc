@@ -8,7 +8,7 @@ confirmation=off
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 active.indicator=>
 # files
-data.location=~/gtd/taskwarrior
+data.location=~/_old/gtd/taskwarrior
 # data.location=/home/vinc/tw_test
 
 #                                                                       aliases
