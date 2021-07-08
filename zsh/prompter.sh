@@ -44,9 +44,9 @@ function prompter() {
     username="%{$fg[blue]%}%n%{$reset_color%}"
     computername="%{$fg[red]%}hal9000%{$reset_color%}"
     location="%{$fg[green]%}%1~%{$reset_color%}"
-    in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}"
-    due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
-    overdue_count="${fg[red]%}$(task +OVERDUE count)%{$reset_color%}"
+    # in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}" # TODO: fix?
+    # due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
+    # overdue_count="${fg[red]%}$(task +OVERDUE count)%{$reset_color%}"
     # prompt_tw_tracking='──(${fg[green]%}tracking%{$reset_color%})'
     # $prompt_tw_tracking
 
