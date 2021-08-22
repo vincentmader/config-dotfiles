@@ -223,6 +223,8 @@ fi
 # load aliases
 source $CONF/zsh/aliasrc
 
+source $CONF/emsdk/emsdk_env.sh
+
 # load zsh-syntax-highlighting; (should be last?)
 source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

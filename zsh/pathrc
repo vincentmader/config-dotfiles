@@ -5,7 +5,8 @@
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/vinc"
-    # export DOCS="$HOME/Documents"
+    export DOCS="$HOME/Documents"
+    export CODE="$DOCS/code"
     export DROPBOX="$HOME/Public/Dropbox"
     # TODO: delete MacPorts shit below?
     export PATH=$PATH:/opt/local/bin  # added because of MacPorts
@@ -13,7 +14,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     export HOME="/home/vinc"
     export XINITRC="$CONF/x/.xinitrc"
-    # export DOCS="$HOME/docs"
+    export DOCS="$HOME/docs"
+    export CODE="$HOME/code"
 fi
 
 export CONF="$HOME/.config"
@@ -23,8 +25,8 @@ export ZSH="$CONF/zsh/oh-my-zsh"
 export ZSHRC="$CONF/zsh/zshrc"
 # export FZF_BASE="/usr/local/bin/fzf"
 #
-export EDITOR="$VISUAL"
 export VISUAL="nvim -u $CONF/nvim/init.vim"
+export EDITOR="$VISUAL"
 export NVIMRC="$CONF/nvim/init.vim"
 # export VIMRUNTIME="$HOME/.config/nvim/"
 
