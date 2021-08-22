@@ -103,18 +103,14 @@ alias gbr="git branch"
 # -----------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias o="open"
-<<<<<<< HEAD
     alias bci="brew install --cask"  # old: "brew cask install"
-=======
-    alias diskutil="clear && diskutil"
-    alias spot="mdfind -name"
-    alias bci="brew cask install"
->>>>>>> 9495eb43477f6d8ef3a1cd344d3563e95e242b79
     alias bi="brew install"
     alias bs="brew search"
     alias bt="brew tap"
     alias bu="brew uninstall"
     alias buu="brew update && brew upgrade"
+    alias diskutil="clear && diskutil"
+    alias spot="mdfind -name"
     # alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
     # alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 elif [[ "$OSTYPE" == "linux"* ]]; then
