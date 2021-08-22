@@ -103,9 +103,13 @@ alias gbr="git branch"
 # -----------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias o="open"
+<<<<<<< HEAD
+    alias bci="brew install --cask"  # old: "brew cask install"
+=======
     alias diskutil="clear && diskutil"
     alias spot="mdfind -name"
     alias bci="brew cask install"
+>>>>>>> 9495eb43477f6d8ef3a1cd344d3563e95e242b79
     alias bi="brew install"
     alias bs="brew search"
     alias bt="brew tap"
