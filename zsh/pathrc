@@ -6,7 +6,6 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/vinc"
     export DOCS="$HOME/Documents"
-    export CODE="$DOCS/code"
     export DROPBOX="$HOME/Public/Dropbox"
     # TODO: delete MacPorts shit below?
     export PATH=$PATH:/opt/local/bin  # added because of MacPorts
@@ -15,8 +14,8 @@ else
     export HOME="/home/vinc"
     export XINITRC="$CONF/x/.xinitrc"
     export DOCS="$HOME/docs"
-    export CODE="$HOME/code"
 fi
+export CODE="$HOME/code"
 
 export CONF="$HOME/.config"
 export CDPATH="$CONF/symlinks"
