@@ -60,14 +60,25 @@ alias pdfl="pdflatex"
 
 # (web) development
 # -----------------------------------------------------------------------------
-alias mdb="mongod"
-alias npxcra="npx create-react-app"
-alias sshxyz="ssh meister@188.166.164.214"
-alias moo="mongod --dbpath=./database"
+# server
+# alias mdbx="mongod --dbpath=$CODE/mader.xyz/database"
+# alias runx="cd $CODE/mader.xyz; flask run& mdbx"
+alias runx="sh $CODE/mader.xyz/run.sh"
+alias sshx="ssh vinc@188.166.164.214"
+# tierarzt
 alias tierarzt="sudo python3 '$CONF/symlinks/ta/main.py'"
 alias ta="tierarzt"
+# general
+alias cgn="clear && cargo new"
+alias cgr="clear && cargo run"
+alias cgb="clear && cargo build"
+alias cgc="clear && cargo check"
+alias npmrb="npm run build"
+alias npmi="npm install"
+alias npxcra="npx create-react-app"
 alias py="python3"
-alias py3="py"
+alias py3="python3"
+alias mdb="mongod"
 alias sov="source ./venv/bin/activate"
 alias pip="pip3"
 alias pipi="pip install"
