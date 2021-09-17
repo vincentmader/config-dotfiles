@@ -36,6 +36,7 @@ alias mv="mv -i"
 alias cp="cp -iv"
 alias del="rmtrash -r"
 alias t="touch"
+# alias bye="sudo shutdown now"
 
 # reload/recompile configs
 # -----------------------------------------------------------------------------
@@ -46,6 +47,7 @@ alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"
 # -----------------------------------------------------------------------------
 alias nvim="nvim -u '$CONF/nvim/init.vim'"
 alias v="nvim"
+alias v.="v ./"
 alias qutebrowser="qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4"
 alias r="ranger --confdir $CONF/ranger"
 alias fehf='feh --full-screen'
@@ -97,7 +99,7 @@ alias jn="jupyter notebook"
 alias g="git"
 alias gg='clear && git status'
 alias ggs='clear && git status --short'
-alias gl="git pull"
+alias gl="git pull --recurse-submodules"
 alias gc="git commit"
 alias gp="git push"
 alias ga="git add"
