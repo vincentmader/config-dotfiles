@@ -1,6 +1,8 @@
 *.backup
 *.pyc
 *.pyo
+*_backup
+*_old
 .DS_Store
 .auctex-auto
 .cache
@@ -16,6 +18,7 @@ Slack
 Thunar
 __pycache__
 autostart
+chromium
 coc
 configstore
 dconf
@@ -25,8 +28,11 @@ emacs-doom
 evolution
 filezilla
 flameshot
+gthumb
+gtk*
 htop
 mimeapps.list
+mirage
 mps-youtube
 mutt
 node_modules
@@ -63,8 +69,5 @@ volumeicon
 xfce4
 zsh/.zcompdump*
 zsh/.zsh_history
-zsh/oh-my-zsh/
-zsh/oh-my-zsh/plugins/
-zsh/oh-my-zsh/plugins/*
 zsh/zcompdump
 zsh/zcompdump*
