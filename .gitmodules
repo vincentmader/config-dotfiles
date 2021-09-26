@@ -15,4 +15,4 @@
 	url = https://git.suckless.org/tabbed
 [submodule "emsdk"]
 	path = emsdk
-	url = https://github.com/emscriptem-core/emsdk
+	url = https://github.com/emscripten-core/emsdk
