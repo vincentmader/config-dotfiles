@@ -19,6 +19,7 @@ scipy
 selenium
 setuptools
 spacy
+tasklib
 tensorflow
 torch
 urllib3
