@@ -1,18 +1,19 @@
+coc/extensions
+emsdk
 nvim/plugged
+qutebrowser/autoconfig.yml
+ranger/plugins/ranger_devicons
 symlinks/home
+zsh/oh-my-zsh
 zsh/zcompdump
 
-zsh/oh-my-zsh
-ranger/plugins/ranger_devicons
-emsdk
+backups
 
 dconf
 qt5ct
-qutebrowser/autoconfig.yml
 autostart
 chromium
 
-backups
 
 qpdfview
 skypeforlinux
@@ -28,7 +29,6 @@ yay-10*
 _src/gopath
 _src/stdweb
 
-coc/extensions
 
 
 
