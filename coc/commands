@@ -1,0 +1,5 @@
+python.execInTerminal
+eslint.showOutputChannel
+floaterm.new
+snippets.openSnippetFiles<CR>
+workspace.diffDocument

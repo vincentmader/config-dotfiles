@@ -1,0 +1,3 @@
+- download external repos (setup.sh)
+- load tmux plugins
+- load nvim plugins
