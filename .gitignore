@@ -3,7 +3,6 @@
 *.pyo
 .DS_Store
 .auctex-auto
-.cache
 .wiki
 0ad
 BraveSoftware
