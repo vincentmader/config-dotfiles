@@ -83,6 +83,7 @@ nvim/plugged
 
 zsh/oh-my-zsh
 ranger/plugins/ranger_devicons
+emsdk
 
 
 *_old
