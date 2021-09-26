@@ -9,7 +9,7 @@
 	url = git@github.com:vincentmader/dwm.git
 [submodule "st"]
 	path = st
-	url = git@github.com:vincentmader/st.git
+	url = google.com
 [submodule "emsdk"]
 	path = emsdk
 	url = git@github.com:emscripten-core/emsdk.git
