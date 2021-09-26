@@ -1,21 +1,18 @@
 [submodule "ranger/plugins/ranger_devicons"]
 	path = ranger/plugins/ranger_devicons
-	url = https://github.com/alexanderjeurissen/ranger_devicons
-[submodule "st"]
-	path = st
-	url = https://github.com/vincentmader/st
-[submodule "dwm"]
-	path = dwm
-	url = https://github.com/vincentmader/dwm
+        url = git@github.com:alexanderjeurissen/ranger_devicons.git
 [submodule "dmenu"]
 	path = dmenu
-	url = https://github.com/vincentmader/dmenu
-[submodule "tabbed"]
-	path = tabbed
-	url = https://git.suckless.org/tabbed
+	url = git@github.com:vincentmader/dmenu.git
+[submodule "dwm"]
+	path = dwm
+	url = git@github.com:vincentmader/dwm.git
+[submodule "st"]
+	path = st
+	url = git@github.com:vincentmader/st.git
 [submodule "emsdk"]
 	path = emsdk
-	url = https://github.com/emscripten-core/emsdk
+	url = git@github.com:emscripten-core/emsdk.git
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
-	url = https://github.com/ohmyzsh/ohmyzsh
+	url = git@github.com:ohmyzsh/ohmyzsh.git

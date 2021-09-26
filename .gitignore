@@ -71,3 +71,7 @@ zsh/.zcompdump*
 zsh/.zsh_history
 zsh/zcompdump
 zsh/zcompdump*
+yay-*
+gcmcore*
+_src/*
+starship.toml
