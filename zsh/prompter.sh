@@ -1,6 +1,5 @@
-#!/usr/bin/zsh
-
 function prompter() {
+
     function set_git() {
         branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')"
     
@@ -10,6 +9,7 @@ function prompter() {
             git_branch="─(%{$fg[green]%}${branch:2:-1}%{$reset_color%})"
         fi
     }
+
     function set_venv() {
         if test -z "$VIRTUAL_ENV"; then
             PYTHON_VIRTUAL_ENV=""
@@ -22,6 +22,7 @@ function prompter() {
             venv="─(%{$fg[blue]%}$PYTHON_VIRTUAL_ENV%{$reset_color%})"
         fi
     }
+
     function set_battery_status() {
         battery_level="$(cat /sys/class/power_supply/BAT0/capacity)"
         if [ "$battery_level" -lt "25" ]; then
@@ -32,11 +33,13 @@ function prompter() {
             battery="%{$fg[green]%}↯$battery_level%%%{$reset_color%}"
         fi
     }
+
     function set_clock() {
         time=$(echo $(date)| cut -d' ' -f 4)
         foo=${time%:*}
         clock="%{$fg[blue]%}$foo%{$reset_color%}"
     }
+
     set_venv
     set_git
     set_clock
@@ -60,8 +63,9 @@ function prompter() {
     export PS1="
 ╭────[$username|$location]─($clock)$git_branch$venv
 ╰─➤ "
-# ($overdue_count|$due_today_count|$in_count)
-# ($battery_status)
-# ($clock)
+    # ($overdue_count|$due_today_count|$in_count)
+    # ($battery_status)
+    # ($clock)
 }
+
 precmd() { eval prompter }

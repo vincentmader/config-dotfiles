@@ -1,37 +1,58 @@
-#/usr/bin/sh
+
+# -----------------------------------------------------------------------------
+# 			      $CONF/zsh/pathrc
+# -----------------------------------------------------------------------------
+
 
 # This file is being sourced from $CONF/zsh/zshrc
 # as well as ~/.xinitrc (on X startup)
+
+
+# OS-dependent paths
+# =============================================================================
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/vinc"
     export DOCS="$HOME/Documents"
     export DROPBOX="$HOME/Public/Dropbox"
+
     # TODO: delete MacPorts shit below?
     export PATH=$PATH:/opt/local/bin  # added because of MacPorts
     export PATH=$PATH:~/.nimble/bin  # I added this because of MacPorts
 else
     export HOME="/home/vinc"
-    export XINITRC="$CONF/x/.xinitrc"
     export DOCS="$HOME/docs"
 fi
+export CONF="$HOME/.config"
 export CODE="$HOME/code"
 
-export CONF="$HOME/.config"
-export CDPATH="$CONF/symlinks"
 
+# general
+# =============================================================================
+
+export CDPATH="$CONF/symlinks"
+# zsh
 export ZSH="$CONF/zsh/oh-my-zsh"
 export ZSHRC="$CONF/zsh/zshrc"
-# export FZF_BASE="/usr/local/bin/fzf"
-#
+# editor
 export VISUAL="nvim -u $CONF/nvim/init.vim"
 export EDITOR="$VISUAL"
 export NVIMRC="$CONF/nvim/init.vim"
-# export VIMRUNTIME="$HOME/.config/nvim/"
 
-export PYTHONSTARTUP="$CONF/python/.pythonrc"
-export PATH=$PATH:~/.local/bin  # added when installing virtualenv
+
+# GTD
+# =============================================================================
 
 export TASKRC="$CONF/taskwarrior/taskrc"
 export TIMEWARRIORDB="$HOME/gtd/timewarrior"
 export WIKI="~/"
+
+
+
+# =============================================================================
+
+# export FZF_BASE="/usr/local/bin/fzf"
+# export VIMRUNTIME="$HOME/.config/nvim/"
+export PYTHONSTARTUP="$CONF/python/.pythonrc"
+export PATH=$PATH:~/.local/bin  # added when installing virtualenv
+export XINITRC="$CONF/x/.xinitrc"
