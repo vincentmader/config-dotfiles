@@ -29,7 +29,6 @@ alias la="ls -T -a -L 1 --icons --group-directories-first"
 alias ll="ls -l -h --icons --group-directories-first --git"
 alias lla="ls -a -l -h --icons --group-directories-first --git"
 alias lt="ls -T -I \"__pychache__|venv|env|node_modules|.DS_Store|*.pyc|*.pyo\" --group-directories-first"
-alias du="ncdu"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -107,7 +106,7 @@ alias jn="jupyter notebook"
 # alias esl="./node_modules/.bin/eslint"
 
 # server
-alias runx="sh $CODE/mader.xyz/run.sh"
+alias runx="sh $CODE/mader.xyz/scripts/run"
 alias sshx="ssh vinc@188.166.164.214"
 # alias mdbx="mongod --dbpath=$CODE/mader.xyz/database"
 # alias runx="cd $CODE/mader.xyz; flask run& mdbx"
