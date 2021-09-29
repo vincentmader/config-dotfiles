@@ -73,7 +73,7 @@ source $CONF/zsh/prompter.sh
 # load aliases
 source $CONF/zsh/aliasrc
 
-source $CONF/emsdk/emsdk_env.sh
+source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
 
 # load zsh-syntax-highlighting; (should be last?)
 source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
