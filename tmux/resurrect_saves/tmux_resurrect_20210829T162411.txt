@@ -1,0 +1,16 @@
+pane	config	0	:zsh	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	maderxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	maderxyz frontend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	1	zsh	:
+pane	maderxyz host	0	:ssh	1	:*	0	:/home/vinc	1	ssh	:ssh vinc@188.166.164.214
+pane	maderxyz local run	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	0	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	1	zsh	:
+pane	maderxyz old js sims	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/comp_phys	1	zsh	:
+pane	maderxyz rust	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend/src	1	zsh	:
+window	config	0	1	:*	5b4f,155x42,0,0,10
+window	maderxyz	0	1	:*	5b54,155x42,0,0,15
+window	maderxyz frontend	0	1	:*	5b58,155x42,0,0,19
+window	maderxyz host	0	1	:*	db4f,155x42,0,0,20
+window	maderxyz local run	0	1	:*	54d7,155x42,0,0{77x42,0,0,21,77x42,78,0,26}
+window	maderxyz old js sims	0	1	:*	db51,155x42,0,0,22
+window	maderxyz rust	0	1	:*	db52,155x42,0,0,23
+state	maderxyz rust	maderxyz

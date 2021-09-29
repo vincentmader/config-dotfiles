@@ -1,0 +1,33 @@
+pane	10	0	:zsh	1	:*	0	:/home/vinc/.local/share/qutebrowser	1	zsh	:
+pane	11	0	:zsh	1	:*	0	:/home/vinc/.config/qutebrowser	1	zsh	:
+pane	12	0	:zsh	1	:*	0	:/home/vinc/.config/qutebrowser/scripts	1	zsh	:
+pane	antwar	0	:zsh	1	:*	0	:/home/vinc/antwar	1	zsh	:
+pane	config	0	:zsh	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	maderxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	maderxyz host	0	:ssh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	0	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/rocket_server	1	target/debug/rocket_server	:target/debug/rocket_server
+pane	maderxyz local run	0	:zsh	1	:*	2	:/home/vinc/code/mader.xyz/wasm-frontend	0	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	3	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	0	zsh	:
+pane	maderxyz old js sims	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim
+pane	maderxyz react frontend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	1	zsh	:
+pane	maderxyz react frontend	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	0	zsh	:
+pane	maderxyz rocket backend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/rocket_server	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim
+pane	maderxyz rocket backend	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/rocket_server	1	zsh	:
+pane	maderxyz rocket backend	0	:zsh	1	:*	2	:/home/vinc/code/mader.xyz/rocket_server	0	zsh	:
+pane	rust gol	0	:nvim	1	:*	0	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim index.html
+pane	rust gol	0	:nvim	1	:*	1	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	0	zsh	:
+pane	rust gol	0	:nvim	1	:*	2	:/home/vinc/code/_rust/mader-xyz_gol_canvas	0	zsh	:
+window	10	0	1	:*	6328,83x19,0,0,19
+window	11	0	1	:*	e31f,83x19,0,0,20
+window	12	0	1	:*	e320,83x19,0,0,21
+window	antwar	0	1	:*	a95e,67x40,0,0,1
+window	config	0	1	:*	a95f,67x40,0,0,2
+window	maderxyz	0	1	:*	a960,67x40,0,0,3
+window	maderxyz host	0	1	:*	a961,67x40,0,0,4
+window	maderxyz local run	0	1	:*	fe5e,67x40,0,0[67x10,0,0,6,67x9,0,11,7,67x9,0,21,8,67x9,0,31,9]
+window	maderxyz old js sims	0	1	:*	54df,67x40,0,0,10
+window	maderxyz react frontend	0	1	:*	2344,67x40,0,0[67x33,0,0,11,67x6,0,34,12]
+window	maderxyz rocket backend	0	1	:*	dade,67x40,0,0[67x28,0,0,13,67x11,0,29{33x11,0,29,14,33x11,34,29,15}]
+window	rust gol	0	1	:*	943e,67x40,0,0[67x27,0,0,16,67x12,0,28{33x12,0,28,17,33x12,34,28,18}]
+state	maderxyz react frontend	maderxyz old js sims

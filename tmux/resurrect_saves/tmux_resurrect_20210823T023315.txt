@@ -1,0 +1,21 @@
+pane	8	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+pane	9	0	:zsh	1	:*	0	:/home/vinc/code/rust	1	zsh	:
+pane	config	0	:zsh	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	maderxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	maderxyz frontend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim
+pane	maderxyz frontend	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	0	zsh	:
+pane	maderxyz host	0	:ssh	1	:*	0	:/home/vinc	1	ssh	:ssh vinc@188.166.164.214
+pane	maderxyz local run	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+pane	maderxyz old js sims	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/comp_phys	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim
+pane	maderxyz rust	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/rust_code/wasm_test	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim Cargo.toml
+pane	maderxyz rust	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/rust_code/wasm_test	0	zsh	:
+window	8	0	1	:*	5881,75x42,0,0,12
+window	9	0	1	:*	5b55,155x42,0,0,16
+window	config	0	1	:*	5820,83x42,0,0,11
+window	maderxyz	0	1	:*	b63e,155x42,0,0,1
+window	maderxyz frontend	0	1	:*	c82e,75x42,0,0[75x36,0,0,2,75x5,0,37,14]
+window	maderxyz host	0	1	:*	b642,155x42,0,0,5
+window	maderxyz local run	0	1	:*	b643,155x42,0,0,6
+window	maderxyz old js sims	0	1	:*	a8a4,75x40,0,0,7
+window	maderxyz rust	0	1	:*	a1e6,75x40,0,0[75x28,0,0,8,75x11,0,29,13]
+state	maderxyz old js sims	maderxyz frontend

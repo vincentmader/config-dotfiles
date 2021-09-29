@@ -1,0 +1,35 @@
+pane	12	0	:zsh	1	:*	0	:/home/vinc/code/_rust/boids/src	1	zsh	:
+pane	14	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+pane	15	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+pane	16	0	:zsh	1	:*	0	:/home/vinc/downloads	1	zsh	:
+pane	9	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+pane	config	0	:zsh	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	maderxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/templates	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim index.html
+pane	maderxyz frontend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	1	zsh	:
+pane	maderxyz host	0	:ssh	1	:*	0	:/home/vinc	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim
+pane	maderxyz host	0	:ssh	1	:*	1	:/home/vinc	1	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	maderxyz old js sims	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/comp_phys	1	zsh	:
+pane	maderxyz rocket	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz_r/wasm-frontend	1	zsh	:
+pane	maderxyz rocket	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz_r/rocket_server	0	target/debug/rocket_server	:target/debug/rocket_server
+pane	maderxyz rust	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	0	zsh	:
+pane	maderxyz rust	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend/src	0	zsh	:
+pane	maderxyz rust	0	:zsh	1	:*	2	:/home/vinc/code	1	zsh	:
+pane	rust gol	0	:nvim	1	:*	0	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim index.html
+pane	rust gol	0	:nvim	1	:*	1	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	0	npm	:npm run start
+pane	rust gol	0	:nvim	1	:*	2	:/home/vinc/code/_rust/mader-xyz_gol_canvas	0	zsh	:
+window	12	0	1	:*	d8e6,67x42,0,0,27
+window	14	0	1	:*	5228,83x20,0,0,38
+window	15	0	1	:*	db51,155x42,0,0,41
+window	16	0	1	:*	b63e,155x42,0,0,1
+window	9	0	1	:*	b63f,155x42,0,0,2
+window	config	0	1	:*	b640,155x42,0,0,3
+window	maderxyz	0	1	:*	afe1,83x42,0,0,4
+window	maderxyz frontend	0	1	:*	b642,155x42,0,0,5
+window	maderxyz host	0	1	:*	8265,155x40,0,0{77x40,0,0,6,77x40,78,0,24}
+window	maderxyz local run	0	1	:*	a964,67x40,0,0,7
+window	maderxyz old js sims	0	1	:*	b646,155x42,0,0,9
+window	maderxyz rocket	0	1	:*	69ba,67x42,0,0[67x29,0,0,28,67x12,0,30,32]
+window	maderxyz rust	0	1	:*	2b2e,155x42,0,0{77x42,0,0[77x26,0,0,10,77x15,0,27,11],77x42,78,0,12}
+window	rust gol	0	1	:*	5d3f,67x42,0,0[67x28,0,0,26,67x13,0,29{33x13,0,29,43,33x13,34,29,44}]
+state	maderxyz rocket	maderxyz local run

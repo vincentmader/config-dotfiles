@@ -1,0 +1,32 @@
+pane	12	0	:zsh	1	:*	0	:/home/vinc/code/_rust/boids/src	1	zsh	:
+pane	14	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+pane	15	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+pane	config	0	:zsh	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	maderxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/templates	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim index.html
+pane	maderxyz frontend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	1	zsh	:
+pane	maderxyz frontend	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	0	zsh	:
+pane	maderxyz host	0	:ssh	1	:*	0	:/home/vinc	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim
+pane	maderxyz host	0	:ssh	1	:*	1	:/home/vinc	1	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	0	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/rocket_server	0	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	2	:/home/vinc/code/mader.xyz/wasm-frontend	0	zsh	:
+pane	maderxyz local run	0	:zsh	1	:*	3	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend	1	zsh	:
+pane	maderxyz old js sims	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/comp_phys	1	zsh	:
+pane	maderxyz rocket backend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/rocket_server	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim
+pane	maderxyz rocket backend	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/rocket_server	1	target/debug/rocket_server	:target/debug/rocket_server
+pane	maderxyz rocket backend	0	:zsh	1	:*	2	:/home/vinc/code/mader.xyz/rocket_server	0	zsh	:
+pane	rust gol	0	:nvim	1	:*	0	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim index.html
+pane	rust gol	0	:nvim	1	:*	1	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	0	zsh	:
+pane	rust gol	0	:nvim	1	:*	2	:/home/vinc/code/_rust/mader-xyz_gol_canvas	0	zsh	:
+window	12	0	1	:*	b63e,155x42,0,0,1
+window	14	0	1	:*	b63f,155x42,0,0,2
+window	15	0	1	:*	b640,155x42,0,0,3
+window	config	0	1	:*	b641,155x42,0,0,4
+window	maderxyz	0	1	:*	b642,155x42,0,0,5
+window	maderxyz frontend	0	1	:*	fe93,51x40,0,0[51x32,0,0,6,51x7,0,33,24]
+window	maderxyz host	0	1	:*	2629,155x42,0,0{77x42,0,0,7,77x42,78,0,8}
+window	maderxyz local run	0	1	:*	071d,51x40,0,0[51x10,0,0,9,51x9,0,11,28,51x9,0,21,25,51x9,0,31,26]
+window	maderxyz old js sims	0	1	:*	5b4f,155x42,0,0,10
+window	maderxyz rocket backend	0	1	:*	08e1,51x40,0,0[51x28,0,0,19,51x11,0,29{25x11,0,29,12,25x11,26,29,23}]
+window	rust gol	0	1	:*	5e4f,155x42,0,0[155x28,0,0,16,155x13,0,29{77x13,0,29,17,77x13,78,29,18}]
+state	maderxyz local run	maderxyz frontend

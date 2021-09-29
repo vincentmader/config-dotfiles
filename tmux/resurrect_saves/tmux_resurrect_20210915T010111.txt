@@ -1,0 +1,34 @@
+pane	11	0	:zsh	1	:*	0	:/home/vinc/.config/qutebrowser	1	zsh	:
+pane	12	0	:zsh	1	:*	0	:/home/vinc/.config/qutebrowser/scripts	1	zsh	:
+pane	antwar	0	:zsh	1	:*	0	:/home/vinc/antwar	1	zsh	:
+pane	config	0	:zsh	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	mxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/frontend-react/js/base	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim Index.js
+pane	mxyz frontend-js	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/frontend-js	1	zsh	:
+pane	mxyz frontend-js	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/backend-rocket	0	target/debug/backend-rocket	:target/debug/backend-rocket
+pane	mxyz host	0	:ssh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz local run	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	0	zsh	:
+pane	mxyz local run	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/backend-rocket	1	zsh	:
+pane	mxyz local run	0	:zsh	1	:*	2	:/home/vinc/code/mader.xyz/wasm-frontend	0	zsh	:
+pane	mxyz local run	0	:zsh	1	:*	3	:/home/vinc/code/mader.xyz/frontend-react	0	zsh	:
+pane	mxyz old js sims	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim
+pane	mxyz react frontend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/frontend-react	1	zsh	:
+pane	mxyz react frontend	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/frontend-react	0	zsh	:
+pane	mxyz rocket backend-rocket	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/backend-rocket	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim
+pane	mxyz rocket backend-rocket	0	:zsh	1	:*	1	:/home/vinc/code/mader.xyz/backend-rocket	1	zsh	:
+pane	mxyz rocket backend-rocket	0	:zsh	1	:*	2	:/home/vinc/code/mader.xyz/backend-rocket	0	zsh	:
+pane	rust gol	0	:nvim	1	:*	0	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim index.html
+pane	rust gol	0	:nvim	1	:*	1	:/home/vinc/code/_rust/mader-xyz_gol_canvas/www	0	zsh	:
+pane	rust gol	0	:nvim	1	:*	2	:/home/vinc/code/_rust/mader-xyz_gol_canvas	0	zsh	:
+window	11	0	1	:*	b15e,67x42,0,0,1
+window	12	0	1	:*	b15f,67x42,0,0,2
+window	antwar	0	1	:*	b160,67x42,0,0,3
+window	config	0	1	:*	b161,67x42,0,0,4
+window	mxyz	0	1	:*	a962,67x40,0,0,5
+window	mxyz frontend-js	0	1	:*	f45e,67x40,0,0[67x31,0,0,17,67x8,0,32,18]
+window	mxyz host	0	1	:*	a963,67x40,0,0,6
+window	mxyz local run	0	1	:*	03b8,67x40,0,0[67x10,0,0,7,67x9,0,11,8,67x9,0,21,9,67x9,0,31,10]
+window	mxyz old js sims	0	1	:*	54e0,67x40,0,0,11
+window	mxyz react frontend	0	1	:*	a348,67x40,0,0[67x33,0,0,12,67x6,0,34,13]
+window	mxyz rocket backend-rocket	0	1	:*	9b1f,67x40,0,0[67x28,0,0,14,67x11,0,29{33x11,0,29,15,33x11,34,29,16}]
+window	rust gol	0	1	:*	5ddc,67x42,0,0[67x28,0,0,19,67x13,0,29{33x13,0,29,20,33x13,34,29,21}]
+state	mxyz rocket backend-rocket	mxyz frontend-js

@@ -1,0 +1,10 @@
+pane	maderxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	maderxyz frontend	0	:[tmux]	1	:*Z	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend/src	0	zsh	:
+pane	maderxyz frontend	0	:[tmux]	1	:*Z	1	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend/src	1	zsh	:
+pane	maderxyz host	0	:ssh	1	:*	0	:/home/vinc	1	ssh	:ssh vinc@188.166.164.214
+pane	maderxyz local run	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
+window	maderxyz	0	1	:*	b63f,155x42,0,0,2
+window	maderxyz frontend	0	1	:*Z	a61b,155x42,0,0{77x42,0,0,4,77x42,78,0,5}
+window	maderxyz host	0	1	:*	b643,155x42,0,0,6
+window	maderxyz local run	0	1	:*	b644,155x42,0,0,7
+state	maderxyz local run	
