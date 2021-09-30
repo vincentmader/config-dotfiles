@@ -80,6 +80,7 @@ alias diff='colordiff'
 alias gotop="gotop --color=monokai"
 alias top="gotop" 
 alias pdfl="pdflatex"
+alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 connect Pingeling"
 
 
 # (web) development

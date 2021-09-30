@@ -126,15 +126,27 @@ map <leader>ot :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=z
 "map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 python3 % <CR>
 "                create newline below current line without entering insert mode
 nmap <CR> o<C-c>
+
+
+"                                                                        MACROS
+" -----------------------------------------------------------------------------
+"                                                   execute last recorded macro
+nnoremap Q @@
+"                                    only redraw screen after macro is finished
+set lazyredraw
+" nnoremap Y y$
+
+
+
+
 "                                    go back to last opened file with backspace
 nmap <BS> <C-^>
-
+"                                                                open undo tree
 map <leader>u :UndotreeToggle <CR>
-" open NERDTree with <leader>nt
+"                                                                 open NERDTree
 map <leader>nt :NERDTreeTabsToggle<CR>
 
 
 map <leader>ml :set bg=light<CR>
 map <leader>md :set bg=dark<CR>
 
-map <leader>u :UndotreeToggle<CR>

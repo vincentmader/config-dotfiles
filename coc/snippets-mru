@@ -1,3 +1,6 @@
+function
+lorem
+body
 canvas
 extern
 div
@@ -10,7 +13,6 @@ button
 title
 head
 script
-body
 html
 assert
 for
@@ -18,7 +20,6 @@ println
 h1
 export_default
 pudb
-lorem
 doc_article
 import_pyplot
 import_matplotlib
@@ -103,7 +104,6 @@ import_plotting
 eq
 italic
 le
-function
 bold
 sum
 ali
