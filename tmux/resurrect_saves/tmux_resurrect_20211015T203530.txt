@@ -1,0 +1,63 @@
+pane	15	0	0	:-	0	:/home/vinc/code/_templates/maderxyz/maderxyz-backend/src	1	zsh	:
+pane	15	0	0	:-	1	:/home/vinc/code/_templates/maderxyz/maderxyz-backend	0	maderxyz-backend	:/home/vinc/code/_templates/maderxyz/target/debug/maderxyz-backend
+pane	15	1	1	:*	0	:/home/vinc/code/antwar	1	zsh	:
+pane	16	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	17	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	18	0	1	:*	0	:/home/vinc/code/antwar	1	zsh	:
+pane	19	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	20	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	21	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	22	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	23	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	24	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	25	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	antwar	0	0	:-	0	:/home/vinc/code/antwar	1	zsh	:
+pane	antwar	0	0	:-	1	:/home/vinc/code/antwar	0	sh	:/bin/sh ./scripts/run
+pane	antwar	1	1	:*	0	:/home/vinc/code/antwar	1	zsh	:
+pane	antwar	1	1	:*	1	:/home/vinc/code/_templates/fn_pass/src	0	zsh	:
+pane	config	0	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	mxyz	0	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz backend	1	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend	1	zsh	:
+pane	mxyz backend	1	1	:*	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz frontend	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend	1	zsh	:
+pane	mxyz frontend-css	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend/static/css	1	zsh	:
+pane	mxyz frontend-react	0	1	:*	0	:/home/vinc/code/mader.xyz/_old/frontend-react	1	zsh	:
+pane	mxyz frontend-wasm	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend/src	1	zsh	:
+pane	mxyz host	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz local	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz old_js	0	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js	1	zsh	:
+pane	org	0	1	:*	0	:/home/vinc/org	0	zsh	:
+pane	org	0	1	:*	1	:/home/vinc/org	1	zsh	:
+pane	rust gol	0	1	:*	0	:/home/vinc/code	1	zsh	:
+pane	wifi	0	1	:*	0	:/home/vinc	1	iwctl	:iwctl
+window	15	0	:zsh	0	:-	6960,61x48,0,0[61x29,0,0,46,61x18,0,30,28]	:
+window	15	1	:zsh	1	:*	e368,61x48,0,0,48	:
+window	16	0	:zsh	1	:*	d8a0,85x23,0,0,21	:
+window	17	0	:zsh	1	:*	dba1,85x15,0,0,22	:
+window	18	0	:zsh	1	:*	e4a4,85x48,0,0,25	:
+window	19	0	:zsh	1	:*	64a0,85x48,0,0,30	:
+window	20	0	:zsh	1	:*	64a1,85x48,0,0,31	:
+window	21	0	:zsh	1	:*	64a2,85x48,0,0,32	:
+window	22	0	:zsh	1	:*	e4a0,85x48,0,0,40	:
+window	23	0	:zsh	1	:*	e4a3,85x48,0,0,43	:
+window	24	0	:zsh	1	:*	6442,93x48,0,0,51	:
+window	25	0	:zsh	1	:*	58a4,85x23,0,0,53	:
+window	antwar	0	:zsh	0	:-	40b4,61x48,0,0[61x38,0,0,1,61x9,0,39,59]	on
+window	antwar	1	:zsh	1	:*	ea53,61x48,0,0[61x31,0,0,60,61x16,0,32,61]	:
+window	config	0	:zsh	1	:*	cf3f,157x48,0,0,2	on
+window	mxyz	0	:zsh	1	:*	cf40,157x48,0,0,3	on
+window	mxyz backend	0	:zsh	0	:-	824e,157x48,0,0[157x34,0,0,4,157x13,0,35,5]	on
+window	mxyz backend	1	:zsh	1	:*	8253,157x48,0,0[157x34,0,0,6,157x13,0,35,7]	on
+window	mxyz frontend	0	:zsh	1	:*	cf45,157x48,0,0,8	on
+window	mxyz frontend-css	0	:zsh	1	:*	cf46,157x48,0,0,9	on
+window	mxyz frontend-react	0	:zsh	1	:*	67cf,157x48,0,0,10	on
+window	mxyz frontend-wasm	0	:zsh	1	:*	67d0,157x48,0,0,11	on
+window	mxyz host	0	:zsh	1	:*	6561,69x48,0,0,12	on
+window	mxyz local	0	:zsh	1	:*	67d2,157x48,0,0,13	on
+window	mxyz old_js	0	:zsh	1	:*	67d3,157x48,0,0,14	on
+window	org	0	:zsh	1	:*	c7da,69x48,0,0[69x10,0,0,15,69x37,0,11,44]	:
+window	rust gol	0	:zsh	1	:*	67d5,157x48,0,0,16	on
+window	wifi	0	:iwctl	1	:*	6567,69x48,0,0,18	:
+state	antwar	15

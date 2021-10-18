@@ -1,0 +1,34 @@
+pane	antwar	0	1	:*	0	:/home/vinc/code/antwar/antwar-players	1	zsh	:
+pane	config	0	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	mxyz	0	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz backend	1	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend	1	zsh	:
+pane	mxyz backend	1	1	:*	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz frontend	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend	1	zsh	:
+pane	mxyz frontend-css	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend/static/css	1	zsh	:
+pane	mxyz frontend-react	0	1	:*	0	:/home/vinc/code/mader.xyz/_old/frontend-react	1	zsh	:
+pane	mxyz frontend-wasm	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend/src	1	zsh	:
+pane	mxyz host	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz local	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz old_js	0	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js	1	zsh	:
+pane	org	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	rust gol	0	1	:*	0	:/home/vinc/code	1	zsh	:
+pane	wifi	0	1	:*	0	:/home/vinc	0	zsh	:
+pane	wifi	0	1	:*	1	:/home/vinc	1	zsh	:
+window	antwar	0	:zsh	1	:*	ca5e,69x48,0,0,1	on
+window	config	0	:zsh	1	:*	b0e0,85x23,0,0,3	on
+window	mxyz	0	:zsh	1	:*	b0e1,85x23,0,0,4	on
+window	mxyz backend	0	:zsh	0	:-	2e06,85x23,0,0[85x21,0,0,5,85x1,0,22,6]	on
+window	mxyz backend	1	:zsh	1	:*	2e17,85x23,0,0[85x21,0,0,7,85x1,0,22,8]	on
+window	mxyz frontend	0	:zsh	1	:*	b0e6,85x23,0,0,9	on
+window	mxyz frontend-css	0	:zsh	1	:*	589f,85x23,0,0,10	on
+window	mxyz frontend-react	0	:zsh	1	:*	58a0,85x23,0,0,11	on
+window	mxyz frontend-wasm	0	:zsh	1	:*	58a1,85x23,0,0,12	on
+window	mxyz host	0	:zsh	1	:*	58a2,85x23,0,0,13	on
+window	mxyz local	0	:zsh	1	:*	58a3,85x23,0,0,14	on
+window	mxyz old_js	0	:zsh	1	:*	58a4,85x23,0,0,15	on
+window	org	0	:zsh	1	:*	58a5,85x23,0,0,16	:
+window	rust gol	0	:zsh	1	:*	58a6,85x23,0,0,17	on
+window	wifi	0	:zsh	1	:*	36ac,85x23,0,0[85x11,0,0,18,85x11,0,12,19]	:
+state	antwar	wifi
