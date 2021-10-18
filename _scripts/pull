@@ -1,0 +1,8 @@
+cd $CONF/dmenu
+git pull
+
+cd $CONF/dwm
+git pull
+
+cd $CONF/st
+git pull

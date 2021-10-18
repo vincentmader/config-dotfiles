@@ -1,9 +1,0 @@
-[submodule "dmenu"]
-	path = dmenu
-	url = git@github.com:vincentmader/dmenu.git
-[submodule "dwm"]
-	path = dwm
-	url = git@github.com:vincentmader/dwm.git
-[submodule "st"]
-	path = st
-	url = git@github.com:vincentmader/st.git

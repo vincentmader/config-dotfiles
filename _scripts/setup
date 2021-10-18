@@ -8,6 +8,10 @@ git clone git@github.com:alexanderjeurissen/ranger_devicons.git $CONF/ranger/plu
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
 git clone git@github.com:tmux-plugins/tpm.git $CONF/tmux/plugins/tpm
 
+git clone git@github.com:vincentmader/dmenu.git $CONF/dmenu
+git clone git@github.com:vincentmader/dwm.git $CONF/dwm
+git clone git@github.com:vincentmader/st.git $CONF/st
+
 # setup tmux-resurrect save directory (symlink)
 ln -s $CONF/tmux/resurrect_saves ~/.tmux/resurrect
 
