@@ -4,6 +4,9 @@
 # -----------------------------------------------------------------------------
 
 
+systemctl start docker  # auto-start docker on login
+
+
 # auto-start xorg on login
 # =============================================================================
 source /home/vinc/.config/zsh/pathrc

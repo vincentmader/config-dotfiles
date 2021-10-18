@@ -37,6 +37,7 @@ alias egrep='egrep --color=auto'
 alias pwd="pwd -P"
 alias mkdir="mkdir -pv"
 alias mv="mv -i"
+alias cp="cp -r"
 alias cp="cp -iv"
 alias del="rmtrash -r"
 alias t="touch"
@@ -55,7 +56,7 @@ alias fzf="fzf --preview='head -$LINES {}'"
 #         command find "$@"
 #     fi
 # }
-# alias vf="v $(fzf)"
+# alias vf="v $(fzf)"  # TODO: ? -> fix
 
 
 # most used applications
@@ -80,7 +81,7 @@ alias diff='colordiff'
 alias gotop="gotop --color=monokai"
 alias top="gotop" 
 alias pdfl="pdflatex"
-alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 connect Pingeling"
+alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect Pingeling"
 
 
 # (web) development
@@ -107,8 +108,9 @@ alias jn="jupyter notebook"
 # alias esl="./node_modules/.bin/eslint"
 
 # server
-alias runx="sh $CODE/mader.xyz/scripts/run"
-alias sshx="ssh vinc@188.166.164.214"
+alias xrun="sh $CODE/mader.xyz/scripts/run"
+alias xssh="ssh vinc@188.166.164.214"
+alias wssh="ssh root@164.90.234.99"
 # alias mdbx="mongod --dbpath=$CODE/mader.xyz/database"
 # alias runx="cd $CODE/mader.xyz; flask run& mdbx"
 
@@ -124,12 +126,15 @@ alias g="git"
 alias gg='clear && git status'
 alias ggs='clear && git status --short'
 alias gl="git pull --recurse-submodules"
+alias glaw="cd $CODE/antwar; git pull --recurse-submodules"
+alias glmx="cd $CODE/mader.xyz git pull --recurse-submodules"
 alias gc="git commit"
 alias gp="git push"
 alias ga="git add"
 alias grm="git rm"
 alias gch="git checkout"
 alias gbr="git branch"
+alias gpa="git add *; git commit -m .; git push"
 
 
 # OS-dependent commands

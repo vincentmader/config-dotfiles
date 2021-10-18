@@ -91,4 +91,9 @@ command! FixWhitespace :%s/\s\+$//e
 
 " calendar
 " let g:calendar_frame = 'default'
-"
+
+
+if expand('%:e')=='tera'
+    set syntax=html
+endif
+
