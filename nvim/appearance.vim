@@ -29,7 +29,7 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
-" highlight clear LineNr 
+highlight LineNr ctermbg=None
 
 "                                                 make folds less awful-looking
 highlight clear Folded
