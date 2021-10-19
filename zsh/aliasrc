@@ -29,6 +29,7 @@ alias la="ls -T -a -L 1 --icons --group-directories-first"
 alias ll="ls -l -h --icons --group-directories-first --git"
 alias lla="ls -a -l -h --icons --group-directories-first --git"
 alias lt="ls -T -I \"__pychache__|venv|env|node_modules|.DS_Store|*.pyc|*.pyo\" --group-directories-first"
+alias lts="ls -T -L 2 -I \"__pychache__|venv|env|node_modules|.DS_Store|*.pyc|*.pyo\" --group-directories-first"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -76,12 +77,14 @@ alias yay="yay --mflags --skipinteg"                          # TODO: setup PGP
 # =============================================================================
 
 alias smi="sudo make install"
+alias smci="sudo make clean install"
 alias speedtest="speedtest-cli"
 alias diff='colordiff'
 alias gotop="gotop --color=monokai"
 alias top="gotop" 
 alias pdfl="pdflatex"
-alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect Pingeling"
+# alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect Pingeling"
+alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect o2-WLAN79"
 
 
 # (web) development
@@ -93,6 +96,7 @@ alias cgr="clear && cargo run"
 alias cgb="clear && cargo build"
 alias cgc="clear && cargo check"
 alias cgi="clear && cargo install"
+alias iwctl="clear && iwctl"
 alias npmu="npm install npm@latest -g"
 alias npmi="npm install"
 alias npmrb="npm run build"

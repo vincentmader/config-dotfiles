@@ -6,7 +6,7 @@ function prompter() {
         if [ -z "$branch" ]; then
             git_branch=""
         else
-            git_branch="─(%{$fg[green]%}${branch:2:-1}%{$reset_color%})"
+            git_branch="─[%{$fg[green]%}${branch:2:-1}%{$reset_color%}]"
         fi
     }
 
@@ -19,7 +19,7 @@ function prompter() {
         if [ -z "$PYTHON_VIRTUAL_ENV" ]; then
             venv=""
         else
-            venv="─(%{$fg[blue]%}$PYTHON_VIRTUAL_ENV%{$reset_color%})"
+            venv="─[%{$fg[blue]%}$PYTHON_VIRTUAL_ENV%{$reset_color%}]"
         fi
     }
 
@@ -61,8 +61,9 @@ function prompter() {
     location="%{$fg[green]%}%1~%{$reset_color%}"
 
     export PS1="
-╭────[$username|$location]─($clock)$git_branch$venv
+╭────($username|$location)$git_branch$venv
 ╰─➤ "
+    # ─($clock)
     # ($overdue_count|$due_today_count|$in_count)
     # ($battery_status)
     # ($clock)

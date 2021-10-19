@@ -1,0 +1,43 @@
+pane	_cfg	0	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	_org	0	1	:*	0	:/home/vinc/org	0	zsh	:
+pane	_org	0	1	:*	1	:/home/vinc/org	1	zsh	:
+pane	_uni	0	1	:*	0	:/home/vinc/docs/uni/sem_11	0	zsh	:
+pane	_uni	0	1	:*	1	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim ex01_sol.tex
+pane	_uni	0	1	:*	2	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	0	zsh	:
+pane	_uni	0	1	:*	3	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	0	zsh	:
+pane	antwar	0	0	:-	0	:/home/vinc/code/antwar	1	zsh	:
+pane	antwar	0	0	:-	1	:/home/vinc/code/antwar	0	zsh	:
+pane	antwar	1	1	:*	0	:/home/vinc/code/antwar	1	zsh	:
+pane	antwar	1	1	:*	1	:/home/vinc	0	zsh	:
+pane	mxyz	0	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz backend	1	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend	1	zsh	:
+pane	mxyz backend	1	1	:*	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz frontend	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend	1	zsh	:
+pane	mxyz frontend-css	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend/static/css	1	zsh	:
+pane	mxyz frontend-react	0	1	:*	0	:/home/vinc/code/mader.xyz/_old/frontend-react	1	zsh	:
+pane	mxyz frontend-wasm	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend/src	1	zsh	:
+pane	mxyz host	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz local	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz old_js	0	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js	1	zsh	:
+pane	rust game of life	0	1	:*	0	:/home/vinc/code	1	zsh	:
+pane	wifi	0	1	:*	0	:/home/vinc	1	zsh	:
+window	_cfg	0	:zsh	1	:*	5732,160x50,0,0,32	:
+window	_org	0	:zsh	1	:*	10fd,160x50,0,0[160x11,0,0,7,160x38,0,12,8]	:
+window	_uni	0	:nvim	1	:*	10df,160x50,0,0[160x12,0,0,9,160x29,0,13,10,160x7,0,43{79x7,0,43,11,80x7,80,43,12}]	:
+window	antwar	0	:zsh	0	:-	1b20,160x50,0,0[160x39,0,0,13,160x10,0,40,14]	on
+window	antwar	1	:zsh	1	:*	38a3,160x50,0,0[160x32,0,0,15,160x17,0,33,16]	:
+window	mxyz	0	:zsh	1	:*	5736,160x50,0,0,17	on
+window	mxyz backend	0	:zsh	0	:-	ed27,160x50,0,0[160x35,0,0,18,160x14,0,36,19]	on
+window	mxyz backend	1	:zsh	1	:*	ad1c,160x50,0,0[160x35,0,0,20,160x14,0,36,21]	on
+window	mxyz frontend	0	:zsh	1	:*	d731,160x50,0,0,22	on
+window	mxyz frontend-css	0	:zsh	1	:*	d732,160x50,0,0,23	on
+window	mxyz frontend-react	0	:zsh	1	:*	d733,160x50,0,0,24	on
+window	mxyz frontend-wasm	0	:zsh	1	:*	d734,160x50,0,0,25	on
+window	mxyz host	0	:zsh	1	:*	d735,160x50,0,0,26	on
+window	mxyz local	0	:zsh	1	:*	d736,160x50,0,0,27	on
+window	mxyz old_js	0	:[tmux]	1	:*	d737,160x50,0,0,28	on
+window	rust game of life	0	:zsh	1	:*	d738,160x50,0,0,29	on
+window	wifi	0	:zsh	1	:*	5730,160x50,0,0,30	:
+state	mxyz old_js	

@@ -1,0 +1,41 @@
+pane	_cfg	0	1	:*	0	:/home/vinc/.config/tmux	1	zsh	:
+pane	_org	0	1	:*	0	:/home/vinc/org	0	zsh	:
+pane	_org	0	1	:*	1	:/home/vinc/org	1	zsh	:
+pane	_uni	0	1	:*	0	:/home/vinc/docs/uni/sem_11	1	zsh	:
+pane	_uni	0	1	:*	1	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	0	zathura	:zathura exercise01.pdf
+pane	antwar	0	0	:-	0	:/home/vinc/code/antwar	1	zsh	:
+pane	antwar	0	0	:-	1	:/home/vinc/code/antwar	0	zsh	:
+pane	antwar	1	1	:*	0	:/home/vinc/code/antwar	1	zsh	:
+pane	antwar	1	1	:*	1	:/home/vinc	0	zsh	:
+pane	mxyz	0	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	mxyz backend	0	0	:-	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz backend	1	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend	1	zsh	:
+pane	mxyz backend	1	1	:*	1	:/home/vinc/code/mader.xyz/maderxyz-backend	0	zsh	:
+pane	mxyz frontend	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend	1	zsh	:
+pane	mxyz frontend-css	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-backend/static/css	1	zsh	:
+pane	mxyz frontend-react	0	1	:*	0	:/home/vinc/code/mader.xyz/_old/frontend-react	1	zsh	:
+pane	mxyz frontend-wasm	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-frontend/src	1	zsh	:
+pane	mxyz host	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz local	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	mxyz old_js	0	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js	1	zsh	:
+pane	rust game of life	0	1	:*	0	:/home/vinc/code	1	zsh	:
+pane	wifi	0	1	:*	0	:/home/vinc	1	zsh	:
+window	_cfg	0	:zsh	1	:*	c65e,69x47,0,0,1	on
+window	_org	0	:zsh	1	:*	ba5d,157x47,0,0[157x9,0,0,3,157x37,0,10,4]	:
+window	_uni	0	:zsh	1	:*	0b97,69x47,0,0[69x23,0,0,23,69x23,0,24,25]	:
+window	antwar	0	:zsh	0	:-	e2f2,69x47,0,0[69x37,0,0,5,69x9,0,38,6]	on
+window	antwar	1	:zsh	1	:*	27c9,69x47,0,0[69x30,0,0,7,69x16,0,31,8]	:
+window	mxyz	0	:zsh	1	:*	c666,69x47,0,0,9	on
+window	mxyz backend	0	:zsh	0	:-	d54d,69x47,0,0[69x33,0,0,10,69x13,0,34,11]	on
+window	mxyz backend	1	:zsh	1	:*	d552,69x47,0,0[69x33,0,0,12,69x13,0,34,13]	on
+window	mxyz frontend	0	:zsh	1	:*	6363,69x47,0,0,14	on
+window	mxyz frontend-css	0	:zsh	1	:*	6364,69x47,0,0,15	on
+window	mxyz frontend-react	0	:zsh	1	:*	6365,69x47,0,0,16	on
+window	mxyz frontend-wasm	0	:zsh	1	:*	6366,69x47,0,0,17	on
+window	mxyz host	0	:zsh	1	:*	6367,69x47,0,0,18	on
+window	mxyz local	0	:zsh	1	:*	6368,69x47,0,0,19	on
+window	mxyz old_js	0	:zsh	1	:*	e35f,69x47,0,0,20	on
+window	rust game of life	0	:zsh	1	:*	e360,69x47,0,0,21	on
+window	wifi	0	:zsh	1	:*	e361,69x47,0,0,22	:
+state	_cfg	_uni
