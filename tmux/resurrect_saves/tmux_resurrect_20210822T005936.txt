@@ -1,5 +1,0 @@
-pane	maderxyz	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
-pane	maderxyz frontend	0	:zsh	1	:*	0	:/home/vinc/code/mader.xyz/FlaskApp/static/js/react_frontend/src	1	zsh	:
-window	maderxyz	0	1	:*	b63f,155x42,0,0,2
-window	maderxyz frontend	0	1	:*	b641,155x42,0,0,4
-state	maderxyz frontend	

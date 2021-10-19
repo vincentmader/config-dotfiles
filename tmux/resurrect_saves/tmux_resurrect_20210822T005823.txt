@@ -1,3 +1,0 @@
-pane	ayyyyyyyyy	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
-window	ayyyyyyyyy	0	1	:*	b63f,155x42,0,0,2
-state	ayyyyyyyyy	

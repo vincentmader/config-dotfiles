@@ -1,9 +1,0 @@
-pane	0	0	1	:*	0	:/home/vinc/.dropbox-dist	0	zsh	:
-pane	0	0	1	:*	1	:/home/vinc	1	zsh	:
-pane	1	0	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
-pane	2	0	1	:*	0	:/home/vinc/.config/tmux	0	zsh	:
-pane	2	0	1	:*	1	:/home/vinc/.tmux	1	zsh	:
-window	0	0	:zsh	1	:*	e151,125x34,0,0[125x17,0,0,0,125x16,0,18,5]	:
-window	1	0	:zsh	1	:*	b6e1,233x71,0,0,4	:
-window	2	0	:zsh	1	:*	b95d,125x71,0,0[125x35,0,0,6,125x35,0,36,7]	:
-state	2	

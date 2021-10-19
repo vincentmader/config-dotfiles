@@ -1,5 +1,0 @@
-pane	0	0	:[tmux]	1	:*	0	:/home/vinc	1	zsh	:
-pane	ayyyyyyyyy	0	:zsh	1	:*	0	:/home/vinc	1	zsh	:
-window	0	0	1	:*	b63d,155x42,0,0,0
-window	ayyyyyyyyy	0	1	:*	b63e,155x42,0,0,1
-state	ayyyyyyyyy	
