@@ -1,22 +1,143 @@
-pip3 install -r $CONF/requirements.txt 
+#!/bin/sh
 
-rustup component add rls rust-analysis rust-src
 
+CONF="~/.config"
+
+
+# BASE
+# =====================================
+
+# c linker (might be needed)
+pacman -S cmake
+
+# pacman
+pacman -S --needed git base-devel
+    # git config http.postBuffe 524288000  # big upload buffe
+    # git config --global credential.helper store  # store pw
+
+# pull config repos from GitHub
+git clone --recurse-submodules git@github.com:vincentmader/dotfiles.git $CONF
 git clone git@github.com:vincentmader/dmenu.git $CONF/dmenu
 git clone git@github.com:vincentmader/dwm.git $CONF/dwm
 git clone git@github.com:vincentmader/st.git $CONF/st
 
-git clone git@github.com:emscripten-core/emsdk.git $CONF/emsdk
+
+# PACKAGE MANAGERS  (+ what they need)
+# =====================================
+
+# yay
+yay
+git clone https://aur.archlinux.org/yay.git /usr/src/yay
+cd /usr/src/yay
+makepkg -si
+
+# zsh + oh-my-zsh  (+ syntax hl)
+pacman -S zsh
 git clone git@github.com:ohmyzsh/ohmyzsh.git $CONF/zsh/oh-my-zsh
-git clone git@github.com:alexanderjeurissen/ranger_devicons.git $CONF/ranger/plugins/ranger_devicons
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
+
+# python + pip  (+ requirements)
+pacman -S python
+pacman -S pip
+pip3 install -r $CONF/requirements.txt 
+pip3 install virtualenv pep8 autopep8
+
+# node + npm
+pacman -S nodejs
+pacman -S npm
+npm install -g eslint babel-eslint # eslint-plugin-react
+
+# rust & cargo  (+ rls)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup component add rls rust-analysis rust-src
+
+# tmux + tpm  (+ resurrect)
+pacman -S tmux
 mkdir $CONF/tmux/plugins
 git clone git@github.com:tmux-plugins/tpm.git $CONF/tmux/plugins/tpm
-
-# setup tmux-resurrect save directory (symlink)
+mkdir $CONF/tmux/resurrect_saves
 ln -s $CONF/tmux/resurrect_saves ~/.tmux/resurrect
 
-nvim -c PlugInstall
 
-# reload tmux:                      ctrl-a-r
-# reload tmux package manager:      ctrl-a-I
+# WINDOW SERVERS
+# =====================================
+
+# xorg
+yay -S xorg xorg-xinit
+yay -S xterm xbindkeys xcompmgr xclip
+# setup auto-source of xinitrc
+cp ~/.config/x/source_xinit.sh /etc/X11/xinit/xinitrc
+
+# dwm
+cd ~/.config/dwm
+rm config.h
+sudo make clean install
+    # while we're at it: dmenu
+    cd $CONF/dmenu
+    rm config.h
+    sudo make clean install
+    # ...and suckless terminal
+    cd $CONF/st
+    rm config.h
+    sudo make clean install
+
+
+# PERSONAL FILES
+# =====================================
+
+mkdir ~/downloads
+mkdir -p ~/media/pictures ~/media/videos
+# org
+git clone https://github.com/vincentmader/org ~/org
+# code  
+git clone --recurse-submodules https://github.com/vincentmader/code ~/code
+# docs  
+git clone --recurse-submodules https://github.com/vincentmader/docs ~/docs
+
+
+# VARIOUS
+# =====================================
+
+# emscripten
+git clone git@github.com:emscripten-core/emsdk.git $CONF/emsdk
+
+# --------------
+
+# shell
+pacman -S exa thefuck ripgrep ack fzf
+# vim
+pacman -S vim neovim
+pip install jedi neovim
+# browsers
+pacman -S qutebrowser chromium
+# ranger
+pacman -S ranger
+git clone git@github.com:alexanderjeurissen/ranger_devicons.git $CONF/ranger/plugins/ranger_devicons
+# apps
+pacman -S --mflags --skipinteg spotify slack-desktop
+# connectivity
+pacman -S inetutils net-tools lsof openssh
+pacman -S mongodb  # TODO: auto-choose mongodb-bin (option 4?)
+# image/video
+pacman -S colorpicker imagemagick 
+pacman -S vlc simplescreenrecorder mpv
+# taskwarrior
+    # pacman -S task tasklib tasksh timew
+    # pip install tasklib
+# rust wasm bundler, like wasm-pack (?)
+    # pacman -S trunk
+# fun stuff
+pacman -S archey neofetch cmatrix sl cowsay figlet rtv tldr lolcat toilet
+npm install -g cli-fireplace carbon-now-cli emoji-finder nasa-cli weather-cli
+pip install ricksay YuleLog pytube3
+# other
+pacman -S ncdu rmtrash zip unzip neomutt
+pacman -S colordiff
+pacman -S scrot
+    # sc-im, wifi-password, watch
+    # geoiplookup, links, tree
+
+# =====================================
+
+# vim plugins  (should be last)
+nvim -c PlugInstall

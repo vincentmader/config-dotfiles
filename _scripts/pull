@@ -1,3 +1,6 @@
+cd $CONF
+git pull
+
 cd $CONF/dmenu
 git pull
 
