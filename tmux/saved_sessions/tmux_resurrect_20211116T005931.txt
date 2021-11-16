@@ -1,0 +1,46 @@
+pane	    antwar   	0	1	:*	0	:/home/vinc/code/antwar	0	zsh	:
+pane	    antwar   	0	1	:*	1	:/home/vinc/code/antwar	1	zsh	:
+pane	    csv   	0	1	:*	0	:/home/vinc/downloads/sparkasse_csv	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim main.py
+pane	    csv   	0	1	:*	1	:/home/vinc/downloads/sparkasse_csv	1	zsh	:
+pane	    csv   	0	1	:*	2	:/home/vinc/downloads/sparkasse_csv/plots	0	zathura	:zathura net_worth.pdf
+pane	    csv   	1	0	:-	0	:/home/vinc/code/mader.xyz/chronos-data/finances/comdirect	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim my_export.txt
+pane	    misc     	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	10	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	11	0	1	:*	0	:/home/vinc/.emacs.d/bin	1	zsh	:
+pane	12	0	1	:*	0	:/home/vinc/downloads/sparkasse_csv/plots	1	zsh	:
+pane	13	0	1	:*	0	:/home/vinc/.doom.d	1	zsh	:
+pane	14	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	15	0	1	:*	0	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	16	0	1	:*	0	:/home/vinc/.config/tmux/saved_sessions	1	zsh	:
+pane	17	0	1	:*	0	:/home/vinc	1	zsh	:
+pane	_   cfg   	0	1	:*	0	:/home/vinc/.config	1	zsh	:
+pane	_   mxyz  	0	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-client	0	zsh	:
+pane	_   mxyz  	0	1	:*	1	:/home/vinc/.config	1	zsh	:
+pane	_   mxyz  	0	1	:*	2	:/home/vinc/code/mader.xyz/maderxyz-server	0	sh	:/bin/sh ./scripts/run
+pane	_   mxyz  	1	0	:	0	:/home/vinc/code/mader.xyz/flask-server/maderxyz	0	zsh	:
+pane	_   mxyz  	1	0	:	1	:/home/vinc/code/mader.xyz	1	zsh	:
+pane	_   mxyz  	3	0	:-	0	:/home/vinc/code/mader.xyz/maderxyz-server/static/img	1	zsh	:
+pane	_   org   	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	_   uni   	0	0	:-	0	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	zsh	:
+pane	_   uni   	1	1	:*	0	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	zsh	:
+pane	_   uni   	1	1	:*	1	:/home/vinc/docs/uni/sem_11/theory_tooltips	0	zsh	:
+window	    antwar   	0	:  vim+run  	1	:*	1826,57x46,0,0[57x36,0,0,1,57x9,0,37,2]	off
+window	    csv   	0	:zsh	1	:*	18bc,160x50,0,0[160x28,0,0,25,160x21,0,29{100x21,0,29,26,59x21,101,29,27}]	:
+window	    csv   	1	:nvim	0	:-	61a0,89x46,0,0,30	:
+window	    misc     	0	:zsh	1	:*	c120,57x46,0,0,3	:
+window	10	0	:zsh	1	:*	60c3,57x46,0,0,33	:
+window	11	0	:zsh	1	:*	5734,160x50,0,0,34	:
+window	12	0	:zsh	1	:*	6005,73x46,0,0,35	:
+window	13	0	:zsh	1	:*	6006,73x46,0,0,36	:
+window	14	0	:zsh	1	:*	e063,65x46,0,0,43	:
+window	15	0	:zsh	1	:*	e064,65x46,0,0,44	:
+window	16	0	:zsh	1	:*	e065,65x46,0,0,45	:
+window	17	0	:zsh	1	:*	5461,65x21,0,0,50	:
+window	_   cfg   	0	:zsh	1	:*	60c0,57x46,0,0,11	:
+window	_   mxyz  	0	:  vim+run  	1	:*	d00f,160x50,0,0[160x32,0,0{80x32,0,0,47,79x32,81,0,49},160x17,0,33,13]	off
+window	_   mxyz  	1	:zsh	0	:	cb6c,57x44,0,0[57x27,0,0,14,57x16,0,28,15]	:
+window	_   mxyz  	3	:zsh	0	:-	5735,160x50,0,0,16	:
+window	_   org   	0	:  git  	1	:*	60c8,57x46,0,0,19	off
+window	_   uni   	0	:  tex  	0	:-	e0bf,57x46,0,0,20	off
+window	_   uni   	1	:  zathura  	1	:*	2628,57x46,0,0[57x22,0,0,21,57x23,0,23,22]	off
+state	16	
