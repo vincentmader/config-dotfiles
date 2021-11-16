@@ -61,6 +61,12 @@ highlight EndOfBuffer ctermfg=black ctermbg=black
 set scrolloff=12
 
 
+
+" augroup colorscheme_coc_setup | au!
+"     au ColorScheme * call s:my_colors_setup()
+" augroup END
+
+
 " }}}
 "                                                       SYNTAX HIGHLIGHTING {{{
 " =============================================================================
@@ -113,5 +119,9 @@ syntax match todoCheckbox "* \[X\]" conceal cchar=
 
 
 let g:limelight_conceal_ctermfg = "239"  " this color is used by solarized for comments
+
+" hi CocListBgRed guibg=black guifg=red
+" hi NvimInternalError guibg=black guifg=red
+
 
 " }}}

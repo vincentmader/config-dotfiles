@@ -1,95 +1,68 @@
 
-# =============================================================================
-#                           QuteBrowser config
-# =============================================================================
+# ================================================
+#                               QuteBrowser config
+# ================================================
 
 # config inspirations:
 #     * ii.com/qutebrowser-configpy
 
-#                                                                       GENERAL
-# =============================================================================
-
+#                                          GENERAL
+# ================================================
+#                                          startup
 config.load_autoconfig(False)
-
-# start page
-c.url.start_pages = ['mader.xyz']
-# c.url.start_pages = ['/home/vinc/.config/qutebrowser/startpage.html']
-# default zoom level
-c.zoom.default = '125%'
-# downloads directory
-c.downloads.location.directory = '/home/vinc/downloads'
-
-# no confirmation before quit, because: always restore last session anyways
+c.url.start_pages = ['mader.xyz']  
+#                                             exit
 c.confirm_quit = ['never']
 c.auto_save.session = True
-
-# maximum number of cache & undo items
+#                    max.nr. of cache & undo items
 c.content.cache.maximum_pages = 1000
-c.tabs.undo_stack_size = -1  # undo items per tab: infinityyyyyyy
-
-# do not automatically start playing videos
-c.content.autoplay = False
-# allow websites to read canvas (needed for some sites)
-c.content.canvas_reading = True
-
-# cookies
+c.tabs.undo_stack_size = -1  
+#                                          cookies
 c.content.cookies.accept = 'all'
 c.content.cookies.store = True
+#                                          various
+c.content.autoplay = False  
+c.content.canvas_reading = True  # (needed for some sites)
 
-#                                                                SEARCH ENGINES
-# =============================================================================
+#                                   SEARCH ENGINES
+# ================================================
+
 c.url.searchengines = {
     # web search engines
+    # --------------------------------------------
     'DEFAULT':  'https://google.com/search?q={}',
     'ddg': 'https://duckduckgo.com/?q={}',
     # encyclopedias
+    # --------------------------------------------
     'aw':       'https://wiki.archlinux.org/?search={}',
     'ud':       'https://urbandictionary.com/define.php?term={}',
     'w':        'https://en.wikipedia.org/?search={}',
     'wt':       'https://en.wiktionary.org/?search={}',
     # social
+    # --------------------------------------------
     'li':       'https://linkedin.com/search/results/all/?keywords={}',
     'tw':       'https://twitter.com/{}',
     # github
+    # --------------------------------------------
     'gh':       'https://github.com/search?q={}',
     'ghu':      'https://github.com/{}',
     'ghv':      'https://github.com/vincentmader/{}',
     # shopping
+    # --------------------------------------------
     'az':       'https://amazon.de/s?k={}',
     'eb':       'https://ebay.de/sch/{}',
     'ebk':      'https://ebay-kleinanzeigen.de/s-{}/k0',
     # misc
+    # --------------------------------------------
     '4':        'https://4chan.org/{}',
     'pb':       'https://piratebay.party/search/{}/1/99/0',
     'r':        'https://reddit.com/r/{}',
     'ta':       'http://xn--tierarztpraxis-schuffelen-2ec.de/gallery_{}.html',
     'yt':       'https://youtube.com/results?search_query={}',
 }
-
-
-#                                                             COMPLETION WINDOW
-# =============================================================================
-
-# minimum number of chars needed to update completion list (for :open cmd)
-c.completion.min_chars = 1
-# order of categories shown in the completion window
-c.completion.open_categories = [
-    'searchengines', 'quickmarks', 'bookmarks', 'history'
-]
-# quick-completion when there is only one entry
-c.completion.quick = True
-
-# do not shrink the completion window to be smaller if there are no scrollbars
-c.completion.shrink = False
-# number of items to in history (-1 -> infinite)
-c.completion.web_history.max_items = -1
-# history items to hide in completion
-c.completion.web_history.exclude = []
-
-#                                                                      MAPPINGS
-# =============================================================================
-
-# aliases
+#                                         MAPPINGS
+# ================================================
+#                                          aliases
 c.aliases = {
     'w': 'session-save',
     'wq': 'quit --save',
@@ -97,53 +70,169 @@ c.aliases = {
     'q': 'close',
     'qa': 'quit',
 }
-# bindings
+#                                     key bindings
 c.bindings.commands['normal'] = {
-    '<ctrl-tab>': 'tab-next',
-    '<ctrl-shift-tab>': 'tab-prev',
-    'zz': 'quit',
+    ',.': 'set tabs.show always',
+    ',,': 'set tabs.show never',
 }
 
-#                                                                    APPEARANCE
-# =============================================================================
-
-# set default fonts
+#                            COLOR PALETTE & FONTS
+# ================================================
+#                                color definitions
+# ------------------------------------------------
+color_bg = '#222222'      # background
+color_black = '#000000'   # black
+color_white = '#FFFFFF'   # white
+color_blue = '#268BD2'    # blue
+color_border = '#666666'  # gray (border color)
+#                                            fonts
+# ------------------------------------------------
+#                            default family & size
 c.fonts.default_family = 'Hack Nerd Font'
-c.fonts.default_size = '12pt'
-c.fonts.completion.entry = '12pt Hack Nerd Font'
-c.fonts.statusbar = '12pt Hack Nerd Font'
-c.fonts.tabs.selected = '12pt Hack Nerd Font'
-c.fonts.tabs.unselected = '12pt Hack Nerd Font'
-c.fonts.hints = '16pt Hack Nerd Font'
-# set font paddings
-c.tabs.padding = {'bottom': 9, 'top': 9, 'right': 5, 'left': 5}
-c.statusbar.padding = {'bottom': 9, 'top': 9, 'right': 5, 'left': 5}
-# set font color for successfully loaded urls
+c.fonts.default_size = '18pt'
+#                                          various
+c.fonts.statusbar = '18pt Hack Nerd Font'
+c.fonts.completion.entry = '20pt Hack Nerd Font'
+c.fonts.completion.category = '20pt Hack Nerd Font'
+c.fonts.tabs.selected = '15pt Hack Nerd Font'
+c.fonts.tabs.unselected = '15pt Hack Nerd Font'
+c.fonts.hints = '18pt Hack Nerd Font'
+#                                    font paddings
+c.tabs.padding = { 
+    'top':     9, 
+    'bottom':  9, 
+    'left':    5, 
+    'right':   5 
+}
+c.statusbar.padding = { 
+    'top':     9, 
+    'bottom':  9, 
+    'left':    5, 
+    'right':   5 
+}
+
+#                                        DOWNLOADS
+# ================================================
+#                           download save location
+c.downloads.location.directory = '/home/vinc/downloads'
+#                                           colors
+c.colors.downloads.bar.bg = color_black
+c.colors.downloads.start.bg = color_black
+c.colors.downloads.start.fg = color_white
+c.colors.downloads.stop.bg = color_black
+c.colors.downloads.stop.fg = color_blue
+c.colors.downloads.error.bg = color_black
+c.colors.downloads.error.fg = "red"
+
+#                                       APPEARANCE
+# ================================================
+c.colors.webpage.bg = color_bg
+#                               default zoom level
+c.zoom.default = '200%'  # -> TODO: auto-set on mac/legion
+#                      visibility of status/scroll
+c.statusbar.show = 'in-mode'
+c.scrolling.bar = 'never'
+c.completion.scrollbar.width = 0  
+c.completion.scrollbar.padding = 0  
+#                                 interface colors
+c.colors.prompts.bg = color_black
+c.colors.prompts.fg = color_blue
+c.colors.prompts.border = f"3px solid {color_blue}" # TODO: no border shown?
+c.colors.completion.scrollbar.fg = color_blue
+c.colors.completion.scrollbar.bg = color_bg
+
+#                                       STATUS BAR
+# ================================================
+#                                           colors
+# ------------------------------------------------
+# c.colors.statusbar.normal.bg = color_bg
+c.colors.statusbar.url.hover.fg = color_blue
+# c.colors.statusbar.caret.bg = "red"
+c.colors.statusbar.command.bg = color_bg
+c.colors.statusbar.insert.bg = color_bg
+c.colors.statusbar.insert.fg = color_blue
+# c.colors.statusbar.normal.bg = "red"
+# c.colors.statusbar.prompt.bg = color_black
+#                col. for successfully loaded urls
 c.colors.statusbar.url.success.https.fg = 'white'
 
-# tab bar
-c.tabs.position = 'bottom'
-c.tabs.show = 'multiple'  # hide when only one is open (always/never/switching)
-c.tabs.min_width = 30  # 300
-c.tabs.favicons.scale = 1.3
-c.tabs.title.format = '{current_title}'  # '{audio} {current_title}'
-# completion window
-c.completion.height = '30%'
-c.completion.scrollbar.width = 10  # completion scrollbar handle width in px
-c.completion.scrollbar.padding = 2  # handle padding in px
+#                                          TAB BAR
+# ================================================
+c.tabs.title.format = '{current_title}' 
+c.tabs.position = 'left'
+c.tabs.show = 'multiple'
+#                               tab bar size/width
+# ------------------------------------------------
+c.tabs.favicons.scale = 1.5
+c.tabs.width = '23%'
+c.tabs.min_width = -1  # 300
+c.tabs.max_width = -1
+# ------------------------------------------------
+#                                   tab bar colors
+c.colors.tabs.bar.bg = color_black
+# unselected
+c.colors.tabs.odd.bg = color_black
+c.colors.tabs.even.bg = color_black
+c.colors.tabs.odd.fg = color_white
+c.colors.tabs.even.fg = color_white
+# selected
+c.colors.tabs.selected.odd.bg = color_bg
+c.colors.tabs.selected.even.bg = color_bg
+c.colors.tabs.selected.odd.fg = color_blue
+c.colors.tabs.selected.even.fg = color_blue
 
+#                                COMPLETION WINDOW
+# ================================================
+# quick-completion when there is only 1 entry
+c.completion.quick = True
+# min.nr. of chars needed to update list
+c.completion.min_chars = 1
+#                              order of categories
+# ------------------------------------------------
+c.completion.open_categories = [
+    'searchengines', 
+    'quickmarks', 
+    'bookmarks', 
+    'history'
+]
+#                                          history
+# ------------------------------------------------
+# number of items to save
+c.completion.web_history.max_items = -1
+# items to hide in completion
+c.completion.web_history.exclude = []
+#                                       appearance
+# ------------------------------------------------
+c.completion.height = '50%'
+c.completion.shrink = False  # const.
+#                                completion colors
+# background
+c.colors.completion.category.bg = color_bg
+c.colors.completion.odd.bg = color_black
+c.colors.completion.even.bg = color_black
+c.colors.completion.item.selected.bg = color_blue
+# foreground
+c.colors.completion.category.fg = color_white
+c.colors.completion.fg = color_blue
+c.colors.completion.item.selected.fg = color_black
+c.colors.completion.match.fg = color_white
+c.colors.completion.item.selected.match.fg = color_white
+# borders
+c.colors.completion.category.border.top = color_border
+c.colors.completion.category.border.bottom = color_border
+c.colors.completion.item.selected.border.top = color_blue
+c.colors.completion.item.selected.border.bottom = color_blue
+
+#                                        DARK MODE
+# ================================================
 # render all pages with dark mode
 c.colors.webpage.darkmode.enabled = True
-# c.colors.webpage.prefers_color_scheme_dark = True
 c.colors.webpage.preferred_color_scheme = "dark"
+# c.colors.webpage.prefers_color_scheme_dark = True
 # c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 # c.colors.webpage.darkmode.contrast = 0.0
 # c.colors.webpage.darkmode.grayscale.all = False
 # c.colors.webpage.darkmode.policy.images = 'never'
-c.colors.webpage.bg = '#222222'
-c.colors.tabs.odd.bg = '#222222'
-c.colors.tabs.even.bg = '#555555'
-
 # stylesheets
 # c.content.user_stylesheets = [
 #     './themes/solarized-dark.css',
@@ -151,4 +240,3 @@ c.colors.tabs.even.bg = '#555555'
 # ]
 # c.content.user_stylesheets = 'solarized.css'
 
-c.statusbar.show = "in-mode"

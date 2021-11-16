@@ -22,7 +22,7 @@ set selection-clipboard clipboard
 # dark mode
 # =============================================================================
 set font "inconsolata 15"
-set default-bg "#111111" #00
+set default-bg "#222222" #00
 set default-fg "#F7F7F6" #01
 
 set statusbar-fg "#B0B0B0" #04

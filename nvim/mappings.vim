@@ -6,7 +6,8 @@
 "                                                                  EDITOR MODES
 " -----------------------------------------------------------------------------
 "                                                quick-exit insert mode with jk 
-inoremap jk <Esc>
+" inoremap jk <Esc>
+inoremap jk <Esc>:w<cr>
 "                                                                quick-exit vim
 map zz :wq!<CR>
 

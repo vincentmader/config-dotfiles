@@ -19,9 +19,9 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}   
     "  snippet engine
     Plug 'SirVer/ultisnips' 
-    " Plug 'honza/vim-snippets'
+    Plug 'honza/vim-snippets'
     " all words on screen are available in autocompletion
-"    Plug 'wellle/tmux-complete.vim'
+   Plug 'wellle/tmux-complete.vim'
 
     "                                                              file manager
     " ------------------------------------------------------------------------
@@ -101,7 +101,7 @@ call plug#begin('$CONF/nvim/plugged')
 "    Plug 'yuttie/comfortable-motion.vim'
     Plug 'mbbill/undotree'
     " Plug 'godlygeek/tabular'
-    " Plug 'severin-lemaignan/vim-minimap'
+    " Plug 'severin-lemaignan/vim-minimap' " not working TODO
     Plug 'voldikss/vim-floaterm'
     " Plug 'townk/vim-autoclose'
 "    Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e

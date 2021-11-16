@@ -3,3 +3,17 @@ fn ${1:name}() -> ${2:type} {
     $3
 }
 endsnippet
+
+snippet pubstruct ""
+pub struct ${1:name} {
+
+}
+impl ${1:name} {
+    pub fn new() -> $1 {
+	$1 { }
+    }
+    pub fn init(&self) {
+
+    }
+}
+endsnippet

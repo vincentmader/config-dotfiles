@@ -1,7 +1,9 @@
+Colour
 antigravity
 bokeh
 flask
 gspread
+imageio
 jedi
 jupyter
 keras
@@ -16,10 +18,14 @@ pillow
 pygame
 requests
 scipy
+seaborn
 selenium
 setuptools
+sklearn
 spacy
+statsmodels
 tasklib
 tensorflow
 torch
 urllib3
+xlrd
