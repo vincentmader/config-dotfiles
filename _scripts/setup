@@ -16,7 +16,7 @@ pacman -S --needed git base-devel
     # git config --global credential.helper store  # store pw
 
 # pull config repos from GitHub
-git clone --recurse-submodules git@github.com:vincentmader/dotfiles.git $CONF
+git clone --recurse-submodules git@github.com:vincentmader/config-dotfiles.git $CONF
 git clone git@github.com:vincentmader/dmenu.git $CONF/dmenu
 git clone git@github.com:vincentmader/dwm.git $CONF/dwm
 git clone git@github.com:vincentmader/st.git $CONF/st
