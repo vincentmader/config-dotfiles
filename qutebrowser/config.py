@@ -84,6 +84,7 @@ color_bg = '#222222'      # background
 color_black = '#000000'   # black
 color_white = '#FFFFFF'   # white
 color_blue = '#268BD2'    # blue
+color_dark_gray = '#111111'  # gray (border color)
 color_border = '#666666'  # gray (border color)
 #                                            fonts
 # ------------------------------------------------
@@ -169,10 +170,10 @@ c.tabs.min_width = -1  # 300
 c.tabs.max_width = -1
 # ------------------------------------------------
 #                                   tab bar colors
-c.colors.tabs.bar.bg = color_black
+c.colors.tabs.bar.bg = color_dark_gray
 # unselected
-c.colors.tabs.odd.bg = color_black
-c.colors.tabs.even.bg = color_black
+c.colors.tabs.odd.bg = color_dark_gray
+c.colors.tabs.even.bg = color_dark_gray
 c.colors.tabs.odd.fg = color_white
 c.colors.tabs.even.fg = color_white
 # selected
