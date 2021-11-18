@@ -10,10 +10,12 @@ CONF="~/.config"
 # c linker (might be needed)
 pacman -S cmake
 
-# pacman
+# git + credential-manager (gcm)
 pacman -S --needed git base-devel
-    # git config http.postBuffe 524288000  # big upload buffe
-    # git config --global credential.helper store  # store pw
+    # git config http.postBuffe 524288000  # big upload buffer
+tar -xvf ./gcmcore-linux_amd64.2.0.498.54650.tar.gz -C /usr/local/bin  #cgm
+git-credential-manager-core configure
+git config --global credential.credentialStore plaintext
 
 # pull config repos from GitHub
 git clone --recurse-submodules git@github.com:vincentmader/config-dotfiles.git $CONF
@@ -98,6 +100,12 @@ git clone --recurse-submodules https://github.com/vincentmader/docs ~/docs
 # VARIOUS
 # =====================================
 
+# install emacs + doom
+sudo pacman -S emacs
+rm -r ~/.emacs.d
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
 # emscripten
 git clone git@github.com:emscripten-core/emsdk.git $CONF/emsdk
 
@@ -113,6 +121,7 @@ pacman -S qutebrowser chromium
 # ranger
 pacman -S ranger
 git clone git@github.com:alexanderjeurissen/ranger_devicons.git $CONF/ranger/plugins/ranger_devicons
+# pip install ueberzug
 # apps
 pacman -S --mflags --skipinteg spotify slack-desktop
 # connectivity

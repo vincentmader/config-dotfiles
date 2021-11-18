@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+# install emacs
+sudo pacman -S emacs
+# rm -r ~/.emacs.d
+
+# install doom
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install

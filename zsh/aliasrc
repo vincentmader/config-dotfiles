@@ -21,16 +21,17 @@ alias ....='cd ../../..'
 alias e="exit"
 
 # listing
-alias exa="exa -I '__pycache__|*.pyc' "
-alias ls="clear && pwd && echo && exa"
-alias lsa='ls -a'
-alias l="ls -T -L 1 --icons --group-directories-first"
-alias la="ls -T -a -L 1 --icons --group-directories-first"
-alias ll="ls -l -h --icons --group-directories-first --git"
-alias lla="ls -a -l -h --icons --group-directories-first --git"
-alias lt="ls -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo\" --group-directories-first"
+alias exa="clear && pwd && echo && exa -I '__pycache__|*.pyc' "
+alias lt="exa -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo\" --group-directories-first"
 alias ltt="lt -L 2"
-alias lts="ls -T -L 2 -I \"__pychache__|venv|env|node_modules|_git|.DS_Store|*.pyc|*.pyo\" --group-directories-first"
+
+alias ls="exa -a"
+alias l="ls -T -L 1 --icons --group-directories-first"
+alias ll="ls -l -h --icons --group-directories-first --git"
+alias lsa="exa"
+alias la="lsa -T -L 1 --icons --group-directories-first"
+alias lla="lsa -l -h --icons --group-directories-first --git"
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
