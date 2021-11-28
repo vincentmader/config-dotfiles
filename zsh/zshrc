@@ -67,7 +67,7 @@ source $CONF/zsh/prompter.sh
 
 # tmux source "$CONF/tmux/tmux.conf"
 # check if tmux is running, if not: start it
-[ -z "${TMUX}" ] && tmux
+[ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
 # if [ "$TMUX" = "" ]; then tmux; fi
 
 # load aliases

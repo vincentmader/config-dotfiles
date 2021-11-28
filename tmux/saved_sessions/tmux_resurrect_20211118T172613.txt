@@ -1,0 +1,25 @@
+pane	    antwar   	0	1	:*	0	:/home/vinc/code/antwar	0	zsh	:
+pane	    antwar   	0	1	:*	1	:/home/vinc/code/antwar	1	zsh	:
+pane	    cfg      	0	1	:*	0	:/home/vinc/.config/tmux	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim tmux.conf
+pane	    cfg      	0	1	:*	1	:/home/vinc/.config/zsh	1	zsh	:
+pane	    misc     	0	1	:*	0	:/home/vinc/code/sparkasse_csv	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim data_visualization/plot_herbal_investments.py
+pane	    misc     	0	1	:*	1	:/home/vinc/code/sparkasse_csv	0	zsh	:
+pane	    misc     	0	1	:*	2	:/home/vinc/code/sparkasse_csv/__old	0	zsh	:
+pane	    misc     	0	1	:*	3	:/home/vinc/code/sparkasse_csv/plots	0	zsh	:
+pane	    mxyz     	0	0	:-	0	:/home/vinc/code/mader.xyz/maderxyz-client/src/simulation/new	1	zsh	:
+pane	    mxyz     	0	0	:-	1	:/home/vinc/code/mader.xyz/maderxyz-server	0	zsh	:
+pane	    mxyz     	1	1	:*	0	:/home/vinc/code/mader.xyz/maderxyz-server/templates	1	zsh	:
+pane	    mxyz     	1	1	:*	1	:/home/vinc/code/mader.xyz/maderxyz-server/static/css	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim base.css
+pane	    org      	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	    uni      	0	0	:-	0	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	zsh	:
+pane	    uni      	1	1	:*	0	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	zsh	:
+pane	    uni      	1	1	:*	1	:/home/vinc/docs/uni/sem_11/theory_tooltips	0	zsh	:
+window	    antwar   	0	:  vim+run  	1	:*	48ef,160x50,0,0[160x38,0,0,1,160x11,0,39,2]	off
+window	    cfg      	0	:zsh	1	:*	4641,160x50,0,0{80x50,0,0,3,79x50,81,0,28}	:
+window	    misc     	0	:finances	1	:*	72ae,160x50,0,0{81x50,0,0[81x33,0,0,8,81x16,0,34,9],78x50,82,0[78x25,82,0,10,78x24,82,26,11]}	off
+window	    mxyz     	0	:  vim+run  	0	:-	b89e,160x50,0,0[160x32,0,0,12,160x17,0,33,13]	off
+window	    mxyz     	1	:zsh	1	:*	e461,160x50,0,0[160x25,0,0,14,160x24,0,26,15]	:
+window	    org      	0	:  git  	1	:*	5735,160x50,0,0,16	off
+window	    uni      	0	:  tex  	0	:-	5736,160x50,0,0,17	off
+window	    uni      	1	:  zathura  	1	:*	d2e7,160x50,0,0[160x24,0,0,18,160x25,0,25,19]	off
+state	    misc     	

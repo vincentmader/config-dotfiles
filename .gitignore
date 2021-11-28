@@ -1,12 +1,12 @@
 *_old
-.cache
+.cache/
 __pycache__
 _src/*.tar.gz
 _src/gopath
 _src/stdweb
 _src/yay-10*
-coc/extensions
-emsdk
+coc/
+emsdk/
 nvim/.netrwhist
 nvim/backups
 nvim/plugged

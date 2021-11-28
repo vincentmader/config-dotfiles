@@ -180,8 +180,8 @@ alias lolcat='lolcat -a'
 alias lc='lolcat'
 alias map="telnet mapscii.me"  # install telnetutils for this
 alias starwars="telnet towel.blinkenlights.nl"
-alias cmx="cmatrix"
-# cmatrix, sl, cowsay, cowthink, figlet, fortune, sc-im
+alias cmx="cmatrix -b"
+# sl, cowsay, cowthink, figlet, fortune, sc-im
 # wifi-password, tldr, watch, rtv, geoiplookup, links, tree, fuck
 
 function gif2vid {
@@ -192,6 +192,8 @@ function gif2vid {
 
 alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
 alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
+
+alias neofetch="clear && neofetch"
 
 
 # =============================================================================

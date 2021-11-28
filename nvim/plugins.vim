@@ -57,6 +57,8 @@ call plug#begin('$CONF/nvim/plugged')
 "    Plug 'Konfekt/FastFold', {'for': 'python'}      " speeds up folding
 "    " Plug 'thalesmello/vim-textobj-multiline-str'
 
+    Plug 'cespare/vim-toml'
+
     "                                                      minimalist vim setup
     " -------------------------------------------------------------------------
     "                                                       goyo: clean editing
