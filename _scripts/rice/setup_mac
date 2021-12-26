@@ -1,0 +1,4 @@
+#!/bin/sh
+
+brew install $(cat packages_brew.txt)
+brew install --cask $(cat packages_brew_cask.txt)
