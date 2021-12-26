@@ -1,0 +1,28 @@
+pane	    antwar   	0	1	:*	0	:/home/vinc/code/antwar	0	zsh	:
+pane	    antwar   	0	1	:*	1	:/home/vinc/code/antwar	1	zsh	:
+pane	    cfg      	0	1	:*	0	:/home/vinc/.config/tmux	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim tmux.conf
+pane	    cfg      	0	1	:*	1	:/home/vinc/.config/zsh	1	zsh	:
+pane	    misc     	0	0	:	0	:/home/vinc/code/sparkasse_csv/_new	0	zsh	:
+pane	    misc     	0	0	:	1	:/home/vinc/code/sparkasse_csv/data_collection/comdirect	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim get_stock_transactions.py
+pane	    misc     	0	0	:	2	:/home/vinc/code/sparkasse_csv/_new	1	zsh	:
+pane	    misc     	1	0	:-	0	:/home/vinc/code/sparkasse_csv	1	zsh	:
+pane	    misc     	2	1	:*	0	:/home/vinc	1	zsh	:
+pane	    mxyz     	0	0	:-	0	:/home/vinc/code/mader.xyz	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim
+pane	    mxyz     	0	0	:-	1	:/home/vinc/code/mader.xyz/maderxyz-server	0	sh	:/bin/sh ./scripts/run
+pane	    mxyz     	1	1	:*	0	:/home/vinc	0	ping	:ping google.com
+pane	    mxyz     	1	1	:*	1	:/home/vinc	1	zsh	:
+pane	    org      	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	    uni      	0	0	:-	0	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	zsh	:
+pane	    uni      	1	1	:*	0	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	zsh	:
+pane	    uni      	1	1	:*	1	:/home/vinc/docs/uni/sem_11/theory_tooltips	0	zsh	:
+window	    antwar   	0	:  vim+run  	1	:*	5332,73x21,0,0[73x19,0,0,1,73x1,0,20,2]	off
+window	    cfg      	0	:zsh	1	:*	45a8,73x21,0,0{36x21,0,0,3,36x21,37,0,4}	:
+window	    misc     	0	:finances	0	:	3ebe,73x21,0,0{36x21,0,0,5,36x21,37,0[36x10,37,0,6,36x10,37,11,7]}	off
+window	    misc     	1	:simplescreenrecorder	0	:-	bfa5,73x46,0,0,8	off
+window	    misc     	2	:zsh	1	:*	d400,73x21,0,0,21	:
+window	    mxyz     	0	:  vim+run  	0	:-	8e34,73x46,0,0[73x32,0,0,10,73x13,0,33,12]	off
+window	    mxyz     	1	:zsh	1	:*	5809,73x46,0,0[73x23,0,0,28,73x22,0,24,29]	off
+window	    org      	0	:  git  	1	:*	5402,73x21,0,0,13	off
+window	    uni      	0	:  tex  	0	:-	5403,73x21,0,0,14	off
+window	    uni      	1	:  zathura  	1	:*	83c4,73x21,0,0[73x9,0,0,15,73x11,0,10,16]	off
+state	    mxyz     	    misc     

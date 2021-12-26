@@ -22,7 +22,7 @@ set selection-clipboard clipboard
 # dark mode
 # =============================================================================
 set font "inconsolata 15"
-set default-bg "#222222" #00
+set default-bg "#111111" #00
 set default-fg "#F7F7F6" #01
 
 set statusbar-fg "#B0B0B0" #04
@@ -50,7 +50,7 @@ set notification-bg "#90A959" #0B
 set notification-fg "#151515" #00
 
 set recolor "true"
-set recolor-lightcolor "#222222" #00
+set recolor-lightcolor "#111111" #00
 set recolor-darkcolor "#E0E0E0" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"

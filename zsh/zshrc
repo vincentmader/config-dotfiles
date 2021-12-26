@@ -37,10 +37,9 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
-_comp_options+=(globdots)  # include hidden files.
 # define location of autocompletion dump (speeds up auto completion)
 compinit -d "$HOME/.config/zsh/zcompdump"
+_comp_options+=(globdots)  # include hidden files.
 
 # thefuck plugin
 eval $(thefuck --alias)

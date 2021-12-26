@@ -23,7 +23,17 @@ alias e="exit"
 # listing
 alias exa="clear && pwd && echo && exa -I '__pycache__|*.pyc' "
 alias lt="exa -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo\" --group-directories-first"
-alias ltt="lt -L 2"
+alias ltt="exa -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo|mod.rs|Cargo.toml|lib.rs|scripts|css|img\" --group-directories-first"
+alias lt1="lt -L 1"
+alias lt2="lt -L 2"
+alias lt3="lt -L 3"
+alias lt4="lt -L 4"
+alias lt5="lt -L 5"
+alias ltt1="ltt -L 1"
+alias ltt2="ltt -L 2"
+alias ltt3="ltt -L 3"
+alias ltt4="ltt -L 4"
+alias ltt5="ltt -L 5"
 
 alias ls="exa -a"
 alias l="ls -T -L 1 --icons --group-directories-first"
@@ -72,7 +82,7 @@ alias qutebrowser="qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-g
 alias r="ranger --confdir $CONF/ranger"
 alias fehf='feh --full-screen'
 alias z="zathura"
-alias yay="yay --mflags --skipinteg"                          # TODO: setup PGP
+# alias yay="yay --mflags --skipinteg"                          # TODO: setup PGP
 
 
 # useful scripts
@@ -176,7 +186,7 @@ alias archey='clear && archey'
 alias ytdl="yes | pytube3 $1 -a -f -t='$HOME/Downloads/'"
 alias pytube3="pytube3"
 alias fortunecow='fortune -s | cowsay'
-alias lolcat='lolcat -a'
+alias lolcat='clear && lolcat -a'
 alias lc='lolcat'
 alias map="telnet mapscii.me"  # install telnetutils for this
 alias starwars="telnet towel.blinkenlights.nl"

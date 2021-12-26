@@ -12,4 +12,4 @@ else:
     val += 5
 
 os.system(f'amixer set Master {val}%')
-os.system('xsetroot -name "$($CONF/dwm/patches/statusbar/statusbar.sh)"')
+os.system('xsetroot -name "$($CONF/dwm/statusbar/statusbar.sh)"')

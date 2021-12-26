@@ -80,7 +80,7 @@ c.bindings.commands['normal'] = {
 # ================================================
 #                                color definitions
 # ------------------------------------------------
-color_bg = '#222222'      # background
+color_bg = '#111111'      # background
 color_black = '#000000'   # black
 color_white = '#FFFFFF'   # white
 color_blue = '#268BD2'    # blue

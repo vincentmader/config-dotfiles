@@ -3,6 +3,13 @@
 "                           conqueror of completion 
 " =============================================================================
 
+" highlight CocErrorFloat ctermfg=Green 
+" highlight CocErrorFloat ctermbg=Green  " TODO not working
+highlight CocFloating ctermbg=Black
+
+" highlight Pmenu guifg=#0000FF
+
+
 "                                                                coc extensions
 " =============================================================================
 

@@ -1,0 +1,25 @@
+pane	    antwar   	0	1	:*	0	:/home/vinc/code/antwar	0	zsh	:
+pane	    antwar   	0	1	:*	1	:/home/vinc/code/antwar	1	zsh	:
+pane	    cfg      	0	1	:*	0	:/home/vinc/.config/zsh	1	zsh	:
+pane	    misc     	0	0	:-	0	:/home/vinc/code/sparkasse_csv/_new	0	zsh	:
+pane	    misc     	0	0	:-	1	:/home/vinc/code/sparkasse_csv/data_collection/comdirect	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim get_stock_transactions.py
+pane	    misc     	0	0	:-	2	:/home/vinc/code/sparkasse_csv/_new	1	zsh	:
+pane	    misc     	1	1	:*	0	:/home/vinc/code/mader.xyz/flask-server	0	zsh	:
+pane	    misc     	1	1	:*	1	:/home/vinc/code/mader.xyz/flask-server	1	zsh	:
+pane	    mxyz     	0	1	:*	0	:/home/vinc/code/mader.xyz	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim
+pane	    mxyz     	1	0	:-	0	:/home/vinc/code/mxyz_rework_idea	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim
+pane	    mxyz     	1	0	:-	1	:/home/vinc/code/mxyz_rework_idea	1	zsh	:
+pane	    mxyz     	1	0	:-	2	:/home/vinc/code/mxyz_rework_idea	0	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim
+pane	    org      	0	1	:*	0	:/home/vinc/org	1	zsh	:
+pane	    uni      	0	0	:-	0	:/home/vinc/docs/uni/sem_11/theory_tooltips/exercises	1	nvim	:nvim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim -u /home/vinc/.config/nvim/init.vim ex01_sol.tex
+pane	    uni      	1	1	:*	0	:/home/vinc/docs/uni/sem_11/theory_tooltips	1	zsh	:
+window	    antwar   	0	:  vim+run  	1	:*	acee,160x50,0,0[160x34,0,0,1,160x15,0,35,2]	off
+window	    cfg      	0	:zsh	1	:*	ae00,160x50,0,0,3	:
+window	    misc     	0	:finances	0	:-	add6,160x50,0,0{80x50,0,0,4,79x50,81,0[79x25,81,0,5,79x24,81,26,6]}	off
+window	    misc     	1	:simplescreenrecorder	1	:*	8be0,160x50,0,0{80x50,0,0,7,79x50,81,0,8}	off
+window	    mxyz     	0	:  vim+run  	1	:*	ae06,160x50,0,0,9	off
+window	    mxyz     	1	:rework	0	:-	a131,160x50,0,0{80x50,0,0[80x37,0,0,10,80x12,0,38,11],79x50,81,0,12}	off
+window	    org      	0	:  git  	1	:*	5732,160x50,0,0,13	off
+window	    uni      	0	:  tex  	0	:-	5733,160x50,0,0,14	off
+window	    uni      	1	:  zathura  	1	:*	5734,160x50,0,0,15	off
+state	    cfg      	    antwar   

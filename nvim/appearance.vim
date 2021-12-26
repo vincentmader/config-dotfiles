@@ -124,4 +124,10 @@ let g:limelight_conceal_ctermfg = "239"  " this color is used by solarized for c
 " hi NvimInternalError guibg=black guifg=red
 
 
+" hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+" hi TabLine ctermfg=Blue ctermbg=Yellow
+" hi TabLineSel ctermfg=Red ctermbg=Yellow
+" hi Title ctermfg=LightBlue ctermbg=Magenta
+
+
 " }}}

@@ -44,15 +44,15 @@
 #  m:0x0 + c:122
 #  XF86AudioMute
 
-# "python /home/vinc/.config/x/scripts/decrease_speaker_volume.py"
-#  # m:0x0 + c:68
-#  m:0x0 + c:122
-#  XF86AudioLowerVolume
+"python /home/vinc/.config/x/scripts/decrease_speaker_volume.py"
+ # m:0x0 + c:68
+ m:0x0 + c:122
+ # XF86AudioLowerVolume
 
-# "python /home/vinc/.config/x/scripts/increase_speaker_volume.py"
-#  # m:0x0 + c:69
-#  m:0x0 + c:123
-#  XF86AudioRaiseVolume
+"python /home/vinc/.config/x/scripts/increase_speaker_volume.py"
+ # m:0x0 + c:69
+ m:0x0 + c:123
+ # XF86AudioRaiseVolume
 
 # "python /home/vinc/.config/x/scripts/mute_microphone.py"
 #  # m:0x0 + c:70
