@@ -1,6 +1,7 @@
 #!/bin/sh
 
-RICE="/Users/vinc/.config/_scripts/rice"
+HOME="/Users/vinc"
+RICE="$HOME/.config/_scripts/rice"
 
 INSTALL_PKGS=false
 INSTALL_PKGS_CASK=false
@@ -9,7 +10,7 @@ INSTALL_PKGS_MACPORTS=false
 INSTALL_BREW=false
 INSTALL_MACPORTS=false
 
-SOURCE_ZSHRC=false
+SOURCE_ZSHRC=true
 
 # INSTALL BREW
 # =============================================================================
@@ -63,11 +64,9 @@ fi
 # VARIOUS
 # =============================================================================
 
-# source $CONF/zsh/zshrc from ~/.zprofile
-if [ $SOURCE_ZSHRC = true ]; then
-    echo 'source ~/.config/zsh/zshrc' >> /Users/vinc/.zprofile   # TODO only once
-fi
-
 
 # for mactex install:
 eval "$(/usr/libexec/path_helper)"
+
+# source $CONF/zsh/zshrc
+

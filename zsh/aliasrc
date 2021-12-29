@@ -35,10 +35,10 @@ alias ltt3="ltt -L 3"
 alias ltt4="ltt -L 4"
 alias ltt5="ltt -L 5"
 
-alias ls="exa -a"
+alias ls="clear && exa -a"
 alias l="ls -T -L 1 --icons --group-directories-first"
 alias ll="ls -l -h --icons --group-directories-first --git"
-alias lsa="exa"
+alias lsa="clear && exa"
 alias la="lsa -T -L 1 --icons --group-directories-first"
 alias lla="lsa -l -h --icons --group-directories-first --git"
 

@@ -64,7 +64,7 @@ autoload -U colors && colors
 source $CONF/zsh/prompter.sh
 # export PS3="hello"
 
-# tmux source "$CONF/tmux/tmux.conf"
+tmux source "$CONF/tmux/tmux.conf"
 # check if tmux is running, if not: start it
 [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
 # if [ "$TMUX" = "" ]; then tmux; fi

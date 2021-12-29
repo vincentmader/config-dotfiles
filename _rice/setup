@@ -16,7 +16,7 @@ INSTALL_PKGS_NVIM=false
 INSTALL_PKGS_PIP=false
 INSTALL_PKGS_RANGER=false
 INSTALL_PKGS_TMUX=false
-INSTALL_OHMYZSH=false
+INSTALL_OHMYZSH=true
 INSTALL_DOOM=false
 
 
@@ -79,9 +79,17 @@ fi
 
 # ohmyzsh
 if [ "$INSTALL_OHMYZSH" = true ]; then
-    sudo rm -r $CONF/zsh/oh-my-zsh >> /dev/null
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
+    # sudo rm -r $CONF/zsh/oh-my-zsh >> /dev/null;   # TODO leads to syntax-highlighting not to be installed (why?)
+    # install oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
+    # install syntax highlighting
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting;
+
+    # source $CONF/zsh/zshrc from ~/.zshrc
+    rm $HOME/.zshrc;
+    ln -s $CONF/zsh/zshrc $HOME/.zshrc
+    # touch $HOME/.zshrc;
+    # echo 'source ~/.config/zsh/zshrc' >> $HOME/.zshrc;   # TODO only once
 fi
 
 # -----------------------------------------------------------------------------
