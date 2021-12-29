@@ -9,6 +9,7 @@ QtProject.conf
 Slack
 Thunar
 __pycache__
+_rice/src/**
 _src/*.tar.gz
 _src/gopath
 _src/stdweb

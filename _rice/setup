@@ -1,0 +1,166 @@
+#!/bin/sh
+
+# =============================================================================
+#                               AUTO-RICE SCRIPT
+#                                    v.c.m.
+# =============================================================================
+
+
+# specify OS   (options:  "macOS" or "arch")
+OS="macOS"    
+
+# specify what to install
+INSTALL_PKGS=false
+INSTALL_PKGS_NODE=false
+INSTALL_PKGS_NVIM=false
+INSTALL_PKGS_PIP=false
+INSTALL_PKGS_RANGER=false
+INSTALL_PKGS_TMUX=false
+INSTALL_OHMYZSH=false
+INSTALL_DOOM=false
+
+
+# SETUP
+# =============================================================================
+
+# navigate to working directory of this script
+cd `dirname "$0"`
+# setup directory for source code files
+mkdir src >> /dev/null
+
+# package manager   (pacman for arch, brew for macOS)
+if [ "$OS" = "macOS" ] ; then
+    PACKAGE_MANAGER="brew"
+    CONF="/Users/vinc/.config"
+    ./setup_mac
+elif [ "$OS" = "arch" ] ; then
+    PACKAGE_MANAGER="pacman"
+    CONF="/home/vinc/.config"
+    # ./setup_arch
+else
+    PACKAGE_MANAGER=""   # TODO
+fi
+
+
+# INSTALL PACKAGES
+# =============================================================================
+
+# w/ default package manager (brew or pacman)
+if [ "$INSTALL_PKGS" = true ]; then
+    $PACKAGE_MANAGER install $(cat ./pkg_lists/default.txt)
+fi
+
+# -----------------------------------------------------------------------------
+
+# python packages
+if [ "$INSTALL_PKGS_PIP" = true ]; then
+    pip install --upgrade pip
+    pip3 install -r ./pkg_lists/pip.txt 
+fi
+
+# -----------------------------------------------------------------------------
+
+# node packages
+if [ "$INSTALL_PKGS_NODE" = true ]; then
+    for i in $(cat pkg_lists/npm.txt); do
+        npm install -g "$i";
+    done
+fi
+
+# -----------------------------------------------------------------------------
+
+# ranger plugins
+if [ "$INSTALL_PKGS_RANGER" = true ]; then
+    sudo rm -r $CONF/ranger/plugins/ranger_devicons >> /dev/null
+    git clone https://github.com/alexanderjeurissen/ranger_devicons.git $CONF/ranger/plugins/ranger_devicons
+fi
+
+# -----------------------------------------------------------------------------
+
+# ohmyzsh
+if [ "$INSTALL_OHMYZSH" = true ]; then
+    sudo rm -r $CONF/zsh/oh-my-zsh >> /dev/null
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
+fi
+
+# -----------------------------------------------------------------------------
+
+# tmux packages
+if [ "$INSTALL_PKGS_TMUX" = true ]; then
+    sudo rm -r $CONF/tmux/plugins >> /dev/null
+    mkdir $CONF/tmux/plugins
+    # tmux package manager
+    git clone https://github.com/tmux-plugins/tpm.git $CONF/tmux/plugins/tpm
+    # setup resurrect save directory
+    mkdir $CONF/tmux/resurrect_saves >> /dev/null
+    mkdir ~/.tmux >> /dev/null
+    ln -s $CONF/tmux/resurrect_saves ~/.tmux/resurrect >> /dev/null
+fi
+
+# -----------------------------------------------------------------------------
+
+# nvim plugins
+if [ "$INSTALL_PKGS_NVIM" = true ]; then
+    nvim -c PlugInstall  # TODO: reload 2nd time for coc downloads
+fi
+
+# -----------------------------------------------------------------------------
+
+# doom emacs
+if [ "$INSTALL_DOOM" = true ]; then
+    # install
+        # git clone --depth 1 https://github.com/vincentmader/doom-emacs ~/.emacs.d  # hlissner
+        # ~/.emacs.d/bin/doom install
+    # symlinks to config
+        # ln -s $CONF/doom.d ~/.doom.d
+            # ln -s $CONF/emacs.d ~/.emacs.d    # TODO emacs.d symlink
+    # theme setup
+        # PATH_TO_THEME="$CONF/emacs.d/.local/straight/build-27.2/doom-themes/doom-solarized-dark-theme.el"
+        # rm $PATH_TO_THEME
+        # ln -s $CONF/doom.d/solarized-custom.el $PATH_TO_THEME
+    # fix shit
+        rm -r .local/straight/repos/straight.el
+        ./bin/doom sync -up
+    # sync
+        $CONF/emacs.d/bin/doom sync
+fi
+
+# -----------------------------------------------------------------------------
+
+# TODO font setup
+
+
+
+
+
+
+# # git clone git@github.com:emscripten-core/emsdk.git $CONF/emsdk
+# 
+# 
+# 
+# 
+# # zsh + oh-my-zsh  (+ syntax hl)
+# git clone git@github.com:ohmyzsh/ohmyzsh.git $CONF/zsh/oh-my-zsh
+# git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
+# 
+# # rust & cargo  (+ rls)
+# # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# # rustup component add rls rust-analysis rust-src
+# 
+# # emacs + doom
+# # sudo rm -r ~/.emacs.d
+# # git clone --depth 1 https://github.com/vincentmader/doom-emacs ~/.emacs.d
+# # ~/.emacs.d/bin/doom install
+# 
+# 
+# 
+# # PERSONAL FILES
+# # git clone https://github.com/vincentmader/org ~/org
+# # git clone --recurse-submodules https://github.com/vincentmader/code ~/code
+# # git clone --recurse-submodules https://github.com/vincentmader/docs ~/docs
+# # pull config repos from GitHub
+# git clone --recurse-submodules git@github.com:vincentmader/config-dotfiles.git $CONF
+# git clone git@github.com:vincentmader/dmenu.git $CONF/dmenu
+# git clone git@github.com:vincentmader/dwm.git $CONF/dwm
+# git clone git@github.com:vincentmader/st.git $CONF/st

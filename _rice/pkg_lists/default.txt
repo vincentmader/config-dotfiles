@@ -22,10 +22,7 @@ ripgrep
 rtv 
 sl 
 thefuck
-thefuck
 tldr 
-tmux
 tmux
 toilet
 wget
-zsh

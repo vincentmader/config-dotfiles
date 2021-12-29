@@ -1,6 +1,7 @@
 archlinux-keyring
 chromium
 colorpicker
+curl
 imagemagick
 mpv
 ncdu
@@ -20,4 +21,6 @@ xcompmgr
 xorg
 xorg-xinit
 xterm
+wget
 zip
+zsh

@@ -1,7 +1,11 @@
 #!/bin/sh
 
+
 # INSTALL PACKAGES
 pacman install $(cat packages_arch.txt)
+
+# SETUP DEFAULT SHELL
+#chsh -s $(which zsh)
 
 # INSTALL PACKAGE MANAGERS
 git clone https://aur.archlinux.org/yay.git /usr/src/yay
