@@ -1,0 +1,11 @@
+pane	    misc     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    mxyz     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    rice     	0	1	:*	0	:/Users/vinc/.config/_rice	1	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim setup
+pane	    rice     	0	1	:*	1	:/Users/vinc/.config/_rice	0	zsh	:
+pane	    rice     	0	1	:*	2	:/Users/vinc/.config/tmux	0	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim tmux.conf
+pane	    uni      	0	1	:*	0	:/Users/vinc	1	zsh	:
+window	    misc     	0	:zsh	1	:*	e447,245x75,0,0,47	:
+window	    mxyz     	0	:zsh	1	:*	e995,190x59,0,0,45	:
+window	    rice     	0	:zsh	1	:*	52bd,190x59,0,0{95x59,0,0,0,94x59,96,0[94x29,96,0,39,94x29,96,30,44]}	off
+window	    uni      	0	:zsh	1	:*	e996,190x59,0,0,46	:
+state	    rice     	    misc     
