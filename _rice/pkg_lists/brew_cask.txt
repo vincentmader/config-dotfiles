@@ -1,8 +1,0 @@
-anki
-mactex
-minecraft
-notion
-slack
-spotify
-steam
-vlc

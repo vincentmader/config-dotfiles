@@ -1,4 +1,5 @@
 *_old
+.DS_Store
 .cache/
 0ad
 BraveSoftware
@@ -9,7 +10,6 @@ QtProject.conf
 Slack
 Thunar
 __pycache__
-_rice/src/**
 _src/*.tar.gz
 _src/gopath
 _src/stdweb

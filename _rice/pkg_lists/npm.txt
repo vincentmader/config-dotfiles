@@ -1,6 +1,0 @@
-babel-eslint
-cli-fireplace 
-emoji-finder 
-eslint
-nasa-cli 
-weather-cli
