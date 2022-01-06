@@ -4,13 +4,26 @@
 # -----------------------------------------------------------------------------
 
 
-source ~/.config/zsh/pathrc
-
-
-# oh-my-zsh plugins
+# ENVIRONMENT VARIABLE DEFINITION
 # =============================================================================
 
-# oh-my-zsh plugins
+# user
+export USER="vinc"
+# home
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export HOME="/Users/vinc"
+else
+    export HOME="/home/vinc"
+fi
+# config, docs & code
+export CONF="$HOME/.config"
+export DOCS="$HOME/Documents"
+export CODE="$DOCS/code"
+
+
+# ZSH PLUGINS 
+# =============================================================================
+
 plugins=(
     # colored-man-pages
     # copyfile			# use to copy file to clipboard
@@ -30,70 +43,64 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
-# auto-complete
+# SOURCE CONFIG FILES
 # =============================================================================
 
-# shell auto-complete
+# paths
+source ~/.config/zsh/pathrc
+# rust   (TODO needed?)
+source $HOME/.cargo/env
+# emsdk  (TODO needed?)
+source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
+# aliases
+source $CONF/zsh/aliasrc
+# prompter
+source $CONF/zsh/prompter.sh
+
+
+# SHELL COMMAND AUTO-COMPLETION  &  HISTORY
+# =============================================================================
+
+# auto-completion  (+ auto-correction w/ thefuck plugin)
+# -----------------------------------------------------------------------------
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-# define location of autocompletion dump (speeds up auto completion)
+# location of zcompdump (-> speeds up auto completion)
 compinit -d "$HOME/.config/zsh/zcompdump"
 _comp_options+=(globdots)  # include hidden files.
-
-# thefuck plugin
+# thefuck auto-correction
 eval $(thefuck --alias)
 
-
-# various
-# =============================================================================
-
-# cd $(cat $CONF/zsh/pwd)  # load last saved pwd from file
-
-export LC_ALL=en_US.UTF-8
-
+# history
+# -----------------------------------------------------------------------------
 HISTSIZE=10000
 SAVEHIST=10000
-# save/load History in cache directory:
 HISTFILE="$HOME/.cache/zsh/history"
+
+
+# TODO various
+# =============================================================================
 
 bindkey -v
 export KEYTIMEOUT=1
 
 autoload -U colors && colors
-source $CONF/zsh/prompter.sh
-# export PS3="hello"
 
+
+# TMUX
+# =============================================================================
+
+# source config
 tmux source "$CONF/tmux/tmux.conf"
 # check if tmux is running, if not: start it
 [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
-# if [ "$TMUX" = "" ]; then tmux; fi
-
-# load aliases
-source $CONF/zsh/aliasrc
-
-source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
-
-# load zsh-syntax-highlighting; (should be last?)
-source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# eval "$(starship init zsh)"
 
 
+# FUZZY-FIND
+# =============================================================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-# determines search program for fzf
+# determine search program for fzf
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 fi
@@ -101,6 +108,29 @@ fi
 if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden'
 fi
+
+
+# SHELL SYNTAX HIGHLIGHTING  (TODO needs to be last (?))
+# =============================================================================
+
+source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# =============================================================================
+
+# eval "$(starship init zsh)"
+
+# export PS3="hello"
+
+# cd $(cat $CONF/zsh/pwd)  # TODO load last saved pwd from file
+#
+# locale settings  (TODO needed?)
+# export LC_ALL=en_US.UTF-8
+
+
+
+
+# more fzf setting (TODO sort-out unneeded stuff)
 
   # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # setup default command
