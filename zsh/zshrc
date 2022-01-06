@@ -27,17 +27,17 @@ export CODE="$DOCS/code"
 plugins=(
     # colored-man-pages
     # copyfile			# use to copy file to clipboard
-    # copydir				# use to copy pwd to clipboard
-    # emoji-clock			# use to display time (30min accuracy)
-    fzf                             # enables fuzzy auto-completion
+    # copydir			# use to copy pwd to clipboard
+    # emoji-clock		# use to display time (30min accuracy)
+    fzf                         # enables fuzzy auto-completion
     # git
     # npm
     # osx
     # pip
     # python
-    sudo                            # press esc twice to sudo repeat cmd
-    taskwarrior                     # auto completion for taskwarrior
-    # wd                            # warp directory
+    sudo                        # press esc twice to sudo repeat cmd
+    taskwarrior                 # auto completion for taskwarrior
+    # wd                        # warp directory
     # zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
