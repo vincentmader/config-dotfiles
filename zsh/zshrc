@@ -12,7 +12,7 @@ export USER="vinc"
 # home
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOME="/Users/vinc"
-else
+elif [[ "$OSTYPE" == "linux"* ]]; then
     export HOME="/home/vinc"
 fi
 # config, docs & code
