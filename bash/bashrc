@@ -20,6 +20,9 @@ fi
     source /home/vinc/.config/zsh/pathrc
     
     if [ "$OS" = "arch" ]; then
+        echo "---------- arch"
         exec startx
+    else
+        echo "---------- none"
     fi
     
