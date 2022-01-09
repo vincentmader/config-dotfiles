@@ -23,31 +23,32 @@ function prompter() {
         fi
     }
 
-    function set_battery_status() {
-        battery_level="$(cat /sys/class/power_supply/BAT0/capacity)"
-        if [ "$battery_level" -lt "25" ]; then
-            battery="%{$fg[red]%}↯$battery_level%%%{$reset_color%}"
-        elif [ "$battery_level" -lt "50" ]; then
-            battery="%{$fg[yellow]%}↯$battery_level%%%{$reset_color%}"
-        else
-            battery="%{$fg[green]%}↯$battery_level%%%{$reset_color%}"
-        fi
-    }
+    # function set_battery_status() {
+    #     battery_level="$(cat /sys/class/power_supply/BAT0/capacity)"
+    #     if [ "$battery_level" -lt "25" ]; then
+    #         battery="%{$fg[red]%}↯$battery_level%%%{$reset_color%}"
+    #     elif [ "$battery_level" -lt "50" ]; then
+    #         battery="%{$fg[yellow]%}↯$battery_level%%%{$reset_color%}"
+    #     else
+    #         battery="%{$fg[green]%}↯$battery_level%%%{$reset_color%}"
+    #     fi
+    # }
 
-    function set_clock() {
-        time=$(echo $(date)| cut -d' ' -f 4)
-        foo=${time%:*}
-        clock="%{$fg[blue]%}$foo%{$reset_color%}"
-    }
+    # function set_clock() {
+    #     time=$(echo $(date)| cut -d' ' -f 4)
+    #     foo=${time%:*}
+    #     clock="%{$fg[blue]%}$foo%{$reset_color%}"
+    # }
 
     set_venv
     set_git
-    set_clock
+    # set_clock
 
     if [[ "$OSTYPE" == "darwin"* ]]; then
         # do nothing
     else  # TODO: rewrite this? (will fail on non-Unix systems)
-        set_battery_status
+
+        # set_battery_status
 
         # in_count="%{$fg[blue]%}$(task +in +PENDING count)%{$reset_color%}"
         # due_today_count="%{$fg[yellow]%}$(task +DUE count)%{$reset_color%}"
