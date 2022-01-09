@@ -7,7 +7,19 @@
 # systemctl start docker  # auto-start docker on login
 
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export OS="macOS"
+elif [[ "$OSTYPE" == "linux"* ]]; then
+    export OS="arch"  # TODO be more specific: arch / ubuntu / ... ?
+fi
+
+
 # auto-start xorg on login
 # =============================================================================
-source /home/vinc/.config/zsh/pathrc
-#exec startx
+
+    source /home/vinc/.config/zsh/pathrc
+    
+    if [ "$OS" = "arch" ]; then
+        exec startx
+    fi
+    
