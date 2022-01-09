@@ -1,0 +1,18 @@
+pane	    emacs     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    misc     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    mxyz     	0	0	:	0	:/Users/vinc/Documents/code/shit/mader.xyz	1	zsh	:
+pane	    mxyz     	1	0	:-	0	:/Users/vinc/Documents/code/shit/mader.xyz	1	zsh	:
+pane	    mxyz     	1	0	:-	1	:/Users/vinc/Documents/code/auto-rice-scripts	0	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim setup.sh
+pane	    mxyz     	2	1	:*	0	:/Users/vinc/.config/nvim	1	zsh	:
+pane	    rice     	0	1	:*	0	:/Users/vinc/Documents/code/auto-rice-scripts	1	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim setup.sh
+pane	    rice     	0	1	:*	1	:/Users/vinc/Documents/code/auto-rice-scripts	0	zsh	:
+pane	    rice     	0	1	:*	2	:/Users/vinc/Documents/code/auto-rice-scripts/pkg_lists	0	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim
+pane	    uni      	0	1	:*	0	:/Users/vinc	1	zsh	:
+window	    emacs     	0	:zsh	1	:*	c6c0,156x46,0,0,3	:
+window	    misc     	0	:zsh	1	:*	c6c1,156x46,0,0,4	:
+window	    mxyz     	0	:zsh	0	:	6391,156x46,0,0,12	:
+window	    mxyz     	1	:zsh	0	:-	8b59,156x46,0,0{78x46,0,0,21,77x46,79,0,22}	off
+window	    mxyz     	2	:zsh	1	:*	e394,156x46,0,0,25	:
+window	    rice     	0	:zsh	1	:*	de58,156x46,0,0{78x46,0,0[78x38,0,0,8,78x7,0,39,28],77x46,79,0,27}	off
+window	    uni      	0	:zsh	1	:*	638f,156x46,0,0,10	:
+state	    rice     	    mxyz     

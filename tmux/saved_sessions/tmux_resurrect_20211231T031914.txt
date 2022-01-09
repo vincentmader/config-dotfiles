@@ -1,0 +1,11 @@
+pane	    emacs     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    misc     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    mxyz     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    rice     	0	1	:*	0	:/Users/vinc/Documents/code/auto-rice-scripts	1	zsh	:
+pane	    uni      	0	1	:*	0	:/Users/vinc	1	zsh	:
+window	    emacs     	0	:zsh	1	:*	c6be,156x46,0,0,1	:
+window	    misc     	0	:zsh	1	:*	6993,190x59,0,0,14	:
+window	    mxyz     	0	:zsh	1	:*	c6c0,156x46,0,0,3	:
+window	    rice     	0	:zsh	1	:*	c6c1,156x46,0,0,4	off
+window	    uni      	0	:zsh	1	:*	c6c6,156x46,0,0,9	:
+state	    emacs     	    mxyz     
