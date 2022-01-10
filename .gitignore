@@ -16,7 +16,6 @@ _src/stdweb
 _src/yay-10*
 autostart
 chromium
-coc/
 configstore
 dconf
 discord
@@ -32,6 +31,7 @@ iterm2
 mime*
 mirage
 mps*
+node_modules
 nvim/.netrwhist
 nvim/backups
 nvim/plugged
