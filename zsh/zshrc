@@ -120,6 +120,28 @@
     fi
 
 
+# DATABASE SETUP
+# =============================================================================
+
+    # mysql
+    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+    # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+    # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+    # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+
+    # postgresql
+    export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+    # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+    # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+    # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+    
+
+# RUN EXA ON ZSH START
+# =============================================================================
+
+    l  # (see ./aliasrc)
+
+
 # SHELL SYNTAX HIGHLIGHTING  (TODO needs to be last (?))
 # =============================================================================
 

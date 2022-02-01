@@ -25,7 +25,7 @@ alias bye="sudo shutdown now"
 # listing
 # -----------------------------------------------------------------------------
 # use exa for listing directory contents
-alias exa="clear && pwd && echo && exa -I '__pycache__|*.pyc' "
+alias exa="clear && pwd && echo && exa -I '__pycache__|*.pyc|.DS_Store' "
 alias ls="clear && exa -a"
 alias l="ls -T -L 1 --icons --group-directories-first"
 alias ll="ls -l -h --icons --group-directories-first --git"
@@ -33,8 +33,8 @@ alias lsa="clear && exa"
 alias la="lsa -T -L 1 --icons --group-directories-first"
 alias lla="lsa -l -h --icons --group-directories-first --git"
 # tree view
-alias lt="exa -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo\" --group-directories-first"
-alias ltt="exa -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo|mod.rs|Cargo.toml|lib.rs|scripts|css|src|img\" --group-directories-first"
+alias lt="exa -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo|_old\" --group-directories-first"
+alias ltt="exa -T -I \"__pychache__|venv|env|node_modules|.DS_Store|target|pkg|*.pyc|*.pyo|mod.rs|_old|Cargo.toml|lib.rs|scripts|css|src|img\" --group-directories-first"
 alias lt1="lt -L 1"
 alias lt2="lt -L 2"
 alias lt3="lt -L 3"
@@ -147,6 +147,7 @@ alias g="git"
 alias gg='clear && git status'
 alias ggs='clear && git status --short'
 alias gl="git pull --recurse-submodules"
+alias gcl="git clone --recurse-submodules"
 alias glaw="cd $CODE/antwar; git pull --recurse-submodules"
 alias glmx="cd $CODE/mader.xyz git pull --recurse-submodules"
 alias gc="git commit"
@@ -186,9 +187,13 @@ fi
 # DOWNLOADERS
 # =============================================================================
 
-alias ytdl="yes | pytube3 $1 -a -f -t='$CONF/symlinks/dl'"
-alias pytube3="pytube3"
 alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
+
+alias pytube3="pytube3"
+
+alias ytdl="youtube-dl"
+# alias ytdl="yes | pytube3 $1 -a -f -t='$CONF/symlinks/dl'"
+alias instadl="instaloader --stories --highlights --igtv --no-captions --login vincent.mader"
 
 
 # CONVERTERS
