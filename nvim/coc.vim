@@ -23,11 +23,11 @@ let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-prettier',
     \ 'coc-prettier',
-    \ 'coc-rls',
     \ 'coc-snippets',
     \ 'coc-tsserver',
     \ 'coc-vimtex',
 \ ]
+" \ 'coc-rls',
 
 "                                                               code completion 
 " =============================================================================

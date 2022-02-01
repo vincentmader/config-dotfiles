@@ -50,17 +50,21 @@ let g:quicktex_math = {
 " =============================================================================
 
 "
-" autoclose brackets (obsolete with plugin
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap { {}<left>
-" inoremap " ""<left>
-" inoremap ' ''<left>
+" autoclose brackets
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap " ""<left>
+inoremap ' ''<left>
 
 " define filetypes for checklist autocompletion on "- [ ] <CR>"
 let g:checklist_filetypes = ['markdown', 'text', 'org']  ", 'wiki', 'vimwiki']
 
 " makes command mode file auto completion prettier 
 " set wildmode=longest,list,full  " TODO: really necessary? i also have coc...
+
+" deactivate coc in rust & toml files
+autocmd BufNew,BufEnter *.rs,*.toml execute "silent! CocDisable"
+autocmd BufLeave *.rs,*.toml execute "silent! CocEnable"
 
 " }}}
