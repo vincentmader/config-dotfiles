@@ -1,0 +1,26 @@
+pane	    chr      	0	1	:*	0	:/Users/vinc/code/_TESTING/py_sleep_cycle	1	zsh	:
+pane	    conf     	0	1	:*	0	:/Users/vinc/.config	1	zsh	:
+pane	    misc     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    mxyz     	0	1	:*	0	:/Users/vinc/code/mader.xyz	0	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim
+pane	    mxyz     	0	1	:*	1	:/Users/vinc/code/mader.xyz	0	zsh	:
+pane	    mxyz     	0	1	:*	2	:/Users/vinc/code/mader.xyz	0	zsh	:
+pane	    mxyz     	0	1	:*	3	:/Users/vinc/.config/tmux/saved_sessions	1	zsh	:
+pane	    mxyz     	1	0	:-	0	:/Users/vinc/code/mader.xyz/mxyz-server	1	bash	:/bin/sh ./scripts/run
+pane	    org      	0	1	:*	0	:/Users/vinc/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documents/org/UTILS	1	zsh	:
+pane	    org      	0	1	:*	1	:/Users/vinc/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documents/org/UTILS	0	zsh	:
+pane	    petri    	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    rice     	0	1	:*	0	:/Users/vinc/code/auto-rice-scripts	1	zsh	:
+pane	    uni      	1	1	:*	0	:/Users/vinc/Documents/education/uni/sem_11/theory_tooltips	1	zsh	:
+pane	    uni      	1	1	:*	1	:/Users/vinc/Documents/education/uni/sem_11/theory_tooltips	0	zsh	:
+pane	    utils    	0	1	:*	0	:/Users/vinc/code/_UTILS/convert_video	1	zsh	:
+window	    chr      	0	:zsh	1	:*	e397,171x56,0,0,66	:
+window	    conf     	0	:zsh	1	:*	c6be,171x56,0,0,1	:
+window	    misc     	0	:zsh	1	:*	e392,171x56,0,0,80	:
+window	    mxyz     	0	:zsh	1	:*	c460,171x56,0,0{85x56,0,0,32,85x56,86,0[85x28,86,0,76,85x27,86,29{42x27,86,29,84,42x27,129,29,89}]}	:
+window	    mxyz     	1	:bash	0	:-	6398,171x56,0,0,38	:
+window	    org      	0	:zsh	1	:*	c252,171x56,0,0{85x56,0,0,47,85x56,86,0,57}	:
+window	    petri    	0	:zsh	1	:*	639b,171x56,0,0,79	:
+window	    rice     	0	:zsh	1	:*	c6bf,171x56,0,0,2	:
+window	    uni      	1	:zsh	1	:*	8e15,171x56,0,0[171x17,0,0,10,171x38,0,18,11]	:
+window	    utils    	0	:zsh	1	:*	e397,171x56,0,0,28	:
+state	    mxyz     	    chr      

@@ -64,7 +64,7 @@ let g:checklist_filetypes = ['markdown', 'text', 'org']  ", 'wiki', 'vimwiki']
 " set wildmode=longest,list,full  " TODO: really necessary? i also have coc...
 
 " deactivate coc in rust & toml files
-autocmd BufNew,BufEnter *.rs,*.toml execute "silent! CocDisable"
-autocmd BufLeave *.rs,*.toml execute "silent! CocEnable"
+" autocmd BufNew,BufEnter *.rs,*.toml execute "silent! CocDisable"
+" autocmd BufLeave *.rs,*.toml execute "silent! CocEnable"
 
 " }}}
