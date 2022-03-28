@@ -120,7 +120,7 @@
     # determine search program for fzf
     if type ag &> /dev/null; then
         export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
-    fi
+    fi                                  # NOTE: ^ nice!
     # prefer rg over ag
     if type rg &> /dev/null; then
         export FZF_DEFAULT_COMMAND='rg --files --hidden'
@@ -346,3 +346,5 @@
     # POWERLEVEL9K_MODE="nerdfont-complete"
     # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS = ('--\n--')
     # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
+
+

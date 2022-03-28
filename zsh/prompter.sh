@@ -63,7 +63,8 @@ function prompter() {
 
     export PS1="
 ╭────($username|$location)$git_branch$venv
-╰─➤ "
+╰─> "
+    # ♃
     # ─($clock)
     # ($overdue_count|$due_today_count|$in_count)
     # ($battery_status)

@@ -25,6 +25,7 @@ else
 fi
 export CONF="$HOME/.config"
 export CODE="$HOME/code"
+export ORG="$HOME/org"
 
 
 # general
@@ -38,6 +39,7 @@ export ZSHRC="$CONF/zsh/zshrc"
 export VISUAL="nvim -u $CONF/nvim/init.vim"
 export EDITOR="$VISUAL"
 export NVIMRC="$CONF/nvim/init.vim"
+# export VIMRUNTIME="$HOME/.config/nvim/"
 
 
 # GTD
@@ -52,7 +54,6 @@ export WIKI="~/"
 # =============================================================================
 
 # export FZF_BASE="/usr/local/bin/fzf"
-# export VIMRUNTIME="$HOME/.config/nvim/"
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
 export PATH=$PATH:~/.local/bin  # added when installing virtualenv
 export XINITRC="$CONF/x/.xinitrc"
