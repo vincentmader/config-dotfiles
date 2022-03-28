@@ -18,8 +18,8 @@ call plug#begin('$CONF/nvim/plugged')
     " auto completion engine
     Plug 'neoclide/coc.nvim', {'branch': 'release'}   
     "  snippet engine
-    Plug 'SirVer/ultisnips' 
-    Plug 'honza/vim-snippets'
+    " Plug 'SirVer/ultisnips' 
+    " Plug 'honza/vim-snippets'
     " Plug 'ycm-core/YouCompleteMe'
     " all words on screen are available in autocompletion
     Plug 'wellle/tmux-complete.vim'
@@ -75,7 +75,7 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf'
     " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
-    Plug 'yuki-ycino/fzf-preview.vim'
+    Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
     "                                                                     ranger
 "    Plug 'francoiscabrol/ranger.vim'
 "    Plug 'rbgrouleff/bclose.vim'
@@ -111,9 +111,9 @@ call plug#begin('$CONF/nvim/plugged')
 
     "                                                                       gtd
     " -------------------------------------------------------------------------
-    Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+    " Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
     " Plug 'BlindFS/vim-taskwarrior'
-    Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
+    " Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
     Plug 'tpope/vim-speeddating'
     " Plug 'itchyny/calendar.vim'
     Plug 'mattn/calendar-vim', { 'for': 'vimwiki' }

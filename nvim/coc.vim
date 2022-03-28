@@ -16,6 +16,7 @@ highlight CocFloating ctermbg=Black
 let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-eslint',
+    \ 'coc-flutter',
     \ 'coc-fzf-preview',
     \ 'coc-html',
     \ 'coc-jedi',

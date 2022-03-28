@@ -1,19 +1,35 @@
 {
-    "suggest.snippetIndicator": " ►",
-    // Run prettier (and others)
-    "coc.preferences.formatOnSaveFiletypes": [
-        "css",
-        "markdown",
-        "javascript",
-        "javascriptreact",
-        "python",
-        "typescript",
-        "typescriptreact"
-    ], "eslint.options": {
-        "configFile": "/home/vinc/.config/eslint/eslintrc"
-    },
-  "python.linting.pylintEnabled": false,
-  "python.linting.pep8Enabled": true,
-  "python.linting.enabled": true,
-  "rust-client.enable": true
+  "diagnostic.errorSign": "✘",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.hintSign": "➤",
+  "suggest.snippetIndicator": " ►",
+  // Run prettier (and others)
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "python",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.options": {
+    "configFile": "/home/vinc/.config/eslint/eslintrc"
+  },
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  }
+  // "python.linting.enabled": true,
+  // "python.linting.pylintEnabled": false,
+  // "python.linting.pep8Enabled": true,
+  // "python.linting.pep8Enabled": true,
+  // "python.linting.flake8Enabled": true,
+  // "python.linting.mypyEnabled": true,
+  // "rust-client.enable": true
+  // "coc.preferences.snippets.enable": true,
+  // "snippets.ultisnips.enable": false
 }
