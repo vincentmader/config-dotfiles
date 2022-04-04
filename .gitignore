@@ -1,5 +1,6 @@
 .DS_Store
 __pycache__
+coc
 coc/extensions/node_modules
 emacs
 instaloader
@@ -9,5 +10,7 @@ nvim/plugged
 ranger/plugins
 symlinks
 tmux/plugins
+tmux/saved_sessions
 zsh/oh-my-zsh
 zsh/zcompdump
+zsh/zsh_history

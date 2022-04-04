@@ -6,12 +6,15 @@
   "suggest.snippetIndicator": " ►",
   // Run prettier (and others)
   "coc.preferences.formatOnSaveFiletypes": [
+    // "bash",
     "css",
-    "markdown",
+    "dart",
     "javascript",
     "javascriptreact",
     "json",
+    "markdown",
     "python",
+    "rust",
     "typescript",
     "typescriptreact"
   ],

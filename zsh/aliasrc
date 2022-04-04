@@ -115,7 +115,7 @@ alias z="zathura"
 alias smi="sudo make install"
 alias smci="sudo make clean install"
 alias speedtest="speedtest-cli"
-alias diff='colordiff'
+alias diff='colordiff'  # or diff --color=auto
 alias gotop="gotop --color=monokai"
 alias top="gotop" 
 alias pdfl="pdflatex"
@@ -213,7 +213,7 @@ fi
 # DOWNLOADERS
 # =============================================================================
 
-alias wget="wget --hsts-file '$CONF/wget/wget-hsts'"
+# alias wget="wget --hsts-file ~/.config/wget/wget-hsts"
 
 alias pytube3="pytube3"
 
@@ -253,6 +253,7 @@ alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias ip="ip -color=auto"
 
 
 # =============================================================================

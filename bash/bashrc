@@ -28,3 +28,10 @@ fi
     
 
 . "$HOME/.cargo/env"
+
+
+# START YABAI
+yabai
+
+# TODO only start on macOS!
+# TODO only start on login!

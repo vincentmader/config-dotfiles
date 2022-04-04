@@ -88,7 +88,7 @@
 
     HISTSIZE=10000
     SAVEHIST=10000
-    HISTFILE="$HOME/.cache/zsh/history"
+    HISTFILE="$HOME/.config/zsh/zsh_history"
 
 
 # VARIOUS (TODO clean-up)
