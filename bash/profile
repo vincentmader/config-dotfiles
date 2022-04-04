@@ -1,6 +1,7 @@
 
 . "$HOME/.cargo/env"
 
+xrandr --output Virtual-1 --mode 2560x1600
 
 # /opt/homebrew/bin/yabai
 

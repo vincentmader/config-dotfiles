@@ -24,7 +24,7 @@ xcompmgr &
 # xrandr --output eDP --mode 1920x1200
 # xrandr --output Virtual-1 --mode 4096x2160
 # xrandr --output Virtual-1 --mode 2048x1080
-xrandr --output Virtual-1 --mode 2560x1600
+# xrandr --output Virtual-1 --mode 2560x1600
 
 # open dwm on startup
 # -----------------------------------------------------------------------------
