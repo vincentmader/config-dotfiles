@@ -3,6 +3,8 @@
 # 			      $CONF/bash/bashrc
 # -----------------------------------------------------------------------------
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
 # systemctl start docker  # auto-start docker on login
 
