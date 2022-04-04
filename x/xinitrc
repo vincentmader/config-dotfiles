@@ -22,6 +22,7 @@ xcompmgr &
 
 # change screen resolution
 # xrandr --output eDP --mode 1920x1200
+xrandr --output eDP --mode 4096x2160
 
 # open dwm on startup
 # -----------------------------------------------------------------------------
