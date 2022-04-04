@@ -12,6 +12,7 @@ nvim/plugged
 ranger/plugins
 st
 symlinks
+tabbed
 tmux/plugins
 tmux/saved_sessions
 zsh/oh-my-zsh
