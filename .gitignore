@@ -2,12 +2,15 @@
 __pycache__
 coc
 coc/extensions/node_modules
+dmenu
+dwm
 emacs
 instaloader
 iterm2
 nvim/backups
 nvim/plugged
 ranger/plugins
+st
 symlinks
 tmux/plugins
 tmux/saved_sessions
