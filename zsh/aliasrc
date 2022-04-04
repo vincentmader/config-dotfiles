@@ -203,7 +203,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux"* ]]; then
     alias fdisk="clear && fdisk"
     alias zzz="sleep 1; xset dpms force off"
-    # alias dwmr="sudo killall dwm && dwm"
+    alias dwmr="sudo killall dwm && startx"
     # alias dwms="sudo killall xfwm4 && dwm"
     # alias smidwmr="cd $CONF/dwm && sudo make install && killall dwm && dwm"
     # alias smist="cd $CONF/st && sudo make install"
