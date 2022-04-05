@@ -40,26 +40,16 @@
 # SHELL COMMAND AUTO-COMPLETION  &  HISTORY
 # =============================================================================
 
-# auto-completion  (+ auto-correction w/ thefuck plugin)
-# -----------------------------------------------------------------------------
-
     autoload -U compinit
     zstyle ':completion:*' menu select
     zmodload zsh/complist
+
     # location of zcompdump (-> speeds up auto completion)
     compinit -d "$CONF/zsh/zcompdump"
     _comp_options+=(globdots)  # include hidden files.
+
     # thefuck auto-correction
     eval $(thefuck --alias)
-
-
-# history
-# -----------------------------------------------------------------------------
-
-    HISTSIZE=10000
-    SAVEHIST=10000
-    HISTFILE="$HOME/.config/zsh/zsh_history"
-
 
 # VARIOUS (TODO clean-up)
 # =============================================================================
@@ -74,7 +64,6 @@
     
     autoload -U colors && colors
 
-
 # TMUX
 # =============================================================================
 
@@ -82,7 +71,6 @@
     tmux source "$CONF/tmux/tmux.conf"
     # check if tmux is running, if not: start it
     [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
-
 
 # FUZZY-FIND
 # =============================================================================
@@ -96,28 +84,10 @@
         export FZF_DEFAULT_COMMAND='rg --files --hidden'
     fi
 
-
-# DATABASE SETUP
-# =============================================================================
-
-    # mysql
-    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-    # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-    # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-    # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
-
-    # postgresql
-    export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-    # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
-    # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
-    # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
-    
-
 # RUN EXA ON ZSH START
 # =============================================================================
 
     l  # (see ./aliasrc)
-
 
 # SHELL SYNTAX HIGHLIGHTING  (TODO needs to be last (?))
 # =============================================================================

@@ -30,13 +30,38 @@
     export LC_CTYPE=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
 
+# history
+# -----------------------------------------------------------------------------
+
+    export HISTSIZE=10000
+    export SAVEHIST=10000
+    export HISTFILE="$CONF/zsh/zsh_history"
+
+# DATABASE SETUP
+# =============================================================================
+
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # mysql
+        export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+        # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+        # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+        # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+
+        # postgresql
+        export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+        # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+        # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+        # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        echo  # TODO
+    fi
 # 
 # =============================================================================  
 
     if [[ "$OSTYPE" == "darwin"* ]]; then
         eval $(/opt/homebrew/bin/brew shellenv)
     elif [[ "$OSTYPE" == "linux"* ]]; then
-        echo
+        echo # TODO
     fi
 
     # rust   (TODO needed?)
