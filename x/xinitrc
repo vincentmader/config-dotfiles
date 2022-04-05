@@ -8,9 +8,6 @@ while true; do
   sleep 0.5
 done &
 
-# set background to mars
-~/.fehbg &
-
 # increase max key press frequency
 xset r rate 250 50
 
@@ -23,6 +20,9 @@ xcompmgr &
 # change screen resolution
 # xrandr --output eDP --mode 1920x1200
 xrandr --output Virtual-1 --mode 2560x1600
+
+# set background to mars
+~/.fehbg &
 
 # open dwm on startup
 # -----------------------------------------------------------------------------
