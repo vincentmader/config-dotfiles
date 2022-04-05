@@ -104,12 +104,6 @@
     # export PS3="hello"
     
     # cd $(cat $CONF/zsh/pwd)  # TODO load last saved pwd from file
-    #
-    # locale settings  (TODO needed?)
-    # export LC_ALL=en_US.UTF-8
-    
-    
-    
     
     # more fzf setting (TODO sort-out unneeded stuff)
     
@@ -190,9 +184,6 @@
     # xclip -o | xclip -selection clipboard -i
     
     
-    
-    
-    
     # add color to man (I have as of yet only changed those with 38;5 at
     # the start, those are from the color set of size 256)
     # export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
@@ -202,9 +193,6 @@
     # export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
     # export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
     # export LESS_TERMCAP_us=$(printf '\e[38;5;118m') # enter underline mode – cyan
-    
-    
-    
     
     
     # Better searching in command mode
@@ -229,13 +217,6 @@
     #     fi
     # }
     # bindkey -s '^o' 'lfcd\n'
-    
-    
-    
-    
-    
-    
-    
     
     
     # Use vim keys in tab complete menu:
@@ -274,12 +255,6 @@
     # bindkey '^e' edit-command-line
     
     
-    
-    
-    
-    
-    
-    # export ST_FONT="Hack Nerd Font:size=14"
     # export FZF_DEFAULT_COMMAND='rg --files'
     
     # ZSH_THEME='powerlevel9k/powerlevel9k'
