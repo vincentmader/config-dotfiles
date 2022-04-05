@@ -1,9 +1,10 @@
+#!/bin/sh
+
+echo "BASH_RC"
 
 # -----------------------------------------------------------------------------
 # 			      $CONF/bash/bashrc
 # -----------------------------------------------------------------------------
-
-    echo "BASH_RC"
     
 # If not running interactively, don't do anything
 # =============================================================================
@@ -19,18 +20,11 @@
 # =============================================================================
 
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        # export OS="macOS"
         printf ""
     elif [[ "$OSTYPE" == "linux"* ]]; then
-        # export OS="arch"  # TODO be more specific: arch / ubuntu / ... ?
         exec startx
     fi
     
-# source cargo env
-# =============================================================================
-
-    # . "$HOME/.cargo/env"
-
 # OTHER (TODO clean-up)
 # =============================================================================
 
@@ -39,3 +33,4 @@
     # TODO only start on login!
     
     # systemctl start docker  # auto-start docker on login
+

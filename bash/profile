@@ -1,9 +1,8 @@
-#!/usr/bin/sh
-
-# . "$HOME/.cargo/env"    # TODO remove here (already in .bash_profile)
-
-# xrandr --output Virtual-1 --mode 2560x1600  # TODO still works on linux?
-
-# /opt/homebrew/bin/yabai
+#!/bin/sh
 
 echo "PROFILE"
+
+# -----------------------------------------------------------------------------
+# 			        $CONF/bash/profile
+# -----------------------------------------------------------------------------
+
