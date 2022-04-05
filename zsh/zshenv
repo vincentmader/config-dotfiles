@@ -1,0 +1,22 @@
+#!/bin/sh
+
+echo "ZSHENV"
+
+
+# ENVIRONMENT VARIABLE DEFINITION
+# =============================================================================
+
+    # user
+    export USER="vinc"
+
+    # home
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        export HOME="/Users/$USER"
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        export HOME="/home/$USER"
+    fi
+
+    # config, docs & code
+    export CONF="$HOME/.config"
+    export CODE="$DOCS/code"
+    export DOCS="$HOME/Documents"

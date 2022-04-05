@@ -1,26 +1,13 @@
+#!/bin/sh
 
 # -----------------------------------------------------------------------------
 # 			      $CONF/zsh/zshrc
 # -----------------------------------------------------------------------------
 
 
-# ENVIRONMENT VARIABLE DEFINITION
-# =============================================================================
+echo "ZSHRC"
 
-    # user
-    export USER="vinc"
-    # home
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        OS="macOS"
-        export HOME="/Users/vinc"
-    elif [[ "$OSTYPE" == "linux"* ]]; then
-        OS="linux"  # TODO be more specific: arch / ubuntu / ... ?
-        export HOME="/home/vinc"
-    fi
-    # config, docs & code
-    export CONF="$HOME/.config"
-    export DOCS="$HOME/Documents"
-    export CODE="$DOCS/code"
+
 
 
 # LOCALE SETTINGS
@@ -51,20 +38,21 @@
     )
     source $ZSH/oh-my-zsh.sh
 
-
 # SOURCE CONFIG FILES
 # =============================================================================
 
     # paths
-    source ~/.config/zsh/pathrc
-    # rust   (TODO needed?)
-    source $HOME/.cargo/env
-    # emsdk  (TODO needed?)
-    source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
+    source $CONF/zsh/pathrc
     # aliases
     source $CONF/zsh/aliasrc
     # prompter
     source $CONF/zsh/prompter.sh
+
+    # rust   (TODO needed?)
+    source $HOME/.cargo/env
+    # emsdk  (TODO needed?)
+    source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
+
 
 
 # SHELL COMMAND AUTO-COMPLETION  &  HISTORY

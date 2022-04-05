@@ -3,37 +3,41 @@
 # 			      $CONF/bash/bashrc
 # -----------------------------------------------------------------------------
 
+    echo "BASH_RC"
+    
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# =============================================================================
 
-# systemctl start docker  # auto-start docker on login
+    [[ $- != *i* ]] && return
 
+# source ~/.config/zsh/pathrc
+# =============================================================================
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export OS="macOS"
-elif [[ "$OSTYPE" == "linux"* ]]; then
-    export OS="arch"  # TODO be more specific: arch / ubuntu / ... ?
-fi
-
+    source /home/vinc/.config/zsh/pathrc
 
 # auto-start xorg on login
 # =============================================================================
 
-    source /home/vinc/.config/zsh/pathrc
-    
-    if [ "$OS" = "arch" ]; then
-        echo "---------- arch"
-        exec startx
-    else
-        echo "---------- none"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        export OS="macOS"
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        export OS="arch"  # TODO be more specific: arch / ubuntu / ... ?
     fi
     
+    if [ "$OS" = "arch" ]; then
+        exec startx
+    fi
+    
+# source cargo env
+# =============================================================================
 
-. "$HOME/.cargo/env"
+    . "$HOME/.cargo/env"
 
+# OTHER (TODO clean-up)
+# =============================================================================
 
-# START YABAI
-yabai
-
-# TODO only start on macOS!
-# TODO only start on login!
+    # yabai
+    # TODO only start on macOS!
+    # TODO only start on login!
+    
+    # systemctl start docker  # auto-start docker on login

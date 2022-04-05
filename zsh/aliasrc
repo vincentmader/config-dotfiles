@@ -3,23 +3,21 @@
 # 			      $CONF/zsh/aliasrc
 # -----------------------------------------------------------------------------
 
-
-# reload/recompile configs
+# re-source configs
 alias sozsh="source $CONF/zsh/zshrc"
 alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"  # TODO arch
 
-
-# basic unix cmd redefinitions
+# basic unix command re-definitions
 # =============================================================================
 
-# listing (using exa)
+# directory listing (using exa)
 # -----------------------------------------------------------------------------
 EXA_FLAGS="--icons --group-directories-first"
-STUFF_TO_IGNORE=".DS_Store|__pychache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|_old"
+EXA_IGNORE=".DS_Store|__pychache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|_old"
 
 # base
 alias exa="clear && pwd && echo && exa $EXA_FLAGS"
-alias ls="clear && exa -a -I \"$STUFF_TO_IGNORE\""
+alias ls="clear && exa -a -I \"$EXA_IGNORE\""
 alias lsa="clear && exa -a"
 
 # show in a prettier way w/ 1-level-deep tree-view ("-T" = "--tree")
@@ -31,12 +29,12 @@ alias ll="ls -l --header --git"
 alias lla="lsa -l --header --git"
 
 # tree view (-T = --tree)
-alias lt="exa -T $EXA_FLAGS -I \"$STUFF_TO_IGNORE\""
-MORE_STUFF_TO_IGNORE="$STUFF_TO_IGNORE|Cargo.toml|lib.rs|mod.rs|scripts|css|img"
-alias ltt="exa -T $EXA_FLAGS -I \"$MORE_STUFF_TO_IGNORE\""
+alias lt="exa -T $EXA_FLAGS -I \"$EXA_IGNORE\""
+MORE_EXA_IGNORE="$EXA_IGNORE|Cargo.toml|lib.rs|mod.rs|scripts|css|img"
+alias ltt="exa -T $EXA_FLAGS -I \"$MORE_EXA_IGNORE\""
 
-### MOOORE_STUFF_TO_IGNORE="$MORE_STUFF_TO_IGNORE|mxyz-main|mxyz-chronos|mxyz-server|mxyz-database|"
-### alias lttt="exa -T -I \"$MOOORE_STUFF_TO_IGNORE\" $EXA_FLAGS"
+### MOOORE_EXA_IGNORE="$MORE_EXA_IGNORE|mxyz-main|mxyz-chronos|mxyz-server|mxyz-database|"
+### alias lttt="exa -T -I \"$MOOORE_EXA_IGNORE\" $EXA_FLAGS"
 alias lt1="lt -L 1"
 alias lt2="lt -L 2"
 alias lt3="lt -L 3"
@@ -50,7 +48,7 @@ alias ltt4="ltt -L 4"
 
 # navigation
 # -----------------------------------------------------------------------------
-alias c="clear"
+alias cls="clear"
 function cd() {  # NOTE: needs to be defined AFTER above "exa" binds to "l"
     builtin cd "$@";
     l;
@@ -66,7 +64,7 @@ alias bye="sudo shutdown now"
 # -----------------------------------------------------------------------------
 alias pwd="pwd -P"
 function func_mkcdir() {
-    mkdir -pv "$1"
+    command mkdir -pv "$1"
     cd "$1";
 }
 alias md=func_mkcdir

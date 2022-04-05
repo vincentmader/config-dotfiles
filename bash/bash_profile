@@ -1,1 +1,6 @@
+
+# source ~/.bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+echo "BASH_PROFILE"
+
