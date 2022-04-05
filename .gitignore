@@ -4,7 +4,6 @@ coc
 coc/extensions/node_modules
 dmenu
 dwm
-emacs
 instaloader
 iterm2
 nvim/backups

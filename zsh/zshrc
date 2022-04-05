@@ -4,18 +4,7 @@
 # 			      $CONF/zsh/zshrc
 # -----------------------------------------------------------------------------
 
-
-echo "ZSHRC"
-
-
-
-
-# LOCALE SETTINGS
-# =============================================================================
-
-    export LC_CTYPE=en_US.UTF-8
-    export LC_ALL=en_US.UTF-8
-
+    echo "ZSHRC"
 
 # ZSH PLUGINS 
 # =============================================================================
@@ -32,7 +21,7 @@ echo "ZSHRC"
         # pip
         # python
         sudo                        # press esc twice to sudo repeat cmd
-        taskwarrior                 # auto completion for taskwarrior
+        # taskwarrior                 # auto completion for taskwarrior
         # wd                        # warp directory
         # zsh-autosuggestions
     )
@@ -47,13 +36,6 @@ echo "ZSHRC"
     source $CONF/zsh/aliasrc
     # prompter
     source $CONF/zsh/prompter.sh
-
-    # rust   (TODO needed?)
-    source $HOME/.cargo/env
-    # emsdk  (TODO needed?)
-    source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
-
-
 
 # SHELL COMMAND AUTO-COMPLETION  &  HISTORY
 # =============================================================================

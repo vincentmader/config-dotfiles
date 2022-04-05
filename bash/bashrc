@@ -19,19 +19,17 @@
 # =============================================================================
 
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        export OS="macOS"
+        # export OS="macOS"
+        printf ""
     elif [[ "$OSTYPE" == "linux"* ]]; then
-        export OS="arch"  # TODO be more specific: arch / ubuntu / ... ?
-    fi
-    
-    if [ "$OS" = "arch" ]; then
+        # export OS="arch"  # TODO be more specific: arch / ubuntu / ... ?
         exec startx
     fi
     
 # source cargo env
 # =============================================================================
 
-    . "$HOME/.cargo/env"
+    # . "$HOME/.cargo/env"
 
 # OTHER (TODO clean-up)
 # =============================================================================

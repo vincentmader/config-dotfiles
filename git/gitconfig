@@ -1,5 +1,5 @@
 [credential]
-	helper = store
+	helper = cache
 [user]
 	name = Vincent C. Mader
 	email = vincent@mader.xyz
