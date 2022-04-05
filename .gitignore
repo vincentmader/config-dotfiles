@@ -3,7 +3,9 @@ __pycache__
 coc
 coc/extensions/node_modules
 dmenu
+doom
 dwm
+emacs
 instaloader
 iterm2
 nvim/backups
