@@ -23,6 +23,7 @@
         printf ""
     elif [[ "$OSTYPE" == "linux"* ]]; then
         exec startx
+        ~/.fehbg
     fi
     
 # OTHER (TODO clean-up)

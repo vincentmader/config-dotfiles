@@ -61,7 +61,7 @@
     if [[ "$OSTYPE" == "darwin"* ]]; then
         eval $(/opt/homebrew/bin/brew shellenv)
     elif [[ "$OSTYPE" == "linux"* ]]; then
-        export ST_FONT="Hack Nerd Font:size=14"
+        # export ST_FONT="Hack Nerd Font:size=14"
     fi
 
     # rust   (TODO needed?)
