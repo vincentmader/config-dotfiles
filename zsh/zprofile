@@ -1,8 +1,0 @@
-#!/bin/sh
-
-
-echo "ZPROFILE"
-
-eval $(/opt/homebrew/bin/brew shellenv)
-
-

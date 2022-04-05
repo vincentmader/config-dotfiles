@@ -2,6 +2,18 @@
 
 echo "ZSHENV"
 
+    # operating system
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        OS="macOS"
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        OS="linux"
+    fi
+
+# LOCALE SETTINGS
+# =============================================================================
+
+    export LC_CTYPE=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
 
 # ENVIRONMENT VARIABLE DEFINITION
 # =============================================================================
@@ -10,9 +22,9 @@ echo "ZSHENV"
     export USER="vinc"
 
     # home
-    if [[ "$OSTYPE" == "darwin"* ]]; then
+    if [[ "$OS" == "linux" ]]; then
         export HOME="/Users/$USER"
-    elif [[ "$OSTYPE" == "linux"* ]]; then
+    elif [[ "$OS" == "macOS" ]]; then
         export HOME="/home/$USER"
     fi
 
@@ -20,3 +32,17 @@ echo "ZSHENV"
     export CONF="$HOME/.config"
     export CODE="$DOCS/code"
     export DOCS="$HOME/Documents"
+
+
+    if [[ "$OS" == "linux" ]]; then
+        printf ""
+    elif [[ "$OS" == "macOS" ]]; then
+        eval $(/opt/homebrew/bin/brew shellenv)
+    fi
+
+# history
+# -----------------------------------------------------------------------------
+
+    HISTSIZE=10000
+    SAVEHIST=10000
+    HISTFILE="$HOME/.config/zsh/zsh_history"
