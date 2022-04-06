@@ -1,0 +1,28 @@
+pane	    chr      	1	1	:*	0	:/Users/vinc/code/projects/mader.xyz/REWORK	0	zsh	:
+pane	    chr      	1	1	:*	1	:/Users/vinc/code/projects/chronos/testing/sparkasse_csv	1	zsh	:
+pane	    conf     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    dpsg     	0	1	:*	0	:/Users/vinc/Documents/dpsg	1	zsh	:
+pane	    misc     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    mxyz     	1	1	:*	0	:/Users/vinc/code/projects/mader.xyz/REWORK/mxyz-engine/src	0	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim engine.rs
+pane	    mxyz     	1	1	:*	1	:/Users/vinc/.config/tmux	1	zsh	:
+pane	    mxyz     	1	1	:*	2	:/Users/vinc/code/projects/mader.xyz/REWORK	0	zsh	:
+pane	    org      	0	1	:*	0	:/Users/vinc/org	1	zsh	:
+pane	    rice     	0	1	:*	0	:/Users/vinc/code/projects/auto-rice-scripts	1	zsh	:
+pane	    rice     	0	1	:*	1	:/Users/vinc/.config/zsh	0	zsh	:
+pane	    rice     	0	1	:*	2	:/Users/vinc	0	zsh	:
+pane	    uni      	1	1	:*	0	:/Users/vinc/Documents/education/uni/sem_01/theoretische_physik_1	1	zsh	:
+pane	    uni      	1	1	:*	1	:/Users/vinc/Documents/education/uni/favs	0	zsh	:
+pane	    utils    	0	1	:*	0	:/Users/vinc	1	yabai	:yabai
+pane	    xwithme  	0	1	:*	0	:/Users/vinc/code/projects/operation-withme/XWithMe-flutter/x_with_me	1	nvim	:nvim -u /Users/vinc/.config/nvim/init.vim
+pane	    xwithme  	0	1	:*	1	:/Users/vinc/code/projects/operation-withme/XWithMe-flutter/x_with_me	0	zsh	:
+window	    chr      	1	:zsh	1	:*	e5be,83x52,0,0[83x26,0,0,41,83x25,0,27,51]	:
+window	    conf     	0	:zsh	1	:*	31cb,168x55,0,0,132	:
+window	    dpsg     	0	:zsh	1	:*	b1e1,83x52,0,0,4	:
+window	    misc     	0	:zsh	1	:*	30cb,168x54,0,0,170	:
+window	    mxyz     	1	:zsh	1	:*	c96b,168x55,0,0{84x55,0,0,10,83x55,85,0[83x26,85,0,172,83x28,85,27,173]}	:
+window	    org      	0	:zsh	1	:*	5923,83x52,0,0,14	:
+window	    rice     	0	:zsh	1	:*	20da,168x55,0,0{84x55,0,0,129,83x55,85,0[83x27,85,0,121,83x27,85,28,126]}	:
+window	    uni      	1	:zsh	1	:*	9871,83x52,0,0{40x52,0,0,23,42x52,41,0,25}	:
+window	    utils    	0	:yabai	1	:*	e335,168x55,0,0,26	:
+window	    xwithme  	0	:zsh	1	:*	6cf6,83x52,0,0[83x43,0,0,43,83x8,0,44,50]	off
+state	    mxyz     	    misc     
