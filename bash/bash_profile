@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# echo "BASH_PROFILE"
+echo "BASH_PROFILE"
 
 # -----------------------------------------------------------------------------
 # 			    $CONF/bash/bash_profile

@@ -1,0 +1,10 @@
+[credential]
+	helper = cache
+[user]
+	name = Vincent C. Mader
+	email = vincent@mader.xyz
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

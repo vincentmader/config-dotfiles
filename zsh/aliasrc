@@ -48,7 +48,7 @@ alias ltt4="ltt -L 4"
 
 # navigation
 # -----------------------------------------------------------------------------
-alias cls="clear"
+alias c="clear"
 function cd() {  # NOTE: needs to be defined AFTER above "exa" binds to "l"
     builtin cd "$@";
     l;
@@ -112,7 +112,7 @@ alias z="zathura"
 
 alias smi="sudo make install"
 alias smci="sudo make clean install"
-alias speedtest="speedtest-cli"
+# alias speedtest="speedtest-cli"
 alias diff='colordiff'  # or diff --color=auto
 alias gotop="gotop --color=monokai"
 alias top="gotop" 
@@ -139,6 +139,7 @@ alias npxcra="npx create-react-app"
 alias python="python3"
 alias py3="python"
 alias py="py3"
+
 alias mdb="mongod"
 alias sov="source ./venv/bin/activate"
 alias pip="pip3"

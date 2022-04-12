@@ -1,73 +1,128 @@
 #!/bin/sh
 
-# echo "ZSHENV"
+echo "ZSHENV"
 
 # -----------------------------------------------------------------------------
-# 			      $CONF/zsh/zshenv
+# 			        $CONF/zsh/zshenv
 # -----------------------------------------------------------------------------
 
-# ENVIRONMENT VARIABLE DEFINITION
+# XDG_CONFIG_HOME="$HOME/.config"
+# XDG_CACHE_HOME="$HOME/.cache"
+# XDG_DATA_HOME="$HOME/.local/share"
+
 # =============================================================================
 
-    # user
-    export USER="vinc"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    USERS="/Users"
+elif [[ "$OSTYPE" == "linux"* ]]; then
+    USERS="/home"
+fi
 
-    # home
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        export HOME="/Users/$USER"
-    elif [[ "$OSTYPE" == "linux"* ]]; then
-        export HOME="/home/$USER"
-    fi
-
-    # config, docs & code
-    export CONF="$HOME/.config"
-        # export CODE="$DOCS/code"
-        # export DOCS="$HOME/Documents"
-
-# LOCALE SETTINGS
 # =============================================================================
 
-    export LC_CTYPE=en_US.UTF-8
-    export LC_ALL=en_US.UTF-8
-
+# user, home, conf
+export USER=$(whoami)
+export HOME="$USERS/$USER"
+export CONF="$HOME/.config"
+export CDPATH=".:$CONF/symlinks"
+# zsh
+# export ZDOTDIR="$CONF/zsh"
+export ZSH="$CONF/zsh/oh-my-zsh"
+export ZSHRC="$CONF/zsh/zshrc"
+export ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
+# editor
+export VISUAL="nvim -u $CONF/nvim/init.vim"
+export EDITOR="$VISUAL"
+export NVIMRC="$CONF/nvim/init.vim"
+# path
+export PATH=$PATH:~/.local/bin  # added when installing virtualenv
+# locale
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 # history
-# -----------------------------------------------------------------------------
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE="$HOME/.cache/zsh/history"
+# python
+export PYTHONSTARTUP="$CONF/python/.pythonrc"
+export IPYTHONDIR="$HOME/.local/share/jupyter"
+export JUPYTER_CONFIG_DIR="$HOME/.local/share/jupyter"
+# rust
+export CARGO_HOME="$HOME/.cache/cargo"
+# node
+export NPM_CONFIG_USERCONFIG="$CONF/npm/npmrc"
+# go
+export GOPATH="$HOME/.cache/go"
+# postgresql
+# export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+# export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+# export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+# export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+# taskwarrior
+# export TASKRC="$CONF/taskwarrior/taskrc"
+# export TIMEWARRIORDB="$HOME/gtd/timewarrior"
+# export WIKI="~/"
 
-    export HISTSIZE=10000
-    export SAVEHIST=10000
-    export HISTFILE="$CONF/zsh/zsh_history"
 
-# DATABASE SETUP
 # =============================================================================
 
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        # mysql
-        export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-        # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-        # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-        # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+# database
+# -----------------------------------------------------------------------------
 
-        # postgresql
-        export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-        # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
-        # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
-        # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
-    elif [[ "$OSTYPE" == "linux"* ]]; then
-        echo  # TODO
-    fi
-# 
-# =============================================================================  
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # postgresql
+    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+    # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+    # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+    # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        eval $(/opt/homebrew/bin/brew shellenv)
-    elif [[ "$OSTYPE" == "linux"* ]]; then
-        # export ST_FONT="Hack Nerd Font:size=14"
-    fi
+    # mysql
+    export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+    # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+    # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+    # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+elif [[ "$OSTYPE" == "linux"* ]]; then
+    echo  # TODO
+fi
 
-    # rust   (TODO needed?)
-    source $HOME/.cargo/env
-    # emsdk  (TODO needed?)
-    source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
+# fuzzy-find
+# -----------------------------------------------------------------------------
 
-# =============================================================================  
+# export FZF_BASE="/usr/local/bin/fzf"
+
+# determine search program for fzf
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+fi                                  # NOTE: ^ nice!
+# prefer rg over ag
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+fi
+
+
+# VARIOUS
+# =============================================================================
+
+# rust  
+source $HOME/.cache/cargo/env
+
+# emsdk  (TODO needed?)
+source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    eval $(/opt/homebrew/bin/brew shellenv)
+    # TODO: delete MacPorts shit below?
+    export PATH=$PATH:/opt/local/bin  # added because of MacPorts
+    export PATH=$PATH:~/.nimble/bin   # added because of MacPorts too
+
+elif [[ "$OSTYPE" == "linux"* ]]; then
+    export XINITRC="$CONF/x/.xinitrc"
+fi
+
+# export VIMRUNTIME="$HOME/.config/nvim/"
+
+# latex (not working)
+# if [ "$OS" = "macOS" ]; then
+#     PATH=/usr/local/texlive/2019/bin/x86_64-darwin:"${PATH}"
+# fi
 

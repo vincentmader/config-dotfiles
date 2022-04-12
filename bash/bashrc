@@ -14,7 +14,7 @@
 # source ~/.config/zsh/pathrc
 # =============================================================================
 
-    source /home/vinc/.config/zsh/pathrc
+    # source /home/vinc/.config/zsh/zshenv
 
 # auto-start xorg on login
 # =============================================================================
@@ -35,3 +35,4 @@
     
     # systemctl start docker  # auto-start docker on login
 
+# . "$HOME/.cargo/env"

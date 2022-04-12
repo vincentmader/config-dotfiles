@@ -101,6 +101,7 @@ call plug#begin('$CONF/nvim/plugged')
     " Plug 'takac/vim-hardtime'
     Plug 'tpope/vim-unimpaired'
     " Plug 'greyblake/vim-esperanto'
+    " atom editor
 "    Plug 'yuttie/comfortable-motion.vim'
     Plug 'mbbill/undotree'
     " Plug 'godlygeek/tabular'
