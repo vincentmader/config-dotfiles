@@ -1,0 +1,26 @@
+pane	    chr      	1	1	:*	0	:/Users/vinc/code/projects/chronos	1	zsh	:
+pane	    conf     	0	1	:*	0	:/Users/vinc/.config	1	zsh	:
+pane	    dpsg     	0	1	:*	0	:/Users/vinc/Documents/dpsg	1	zsh	:
+pane	    misc     	0	1	:*	0	:/Users/vinc	1	zsh	:
+pane	    mxyz     	0	1	:*	0	:/Users/vinc/code/projects/mader.xyz/REWORK_10	1	zsh	:
+pane	    mxyz     	1	0	:-	0	:/Users/vinc/code/projects/mader.xyz/main	0	zsh	:
+pane	    mxyz     	1	0	:-	1	:/Users/vinc/code/projects/mader.xyz/REWORK	1	zsh	:
+pane	    org      	0	1	:*	0	:/Users/vinc/org	1	zsh	:
+pane	    rice     	0	1	:*	0	:/Users/vinc/code/projects/auto-rice-scripts	0	zsh	:
+pane	    rice     	0	1	:*	1	:/Users/vinc/code/projects/auto-rice-scripts	1	zsh	:
+pane	    uni      	1	1	:*	0	:/Users/vinc/Documents/education/uni	1	zsh	:
+pane	    utils    	0	1	:*	0	:/Users/vinc	1	yabai	:yabai
+pane	    xwithme  	0	1	:*	0	:/Users/vinc/code/projects/operation-withme/XWithMe-flutter/x_with_me	0	zsh	:
+pane	    xwithme  	0	1	:*	1	:/Users/vinc/code/projects/operation-withme/XWithMe-flutter/x_with_me	1	zsh	:
+window	    chr      	1	:zsh	1	:*	c5fe,168x55,0,0,1	:
+window	    conf     	0	:zsh	1	:*	c600,168x55,0,0,3	:
+window	    dpsg     	0	:zsh	1	:*	c601,168x55,0,0,4	:
+window	    misc     	0	:zsh	1	:*	e338,168x55,0,0,67	:
+window	    mxyz     	0	:zsh	1	:*	c603,168x55,0,0,6	:
+window	    mxyz     	1	:zsh	0	:-	c937,168x55,0,0{84x55,0,0,68,83x55,85,0,69}	:
+window	    org      	0	:zsh	1	:*	e332,168x55,0,0,23	:
+window	    rice     	0	:zsh	1	:*	492c,168x55,0,0{84x55,0,0,25,83x55,85,0,28}	:
+window	    uni      	1	:zsh	1	:*	e338,168x55,0,0,29	:
+window	    utils    	0	:yabai	1	:*	6334,168x55,0,0,34	:
+window	    xwithme  	0	:zsh	1	:*	c4b8,168x55,0,0[168x45,0,0,33,168x9,0,46,37]	off
+state	    xwithme  	    utils    
