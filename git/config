@@ -2,7 +2,7 @@
 	helper = cache
 [user]
 	name = Vincent C. Mader
-	email = vincent@mader.xyz
+	email = vincent.mader@icloud.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
