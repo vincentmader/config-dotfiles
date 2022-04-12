@@ -1,3 +1,0 @@
-# chsh -s $(which zsh) 
-
-chsh -s /bin/zsh
