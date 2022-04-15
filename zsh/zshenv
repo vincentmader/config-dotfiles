@@ -30,29 +30,42 @@ export CDPATH=".:$CONF/symlinks"
 export ZSH="$CONF/zsh/oh-my-zsh"
 export ZSHRC="$CONF/zsh/zshrc"
 export ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
+export SHELL_SESSIONS_DISABLE=1
 # editor
-export VISUAL="nvim -u $CONF/nvim/init.vim"
-export EDITOR="$VISUAL"
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR="vim"
+else
+  export EDITOR="nvim -u $CONF/nvim/init.vim"
+fi
+export VISUAL="$EDITOR"
 export NVIMRC="$CONF/nvim/init.vim"
-# path
-export PATH=$PATH:~/.local/bin  # added when installing virtualenv
 # locale
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 # history
 export HISTSIZE=10000
-export SAVEHIST=10000
+export SAVEHIST=5000
 export HISTFILE="$HOME/.cache/zsh/history"
 # python
 export PYTHONSTARTUP="$CONF/python/.pythonrc"
+export MPLCONFIGDIR="$CONF/matplotlib"
 export IPYTHONDIR="$HOME/.local/share/jupyter"
 export JUPYTER_CONFIG_DIR="$HOME/.local/share/jupyter"
+# node
+export NODE_REPL_HISTORY="$HOME/.cache/node_repl_history"
+export NODE_REPL_HISTORY_SIZE=10000
 # rust
 export CARGO_HOME="$HOME/.cache/cargo"
+export RUSTUP_HOME="$HOME/.cache/rustup"
 # node
 export NPM_CONFIG_USERCONFIG="$CONF/npm/npmrc"
 # go
 export GOPATH="$HOME/.cache/go"
+# gpg
+export GNUPGHOME="$HOME/.cache/gnupg"
+# less
+export LESSHISTFILE="$HOME/.cache/lesshst"
+
 # postgresql
 # export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
 # export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
@@ -63,6 +76,9 @@ export GOPATH="$HOME/.cache/go"
 # export TIMEWARRIORDB="$HOME/gtd/timewarrior"
 # export WIKI="~/"
 
+# path
+export PATH="$PATH:$HOME/.local/bin"  # added when installing virtualenv
+export PATH="$PATH:$CARGO_HOME/bin"
 
 # =============================================================================
 
@@ -71,18 +87,20 @@ export GOPATH="$HOME/.cache/go"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # postgresql
-    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-    # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-    # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-    # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+    export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+        # export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+        # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+        # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+        # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 
     # mysql
-    export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-    # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
-    # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
-    # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+    export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
+        # export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+        # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+        # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+        # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
 elif [[ "$OSTYPE" == "linux"* ]]; then
-    echo  # TODO
+    echo
 fi
 
 # fuzzy-find
@@ -103,18 +121,12 @@ fi
 # VARIOUS
 # =============================================================================
 
-# rust  
-source $HOME/.cache/cargo/env
-
 # emsdk  (TODO needed?)
 source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    eval $(/opt/homebrew/bin/brew shellenv)
-    # TODO: delete MacPorts shit below?
-    export PATH=$PATH:/opt/local/bin  # added because of MacPorts
-    export PATH=$PATH:~/.nimble/bin   # added because of MacPorts too
-
+    eval $(/opt/homebrew/bin/brew shellenv)    # needed for brew
+    export PATH=$PATH:/opt/local/bin           # needed for macports
 elif [[ "$OSTYPE" == "linux"* ]]; then
     export XINITRC="$CONF/x/.xinitrc"
 fi

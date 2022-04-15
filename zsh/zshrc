@@ -9,13 +9,17 @@ echo "ZSHRC"
 # ZSH PLUGINS 
 # =============================================================================
 
+    CASE_SENSITIVE="true"  # case-sensitive completion
+    DISABLE_UNTRACKED_FILES_DIRTY="true"  # speeds up git for large repos
+    HIST_STAMPS="yyyy-mm-dd"
+
     plugins=(
         # colored-man-pages
         # copyfile		# use to copy file to clipboard
         # copydir		# use to copy pwd to clipboard
         # emoji-clock		# use to display time (30min accuracy)
         fzf                     # enables fuzzy auto-completion
-        # git
+        git
         # npm
         # osx
         # pip
@@ -35,7 +39,7 @@ echo "ZSHRC"
     # aliases
     source $CONF/zsh/aliasrc
     # prompter
-    source $CONF/zsh/prompter.sh
+    source $CONF/zsh/prompter
 
 # SHELL COMMAND AUTO-COMPLETION  &  HISTORY
 # =============================================================================
@@ -84,6 +88,8 @@ echo "ZSHRC"
 
 # VARIOUS / OLD  (TODO clean up)
 # =============================================================================
+
+    setopt sharehistory
 
     # eval "$(starship init zsh)"
     # export PS3="hello"
