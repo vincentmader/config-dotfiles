@@ -1,0 +1,24 @@
+snippet widget ""
+class $1 extends StatelessWidget {
+  $1({Key? key}) : super(key: key);
+
+  @override
+  State<$1> createState() => _$1State();
+}
+endsnippet
+snippet widget_stateful ""
+class $1 extends StatefulWidget {
+  $1({Key? key}) : super(key: key);
+
+  @override
+  State<$1> createState() => _$1State();
+}
+
+class _$1State extends State<$1> {
+  @override
+  Widget build(BuildContext context) {
+    return Text("hello!");
+  }
+}
+endsnippet
+

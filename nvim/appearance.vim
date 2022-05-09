@@ -9,18 +9,51 @@ syntax on
 "                                                                    EDITOR {{{
 " =============================================================================
 "                                                                   colorscheme
-colorscheme solarized  " gruvbox, codedark, solarized
-let g:solarized_termcolors=256
-"                                                                    background
-set background=dark
-highlight Normal guibg=None ctermbg=None  " transparent
+    colorscheme solarized  " gruvbox, codedark, solarized
+    let g:solarized_termcolors=256
+    " ^ TODO needs to be active for solarized-black iTerm profile
+" "                                                                    background
+    set background=dark
+        " highlight Normal guibg=None ctermbg=None  
+    " transparent ?
+
+    " highlight Normal ctermfg=None ctermbg=000000
+    " highlight Normal ctermfg=None ctermbg=None
+    "   hi Normal guibg=none ctermbg=NONE
+      " hi NonText guibg=green ctermbg=NONE
+      " hi Cursor guibg=red ctermbg=NONE
+      " hi ErrorMsg guibg=orange ctermbg=NONE
+
+     " hi Normal guibg=NONE
+  " hi NonText guibg=NONE
+  " hi ModeMsg guibg=NONE
+  " hi MoreMsg guibg=NONE
+  " hi ModeArea guibg=NONE
+  " hi ErrorMsg guibg=NONE
+  " hi Error guibg=NONE
+  " hi Directory guibg=NONE
+  " hi VertSplit guibg=NONE
+  " hi SignColumn ctermbg=red
+  " hi EndOfBuffer guibg=NONE
+  " hi NormalFloat guibg=NONE
+  " hi Folded guibg=NONE
+    " highlight Insert ctermfg=None ctermbg=None
+
+    " transparent
+    highlight Normal guibg=None ctermbg=None  
+    highlight EndOfBuffer ctermfg=none ctermbg=none
+    " ^ TODO needs to be active for solarized-black iTerm profile
+    
+    hi Pmenu ctermfg=Black ctermbg=White
+    hi PmenuSel ctermfg=White ctermbg=Black
+    hi FgCocErrorFloatBgCocFloating ctermfg=Black ctermbg=White guifg=White guibg=Black
+
 
 "                         show on which line I am by highlighting the whole row
 " set cursorline
 "                                                                  show command
-" set showcmd
+set showcmd
 "                                                          display line numbers
-
 " switch to abs/rel line numbering when in insert/normal mode
 set number relativenumber
 augroup numbertoggle
@@ -37,11 +70,14 @@ highlight clear Folded
 "                                         always display column where errors go
 set signcolumn=yes
 highlight clear SignColumn
+highlight SignColumn ctermfg=none ctermbg=none  
+"               ^ does nothing
 
 "                                     display column to signify the 81st column
-set textwidth=80
-set colorcolumn=+1
-highlight ColorColumn ctermbg=235
+" set textwidth=80
+" set colorcolumn=81
+" highlight ColorColumn ctermbg=235
+
 "                                         new idea: color text red after col 80
 " au BufEnter *.wiki let b:is_wiki_file=1
 " au BufEnter *.vimwiki let b:is_wiki_file=1
@@ -51,8 +87,6 @@ highlight ColorColumn ctermbg=235
 "     autocmd BufEnter * match Error /\%>80c/
 " endif
 
-" deactivate tildes on the left side of the screen
-highlight EndOfBuffer ctermfg=black ctermbg=black
 
 " deactivate welcome text by setting its color to background
 " autocmd BufEnter * :highlight NonText guifg=bg<CR>
@@ -89,9 +123,9 @@ set matchpairs+=<:>
 " =============================================================================
 "
 "                                                                   Taskwarrior
-highlight taskwarrior_priority ctermbg=white ctermfg=green 
-let g:task_highlight_field=0
-let g:task_readonly=0
+" highlight taskwarrior_priority ctermbg=white ctermfg=green 
+" let g:task_highlight_field=0
+" let g:task_readonly=0
 
 "                                                                  todoCheckbox
 " if exists("b:current_syntax")
@@ -99,13 +133,12 @@ let g:task_readonly=0
 " endif
 
 " " Custom conceal
-syntax match todoCheckbox "\[\ \]" conceal cchar=
-syntax match todoCheckbox "\[X\]" conceal cchar=
-syntax match todoCheckbox "- \[\ \]" conceal cchar=
-syntax match todoCheckbox "- \[X\]" conceal cchar=
-syntax match todoCheckbox "* \[\ \]" conceal cchar=
-syntax match todoCheckbox "* \[X\]" conceal cchar=
-
+" syntax match todoCheckbox "\[\ \]" conceal cchar=
+" syntax match todoCheckbox "\[X\]" conceal cchar=
+" syntax match todoCheckbox "- \[\ \]" conceal cchar=
+" syntax match todoCheckbox "- \[X\]" conceal cchar=
+" syntax match todoCheckbox "* \[\ \]" conceal cchar=
+" syntax match todoCheckbox "* \[X\]" conceal cchar=
 " let b:current_syntax = "todo"
 
 " hi def link todoCheckbox Todo

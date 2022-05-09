@@ -2,3 +2,5 @@ set number
 set mouse=a
 
 syntax on
+
+set viminfo+=n~/.cache/vim/viminfo

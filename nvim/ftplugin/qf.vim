@@ -9,3 +9,5 @@ function! AdjustWindowHeight(minheight, maxheight)
   execute max([a:minheight, min([line('$') + 1, a:maxheight])])
         \ . 'wincmd _'
 endfunction
+
+" set numbers

@@ -51,11 +51,11 @@ let g:quicktex_math = {
 
 "
 " autoclose brackets
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap " ""<left>
-inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap { {}<left>
+" inoremap " ""<left>
+" inoremap ' ''<left>
 
 " define filetypes for checklist autocompletion on "- [ ] <CR>"
 let g:checklist_filetypes = ['markdown', 'text', 'org']  ", 'wiki', 'vimwiki']

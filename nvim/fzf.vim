@@ -24,7 +24,7 @@ let g:fzf_colors =
 
 " set rtp+=/usr/local/opt/fzf
 " set rtp+=~/.fzf
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)" split/vsplit settings
+" command! -bang -nargs=* Find call fzf#vim#grep('rg --column --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)" split/vsplit settings
 
 " floating fzf
 " let g:fzf_layout = { 'window': 'call FloatingFZF()' }

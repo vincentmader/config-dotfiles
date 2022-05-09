@@ -35,3 +35,6 @@ source $CONF/nvim/fzf.vim
 source $CONF/nvim/nerdtree.vim
 
 source $CONF/nvim/gtd.vim
+
+" autocmd vimenter * FZF
+

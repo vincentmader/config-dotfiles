@@ -56,7 +56,7 @@ endif
 nnoremap <leader>a :Ack! -Q ""<Left>
 
 " }}}
-"                                                                        ranger
+"                                                                    ranger {{{
 " =============================================================================
 " deactivate default mapping (<leader>f)
 let g:ranger_map_keys = 0 

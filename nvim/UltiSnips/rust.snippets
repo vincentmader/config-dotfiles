@@ -1,31 +1,61 @@
-snippet function ""
-fn ${1:name}() -> ${2:type} {
-    $3
-}
-endsnippet
-
-snippet pubstruct ""
-pub struct ${1:name} {
-
-}
-impl ${1:name} {
-    pub fn new() -> $1 {
-	$1 { }
-    }
-    pub fn init(&self) {
-
-    }
-}
-endsnippet
-
-snippet console_log ""
-mxyz_utils::dom::console::log(&format!("{}", $1));
-endsnippet
-
-
 snippet comment_separator_1 "# ======..."
 // ============================================================================
 endsnippet
-
 snippet comment_separator_2 "# ------..."
 // ----------------------------------------------------------------------------
+endsnippet
+
+snippet struct ""
+struct $1 {}
+impl $1 {
+    pub fn new() -> Self {
+        $1 {}
+    }
+    pub fn init(&mut self) {}
+}
+endsnippet
+snippet enum "
+enum $1 {}
+endsnippet
+
+snippet iter_map "" 
+let _: Vec<()> = $1.iter().map(|x| x).collect();
+endsnippet
+snippet iter_enum_map "" 
+let _: Vec<()> = $1.iter().enumerate().map(|idx, x| x).collect();
+endsnippet
+
+snippet implIterator ""
+impl Iterator for $1 {
+    type Item = Self;
+    fn next(&mut self)-> Option<Self> { 
+	// ...
+	Option::None 
+    }
+}
+endsnippet
+
+# snippet function ""
+# fn ${1:name}() -> ${2:type} {
+#     $3
+# }
+# endsnippet
+
+# snippet pubstruct ""
+# pub struct ${1:name} {
+
+# }
+# impl ${1:name} {
+#     pub fn new() -> $1 {
+# 	$1 {}
+#     }
+#     pub fn init(&self) {
+
+#     }
+# }
+# endsnippet
+
+# snippet console_log ""
+# mxyz_utils::dom::console::log(&format!("{}", $1));
+# endsnippet
+

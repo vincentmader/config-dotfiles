@@ -75,7 +75,7 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf'
     " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
-    Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
+    " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
     "                                                                     ranger
 "    Plug 'francoiscabrol/ranger.vim'
 "    Plug 'rbgrouleff/bclose.vim'
