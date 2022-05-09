@@ -1,11 +1,11 @@
 #!/bin/sh
 
-echo "BASH_PROFILE"
+echo "laoding BASH_PROFILE"
 
 # -----------------------------------------------------------------------------
 # 			    $CONF/bash/bash_profile
 # -----------------------------------------------------------------------------
 
 # source ~/.bashrc
-    [[ -f ~/.bashrc ]] && . ~/.bashrc
+    # [[ -f ~/.bashrc ]] && . ~/.bashrc
 

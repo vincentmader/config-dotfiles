@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# echo "BASH_RC"
+echo "loading BASHRC"
 
 # -----------------------------------------------------------------------------
 # 			      $CONF/bash/bashrc
@@ -9,7 +9,7 @@
 # If not running interactively, don't do anything
 # =============================================================================
 
-    [[ $- != *i* ]] && return
+    # [[ $- != *i* ]] && return
 
 # source ~/.config/zsh/pathrc
 # =============================================================================
@@ -19,12 +19,12 @@
 # auto-start xorg on login
 # =============================================================================
 
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        printf ""
-    elif [[ "$OSTYPE" == "linux"* ]]; then
-        exec startx
-        # ~/.fehbg
-    fi
+    # if [[ "$OSTYPE" == "darwin"* ]]; then
+    #     printf ""
+    # elif [[ "$OSTYPE" == "linux"* ]]; then
+    #     exec startx
+    #     # ~/.fehbg
+    # fi
     
 # OTHER (TODO clean-up)
 # =============================================================================

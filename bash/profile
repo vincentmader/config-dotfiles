@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "PROFILE"
+echo "loading PROFILE"
 
 # -----------------------------------------------------------------------------
 # 			        $CONF/bash/profile
