@@ -8,3 +8,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	; templatedir = /Users/vinc/.config/git/template
+        ; https://stackoverflow.com/questions/16658087/automatically-add-gitignore-and-hooks-on-git-init
