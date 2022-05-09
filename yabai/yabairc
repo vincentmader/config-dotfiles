@@ -47,6 +47,18 @@ yabai -m config window_gap                   15
 
 # float apps
 yabai -m rule --add app="Parallels Desktop" sticky=on layer=above manage=off
-yabai -m rule --add app=Emacs manage=on
+yabai -m rule --add app="Emacs" manage=on
+yabai -m rule --add app="FaceTime" manage=on
+# yabai -m rule --add app="Chrome" manage=off
+yabai -m rule --add app="Simulator" manage=off
 
 echo "yabai configuration loaded..."
+
+# yabai -m config window_opacity               on
+# yabai -m config window_opacity_duration      0.0
+# yabai -m config active_window_opacity        1.0
+# yabai -m config normal_window_opacity        0.90
+# yabai -m config window_border                on
+# yabai -m config window_border_width          6
+# yabai -m config split_ratio                  0.38
+# yabai -m config auto_balance                 on
