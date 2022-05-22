@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# echo "ZPROFILE"
+# echo "loading ZPROFILE"
 
 # -----------------------------------------------------------------------------
 # 			      $CONF/zsh/zshrc

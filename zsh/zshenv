@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "ZSHENV"
+# echo "loading ZSHENV"   NOTE if echoed: msg printed in vim-fzf-preview
 
 # -----------------------------------------------------------------------------
 # 			        $CONF/zsh/zshenv

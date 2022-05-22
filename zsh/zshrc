@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "ZSHRC"
+# echo "loading ZSHRC"
 
 # -----------------------------------------------------------------------------
 # 			      $CONF/zsh/zshrc
@@ -9,27 +9,38 @@ echo "ZSHRC"
 # ZSH PLUGINS 
 # =============================================================================
 
-    CASE_SENSITIVE="true"  # case-sensitive completion
+    CASE_SENSITIVE="false"  # case-insensitive completion. nice!
     DISABLE_UNTRACKED_FILES_DIRTY="true"  # speeds up git for large repos
     HIST_STAMPS="yyyy-mm-dd"
 
     plugins=(
-        # colored-man-pages
-        # copyfile		# use to copy file to clipboard
-        # copydir		# use to copy pwd to clipboard
+        colored-man-pages
+        copyfile		# copy file to clipboard: copyfile <file>
+        copypath		# copy pwd to clipboard: copypath <path>
+        copybuffer              # copy the text currently typed in the command line: Ctrl-o
+        # dirhistory              # Alt+Left/Right to move through history, Alt+Up to go to parent
         # emoji-clock		# use to display time (30min accuracy)
         fzf                     # enables fuzzy auto-completion
         git
+        web-search
         # npm
-        # osx
+        # macos
         # pip
         # python
         sudo                    # press esc twice to sudo repeat cmd
         # taskwarrior           # auto completion for taskwarrior
         # wd                    # warp directory
-        # zsh-autosuggestions
+        zsh-autosuggestions
     )
     source $ZSH/oh-my-zsh.sh
+
+    # suggestions TODO move
+    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888888"  # TODO change color
+    # web search TODO move
+    ZSH_WEB_SEARCH_ENGINES=(
+        reddit "https://www.reddit.com/search/?q="
+    )
 
 # SOURCE CONFIG FILES
 # =============================================================================
@@ -82,14 +93,14 @@ echo "ZSHRC"
 # SHELL SYNTAX HIGHLIGHTING  (needs to be last (TODO does it?))
 # =============================================================================
 
-    PATH_TO_PLUGINS="$CONF/zsh/oh-my-zsh/plugins"
+    PATH_TO_PLUGINS="$CONF/zsh/oh-my-zsh/plugins" # ?
     source $PATH_TO_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # VARIOUS / OLD  (TODO clean up)
 # =============================================================================
 
-    setopt sharehistory
+    setopt sharehistory # ?
 
     # eval "$(starship init zsh)"
     # export PS3="hello"
