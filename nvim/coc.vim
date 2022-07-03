@@ -19,16 +19,16 @@ let g:coc_global_extensions = [
     \ 'coc-flutter',
     \ 'coc-fzf-preview',
     \ 'coc-html',
-    \ 'coc-jedi',
     \ 'coc-json',
     \ 'coc-pairs',
-    \ 'coc-prettier',
     \ 'coc-prettier',
     \ 'coc-rls',
     \ 'coc-snippets',
     \ 'coc-tsserver',
     \ 'coc-vimtex',
 \ ]
+    " \ 'coc-jedi',
+    " \ 'coc-python',
 
 "                                                               code completion 
 " =============================================================================

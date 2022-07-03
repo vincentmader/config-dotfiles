@@ -7,13 +7,15 @@
 alias sozsh="source $CONF/zsh/zshrc"
 alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"  # TODO arch
 
+cd ~ &&
+
 # basic unix command re-definitions
 # =============================================================================
 
 # directory listing (using exa)
 # -----------------------------------------------------------------------------
 EXA_FLAGS="--icons --group-directories-first"
-EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|.git|.git-credentials|.archey-ip|__pychache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|"
+EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|"
 
 # base
 alias exa="clear && pwd && echo && exa $EXA_FLAGS"

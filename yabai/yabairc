@@ -39,16 +39,18 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  15
-yabai -m config bottom_padding               15
-yabai -m config left_padding                 15
-yabai -m config right_padding                15
-yabai -m config window_gap                   15
+yabai -m config top_padding                  5
+yabai -m config bottom_padding               5
+yabai -m config left_padding                 5
+yabai -m config right_padding                5
+yabai -m config window_gap                   5
 
 # float apps
 yabai -m rule --add app="Parallels Desktop" sticky=on layer=above manage=off
 yabai -m rule --add app="Emacs" manage=on
 yabai -m rule --add app="FaceTime" manage=on
+yabai -m rule --add app="Skype" manage=on
+yabai -m rule --add app="Python" manage=off
 # yabai -m rule --add app="Chrome" manage=off
 yabai -m rule --add app="Simulator" manage=off
 
