@@ -51,11 +51,11 @@
 # =============================================================================
 
     # environment variables
-    source $CONF/zsh/zshenv # needs to be sourced after ohmyzsh for corrections
+    source "$CONF/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
     # aliases
-    source $CONF/zsh/aliasrc
+    source "$CONF/zsh/aliasrc"
     # prompter
-    source $CONF/zsh/prompter
+    source "$CONF/zsh/prompter"
 
 # SHELL COMMAND AUTO-COMPLETION  &  HISTORY
 # =============================================================================
