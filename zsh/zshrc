@@ -51,7 +51,7 @@
 # =============================================================================
 
     # environment variables
-    source "$CONF/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
+    source "$HOME/.config/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
     # aliases
     source "$CONF/zsh/aliasrc"
     # prompter
