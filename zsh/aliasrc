@@ -7,8 +7,6 @@
 alias sozsh="source $CONF/zsh/zshrc"
 alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"  # TODO arch
 
-cd ~ &&
-
 # basic unix command re-definitions
 # =============================================================================
 
@@ -68,7 +66,7 @@ alias bye="sudo shutdown now"
 # -----------------------------------------------------------------------------
 alias pwd="pwd -P"
 function func_mkcdir() {
-    command mkdir -pv "$1"
+    command mkdir -pv "$1";
     cd "$1";
 }
 alias md=func_mkcdir

@@ -6,6 +6,11 @@
 # 			      $CONF/zsh/zshrc
 # -----------------------------------------------------------------------------
 
+# TODO for cargo, all needed? 
+    # source $HOME/.cargo/env
+    # source $HOME/.cargo/bin
+    # source "/Users/vinc/.cache/cargo/env"
+
 # ZSH PLUGINS 
 # =============================================================================
 
