@@ -1,4 +1,3 @@
 #+startup: show2levels latexpreview
 #+author: Vincent C. Mader
-#+title: Vincent C. Mader's Personal Configuration Dotfiles
-
+#+title: My Personal Configuration Dotfiles
