@@ -1,8 +1,4 @@
-#+TITLE: CONFIG DOTFILES
+#+startup: show2levels latexpreview
+#+author: Vincent C. Mader
+#+title: Vincent C. Mader's Personal Configuration Dotfiles
 
-* Setup
-First, run the setup shell script to install necessary packages:
-#+begin_src shell
-./_scripts/setup.sh
-#+end_src
-Afterwards, reload tmux to load plugins.
