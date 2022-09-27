@@ -41,13 +41,12 @@ syntax on
 
     " transparent
     highlight Normal guibg=None ctermbg=None  
-    highlight EndOfBuffer ctermfg=none ctermbg=none
+    highlight EndOfBuffer guifg=None ctermfg=none ctermbg=none
     " ^ TODO needs to be active for solarized-black iTerm profile
     
-    hi Pmenu ctermfg=Black ctermbg=White
-    hi PmenuSel ctermfg=White ctermbg=Black
-    hi FgCocErrorFloatBgCocFloating ctermfg=Black ctermbg=White guifg=White guibg=Black
-
+    hi Pmenu ctermfg=Black ctermbg=White guifg=Black guibg=White
+    hi PmenuSel ctermfg=White ctermbg=Black guifg=White guibg=Black
+    hi FgCocErrorFloatBgCocFloating ctermfg=Black ctermbg=White guifg=Black guibg=White
 
 "                         show on which line I am by highlighting the whole row
 " set cursorline
@@ -70,7 +69,7 @@ highlight clear Folded
 "                                         always display column where errors go
 set signcolumn=yes
 highlight clear SignColumn
-highlight SignColumn ctermfg=none ctermbg=none  
+highlight SignColumn ctermfg=none ctermbg=none guifg=none guibg=none
 "               ^ does nothing
 
 "                                     display column to signify the 81st column
@@ -162,5 +161,6 @@ let g:limelight_conceal_ctermfg = "239"  " this color is used by solarized for c
 " hi TabLineSel ctermfg=Red ctermbg=Yellow
 " hi Title ctermfg=LightBlue ctermbg=Magenta
 
+set guifont="Hack Nerd Font"
 
 " }}}
