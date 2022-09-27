@@ -1,0 +1,3 @@
+#+begin_src shell
+alias wget="wget --hsts-file ~/.config/wget/wget-hsts"
+#+end_src

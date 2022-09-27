@@ -19,3 +19,4 @@ tmux/saved_sessions
 zsh/oh-my-zsh
 zsh/zcompdump
 zsh/zsh_history
+wget/wget-hsts

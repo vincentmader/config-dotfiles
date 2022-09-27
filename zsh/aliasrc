@@ -237,6 +237,7 @@ alias pytube3="pytube3"
 alias instadl="instaloader --stories --highlights --igtv --no-captions --login vincent.mader"
 alias ytdl="youtube-dl"
 # alias ytdl="yes | pytube3 $1 -a -f -t='$CONF/symlinks/dl'"
+alias wget="wget --hsts-file ~/.config/wget/wget-hsts"
 
 
 # CONVERTERS
