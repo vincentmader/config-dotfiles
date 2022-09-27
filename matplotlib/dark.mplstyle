@@ -19,32 +19,35 @@
 #orange     ='#cb4b16'
 
 figure.facecolor    : 111111 # FDF6E3
+axes.facecolor      : 111111 # eee8d5
+axes.titlecolor     : white
+axes.labelcolor     : white # 657b83
+axes.edgecolor      : white # eee8d5
+legend.labelcolor   : linecolor
+grid.color          : fdf6e3    # grid color
+axes.titlesize      : 12
+axes.labelsize      : 12
 
-patch.antialiased   : True
-
-lines.linewidth     : 2.0
+grid.linewidth      : 1         # in points
+lines.linewidth     : 1.0
 lines.solid_capstyle: butt
 
-axes.titlesize      : 16
-axes.titlecolor     : white
-axes.labelsize      : 12
-axes.labelcolor     : white # 657b83
-axes.facecolor      : 111111 # eee8d5
-axes.edgecolor      : eee8d5
-axes.axisbelow      : True
-axes.prop_cycle    : cycler('color', ['268BD2', '2AA198', '859900', 'B58900', 'CB4B16', 'DC322F', 'D33682', '6C71C4'])
+
+axes.prop_cycle    : cycler('color', ['FFFFFF', '859900', '268BD2', '2AA198', 'B58900', 'CB4B16', 'DC322F', 'D33682']) # '6C71C4'
+# White
+# Green
 # Blue
 # Cyan
-# Green
 # Yellow
 # Orange
 # Red
 # Magenta
-# Violet
-axes.grid           : True
-grid.color          : fdf6e3    # grid color
+# # Violet
+
+patch.antialiased   : True
+axes.axisbelow      : True
+axes.grid           : False
 grid.linestyle      : -         # line
-grid.linewidth      : 1         # in points
 
 ### TICKS
 xtick.color         : white # 657b83
