@@ -1,6 +1,5 @@
 #!/bin/sh
-
-echo "laoding BASH_PROFILE"
+echo "Loading BASH_PROFILE..."
 
 # -----------------------------------------------------------------------------
 # 			    $CONF/bash/bash_profile
