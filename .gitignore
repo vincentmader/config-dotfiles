@@ -1,8 +1,8 @@
 .DS_Store
-__pycache__/
 /coc/
 /coc/extensions/node_modules
 /dmenu/
+/docker/
 /doom/
 /dwm/
 /emacs/
@@ -16,7 +16,7 @@ __pycache__/
 /tabbed/
 /tmux/plugins/
 /tmux/saved_sessions/
+/wget/wget-hsts
 /zsh/oh-my-zsh/
 /zsh/zsh_history/
-/wget/wget-hsts/
-/docker/
+__pycache__/
