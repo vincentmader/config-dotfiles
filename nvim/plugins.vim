@@ -73,6 +73,7 @@ call plug#begin('$CONF/nvim/plugged')
     Plug 'mileszs/ack.vim'
     "                                                    fzf: fuzzy file search
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
+        " TODO use telescope instead?
     Plug 'junegunn/fzf'
     " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
     " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
