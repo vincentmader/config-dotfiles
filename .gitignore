@@ -3,9 +3,9 @@
 /coc/extensions/node_modules
 /dmenu/
 /docker/
-/doom/
+/doom
 /dwm/
-/emacs/
+/emacs
 /instaloader/
 /iterm2/
 /nvim/backups/
