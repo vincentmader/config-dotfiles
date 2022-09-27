@@ -37,6 +37,74 @@ impl Iterator for $1 {
 }
 endsnippet
 
+snippet yew_component ""
+pub struct $1 {}
+impl yew::Component for $1 {
+    type Message = $1Msg;
+    type Properties = Props;
+
+    fn create(_ctx: &Context<Self>) -> Self {
+        Self {}
+    }
+
+    fn view(&self, _ctx: &Context<Self>) -> Html {
+        html! {
+            <>
+            </>
+        }
+    }
+
+    fn update(&mut self, _ctx: &Context<Self>, _msg: Self::Message) -> bool {
+        true
+    }
+}
+
+#[derive(PartialEq, yew::Properties, std::default::Default)]
+pub struct Props {}
+
+pub enum $1Msg {}
+endsnippet
+
+snippet yew_function_component ""
+#[derive(Properties, PartialEq)]
+pub struct Props {}
+
+#[function_component($1)]
+pub fn fn_name(props: &Props)-> Html {
+    html! {
+	<>
+	    
+	</>
+    }
+}
+endsnippet
+
+snippet yew_props ""
+#[derive(Properties, PartialEq)]
+pub struct Props {}
+endsnippet
+snippet yew_stylist_style ""
+let style = stylist::style!(
+    r#"
+	$1
+    "#
+).unwrap();
+endsnippet
+
+snippet use_yew_prelude_all ""
+use yew::prelude::*;
+endsnippet
+snippet use_std_collections_hashmap ""
+use std::collections::HashMap;
+endsnippet
+snippet use_std_sync_arc ""
+use std::sync::Arc;
+endsnippet
+snippet use_std_sync_mutex ""
+use std::sync::Mutex;
+endsnippet
+
+
 # snippet function ""
 # fn ${1:name}() -> ${2:type} {
 #     $3
