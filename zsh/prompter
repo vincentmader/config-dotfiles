@@ -1,3 +1,5 @@
+#!/bin/sh
+
 function prompter() {
 
     function set_git() {
