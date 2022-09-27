@@ -133,7 +133,7 @@
 
 # toggle window zoom
 # alt - d : yabai -m window --toggle zoom-parent
-# alt - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 # alt - e : yabai -m window --toggle split
@@ -146,3 +146,14 @@
 # alt - p : yabai -m window --toggle sticky;\
 #           yabai -m window --toggle topmost;\
 #           yabai -m window --toggle pip
+
+
+
+
+
+
+
+
+
+
+# shift + alt - f : yabai -m window --toggle native-fullscreen
