@@ -18,5 +18,6 @@
 /tmux/saved_sessions/
 /wget/wget-hsts
 /zsh/oh-my-zsh/
+/flutter/tool_state
 /zsh/zsh_history/
 __pycache__/
