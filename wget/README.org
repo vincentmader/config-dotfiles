@@ -1,3 +1,6 @@
+To have a cleaner home directory, one can re-define
+the `wget` command in the shell config to use a
+history-file at a custom location:
 #+begin_src shell
 alias wget="wget --hsts-file ~/.config/wget/wget-hsts"
 #+end_src
