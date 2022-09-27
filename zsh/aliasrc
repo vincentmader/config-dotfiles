@@ -13,7 +13,7 @@ alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"  # TODO arch
 # directory listing (using exa)
 # -----------------------------------------------------------------------------
 EXA_FLAGS="--icons --group-directories-first"
-EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|"
+EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|.viminfo|.ob-jupyter"
 
 # base
 alias exa="clear && pwd && echo && exa $EXA_FLAGS"
@@ -52,8 +52,9 @@ alias ltt4="ltt -L 4"
 # -----------------------------------------------------------------------------
 alias c="clear"
 function cd() {  # NOTE: needs to be defined AFTER above "exa" binds to "l"
-    builtin cd "$@";
-    l;
+    # builtin cd "$@";
+    # l;
+    z "$@" && l;
 }
 alias cd..='cd ..'
 alias ..='cd ..'
@@ -104,7 +105,7 @@ alias v.="v ./"
 alias qutebrowser="qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4"
 alias r="ranger"
 alias fehf='feh --full-screen'
-alias z="zathura"
+# alias z="zathura"
 # alias yayus="yay --mflags --skipinteg"        # unsafe yay
 
 # useful scripts
@@ -119,6 +120,7 @@ alias pdfl="pdflatex"
 # alias speedtest="speedtest-cli"
 # alias top="gotop" 
 # alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect o2-WLAN79"
+alias dcup="docker compose up"
 
 
 # (web) development
@@ -149,6 +151,20 @@ alias jn="jupyter notebook"
 # alias sov="source ./venv/bin/activate"
 # npm config set ignore-scripts true
 # alias esl="./node_modules/.bin/eslint"
+
+# Rust Replacements for CLI-Tools
+# -----------------------------------------------------------------------------
+# RIP grep.
+alias grep="rg"
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+# Concatenate: cat -> bat, & lolcat.
+alias cat="bat"
+alias lolcat='clear && lolcat -a'
+alias lc='lolcat'
+# find
+alias find="fd"
 
 # server
 # -----------------------------------------------------------------------------
@@ -221,7 +237,6 @@ alias pytube3="pytube3"
 alias instadl="instaloader --stories --highlights --igtv --no-captions --login vincent.mader"
 alias ytdl="youtube-dl"
 # alias ytdl="yes | pytube3 $1 -a -f -t='$CONF/symlinks/dl'"
-# alias wget="wget --hsts-file ~/.config/wget/wget-hsts"
 
 
 # CONVERTERS
@@ -239,24 +254,15 @@ function gif2vid {
 
 alias archey='clear && archey'
 alias neofetch="clear && neofetch"
-
-alias fortunecow='fortune -s | cowsay'
-alias lolcat='clear && lolcat -a'
-alias lc='lolcat'
-
-alias map="telnet mapscii.me"  # install telnetutils for this
-alias starwars="telnet towel.blinkenlights.nl"
-alias cmx="cmatrix -b"
-# sl, cowsay, cowthink, figlet, fortune, sc-im
-# wifi-password, tldr, watch, rtv, geoiplookup, links, tree, fuck
-
-alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
-
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias ip="ip -color=auto"
 
+alias fortunecow='fortune -s | cowsay'
+# alias map="telnet mapscii.me"  # install telnetutils for this
+alias starwars="telnet towel.blinkenlights.nl"
+alias cmx="cmatrix -b"
+alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
+# sl, cowsay, cowthink, figlet, fortune, sc-im
+# wifi-password, tldr, watch, rtv, geoiplookup, links, tree, fuck
 
 # =============================================================================
 # ...   (old stuff)
