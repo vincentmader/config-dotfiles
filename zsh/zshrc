@@ -56,11 +56,11 @@
 # =============================================================================
 
     # environment variables
-    source "$HOME/.config/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
+    source "$XDG_CONFIG_HOME/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
     # aliases
-    source "$CONF/zsh/aliasrc"
+    source "$XDG_CONFIG_HOME/shell/aliasrc"
     # prompter
-    source "$CONF/zsh/prompter"
+    source "$XDG_CONFIG_HOME/zsh/prompter"
 
 # SHELL COMMAND AUTO-COMPLETION  &  HISTORY
 # =============================================================================
@@ -90,7 +90,7 @@
 # =============================================================================
 
     # source config
-    tmux source "$CONF/tmux/tmux.conf"
+    tmux source "$XDG_CONFIG_HOME/tmux/tmux.conf"
     # check if tmux is running, if not: start it
     [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
 
@@ -104,7 +104,7 @@
 # SHELL SYNTAX HIGHLIGHTING  (needs to be last (TODO does it?))
 # =============================================================================
 
-    PATH_TO_PLUGINS="$CONF/zsh/oh-my-zsh/plugins" # ?
+    PATH_TO_PLUGINS="$XDG_CONFIG_HOME/zsh/oh-my-zsh/plugins" # ?
     source $PATH_TO_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 

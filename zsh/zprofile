@@ -1,7 +1,24 @@
 #!/bin/sh
-# echo "Loading ZPROFILE..."
 
 # -----------------------------------------------------------------------------
-# 			      $CONF/zsh/zshrc
+# 			   $XDG_CONFIG_HOME/zsh/zshrc
 # -----------------------------------------------------------------------------
 
+    # Source shell-independent (shared) profile config-file.
+    source "$XDG_CONFIG_HOME/shell/profile"
+
+# =============================================================================
+# TODO ... (description)
+# =============================================================================
+
+    # Define path to zshrc config-file.
+    export ZSHRC="$XDG_CONFIG_HOME/zsh/zshrc"
+
+    # Define path to oh-my-zsh installation.
+    export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
+
+    # TODO ... (description)
+    export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+
+    # TODO ... (description)
+    # export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
