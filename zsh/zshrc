@@ -1,22 +1,13 @@
 #!/bin/sh
-
-# echo "loading ZSHRC"
+# echo "Loading ZSHRC..."
 
 # -----------------------------------------------------------------------------
-# 			      $CONF/zsh/zshrc
+# 	               $XDG_CONFIG_HOME/zsh/zshrc                             |
 # -----------------------------------------------------------------------------
 
-# TODO for cargo, all needed? 
-    # source $HOME/.cargo/env
-    # source $HOME/.cargo/bin
-    # source "/Users/vinc/.cache/cargo/env"
-
-# ZSH PLUGINS 
 # =============================================================================
-
-    CASE_SENSITIVE="false"  # case-insensitive completion. nice!
-    DISABLE_UNTRACKED_FILES_DIRTY="true"  # speeds up git for large repos
-    HIST_STAMPS="yyyy-mm-dd"
+# Specify Plugins to be loaded by Oh-My-Zsh.
+# =============================================================================
 
     plugins=(
         colored-man-pages
@@ -38,6 +29,20 @@
         zsh-autosuggestions
     )
     source $ZSH/oh-my-zsh.sh
+
+
+# TODO for cargo, all needed? 
+    # source $HOME/.cargo/env
+    # source $HOME/.cargo/bin
+    # source "/Users/vinc/.cache/cargo/env"
+
+# ZSH PLUGINS 
+# =============================================================================
+
+    CASE_SENSITIVE="false"  # case-insensitive completion. nice!
+    DISABLE_UNTRACKED_FILES_DIRTY="true"  # speeds up git for large repos
+    HIST_STAMPS="yyyy-mm-dd"
+
 
     # suggestions TODO move
     export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -90,10 +95,11 @@
     [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
 
 
-# RUN EXA ON ZSH START
+# RUN EXA ON ZSH START, & INIT ZOXIDE
 # =============================================================================
 
     l  # (see ./aliasrc)
+    eval "$(zoxide init zsh)"
 
 # SHELL SYNTAX HIGHLIGHTING  (needs to be last (TODO does it?))
 # =============================================================================

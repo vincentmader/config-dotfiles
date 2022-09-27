@@ -1,141 +1,218 @@
 #!/bin/sh
-
-# echo "loading ZSHENV"   NOTE if echoed: msg printed in vim-fzf-preview
+# echo "Loading ZSHENV..."   
+# ^ NOTE if echoed: msg printed in vim-fzf-preview
 
 # -----------------------------------------------------------------------------
-# 			        $CONF/zsh/zshenv
+# 		           ~/XDG_CONFIG_HOME/zsh/zshenv                       |
 # -----------------------------------------------------------------------------
 
-# XDG_CONFIG_HOME="$HOME/.config"
-# XDG_CACHE_HOME="$HOME/.cache"
-# XDG_DATA_HOME="$HOME/.local/share"
+# =============================================================================
+# Specify XDG Base Directories.                                               |
+# =============================================================================
+# -> For more XDG variables, see here: 
+#    specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+    # Define location of user-specific data files.
+    export XDG_DATA_HOME="$HOME/.local/share"
+    # Define location of user-specific configuration files.
+    export XDG_CONFIG_HOME="$HOME/.config"
+    # Define location of user-specific state data files.
+    export XDG_STATE_HOME="" 
+    # Define location of user-specific non-essential (cached) data files.
+    export XDG_CACHE_HOME="$HOME/.cache"
 
 # =============================================================================
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    USERS="/Users"
-elif [[ "$OSTYPE" == "linux"* ]]; then
-    USERS="/home"
-fi
-
+# Setup Shell Variables for User-Data.                                        |
 # =============================================================================
 
-# user, home, conf
-export USER=$(whoami)
-export HOME="$USERS/$USER"
-export CONF="$HOME/.config"
-export CDPATH=".:$CONF/symlinks"
-# zsh
-# export ZDOTDIR="$CONF/zsh"
-export ZSH="$CONF/zsh/oh-my-zsh"
-export ZSHRC="$CONF/zsh/zshrc"
-export ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
-export SHELL_SESSIONS_DISABLE=1
-# editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR="vim"
-else
-  export EDITOR="nvim -u $CONF/nvim/init.vim"
-fi
-export VISUAL="$EDITOR"
-export NVIMRC="$CONF/nvim/init.vim"
-# locale
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-# history
-export HISTSIZE=10000
-export SAVEHIST=5000
-export HISTFILE="$HOME/.cache/zsh/history"
-# python
-export PYTHONSTARTUP="$CONF/python/.pythonrc"
-export MPLCONFIGDIR="$CONF/matplotlib"
-export IPYTHONDIR="$HOME/.local/share/jupyter"
-export JUPYTER_CONFIG_DIR="$HOME/.local/share/jupyter"
-# node
-export NODE_REPL_HISTORY="$HOME/.cache/node_repl_history"
-export NODE_REPL_HISTORY_SIZE=10000
-# rust
-export CARGO_HOME="$HOME/.cache/cargo"
-export RUSTUP_HOME="$HOME/.cache/rustup"
-# node
-export NPM_CONFIG_USERCONFIG="$CONF/npm/npmrc"
-# go
-export GOPATH="$HOME/.cache/go"
-# gpg
-export GNUPGHOME="$HOME/.cache/gnupg"
-# less
-export LESSHISTFILE="$HOME/.cache/lesshst"
+    # Define path to directory containing all users' data (OS-dependent).
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        USERS="/Users/"
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        USERS="/home/"
+    fi
+    # Define current user.
+    export USER=$(whoami)                                # -> TODO even needed?
+    # Define path to user's home directory.
+    export HOME="$USERS/$USER"
+    # Define path to user's config directory.      -> TODO Use XDG_CONFIG_HOME.
+    export CONF="$HOME/.config/"
+    # Define path to user's custom symlinks.
+    export CDPATH=".:$XDG_CONFIG_HOME/symlinks/"
 
-# postgresql
-# export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
-# export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
-# export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
-# export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
-# taskwarrior
-# export TASKRC="$CONF/taskwarrior/taskrc"
-# export TIMEWARRIORDB="$HOME/gtd/timewarrior"
-# export WIKI="~/"
+# =============================================================================
+# Setup Locales                                                               |
+# =============================================================================
 
-# path
-export PATH="$PATH:$HOME/.local/bin"  # added when installing virtualenv
-export PATH="$PATH:$CARGO_HOME/bin"
+    # TODO ... (description)
+    export LC_CTYPE=en_US.UTF-8
+    # TODO ... (description)
+    export LC_ALL=en_US.UTF-8
+
+# =============================================================================
+# Setup Custom Config/Cache Directory Locations for various CLI Programs.     |   
+# =============================================================================
+
+# Setup Shell: Zsh.
+# -----------------------------------------------------------------------------
+
+    # TODO ... (description)
+    export ZSHRC="$XDG_CONFIG_HOME/zsh/zshrc"
+    # TODO ... (description)
+    export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
+    # TODO ... (description)
+    export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+    # TODO ... (description)
+    # export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+    # TODO ... (description)
+    export SHELL_SESSIONS_DISABLE=1
+    # TODO ... (description)
+    export HISTSIZE=10000
+    # TODO ... (description)
+    export SAVEHIST=5000
+    # TODO ... (description)
+    export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+
+# Setup Editor: Vi/Vim/NeoVim.
+# -----------------------------------------------------------------------------
+
+    # If shell is run inside an SSH connection, use vanilla vim.
+    if [[ -n $SSH_CONNECTION ]]; then
+      export EDITOR="vim"; else
+      export EDITOR="nvim -u $XDG_CONFIG_HOME/nvim/init.vim"
+    fi
+    export VISUAL="$EDITOR"
+    # Define custom location for neovim config-file (init.vim).
+    export NVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
+    # TODO ... (description)
+    # export VIMRUNTIME="$XDG_CONFIG_HOME/nvim/"
+
+# Setup Python.
+# -----------------------------------------------------------------------------
+
+    # Define custom location for python-startup config-file.
+    export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/.pythonrc"
+    # Define custom location for matplotlib config-file.
+    export MPLCONFIGDIR="$XDG_CONFIG_HOME/matplotlib"
+    # TODO ... (description)
+    export IPYTHONDIR="$XDG_DATA_HOME/jupyter"
+    # TODO ... (description)
+    export JUPYTER_CONFIG_DIR="$XDG_DATA_HOME/jupyter"
+
+# Setup Rust.
+# -----------------------------------------------------------------------------
+
+    # Give a home to rustup...
+    export RUSTUP_HOME="$XDG_CACHE_HOME/rustup"
+    # ...and cargo.
+    export CARGO_HOME="$XDG_CACHE_HOME/cargo"
+    
+# Setup JavaScript, NodeJS, & NPM.
+# -----------------------------------------------------------------------------
+
+    # Define custom location for the config-file of Node Package Manager.
+    export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+    # TODO ... (description)
+    export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
+    export NODE_REPL_HISTORY_SIZE=10000
+
+# Setup Docker.
+# -----------------------------------------------------------------------------
+
+    # TODO ... (description)
+    export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+
+# Setup Go.
+# -----------------------------------------------------------------------------
+
+    # TODO ... (description)
+    export GOPATH="$XDG_CACHE_HOME/go"
+
+# Setup GPG.
+# -----------------------------------------------------------------------------
+
+    # TODO ... (description)
+    export GNUPGHOME=$XDG_DATA_HOME/gnupg
+
+# Setup Less.
+# -----------------------------------------------------------------------------
+
+    # Deactivate logging to history file.
+    export LESSHISTFILE=- # "$HOME/.cache/lesshst"
+
+# Setup PostgreSQL.
+# -----------------------------------------------------------------------------
+
+    # export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+    # export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+    # export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+    # export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+
+# Setup TaskWarrior.
+# -----------------------------------------------------------------------------
+
+    # export TASKRC="$XDG_CONFIG_HOME/taskwarrior/taskrc"
+    # export TIMEWARRIORDB="$HOME/gtd/timewarrior"
+    # export WIKI="~/"
+
+# =============================================================================
+# TODO                                                                        |
+# =============================================================================
+
+    export PATH="$PATH:$HOME/.local/bin"  # added when installing virtualenv
+    export PATH="$PATH:$CARGO_HOME/bin"
 
 # =============================================================================
 
 # database
 # -----------------------------------------------------------------------------
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # postgresql
-    export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
-        # export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-        # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-        # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-        # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
-
-    # mysql
-    export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
-        # export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-        # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
-        # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
-        # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
-elif [[ "$OSTYPE" == "linux"* ]]; then
-    echo
-fi
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # postgresql
+        export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+            # export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+            # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+            # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+            # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+        # mysql
+        export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
+            # export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+            # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+            # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+            # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        echo "TODO: Setup databases on Linux."
+    fi
 
 # fuzzy-find
 # -----------------------------------------------------------------------------
 
-# export FZF_BASE="/usr/local/bin/fzf"
-
-# determine search program for fzf
-if type ag &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
-fi                                  # NOTE: ^ nice!
-# prefer rg over ag
-if type rg &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden'
-fi
-
+    # export FZF_BASE="/usr/local/bin/fzf"
+    # determine search program for fzf
+    if type ag &> /dev/null; then
+        export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+    fi                                  # NOTE: ^ nice!
+    # prefer rg over ag
+    if type rg &> /dev/null; then
+        export FZF_DEFAULT_COMMAND='rg --files --hidden'
+    fi
 
 # VARIOUS
 # =============================================================================
 
-# emsdk  (TODO needed?)
-source $CONF/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    eval $(/opt/homebrew/bin/brew shellenv)    # needed for brew
-    export PATH=$PATH:/opt/local/bin           # needed for macports
-elif [[ "$OSTYPE" == "linux"* ]]; then
-    export XINITRC="$CONF/x/.xinitrc"
-fi
-
-# export VIMRUNTIME="$HOME/.config/nvim/"
-
-# latex (not working)
-# if [ "$OS" = "macOS" ]; then
-#     PATH=/usr/local/texlive/2019/bin/x86_64-darwin:"${PATH}"
-# fi
-
-. "/Users/vinc/.cache/cargo/env"
+    # emsdk  (TODO needed?)
+    source $XDG_CONFIG_HOME/emsdk/emsdk_env.sh 2> /dev/null  # source quietly
+    
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        eval $(/opt/homebrew/bin/brew shellenv)    # needed for brew
+        export PATH=$PATH:/opt/local/bin           # needed for macports
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        export XINITRC="$XDG_CONFIG_HOME/x/.xinitrc"
+    fi
+    
+    # latex (not working)
+    # if [ "$OS" = "macOS" ]; then
+    #     PATH=/usr/local/texlive/2019/bin/x86_64-darwin:"${PATH}"
+    # fi
+    
+    . "/Users/vinc/.cache/cargo/env"
