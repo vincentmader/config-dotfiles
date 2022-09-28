@@ -56,7 +56,7 @@
 # =============================================================================
 
     # environment variables
-    source "$XDG_CONFIG_HOME/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
+    source "$HOME/.config/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
     # aliases
     source "$XDG_CONFIG_HOME/shell/aliasrc"
     # prompter
@@ -122,7 +122,7 @@
     # eval "$(starship init zsh)"
     # export PS3="hello"
     
-    # cd $(cat $CONF/zsh/pwd)  # TODO load last saved pwd from file
+    # cd $(cat $XDG_CONFIG_HOME/zsh/pwd)  # TODO load last saved pwd from file
 
         # xclip -o | xclip -selection clipboard -i
     

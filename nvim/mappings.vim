@@ -21,24 +21,24 @@ map gp :bp<cr>
 "                                                       QUICK-OPEN CONFIG FILES
 " -----------------------------------------------------------------------------
 "                                                                           dwm
-map <Leader>cdwm :tabnew $CONF/dwm/config.h <CR>
+map <Leader>cdwm :tabnew $XDG_CONFIG_HOME/dwm/config.h <CR>
 "                                                                          nvim
-map <Leader>cvim :tabnew $CONF/nvim/init.vim <CR>
-command! -nargs=? Ftedit execute "tabe $CONF/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
+map <Leader>cvim :tabnew $XDG_CONFIG_HOME/nvim/init.vim <CR>
+command! -nargs=? Ftedit execute "tabe $XDG_CONFIG_HOME/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
 map <Leader>cvft :Ftedit <CR>
 map <Leader>ccoc :CocConfig <CR>
 map <leader>csnp :UltiSnipsEdit <CR>
 "                                                                   qutebrowser
-map <leader>cqtb :tabnew $CONF/qutebrowser/config.py <CR>
+map <leader>cqtb :tabnew $XDG_CONFIG_HOME/qutebrowser/config.py <CR>
 "                                                                            st
-map <Leader>cst :tabnew $CONF/st/config.h <CR>
+map <Leader>cst :tabnew $XDG_CONFIG_HOME/st/config.h <CR>
 "                                                                          tmux
 map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
 "                                                                           zsh
-map <Leader>cali :tabnew $CONF/zsh/aliasrc <CR>
+map <Leader>cali :tabnew $XDG_CONFIG_HOME/zsh/aliasrc <CR>
 map <Leader>cxrc :tabnew $XINITRC <CR>
 map <Leader>czsh :tabnew $ZSHRC <CR>
-map <Leader>cxrc :tabnew $CONF/x/xinitrc <CR>
+map <Leader>cxrc :tabnew $XDG_CONFIG_HOME/x/xinitrc <CR>
 
 " map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
 " map <Leader>cpl :tabnew ~/.pylintrc <CR>
@@ -76,7 +76,7 @@ xmap <Leader>g :Goyo<CR>
 function MinimalistSetupDisable()
     Limelight!
     highlight clear SignColumn
-    source $CONF/nvim/appearance.vim
+    source $XDG_CONFIG_HOME/nvim/appearance.vim
 endfunction
 autocmd! User GoyoLeave call MinimalistSetupDisable()
 nmap <Leader>l :Limelight!!<CR>

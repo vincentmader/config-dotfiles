@@ -2,7 +2,7 @@
 echo "Loading BASHRC..."
 
 # -----------------------------------------------------------------------------
-# 			      $CONF/bash/bashrc
+# 	                $XDG_CONFIG_HOME/bash/bashrc                          |
 # -----------------------------------------------------------------------------
     
 # If not running interactively, don't do anything.

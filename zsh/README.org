@@ -163,7 +163,7 @@ export KEYTIMEOUT=1
 * prompter
 #+begin_src shell
 autoload -U colors && colors
-source $CONF/zsh/prompter.sh
+source $XDG_CONFIG_HOME/zsh/prompter.sh
 # export PS3="hello"
 #+end_src
 * fuzzy find
@@ -256,13 +256,13 @@ fi
 * source files
 #+BEGIN_SRC shell
 # source aliases
-source "$CONF/zsh/aliasrc"
+source "$XDG_CONFIG_HOME/zsh/aliasrc"
 # Load zsh-syntax-highlighting; (should be last?)
-source $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $XDG_CONFIG_HOME/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #+END_SRC
 * tmux setup
 #+BEGIN_SRC shell
-# tmux source "$CONF/tmux/tmux.conf"
+# tmux source "$XDG_CONFIG_HOME/tmux/tmux.conf"
 # check if tmux is running, if not: start it
 [ -z "${TMUX}" ] && tmux
 # if [ "$TMUX" = "" ]; then tmux; fi

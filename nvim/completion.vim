@@ -7,9 +7,9 @@
 " =============================================================================
 "
 " save snippets to
-let g:UltiSnipsSnippetsDir='$CONF/nvim/UltiSnips/'
+let g:UltiSnipsSnippetsDir='$XDG_CONFIG_HOME/nvim/UltiSnips/'
 " load snippets from
-let g:UltiSnipsSnippetDirectory='$CONF/nvim/UltiSnips/'
+let g:UltiSnipsSnippetDirectory='$XDG_CONFIG_HOME/nvim/UltiSnips/'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 
 " open new tab when editing running UltiSnipsEdit

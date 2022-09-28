@@ -16,5 +16,5 @@ os.system(
     f'brightnessctl set {val}%'
 )
 os.system(
-    'xsetroot -name "$($CONF/dwm/patches/statusbar/statusbar.sh)"'
+    'xsetroot -name "$($XDG_CONFIG_HOME/dwm/patches/statusbar/statusbar.sh)"'
 )

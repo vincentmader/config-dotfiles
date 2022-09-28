@@ -13,28 +13,28 @@ let maplocalleader ="\<tab>"
 
 filetype indent plugin on
 
-source $CONF/nvim/plugins.vim
+source $XDG_CONFIG_HOME/nvim/plugins.vim
 
 "                                                                        config
 " -----------------------------------------------------------------------------
 
-source $CONF/nvim/functions.vim
-source $CONF/nvim/mappings.vim
+source $XDG_CONFIG_HOME/nvim/functions.vim
+source $XDG_CONFIG_HOME/nvim/mappings.vim
 
-source $CONF/nvim/appearance.vim
-source $CONF/nvim/completion.vim
-source $CONF/nvim/folds.vim
-source $CONF/nvim/general.vim
-source $CONF/nvim/navigation.vim
-source $CONF/nvim/statusbar.vim
-source $CONF/nvim/version_control.vim
+source $XDG_CONFIG_HOME/nvim/appearance.vim
+source $XDG_CONFIG_HOME/nvim/completion.vim
+source $XDG_CONFIG_HOME/nvim/folds.vim
+source $XDG_CONFIG_HOME/nvim/general.vim
+source $XDG_CONFIG_HOME/nvim/navigation.vim
+source $XDG_CONFIG_HOME/nvim/statusbar.vim
+source $XDG_CONFIG_HOME/nvim/version_control.vim
 
-" source $CONF/nvim/ale.vim
-source $CONF/nvim/coc.vim
-source $CONF/nvim/fzf.vim
-source $CONF/nvim/nerdtree.vim
+" source $XDG_CONFIG_HOME/nvim/ale.vim
+source $XDG_CONFIG_HOME/nvim/coc.vim
+source $XDG_CONFIG_HOME/nvim/fzf.vim
+source $XDG_CONFIG_HOME/nvim/nerdtree.vim
 
-source $CONF/nvim/gtd.vim
+source $XDG_CONFIG_HOME/nvim/gtd.vim
 
 " autocmd vimenter * FZF
 

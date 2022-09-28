@@ -2,186 +2,189 @@
 
 %% ## Preparations
 
-%%     * create a new disk partition
-%%     * prepare a bootable Arch installation medium
-%%     * boot into that medium
+%% _ create a new disk partition
+%% _ prepare a bootable Arch installation medium
+%% \* boot into that medium
 
 %% ## install Arch essentials
 
-%%     * verify boot mode
-    
-%%             ls /sys/firmware/efi/efivars
+%% \* verify boot mode
 
-%%     * connect to the internet
-    
-%%             iwctl
-            
-%%             [iwd]# station wlan0 get-networks
-%%             [iwd]# station wlan0 connect <network-name>
-    
-%%             ping google.com
+%% ls /sys/firmware/efi/efivars
 
-%%     * update pacman's AUR keyring & mirrors; then run system upgrade
-    
-%%             sudo pacman -Sy archlinux-keyring
-%%             sudo pacman -Sy
-%%             sudo pacman -Syu
+%% \* connect to the internet
 
-%%     * Partition the disks & create the following two partitions: a small 
-%%       (~200M) "Linux swap" partition and a big "Linux root (x86-64)" partition. 
-    
-%%             sudo cfdisk
+%% iwctl
 
-%%     * format the partitions
-        
-%%             mkfs.ext4 /dev/<root_partition>
-%%             mkswap /dev/<swap_partition>
-    
-%%     * mount the file systems
-        
-%%             mount /dev/<root_partition>
-%%             swapon /dev/<swap_partition>
+%% [iwd]# station wlan0 get-networks
+%% [iwd]# station wlan0 connect <network-name>
 
-    
-%%     * pacstrap
-%%     * create users
-%%     * follow Arch wiki installation guide
+%% ping google.com
+
+%% \* update pacman's AUR keyring & mirrors; then run system upgrade
+
+%% sudo pacman -Sy archlinux-keyring
+%% sudo pacman -Sy
+%% sudo pacman -Syu
+
+%% \* Partition the disks & create the following two partitions: a small
+%% (~200M) "Linux swap" partition and a big "Linux root (x86-64)" partition.
+
+%% sudo cfdisk
+
+%% \* format the partitions
+
+%% mkfs.ext4 /dev/<root_partition>
+%% mkswap /dev/<swap_partition>
+
+%% \* mount the file systems
+
+%% mount /dev/<root_partition>
+%% swapon /dev/<swap_partition>
+
+%% _ pacstrap
+%% _ create users
+%% \* follow Arch wiki installation guide
 
 %% ## setup dev env inside Arch
 
+- zsh
 
+  - install zsh
 
+          yay -S zsh
 
-* zsh
-    * install zsh
+  - install oh-my-zsh
 
-            yay -S zsh
+          sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-    * install oh-my-zsh 
+  - install zsh-syntax-highlighting
 
-            sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+          git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $XDG_CONFIG_HOME/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
 
-    * install zsh-syntax-highlighting
+- tmux
 
-            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $CONF/zsh/oh-my-zsh/plugins/zsh-syntax-highlighting
+  - install tmux
 
-* tmux
-    * install tmux
-    
-            yay -S tmux 
-    
-    * install tmux package manager via
+          yay -S tmux
 
-            git clone https://github.com/tmux-plugins/tpm $CONF/tmux/plugins/tpm
+  - install tmux package manager via
 
-    * install plugins with 
+          git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 
-            prefix + I
+  - install plugins with
 
-* vim
-    * install vimplug (this should be done automatically at vim startup) via
+          prefix + I
 
-            curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+- vim
 
-    * install all other plugins with
+  - install vimplug (this should be done automatically at vim startup) via
 
-            :PlugInstall 
+          curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    * make vim bin scripts executable
-    
-            chmod +x ./nvim/bin/*
-        
-    * install python requirements
-    
-            pip3 install ./nvim/requirements.txt 
-        
-    * install tasklib for taskwiki
+  - install all other plugins with
 
-            cd ./nvim/plugged/taskwiki
-            pip3 install -r requirements
+          :PlugInstall
 
-* x server
-    * source ./x/xinitrc from ~/.xinitrc
+  - make vim bin scripts executable
 
-* dwm 
-    * download & compile from source
-    
-            git clone https://git.suckless.org/dwm
-    
-    * install patches
-        * bar-height
-        * bottomstack
-        * centretitle
-        * combo
-        * fibonacci
-        * uselessgap
+          chmod +x ./nvim/bin/*
 
-* st 
-    * download & compile from source
+  - install python requirements
 
-            git clone https://git.suckless.org/st
+          pip3 install ./nvim/requirements.txt
 
-    * install patches
-        * alpha
-        * anygeometry
-        * anysize
-        * clipboard
-        * vimBrowse ?
+  - install tasklib for taskwiki
 
-* ranger
-    * download devicons
-    * download image preview package
+          cd ./nvim/plugged/taskwiki
+          pip3 install -r requirements
 
-* tex
-    * on manjaro
-        * install texlive-most
-    * on mac
-        * install macTex
-    * install latex-mk (for vimtex)
+- x server
 
-* other packages (e.g. from AUR, npm, pip or homebrew)
-    * AUR
-        * # task, tasksh, timew
-        * lsd
-        * fzf
-        * ncdu
-        * ripgrep (rg), needed for fzf / fzf-preview
-        * top/gtop
-        * neomutt
-        * mupdf
-        * zathura-pdf-mupdf
-        * rtv
-        * # colordiff
-        * colorpicker
-        * tldr
-        * sl, cmatrix, cowsay, fortune
-        * figlet, toilet
-        * xclip, xsel ? x... ?
-        * xbindkeys
-        * xcompmgr
-        * vlc
-        * simplescreenrecorder
-	* alsa-utils, imagemagick
-        * wget
-        * mpv
-        * pandoc
-        * cmake
-        * zip, unzip, tar
-    * npm
-        * weather-cli, nasa-cli
-        * cli-fireplace, carbon-now-cli
-        * emoji-finder
-    * pip3
-        * ricksay, YuleLog
-        * rope, pep8, autopep8
-    * various / as of yet uncategorized
-        * dropbox
-        * starship prompt (curl -fsSL https://starhip.rs/install.sh | bash)
-        * pipes.sh
-        * s (search)
-        * mdv (markdown viewer)
-        * pass (pw manager)
-        * sxiv
-        * bpython, mycli
-        * ytdl
+  - source ./x/xinitrc from ~/.xinitrc
+
+- dwm
+
+  - download & compile from source
+
+          git clone https://git.suckless.org/dwm
+
+  - install patches
+    - bar-height
+    - bottomstack
+    - centretitle
+    - combo
+    - fibonacci
+    - uselessgap
+
+- st
+
+  - download & compile from source
+
+          git clone https://git.suckless.org/st
+
+  - install patches
+    - alpha
+    - anygeometry
+    - anysize
+    - clipboard
+    - vimBrowse ?
+
+- ranger
+
+  - download devicons
+  - download image preview package
+
+- tex
+
+  - on manjaro
+    - install texlive-most
+  - on mac
+    - install macTex
+  - install latex-mk (for vimtex)
+
+- other packages (e.g. from AUR, npm, pip or homebrew)
+  - AUR
+    - # task, tasksh, timew
+    - lsd
+    - fzf
+    - ncdu
+    - ripgrep (rg), needed for fzf / fzf-preview
+    - top/gtop
+    - neomutt
+    - mupdf
+    - zathura-pdf-mupdf
+    - rtv
+    - # colordiff
+    - colorpicker
+    - tldr
+    - sl, cmatrix, cowsay, fortune
+    - figlet, toilet
+    - xclip, xsel ? x... ?
+    - xbindkeys
+    - xcompmgr
+    - vlc
+    - simplescreenrecorder
+  - alsa-utils, imagemagick
+    _ wget
+    _ mpv
+    _ pandoc
+    _ cmake \* zip, unzip, tar
+    - npm
+      - weather-cli, nasa-cli
+      - cli-fireplace, carbon-now-cli
+      - emoji-finder
+    - pip3
+      - ricksay, YuleLog
+      - rope, pep8, autopep8
+    - various / as of yet uncategorized
+      - dropbox
+      - starship prompt (curl -fsSL https://starhip.rs/install.sh | bash)
+      - pipes.sh
+      - s (search)
+      - mdv (markdown viewer)
+      - pass (pw manager)
+      - sxiv
+      - bpython, mycli
+      - ytdl

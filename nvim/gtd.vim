@@ -1,4 +1,4 @@
-" au BufNewFile $DROPBOX/vimwiki/diary/*.wiki :silent 0r !$CONF/nvim/bin/generate_vimwiki_diary_template '%'
+" au BufNewFile $DROPBOX/vimwiki/diary/*.wiki :silent 0r !$XDG_CONFIG_HOME/nvim/bin/generate_vimwiki_diary_template '%'
 
 " TODO: think re: reactive wiki? -> update path to current location
 

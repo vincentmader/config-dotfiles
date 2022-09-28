@@ -13,4 +13,4 @@ val -= 5
 
 # os.system(f'brightnessctl -d "gmux_backlight" set {val}%')
 os.system(f'brightnessctl set {val}%')
-os.system('xsetroot -name "$($CONF/dwm/patches/statusbar/statusbar.sh)"')
+os.system('xsetroot -name "$($XDG_CONFIG_HOME/dwm/patches/statusbar/statusbar.sh)"')

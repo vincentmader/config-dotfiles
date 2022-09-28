@@ -1,40 +1,41 @@
 #/bin/sh
 
 # -----------------------------------------------------------------------------
-# 			      $CONF/zsh/aliasrc
+# 			   $XDG_CONFIG_HOME/zsh/aliasrc                       |
 # -----------------------------------------------------------------------------
 
 # re-source configs
-alias sozsh="source $CONF/zsh/zshrc"
-alias xbindkeys="xbindkeys -f $CONF/x/xbindkeysrc"  # TODO arch
+alias sozsh="source $XDG_CONFIG_HOME/zsh/zshrc"
+alias xbindkeys="xbindkeys -f $XDG_CONFIG_HOME/x/xbindkeysrc"  # TODO arch
 
 # basic unix command re-definitions
 # =============================================================================
 
 # directory listing (using exa)
 # -----------------------------------------------------------------------------
-EXA_FLAGS="--icons --group-directories-first"
-EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|.viminfo|.ob-jupyter"
 
-# base
-alias exa="clear && pwd && echo && exa $EXA_FLAGS"
-alias ls="exa -a -I \"$EXA_IGNORE\""
-alias lsa="exa -a"
-
-# show in a prettier way w/ 1-level-deep tree-view ("-T" = "--tree")
-alias l="ls -T --level=1"
-alias la="lsa -T --level=1"
-
-# display list view (-l = --long)
-alias ll="ls -l --header --git"
-alias lla="lsa -l --header --git"
-
-# tree view (-T = --tree)
-alias lt="exa -T $EXA_FLAGS -I \"$EXA_IGNORE\""
-alias lta="exa -T $EXA_FLAGS"
-MORE_EXA_IGNORE="$EXA_IGNORE|Cargo.toml|lib.rs|mod.rs|scripts|css|img"
-alias ltt="exa -T $EXA_FLAGS -I \"$MORE_EXA_IGNORE\""
-alias ltta="exa -T $EXA_FLAGS"
+    EXA_FLAGS="--icons --group-directories-first"
+    EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|target|pkg|.viminfo|.ob-jupyter"
+    
+    # base
+    alias exa="clear && pwd && echo && exa $EXA_FLAGS"
+    alias ls="exa -a -I \"$EXA_IGNORE\""
+    alias lsa="exa -a"
+    
+    # show in a prettier way w/ 1-level-deep tree-view ("-T" = "--tree")
+    alias l="ls -T --level=1"
+    alias la="lsa -T --level=1"
+    
+    # display list view (-l = --long)
+    alias ll="ls -l --header --git"
+    alias lla="lsa -l --header --git"
+    
+    # tree view (-T = --tree)
+    alias lt="exa -T $EXA_FLAGS -I \"$EXA_IGNORE\""
+    alias lta="exa -T $EXA_FLAGS"
+    MORE_EXA_IGNORE="$EXA_IGNORE|Cargo.toml|lib.rs|mod.rs|scripts|css|img"
+    alias ltt="exa -T $EXA_FLAGS -I \"$MORE_EXA_IGNORE\""
+    alias ltta="exa -T $EXA_FLAGS"
 
 ### MOOORE_EXA_IGNORE="$MORE_EXA_IGNORE|mxyz-main|mxyz-chronos|mxyz-server|mxyz-database|"
 ### alias lttt="exa -T -I \"$MOOORE_EXA_IGNORE\" $EXA_FLAGS"
@@ -61,7 +62,6 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias e="exit"
 alias bye="sudo shutdown now"
 
 # directory hierarchy editing
@@ -101,6 +101,7 @@ alias fzf="fzf --preview='head -$LINES {}'"
 # most used applications
 # =============================================================================
 
+alias e="$EDITOR"
 alias v="nvim"
 alias v.="v ./"
 alias qutebrowser="qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4"
@@ -177,7 +178,7 @@ alias wssh="ssh root@164.90.234.99"
 
 # tierarzt
 # -----------------------------------------------------------------------------
-alias tierarzt="sudo python3 '$CONF/symlinks/ta/main.py'"
+alias tierarzt="sudo python3 '$XDG_CONFIG_HOME/symlinks/ta/main.py'"
 alias ta="tierarzt"
 
 
@@ -226,8 +227,8 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
     alias zzz="sleep 1; xset dpms force off"
     alias dwmr="sudo killall dwm && startx"
     # alias dwms="sudo killall xfwm4 && dwm"
-    # alias smidwmr="cd $CONF/dwm && sudo make install && killall dwm && dwm"
-    # alias smist="cd $CONF/st && sudo make install"
+    # alias smidwmr="cd $XDG_CONFIG_HOME/dwm && sudo make install && killall dwm && dwm"
+    # alias smist="cd $XDG_CONFIG_HOME/st && sudo make install"
 fi
 
 
@@ -237,7 +238,7 @@ fi
 alias pytube3="pytube3"
 alias instadl="instaloader --stories --highlights --igtv --no-captions --login vincent.mader"
 alias ytdl="youtube-dl"
-# alias ytdl="yes | pytube3 $1 -a -f -t='$CONF/symlinks/dl'"
+# alias ytdl="yes | pytube3 $1 -a -f -t='$XDG_CONFIG_HOME/symlinks/dl'"
 alias wget="wget --hsts-file ~/.config/wget/wget-hsts"
 
 
@@ -363,16 +364,16 @@ alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
 # alias ccust="python3 ~/Documents/chronos-web/flask_backend/py/custom.py"
 # alias cmain="python3 ~/Documents/chronos-web/flask_backend/py/main.py"
 
-# alias emacs="emacs -u $CONF/emacs"
+# alias emacs="emacs -u $XDG_CONFIG_HOME/emacs"
 # alias emacs="env HOME=/home/vinc/.config/ emacs"
 # alias emacs='emacs -q --load "/home/vinc/.config/emacs/init.el"'
 # ^ doesn't work :(
 
 # save pwd to file
 # function savepwd_cd {
-#     rm $CONF/zsh/pwd
+#     rm $XDG_CONFIG_HOME/zsh/pwd
 #     cd $1
-#     pwd > $CONF/zsh/pwd
+#     pwd > $XDG_CONFIG_HOME/zsh/pwd
 # }
 # alias cd='savepwd_cd'
 

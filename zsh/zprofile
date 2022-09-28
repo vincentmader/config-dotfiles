@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 
     # Source shell-independent (shared) profile config-file.
-    source "$XDG_CONFIG_HOME/shell/profile"
+    source "$HOME/.config/shell/profile"
 
 # =============================================================================
 # TODO ... (description)
