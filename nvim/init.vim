@@ -29,12 +29,10 @@ source $XDG_CONFIG_HOME/nvim/navigation.vim
 source $XDG_CONFIG_HOME/nvim/statusbar.vim
 source $XDG_CONFIG_HOME/nvim/version_control.vim
 
-" source $XDG_CONFIG_HOME/nvim/ale.vim
-source $XDG_CONFIG_HOME/nvim/coc.vim
 source $XDG_CONFIG_HOME/nvim/fzf.vim
 source $XDG_CONFIG_HOME/nvim/nerdtree.vim
 
-source $XDG_CONFIG_HOME/nvim/gtd.vim
+" source $XDG_CONFIG_HOME/nvim/ale.vim
+" source $XDG_CONFIG_HOME/nvim/gtd.vim
 
 " autocmd vimenter * FZF
-
