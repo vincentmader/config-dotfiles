@@ -111,10 +111,9 @@
 " =============================================================================
     " TODO: Clean up!
 
-    " NOTE: This needs to be active for solarized-black iTerm profile.
-    " TODO: What does this do? Do I actually need it?
-      " highlight Normal guibg=None ctermbg=None  
-      " highlight EndOfBuffer guifg=None ctermfg=0 ctermbg=none
+    " Deactivate tildes on the left side of the screen
+      highlight Normal guibg=None ctermbg=None  
+      highlight EndOfBuffer guifg=None ctermfg=0 ctermbg=none
 
     " TODO: What do these do? 
     " highlight Normal guibg=None ctermbg=None  
@@ -184,7 +183,9 @@
       set foldlevel=99
     " Make vim-folds less awful-looking.
       highlight clear Folded
-    
+    " Remove dots.
+      set fillchars=fold:\     
+
     " Preview docstrings in folded mode.
     " let g:SimpylFold_docstring_preview = 1        
     " let g:SimpylFold_fold_docstring=0

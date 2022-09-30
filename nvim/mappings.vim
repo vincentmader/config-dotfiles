@@ -22,13 +22,20 @@
 
     " LimeLight
     " -------------------------------------------------------------------------
-    " autocmd! User GoyoEnter Limelight
+      function MinimalistSetupEnable()
+          " Limelight!
+          set nonumber norelativenumber
+      endfunction
+      autocmd! User GoyoEnter call MinimalistSetupEnable()
+
       function MinimalistSetupDisable()
-          Limelight!
-          highlight clear SignColumn
+          " Limelight!
+          set number relativenumber
           source $XDG_CONFIG_HOME/nvim/appearance.vim
+          source $XDG_CONFIG_HOME/nvim/statusbar.vim
       endfunction
       autocmd! User GoyoLeave call MinimalistSetupDisable()
+
       nmap <Leader>l :Limelight!!<CR>
     " nmap <Leader>l <Plug>(Limelight)
     " xmap <Leader>l <Plug>(Limelight)
