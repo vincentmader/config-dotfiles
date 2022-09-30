@@ -1,75 +1,128 @@
-# imports (standard library)
+
+# =============================================================================
+# |                      Imports from Standard Library                        |
+# =============================================================================
 
 snippet import "import"
 import $1
 endsnippet
 
-snippet import_bokeh "import bokeh"
-import bokeh
-endsnippet
-
-snippet import_bokeh_embed_components "import bokeh_embed_components"
-from bokeh.embed import components
-endsnippet
-
-snippet import_bokeh_plotting_figure "import bokeh_plotting_figure"
-from bokeh.plotting import figure
-endsnippet
-
-snippet import_bokeh_models_Square "import bokeh_models_square"
-from bokeh.models import Square
-endsnippet
-
-snippet import_bokeh_models_Line "import bokeh_models_line"
-from bokeh.models import Line
-endsnippet
-
-snippet import_bokeh_models_Circle "import bokeh_models_circle"
-from bokeh.models import Circle
-endsnippet
-
-snippet import_bokeh_models_ColumnDataSource "import bokeh_models_ColumnDataSource"
-from bokeh.models import ColumnDataSource
-endsnippet
-
+# Datetime
+# -----------------------------------------------------------------------------
 snippet import_datetime "from datetime import datetime as dt"
 from datetime import datetime as dt
 endsnippet
-
 snippet import_timedelta "from datetime import timedelta as td"
 from datetime import timedelta as td
 endsnippet
+# -----------------------------------------------------------------------------
 
-# imports (other)
+# =============================================================================
+# |                        Imports from Other Sources                         |
+# =============================================================================
+
+# Bokeh
+# -----------------------------------------------------------------------------
+snippet import_bokeh "import bokeh"
+import bokeh
+endsnippet
+snippet import_bokeh_plotting_figure "import bokeh_plotting_figure"
+from bokeh.plotting import figure
+endsnippet
+snippet import_bokeh_models_Square "import bokeh_models_square"
+from bokeh.models import Square
+endsnippet
+snippet import_bokeh_models_Line "import bokeh_models_line"
+from bokeh.models import Line
+endsnippet
+snippet import_bokeh_models_Circle "import bokeh_models_circle"
+from bokeh.models import Circle
+endsnippet
+snippet import_bokeh_models_ColumnDataSource "import bokeh_models_ColumnDataSource"
+from bokeh.models import ColumnDataSource
+endsnippet
+snippet import_bokeh_embed_components "import bokeh_embed_components"
+from bokeh.embed import components
+endsnippet
+# -----------------------------------------------------------------------------
+
+# TQDM
+snippet import_tqdm "from tqdm import tqdm"
+from tqdm import tqdm
+endsnippet
+
+# Matplotlib
+# -----------------------------------------------------------------------------
+snippet import_matplotlib "import matplotlib as mpl"
+import matplotlib as mpl
+endsnippet
+snippet import_pyplot "import matplotlib.pyplot as plt"
+import matplotlib.pyplot as plt
+endsnippet
+# -----------------------------------------------------------------------------
+
+# Numpy
+snippet import_numpy "import numpy as np"
+import numpy as np
+endsnippet
+
+# Imports commonly needed when plotting
+snippet import_plotting "common imports for scientific plotting"
+import os 
+import matplotlib.pyplot as plt
+import numpy as np
+endsnippet
+
+# SciPy
+snippet import_scipy "import scipy"
+import scipy
+endsnippet
+
+# =============================================================================
+# |                         Imports from Own Modules                          |
+# =============================================================================
 
 snippet import_config "import config"
 import config
 endsnippet
 
-snippet import_matplotlib "import matplotlib as mpl"
-import matplotlib as mpl
+# =============================================================================
+# |                                   Loops                                   |
+# =============================================================================
+
+snippet forinrange "for _ in range(): pass"
+for i in range($1):
+    print(i)
 endsnippet
 
-snippet import_numpy "import numpy as np"
-import numpy as np
+snippet while "while True: pass"
+while $1:
+    pass
 endsnippet
 
-snippet import_plotting "common imports for scientific plotting"
-import os 
+# =============================================================================
+# |                            Function Definitions                           |
+# =============================================================================
 
-import matplotlib.pyplot as plt
-import numpy as np
+snippet def "def function_name(args): body"
+def ${1:funcname}():
+    pass
 endsnippet
 
-snippet import_pyplot "import matplotlib.pyplot as plt"
-import matplotlib.pyplot as plt
+snippet def_main "Create a main function"
+def main():
+    $0
+
+if __name__ == "__main__":
+    main()
 endsnippet
 
-snippet import_scipy "import scipy"
-import scipy
+snippet def_init "Create a main function"
+def init(self):
+    $0
 endsnippet
 
-# functions 
+# -----------------------------------------------------------------------------
 
 snippet docstring "docstring for a function"
 """
@@ -126,18 +179,10 @@ if __name__ == '__main__':
 
 endsnippet
 
-snippet main "Create a main function"
-def main():
-    """$1
-    """
-    $0
 
-if __name__ == "__main__":
-    main()
-
-endsnippet
-
-# classes 
+# =============================================================================
+# |                             Class Definitions                             |
+# =============================================================================
 
 snippet class "Description"
 class $1():
@@ -146,7 +191,9 @@ class $1():
 
 endsnippet
 
-# exception handling 
+# =============================================================================
+# |                            Exception Handling                             |
+# =============================================================================
 
 snippet try "try: ... except ..."
 try:
@@ -155,8 +202,121 @@ except $1:
     pass
 endsnippet
 
-# code readability and doc strings
+# =============================================================================
+# |                               MatPlotLib                                  |
+# =============================================================================
 
+# New Figure
+# -----------------------------------------------------------------------------
+snippet figure ""
+plt.figure(figsize=(5, 5))
+endsnippet
+snippet subplot ""
+plt.subplot($1)
+endsnippet
+
+# Plotting
+# -----------------------------------------------------------------------------
+snippet plot ""
+plt.plot($1)
+endsnippet
+snippet scatter ""
+plt.scatter($1)
+endsnippet
+
+# Axes
+# -----------------------------------------------------------------------------
+snippet plt_sci_labels "scientific y-labels"
+plt.gca().ticklabel_format(style='sci', scilimits=(0, 0), axis='y')
+endsnippet
+
+# Legend
+# -----------------------------------------------------------------------------
+snippet legend ""
+plt.legend(loc='best')
+endsnippet
+
+# Saving
+# -----------------------------------------------------------------------------
+snippet savefig ""
+plt.savefig('$1')
+endsnippet
+
+# X-Label
+# -----------------------------------------------------------------------------
+snippet xlabel ""
+plt.xlabel($1)
+endsnippet
+snippet ylabel ""
+plt.ylabel($1)
+endsnippet
+
+# X-Lim
+# -----------------------------------------------------------------------------
+snippet xlim ""
+plt.xlim($1)
+endsnippet
+snippet ylim ""
+plt.ylim($1)
+endsnippet
+
+# X-Ticks
+# -----------------------------------------------------------------------------
+snippet xticks ""
+plt.xticks($1)
+endsnippet
+snippet yticks ""
+plt.yticks($1)
+endsnippet
+
+# =============================================================================
+# |                                  Numpy                                    |
+# =============================================================================
+
+# Linspace
+# -----------------------------------------------------------------------------
+snippet linspace ""
+np.linspace($1)
+endsnippet
+
+# =============================================================================
+# |                                Debugging                                  |
+# =============================================================================
+
+# Hello, World!
+snippet hw
+print("Hello, World!")
+endsnippet
+
+# =============================================================================
+# |                                    ...                                    |
+# =============================================================================
+
+# error handling
+snippet tryexcept "try ... except"
+try:
+    $1
+except Exception:
+    pass
+endsnippet
+
+# hashbang
+snippet hashbang "hashbang"
+#!/usr/bin/env python3
+endsnippet
+
+# hashbang & encoding
+snippet hashbang_encoding "hashbang & encoding"
+#!/usr/local/bin/python3
+# -*- coding: utf8 -*-
+endsnippet
+
+# print
+snippet print "print()"
+print($1)
+endsnippet
+
+# code readability and doc strings
 snippet docstr "doc string"
 """${1:description}
 
@@ -168,93 +328,8 @@ Returns:
 endsnippet
 
 # with ... as
-
 snippet with_open_as_fp "with open(...) as fp:"
 with open($1) as fp:
     content = fp.readlines()
 endsnippet
 
-# numpy
-
-snippet linspace ""
-np.linspace($1)
-endsnippet
-
-# pyplot
-
-snippet figure ""
-plt.figure(figsize=(8, 4))
-endsnippet
-
-snippet legend ""
-plt.legend(loc='best')
-endsnippet
-
-snippet plot ""
-plt.plot($1)
-endsnippet
-
-snippet plt_sci_labels "scientific y-labels"
-plt.gca().ticklabel_format(style='sci', scilimits=(0, 0), axis='y')
-endsnippet
-
-snippet scatter ""
-plt.scatter($1)
-endsnippet
-
-snippet savefig ""
-plt.savefig('$1')
-endsnippet
-
-snippet subplot ""
-plt.subplot($1)
-endsnippet
-
-snippet xlabel ""
-plt.xlabel($1)
-endsnippet
-
-snippet xlim ""
-plt.xlim($1)
-endsnippet
-
-snippet xticks ""
-plt.xticks($1)
-endsnippet
-
-snippet ylabel ""
-plt.ylabel($1)
-endsnippet
-
-snippet ylim ""
-plt.ylim($1)
-endsnippet
-
-snippet yticks ""
-plt.yticks($1)
-endsnippet
-
-# error handling
-snippet tryexcept "try ... except"
-try:
-    $1
-except Exception:
-    pass
-endsnippet
-
-# debugging
-
-snippet hw
-print("Hello, World!")
-endsnippet
-
-# various
-
-snippet bang "hashbang & encoding"
-#!/usr/local/bin/python3
-# -*- coding: utf8 -*-
-endsnippet
-
-snippet print "print()"
-print($1)
-endsnippet

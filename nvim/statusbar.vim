@@ -37,6 +37,21 @@
     " ...window counter per tab (?)
     " hi Title ctermfg=LightBlue ctermbg=Magenta
 
+    " Make tab-bar bg invisible/black
+      augroup HITABFILL
+          autocmd!
+          " Change `airline_tabfill` colors to black/transparent.
+          autocmd User AirlineAfterInit hi airline_tabfill ctermbg=black ctermfg=none
+
+          " The following options don't seem to affect status-bar colors... (?)
+          " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tabfill ctermbg=black ctermfg=none
+          " autocmd User AirlineAfterInit hi airline_tabhid_to_airline ctermbg=black ctermfg=none
+          " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tablabel_right ctermbg=None ctermfg=red
+          " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tabfill ctermbg=None ctermfg=red
+          " autocmd User AirlineAfterInit hi airline_tab_right ctermbg=None ctermfg=red
+          " autocmd User AirlineAfterInit hi airline_tabtype ctermbg=None ctermfg=red
+      augroup END
+
 " =============================================================================
 "                                 Status-Bar
 " =============================================================================
@@ -82,6 +97,9 @@
     " let g:airline_section_z = ''
     " let g:airline_section_z = '%3p%% %3l/%L:%3v'
 
+    " Skip empty sections. (-> less separator-triangle thingies)
+    " let g:airline_skip_empty_sections = 1
+
     " Configure default expected file-encoding 
     " let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
     "  ^ -> file-encoding not displayed for utf-8 
@@ -100,6 +118,13 @@
     "     \'x'    : '',
     "     \'y'    : '%a %d, %R',
     "     \'z'    : ''}
+
+" =============================================================================
+"                               Command-Bar/Line                              |
+" =============================================================================
+
+    " prevent Vim from echoing the current filename into the commandline.
+      set shortmess+=F
 
 " =============================================================================
 " |                                 Various                                   |
@@ -121,3 +146,6 @@
     " let g:airline#extensions#tabline#show_buffers = 1
     " let g:airline#extensions#tabline#show_tabs = 1
     " let airline_solarized_enable_command_color = 1
+
+    " Use cache (should speed up vim).
+    " let g:airline_highlighting_cache = 0

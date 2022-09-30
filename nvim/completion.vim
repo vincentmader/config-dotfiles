@@ -9,19 +9,10 @@
 " - ALE                                                                (unused)
 
 "                                                       ConquerOfCompletion {{{
-" =============================================================================
-
-
-    " highlight CocErrorFloat ctermfg=Green 
-    " highlight CocErrorFloat ctermbg=Green  " TODO not working
-    highlight CocFloating ctermbg=Black
+" ============================================================================= 
     
-    " highlight Pmenu guifg=#0000FF
-    
-    
-    "                                                                coc extensions
-    " =============================================================================
-    
+    " Define list of CoC Extensions.
+    " -------------------------------------------------------------------------
     let g:coc_global_extensions = [
         \ 'coc-css',
         \ 'coc-docker',
@@ -33,63 +24,68 @@
         \ 'coc-json',
         \ 'coc-pairs',
         \ 'coc-prettier',
+        \ 'coc-pyright',
+        \ 'coc-rust-analyzer',
         \ 'coc-rls',
         \ 'coc-snippets',
         \ 'coc-tsserver',
         \ 'coc-vimtex',
     \ ]
         " \ 'coc-python',  
-        "        ^ -> deprecated, use coc-jedi or coc-pyright instead
-    
-    "                                                               code completion 
-    " =============================================================================
-    
+        "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
+
+    " Code completion.
+    " -------------------------------------------------------------------------
     " Use <Tab> and <S-Tab> to navigate the completion list:
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-    
-    " select first list item by default, confirm with return
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-    " confirm completion with return
+      inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+      inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " Select first list item by default, confirm with <Return>.
+      inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+    " Confirm completion with <Return>.
     " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " Close the preview window when completion is done. 
+    " - TODO: necessary?
+      autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
     
-    " Close the preview window when completion is done. (TODO: necessary?)
-    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+    " Decrease update-time for CursorHold & CursorHoldI.
+    " - TODO: What does this do?
+      set updatetime=300
     
-    " smaller updatetime for CursorHold & CursorHoldI
-    set updatetime=300
-    
-    "                                                 awesome language-server stuff
-    " =============================================================================
-    
-    " Remap for rename current word
-    nmap <F2> <Plug>(coc-rename)
-    
-    "" Use K to show documentation in preview window.
-    function! s:show_documentation()
-        if (index(['vim', 'help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-        else
-            call CocAction('doHover')
-        endif
-    endfunction
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
+    " Documentation for object under cursor.
+    " -------------------------------------------------------------------------
+    " Use K to show documentation in preview window.
+      function! s:show_documentation()
+          if (index(['vim', 'help'], &filetype) >= 0)
+              execute 'h '.expand('<cword>')
+          else
+              call CocAction('doHover')
+          endif
+      endfunction
+      nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+    " Various
+    " -------------------------------------------------------------------------
+
+    " Remap for renaming current word
+    " - TODO: Lookup: What does this do again?
+      nmap <F2> <Plug>(coc-rename)
+
+    " Configure CoC error-window colors."
+      highlight FgCocErrorFloatBgCocFloating ctermfg=1 ctermbg=0
+        " highlight CocFloating ctermbg=Black ctermfg=Green
+        " highlight CocErrorFloat ctermbg=Green  
+        " highlight Pmenu guifg=#0000FF
+        " ^ not working
+        " hi CocListBgRed guibg=black guifg=red
+        " hi NvimInternalError guibg=black guifg=red
+
+    " python (?)
+    " set statusline^=%{coc#status()}
+
     "
-    "" Use `[g` and `]g` to navigate diagnostics
+    "" Use `[g` and `]g` to navigate diagnostics.
     " nmap <silent> [g <Plug>(coc-diagnostic-prev)
     " nmap <silent> ]g <Plug>(coc-diagnostic-next)
-    
-    "                                                                       various
-    " =============================================================================
-    
-    " python
-    " set statusline^=%{coc#status()}
-    
-    
-
-
-
-
 
 " }}}
 "                                                                  QuickTEX {{{
