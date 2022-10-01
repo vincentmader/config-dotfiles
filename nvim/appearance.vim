@@ -32,11 +32,11 @@
     " Use relative numbers in normal mode.
       set number relativenumber
     " Switch to absolute line numbering when in insert mode.
-      augroup numbertoggle
-          autocmd!
-          autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-          autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-      augroup END
+      " augroup numbertoggle
+      "     autocmd!
+      "     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+      "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+      " augroup END
     " Make background transparent. TODO Why does this not affect the colors?
       " highlight LineNr ctermbg=None ctermfg=None
       " highlight LineNr ctermbg=red ctermfg=red    
