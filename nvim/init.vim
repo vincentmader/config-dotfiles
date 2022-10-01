@@ -187,7 +187,6 @@ source $XDG_CONFIG_HOME/nvim/appearance.vim
 source $XDG_CONFIG_HOME/nvim/completion.vim
 source $XDG_CONFIG_HOME/nvim/general.vim
 source $XDG_CONFIG_HOME/nvim/mappings.vim
-source $XDG_CONFIG_HOME/nvim/navigation.vim
 
 "                                   NAVIGATION
 " =============================================================================
