@@ -1,3 +1,5 @@
 #+startup: show2levels latexpreview
 #+author: Vincent C. Mader
 #+title: My Personal Configuration Files
+
+NOTE: This repository needs some clean-up, & is still work-in-progress.
