@@ -5,6 +5,5 @@ echo "Loading BASH_PROFILE..."
 # 	               $XDG_CONFIG_HOME/bash/bash_profile                     |
 # -----------------------------------------------------------------------------
 
-# source ~/.bashrc
-    # [[ -f ~/.bashrc ]] && . ~/.bashrc
-
+    # Source shell-independent (shared) profile config-file.
+      source "$HOME/.config/shell/profile"
