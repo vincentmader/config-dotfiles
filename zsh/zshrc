@@ -1,277 +1,363 @@
 #!/bin/sh
-# echo "Loading ZSHRC..."
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                      $XDG_CONFIG_HOME/zsh/zshrc                           ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
 
-# -----------------------------------------------------------------------------
-# 	               $XDG_CONFIG_HOME/zsh/zshrc                             |
-# -----------------------------------------------------------------------------
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ List of plugins                                                           │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-# =============================================================================
-# Specify Plugins to be loaded by Oh-My-Zsh.
-# =============================================================================
-
+#   Define list of plugins to be loaded by oh-my-zsh.
     plugins=(
-        colored-man-pages
-        copyfile		# copy file to clipboard: copyfile <file>
-        copypath		# copy pwd to clipboard: copypath <path>
-        copybuffer              # copy the text currently typed in the command line: Ctrl-o
-        # dirhistory              # Alt+Left/Right to move through history, Alt+Up to go to parent
-        # emoji-clock		# use to display time (30min accuracy)
-        fzf                     # enables fuzzy auto-completion
+      # archlinux
+        colored-man-pages   # Add color to man-pages.
+        copyfile	    # Copy file to clipboard: `copyfile <file>`.
+        copypath	    # Copy pwd to clipboard:  `copypath <path>`.
+        copybuffer          # Copy the text in the prompt via `Ctrl-o`.
+      # dirhistory          # Use `Alt+Left/Right` to move through history, `Alt+Up` to go to parent.
+      # emoji-clock	    # Display time (30min. accuracy).
+        fzf                 # Enable fuzzy auto-completion.
         git
+      # npm
+      # macos
+      # pip
+      # python
+        sudo                # Press `Escape` twice to sudo repeat command.
+      # taskwarrior         # Add auto-completion for taskwarrior.
         web-search
-        # npm
-        # macos
-        # pip
-        # python
-        sudo                    # press esc twice to sudo repeat cmd
-        # taskwarrior           # auto completion for taskwarrior
-        # wd                    # warp directory
+      # wd                  
         zsh-autosuggestions
     )
     source $ZSH/oh-my-zsh.sh
 
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Shell command history                                                     │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-# TODO for cargo, all needed? 
-    # source $HOME/.cargo/env
-    # source $HOME/.cargo/bin
-    # source "/Users/vinc/.cache/cargo/env"
+#   Enable sharing of command history between multiple shell sessions.
+    setopt sharehistory
 
-# ZSH PLUGINS 
-# =============================================================================
+#   Define path to command-history file.
+    HISTFILE="$XDG_CACHE_HOME/shell/history"
 
-    CASE_SENSITIVE="false"  # case-insensitive completion. nice!
-    DISABLE_UNTRACKED_FILES_DIRTY="true"  # speeds up git for large repos
+#   Define format of timestamps for command-history.
     HIST_STAMPS="yyyy-mm-dd"
 
+#   Define nr. of command-history entries saved in memory.
+    HISTSIZE=10000
 
-    # suggestions TODO move
-    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888888"  # TODO change color
-    # web search TODO move
-    ZSH_WEB_SEARCH_ENGINES=(
-        reddit "https://www.reddit.com/search/?q="
+#   Define nr. of command-history entries saved to file.
+    SAVEHIST=5000
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Command auto-suggest                                                      │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Make command-suggestions case-insensitive. 
+    CASE_SENSITIVE="false"  
+
+#   Define strategy for getting command-suggestions.
+    ZSH_AUTOSUGGEST_STRATEGY=(
+        history 
+        completion
     )
 
-# SOURCE CONFIG FILES
-# =============================================================================
+#   Define color of command suggestions.
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"  
 
-    # environment variables
-    source "$HOME/.config/zsh/zshenv" # needs to be sourced after ohmyzsh for corrections
-    # aliases
-    source "$XDG_CONFIG_HOME/shell/aliasrc"
-    # prompter
-    source "$XDG_CONFIG_HOME/zsh/prompter"
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Web search-engines                                                        │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-# SHELL COMMAND AUTO-COMPLETION  &  HISTORY
-# =============================================================================
+#   Define web search-engines, use with e.g. `web_search wikipedia euler`
+    ZSH_WEB_SEARCH_ENGINES=(
+        4chan           "https://4chan.org/"
+        amazon          "https://amazon.de/s?k="
+        archive         "https://web.archive.org/web/*/"
+        archwiki        "https://wiki.archlinux.org/?search="
+        arxiv           "https://arxiv.org/search/?searchtype=all&source=header&query="
+        baidu           "https://www.baidu.com/s?wd="
+        bing            "https://www.bing.com/search?q="
+        brave           "https://search.brave.com/search?q="
+        duckduckgo      "https://www.duckduckgo.com/?q="
+        ebay            "https://ebay.de/sch/"
+        ecosia          "https://www.ecosia.org/search?q="
+        github          "https://github.com/search?q="
+        github_vm       "https://github.com/vincentmader/"
+        goodreads       "https://www.goodreads.com/search?q="
+        google          "https://www.google.com/search?q="
+        linkedin        "https://linkedin.com/search/results/all/?keywords="
+        piratebay       "https://piratebay.party/search/"
+        r               "https://www.reddit.com/r/"
+        reddit          "https://www.reddit.com/search/?q="
+        scholar         "https://scholar.google.com/scholar?q="
+        stackoverflow   "https://stackoverflow.com/search?q="
+        startpage       "https://www.startpage.com/do/search?q="
+        twitter         "https://twitter.com/"
+        urbandictionary "https://urbandictionary.com/define.php?term="
+        wikipedia       "https://en.wikipedia.org/?search="
+        wiktionary      "https://en.wiktionary.org/?search="
+        wolframalpha    "https://www.wolframalpha.com/input/?i="
+        yahoo           "https://search.yahoo.com/search?p="
+        yandex          "https://yandex.ru/yandsearch?text="
+        youtube         "https://www.youtube.com/results?search_query="
+    )
 
-    autoload -U compinit
-    zstyle ':completion:*' menu select
-    zmodload zsh/complist
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ TMUX                                                                      │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-    # location of zcompdump (-> speeds up auto completion)
-    compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
-    _comp_options+=(globdots)  # include hidden files.
-
-    # thefuck auto-correction
-    eval $(thefuck --alias)
-
-# ZSH LINE EDITOR (zle)
-# =============================================================================
- 
-    # vim mode (-e for emacs mode)
-    bindkey -v
-
-    export KEYTIMEOUT=1
-    
-    autoload -U colors && colors
-
-# TMUX
-# =============================================================================
-
-    # source config
+#   Source TMUX config.
     tmux source "$XDG_CONFIG_HOME/tmux/tmux.conf"
-    # check if tmux is running, if not: start it
+
+#   Check if tmux is running.
+#   If not: start it!                       (and define default sessions: misc)
     [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
 
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Zsh line editor                                                           │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-# RUN EXA ON ZSH START, & INIT ZOXIDE
-# =============================================================================
+#   Enable vim mode.                            (NOTE: Use `-e` for emacs mode)
+    bindkey -v
 
-    l  # (see ./aliasrc)
-    eval "$(zoxide init zsh)"
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Zcompdump setup                                                           │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+#   -> can speed up auto-completion
 
-# SHELL SYNTAX HIGHLIGHTING  (needs to be last (TODO does it?))
-# =============================================================================
+#   TODO ... (Add description.)
+    autoload -U compinit
 
-    PATH_TO_PLUGINS="$XDG_CONFIG_HOME/zsh/oh-my-zsh/plugins" # ?
+#   TODO ... (Add description.)
+    zstyle ':completion:*' menu select
+
+#   TODO ... (Add description.)
+    zmodload zsh/complist
+
+#   TODO ... (Add description.)
+    compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
+
+#   Include hidden files.
+    _comp_options+=(globdots)  
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Shell syntax highlighting                                                 │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Define path to oh-my-zsh plugins.
+    PATH_TO_PLUGINS="$XDG_CONFIG_HOME/zsh/oh-my-zsh/plugins" 
+
+#   Enable syntax-highlighting for zsh.
     source $PATH_TO_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Java                                                                      │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-# VARIOUS / OLD  (TODO clean up)
-# =============================================================================
-    # java
+#   TODO ... (Add description.)
     export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-    # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Zoxide                                                                    │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-    # ----------
+#   Initialize `zoxide`.
+    eval "$(zoxide init zsh)"
 
-    setopt sharehistory # ?
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Source other zsh configuration files.                                     │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-    # eval "$(starship init zsh)"
-    # export PS3="hello"
-    
-    # cd $(cat $XDG_CONFIG_HOME/zsh/pwd)  # TODO load last saved pwd from file
+#   Source shell-independent config.
+    source "$XDG_CONFIG_HOME/shell/shellrc"
 
-        # xclip -o | xclip -selection clipboard -i
-    
-    # add color to man (I have as of yet only changed those with 38;5 at
-    # the start, those are from the color set of size 256)
-    # export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
-    # export LESS_TERMCAP_md=$(printf '\e[38;5;33m') # enter double-bright mode – bold, magenta
-    # export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
-    # export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
-    # export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
-    # export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
-    # export LESS_TERMCAP_us=$(printf '\e[38;5;118m') # enter underline mode – cyan
-    
-    # Better searching in command mode
-    # bindkey -M vicmd '?' history-incremental-search-backward
-    # bindkey -M vicmd '/' history-incremental-search-forward
-    
-    # Beginning search with arrow keys
-    # bindkey "^[OA" up-line-or-beginning-search
-    # bindkey "^[OB" down-line-or-beginning-search
-    # bindkey -M vicmd "k" up-line-or-beginning-search
-    # bindkey -M vicmd "j" down-line-or-beginning-search
-    
-    # Use lf to switch directories and bind it to ctrl-o
-    # lfcd () {
-    #     tmp="$(mktemp)"
-    #     lf -last-dir-path="$tmp" "$@"
-    #     if [ -f "$tmp" ]; then
-    #         dir="$(cat "$tmp")"
-    #         rm -f "$tmp"
-    #         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    #     fi
-    # }
-    # bindkey -s '^o' 'lfcd\n'
-    
-    # Use vim keys in tab complete menu:
-    # bindkey -M menuselect 'h' vi-backward-char
-    # bindkey -M menuselect 'j' vi-down-line-or-history
-    # bindkey -M menuselect 'k' vi-up-line-or-history
-    # bindkey -M menuselect 'l' vi-forward-char
-    # bindkey -v '^?' backward-delete-char
-    # # Change cursor shape for different vi modes.
-    # function zle-keymap-select {
-    #   if [[ ${KEYMAP} == vicmd ]] ||
-    #      [[ $1 = 'block' ]]; then
-    #     echo -ne '\e[1 q'
-    #   elif [[ ${KEYMAP} == main ]] ||
-    #        [[ ${KEYMAP} == viins ]] ||
-    #        [[ ${KEYMAP} = '' ]] ||
-    #        [[ $1 = 'beam' ]]; then
-    #     echo -ne '\e[5 q'
-    #   fi
-    # }
-    # zle -N zle-keymap-select
-    # zle-line-init() {
-    #     # initiate "vi insert" as keymap
-    #     # (can be removed if `bindkey -V` has been set elsewhere)
-    #     zle -K viins
-    #     echo -ne "\e[5 q"
-    # }
-    # zle -N zle-line-init
-    # Use beam shape cursor on startup.
-    # echo -ne '\e[5 q'
-    # Use beam shape cursor for each new prompt.
-    # preexec() { echo -ne '\e[5 q' ;}
-    
-    # Edit line in vim with ctrl-e:
-    # autoload edit-command-line; zle -N edit-command-line
-    # bindkey '^e' edit-command-line
-     
-    # ZSH_THEME='powerlevel9k/powerlevel9k'
-    # POWERLEVEL9K_MODE="nerdfont-complete"
-    # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS = ('--\n--')
-    # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
+#   Source aliases.
+    source "$XDG_CONFIG_HOME/shell/aliasrc"
 
-# fzf (TODO sort-out unneeded stuff)
-# -----------------------------------------------------------------------------
+#   Source prompter.
+    source "$XDG_CONFIG_HOME/zsh/prompter"
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Various                                                                   │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Speed up git for large repositories.
+    DISABLE_UNTRACKED_FILES_DIRTY="true"  
+
+#   Setup thefuck auto-correction.
+    eval $(thefuck --alias)
+
+#   TODO ... (Add description.)
+    export KEYTIMEOUT=1
+
+#   TODO ... (Add description.)
+    autoload -U colors && colors
+
+#   Run `exa` on start-up.  
+    l  # (see ./aliasrc)
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                                                           ║
+# ║  NOTE: Stuff below is very unsorted, needs clean-up!!!                    ║
+# ║                                                                           ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+  # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+  # eval "$(starship init zsh)"
+  # export PS3="hello"
+  
+  # cd $(cat $XDG_CONFIG_HOME/zsh/pwd)  # TODO load last saved pwd from file
+
+      # xclip -o | xclip -selection clipboard -i
+  
+  # add color to man (I have as of yet only changed those with 38;5 at
+  # the start, those are from the color set of size 256)
+  # export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
+  # export LESS_TERMCAP_md=$(printf '\e[38;5;33m') # enter double-bright mode – bold, magenta
+  # export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
+  # export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
+  # export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
+  # export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
+  # export LESS_TERMCAP_us=$(printf '\e[38;5;118m') # enter underline mode – cyan
+  
+  # Better searching in command mode
+  # bindkey -M vicmd '?' history-incremental-search-backward
+  # bindkey -M vicmd '/' history-incremental-search-forward
+  
+  # Beginning search with arrow keys
+  # bindkey "^[OA" up-line-or-beginning-search
+  # bindkey "^[OB" down-line-or-beginning-search
+  # bindkey -M vicmd "k" up-line-or-beginning-search
+  # bindkey -M vicmd "j" down-line-or-beginning-search
+  
+  # Use lf to switch directories and bind it to ctrl-o
+  # lfcd () {
+  #     tmp="$(mktemp)"
+  #     lf -last-dir-path="$tmp" "$@"
+  #     if [ -f "$tmp" ]; then
+  #         dir="$(cat "$tmp")"
+  #         rm -f "$tmp"
+  #         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  #     fi
+  # }
+  # bindkey -s '^o' 'lfcd\n'
+  
+  # Use vim keys in tab complete menu:
+  # bindkey -M menuselect 'h' vi-backward-char
+  # bindkey -M menuselect 'j' vi-down-line-or-history
+  # bindkey -M menuselect 'k' vi-up-line-or-history
+  # bindkey -M menuselect 'l' vi-forward-char
+  # bindkey -v '^?' backward-delete-char
+  # # Change cursor shape for different vi modes.
+  # function zle-keymap-select {
+  #   if [[ ${KEYMAP} == vicmd ]] ||
+  #      [[ $1 = 'block' ]]; then
+  #     echo -ne '\e[1 q'
+  #   elif [[ ${KEYMAP} == main ]] ||
+  #        [[ ${KEYMAP} == viins ]] ||
+  #        [[ ${KEYMAP} = '' ]] ||
+  #        [[ $1 = 'beam' ]]; then
+  #     echo -ne '\e[5 q'
+  #   fi
+  # }
+  # zle -N zle-keymap-select
+  # zle-line-init() {
+  #     # initiate "vi insert" as keymap
+  #     # (can be removed if `bindkey -V` has been set elsewhere)
+  #     zle -K viins
+  #     echo -ne "\e[5 q"
+  # }
+  # zle -N zle-line-init
+  # Use beam shape cursor on startup.
+  # echo -ne '\e[5 q'
+  # Use beam shape cursor for each new prompt.
+  # preexec() { echo -ne '\e[5 q' ;}
+  
+  # Edit line in vim with ctrl-e:
+  # autoload edit-command-line; zle -N edit-command-line
+  # bindkey '^e' edit-command-line
+   
+  # ZSH_THEME='powerlevel9k/powerlevel9k'
+  # POWERLEVEL9K_MODE="nerdfont-complete"
+  # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS = ('--\n--')
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │                                  FuzzyFind                                │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+#    TODO sort-out unneeded stuff
     
-      # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-    # setup default command
-    # --files: List files that would be searched but do not search
-    # --no-ignore: Do not respect .gitignore, etc...
-    # --hidden: Search hidden files and folders
-    # --follow: Follow symlinks
-    # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-    # include hidden files
-    # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-    # Use fd and fzf to get the args to a command.
-    # Works only with zsh
-    # Examples:
-    # f mv # To move files. You can write the destination after selecting the files.
-    # f 'echo Selected:'
-    # f 'echo Selected music:' --extention mp3
-    # fm rm # To rm files in current directory
-    # f() {
-    #     sels=( "${(@f)$(fd "${fd_default[@]}" "${@:2}"| fzf)}" )
-    #     test -n "$sels" && print -z -- "$1 ${sels[@]:q:q}"
-    # }
-    
-    # Deps
-    #alias fz="fzf-noempty --bind 'tab:toggle,shift-tab:toggle+beginning-of-line+kill-line,ctrl-j:toggle+beginning-of-line+kill-line,ctrl-t:top' --color=light -1 -m"
-    #fzf-noempty () {
-    #	local in="$(</dev/stdin)"
-    #	test -z "$in" && (
-    #		exit 130
-    #	) || {
-    #		ec "$in" | fzf "$@"
-    #	}
-    #}
-    #ec () {
-    #	if [[ -n $ZSH_VERSION ]]
-    #	then
-    #		print -r -- "$@"
-    #	else
-    #		echo -E -- "$@"
-    #	fi
-    #}
-    # fe [FUZZY PATTERN] - Open the selected file with the default editor
-    #   - Bypass fuzzy finder if there's only one match (--select-1)
-    #   - Exit if there's no match (--exit-0)
-    # fe() {
-    #   local files
-    #   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-    #   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-    # }
-    # vf - fuzzy open with vim from anywhere
-    # ex: vf word1 word2 ... (even part of a file name)
-    # zsh autoload function
-    #vf() {
-    #  local files
-    #
-    #  files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
-    
-    #  if [[ -n $files ]]
-    #  then
-    #     vim -- $files
-    #     print -l $files[1]
-    #  fi
-    #}
-    # fd - cd to selected directory
-    #fd() {
-    #  local dir
-    #  dir=$(find ${1:-.} -path '*/\.*' -prune \
-    #                  -o -type d -print 2> /dev/null | fzf +m) &&
-    #  cd "$dir"
-    #}
-    # fda - including hidden directories
-    #fda() {
-    #  local dir
-    #  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
-    #}
-    
+  # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  # setup default command
+  # --files: List files that would be searched but do not search
+  # --no-ignore: Do not respect .gitignore, etc...
+  # --hidden: Search hidden files and folders
+  # --follow: Follow symlinks
+  # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+  # include hidden files
+  # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+  # Use fd and fzf to get the args to a command.
+  # Works only with zsh
+  # Examples:
+  # f mv # To move files. You can write the destination after selecting the files.
+  # f 'echo Selected:'
+  # f 'echo Selected music:' --extention mp3
+  # fm rm # To rm files in current directory
+  # f() {
+  #     sels=( "${(@f)$(fd "${fd_default[@]}" "${@:2}"| fzf)}" )
+  #     test -n "$sels" && print -z -- "$1 ${sels[@]:q:q}"
+  # }
+  
+  # Deps
+  #alias fz="fzf-noempty --bind 'tab:toggle,shift-tab:toggle+beginning-of-line+kill-line,ctrl-j:toggle+beginning-of-line+kill-line,ctrl-t:top' --color=light -1 -m"
+  #fzf-noempty () {
+  #	local in="$(</dev/stdin)"
+  #	test -z "$in" && (
+  #		exit 130
+  #	) || {
+  #		ec "$in" | fzf "$@"
+  #	}
+  #}
+  #ec () {
+  #	if [[ -n $ZSH_VERSION ]]
+  #	then
+  #		print -r -- "$@"
+  #	else
+  #		echo -E -- "$@"
+  #	fi
+  #}
+  # fe [FUZZY PATTERN] - Open the selected file with the default editor
+  #   - Bypass fuzzy finder if there's only one match (--select-1)
+  #   - Exit if there's no match (--exit-0)
+  # fe() {
+  #   local files
+  #   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  #   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+  # }
+  # vf - fuzzy open with vim from anywhere
+  # ex: vf word1 word2 ... (even part of a file name)
+  # zsh autoload function
+  #vf() {
+  #  local files
+  #
+  #  files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
+  
+  #  if [[ -n $files ]]
+  #  then
+  #     vim -- $files
+  #     print -l $files[1]
+  #  fi
+  #}
+  # fd - cd to selected directory
+  #fd() {
+  #  local dir
+  #  dir=$(find ${1:-.} -path '*/\.*' -prune \
+  #                  -o -type d -print 2> /dev/null | fzf +m) &&
+  #  cd "$dir"
+  #}
+  # fda - including hidden directories
+  #fda() {
+  #  local dir
+  #  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+  #}
