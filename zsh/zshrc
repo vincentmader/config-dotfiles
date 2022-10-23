@@ -66,17 +66,6 @@
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"  
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
-# │ TMUX                                                                      │
-# ╰───────────────────────────────────────────────────────────────────────────╯
-
-#   Source TMUX config.
-    tmux source "$XDG_CONFIG_HOME/tmux/tmux.conf"
-
-#   Check if tmux is running.
-#   If not: start it!                       (and define default sessions: misc)
-    [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
-
-# ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Zsh line editor                                                           │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
@@ -155,6 +144,21 @@
 
 #   TODO ... (Add description.)
     autoload -U colors && colors
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ TMUX                                                                      │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Source TMUX config.
+    tmux source "$XDG_CONFIG_HOME/tmux/tmux.conf"
+
+#   Check if tmux is running.
+#   If not: start it!                       (and define default sessions: misc)
+    [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Startup                                                                   │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
 #   Run `exa` on start-up.  
     l  # (see ./aliasrc)
