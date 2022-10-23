@@ -1,218 +1,255 @@
 #!/bin/sh
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │                      $XDG_CONFIG_HOME/shell/profile                       │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
-# =============================================================================
-# Define Paths to XDG Base Directories.                                               |
-# =============================================================================
-# -> For more XDG variables, see here: 
-#    specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ XDG base directories                                                      ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+#   For more XDG variables, see here: 
+#   -> specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
-    # Define path to user-specific data files.
-      export XDG_DATA_HOME="$HOME/.local/share"
-    # Define path to user-specific configuration files.
-      export XDG_CONFIG_HOME="$HOME/.config"
-    # Define path to user-specific state data files.
-      export XDG_STATE_HOME="" 
-    # Define path to user-specific non-essential (cached) data files.
-      export XDG_CACHE_HOME="$HOME/.cache"
+  # Define path to user-specific data files.
+    export XDG_DATA_HOME="$HOME/.local/share"
 
-# =============================================================================
-# Setup Shell Variables for User-Data.                                        |
-# =============================================================================
+  # Define path to user-specific configuration files.
+    export XDG_CONFIG_HOME="$HOME/.config"
 
-    # Define path to directory containing all users' data (OS-dependent).
-      # if [[ "$OSTYPE" == "darwin"* ]]; then
-      #     USERS="/Users"
-      # elif [[ "$OSTYPE" == "linux"* ]]; then
-      #     USERS="/home"
-      # fi
-    # Define variable holding name of current user.
-      # export USER=$(whoami)                                 # -> TODO needed?
-    # Define path to user's home directory.
-      # export HOME="$USERS/$USER"
-    # Define path to user's config directory.  
-      # export CONF="$HOME/.config"              # -> TODO Use XDG_CONFIG_HOME.    
+  # Define path to user-specific state data files.
+    export XDG_STATE_HOME="" 
 
-    # Define path to user's custom symlinks.
-      export CDPATH=".:$XDG_CONFIG_HOME/symlinks"
+  # Define path to user-specific non-essential (cached) data files.
+    export XDG_CACHE_HOME="$HOME/.cache"
 
-# =============================================================================
-# Setup Locales                                                               |
-# =============================================================================
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Locale Variables                                                          ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - These variables tell the OS how to display/output certain kinds of text.
+# - To see the current configuration, execute `locale` in your shell.
+# - There are several different locale categories, 
+#   which are looked up by the system in the following order:
+#   1. LANGUAGE
+#   2. LC_ALL
+#   3. LC_xxx
+#   4. LANG
 
-    # TODO ... (description)
-      export LC_CTYPE=en_US.UTF-8
+  # Default all locale settings to UTF-8 American English. 
+    export LC_ALL="en_US.UTF-8"
 
-    # TODO ... (description)
-      export LC_ALL=en_US.UTF-8
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Shell                                                                     ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
 
-# =============================================================================
-# Setup Custom Config/Cache Directory Locations for various CLI Programs.     |   
-# =============================================================================
+  # Deactive macOS's "Save/Restore Shell State" feature for Zsh.
+  # This disables the creation of the `.zsh_sessions` file -> Cleaner home.
+    export SHELL_SESSIONS_DISABLE=1
 
-# Setup Shell;
-# -----------------------------------------------------------------------------
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Editor & Visual (vi/vim/neovim/neovide)                                   ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - If you invoke an editor via your shell, it will try first $VISUAL.
+# - If $VISUAL fails, it tries EDITOR.
+#   (e.g. if your terminal does not support a full-screen editor)
+# - One could e.g. set $VISUAL to VSCode, and $EDITOR to vi.
+# - Since I'm using vi anyways, both variables are the same.
 
-    # TODO ... (description)
-      export SHELL_SESSIONS_DISABLE=1
+  # TODO Look-up re: Define $VIMRUNTIME variable as well?
+  # export VIMRUNTIME="$XDG_CONFIG_HOME/nvim/"
 
-# Setup Editor: Vi/Vim/NeoVim.
-# -----------------------------------------------------------------------------
+  # Define path to neovim configuration file (init.vim).
+    export NVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
 
-    # If shell is run inside an SSH connection, use vanilla vim.
-      if [[ -n $SSH_CONNECTION ]]; then
-        export EDITOR="vim"; else
-        export EDITOR="nvim -u $XDG_CONFIG_HOME/nvim/init.vim"
-      fi
-
-    # TODO ... (description)
-      export VISUAL="$EDITOR"
-
-    # Define custom location for neovim config-file (init.vim).
-      export NVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
-
-    # TODO ... (description)
-      # export VIMRUNTIME="$XDG_CONFIG_HOME/nvim/"
-
-# Setup Python.
-# -----------------------------------------------------------------------------
-
-    # Define custom location for python-startup config-file.
-      export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/.pythonrc"
-
-    # Define custom location for matplotlib config-file.
-      export MPLCONFIGDIR="$XDG_CONFIG_HOME/matplotlib"
-
-    # TODO ... (description)
-      export IPYTHONDIR="$XDG_DATA_HOME/jupyter"
-
-    # TODO ... (description)
-      export JUPYTER_CONFIG_DIR="$XDG_DATA_HOME/jupyter"
-
-# Setup Rust.
-# -----------------------------------------------------------------------------
-
-    # Give a home to rustup...
-      export RUSTUP_HOME="$XDG_CACHE_HOME/rustup"
-
-    # ...and cargo.
-      export CARGO_HOME="$XDG_CACHE_HOME/cargo"
-    
-# Setup JavaScript, NodeJS, & NPM.
-# -----------------------------------------------------------------------------
-
-    # Define custom location for the config-file of Node Package Manager.
-      export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-
-    # TODO ... (description)
-      export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
-      export NODE_REPL_HISTORY_SIZE=10000
-
-# Setup Docker.
-# -----------------------------------------------------------------------------
-
-    # TODO ... (description)
-      export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-
-# Setup Go.
-# -----------------------------------------------------------------------------
-
-    # TODO ... (description)
-      export GOPATH="$XDG_CACHE_HOME/go"
-
-# Setup GPG.
-# -----------------------------------------------------------------------------
-
-    # TODO ... (description)
-      export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-
-# Setup Less.
-# -----------------------------------------------------------------------------
-
-    # Deactivate logging to history file.
-      export LESSHISTFILE=- # "$HOME/.cache/lesshst"
-
-# Setup TaskWarrior.
-# -----------------------------------------------------------------------------
-
-    # export TASKRC="$XDG_CONFIG_HOME/taskwarrior/taskrc"
-    # export TIMEWARRIORDB="$HOME/gtd/timewarrior"
-    # export WIKI="~/"
-
-# Setup Databases.
-# -----------------------------------------------------------------------------
-
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-    # PostgreSQL:
-        export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
-            # export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-            # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-            # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-            # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
-    # MySQL:
-        export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
-            # export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-            # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
-            # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
-            # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
-    elif [[ "$OSTYPE" == "linux"* ]]; then
-        echo "TODO: Setup databases on Linux."
+  # If the shell is running inside an SSH connection: Use vanilla vim.
+    if [[ -n $SSH_CONNECTION ]]; then
+      export EDITOR="vim"; 
+  # Otherwise: Use neovim, & load my custom configuration.
+    else
+      export EDITOR="nvim -u $NVIMRC"
     fi
 
-# Setup PostgreSQL.
-# -----------------------------------------------------------------------------
+  # Configure $VISUAL to just use $EDITOR as well (both are vi/vim, anyway).
+    export VISUAL="$EDITOR"
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Browser                                                                   ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - TODO Look-up re: How to set Safari as default browser via env-var on macOS?
+
+  # export BROWSER="safari"
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Rust & Cargo                                                              ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+  # Give a home to Rust...
+    export RUSTUP_HOME="$XDG_CACHE_HOME/rustup"
+
+  # ...and Cargo.
+    export CARGO_HOME="$XDG_CACHE_HOME/cargo"
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Python                                                                    ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - NOTE: Switching the order of definition for the variables
+#         $IPYTHONDIR & $JUPYTER_CONFIG_DIR weirdly seems to lead to 
+#         an error on `jupyter notebook` execution.
+
+  # Define path to the python-startup configuration file.
+    export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/.pythonrc"
+
+  # Define path to matplotlib configuration file.
+    export MPLCONFIGDIR="$XDG_CONFIG_HOME/matplotlib"
+
+  # Define path to directory containing jupyter configuration files.
+    export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
+
+  # Define path to ipython cache files.
+    export IPYTHONDIR="$XDG_DATA_HOME/ipython"
+    
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ JavaScript, NodeJS, & NPM                                                 ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+  # Define path to the Node Package Manager's configuration file.
+    export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+
+  # Define path to Node REPL history file.
+    export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
+
+  # Define number of Node REPL history entries.
+    export NODE_REPL_HISTORY_SIZE=10000
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Go                                                                        ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+  # Define path to Go cache files.
+    export GOPATH="$XDG_CACHE_HOME/go"
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Exa                                                                       ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+  # Increase the spacing between icon & file-name in exa.
+    export EXA_ICON_SPACING="2"
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ FuzzyFind                                                                 ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - TODO Look-up/Decide re: Prefer `fd` over `rg`.
+
+  # Determine search program for `fzf`.
+    if type ag &> /dev/null; then
+        export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+    fi                                  # NOTE: ^ nice!
+
+  # Prefer `rg` over `ag`.
+    if type rg &> /dev/null; then
+        export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!{node_modules/*,.git/*,target/*,*.pyc,__pycache__/*}"'
+        # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules/*,.git/*,target/*,*.pyc,__pycache__/*}"'
+    fi
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Databases (MySQL & PostgreSQL)                                            ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+  # Setup databases on macOS.
+  # ═══════════════════════════════════════════════════════════════════════════
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Setup PostgreSQL.
+    # ─────────────────────────────────────────────────────────────────────────
+      export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+    # export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+    # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+    # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+    # export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 
     # export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
     # export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
     # export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
     # export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 
-# Setup Fuzzy-Find.
-# -----------------------------------------------------------------------------
+    # Setup MySQL.
+    # ─────────────────────────────────────────────────────────────────────────
+      export PATH="$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS"
+    # export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+    # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+    # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+    # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
 
-    # export FZF_BASE="/usr/local/bin/fzf"
+  # Setup databases on Linux.
+  # ═══════════════════════════════════════════════════════════════════════════
+  elif [[ "$OSTYPE" == "linux"* ]]; then
+      # TODO Setup databases on Linux.
+      echo 
+  fi
 
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Docker                                                                    ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - NOTE: the files created in the directory defined by $DOCKER_"CONFIG" 
+#         look a lot more like cache/data files than config to me...
 
-    # Determine search program for `fzf`.
-      if type ag &> /dev/null; then
-          export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
-      fi                                  # NOTE: ^ nice!
+  # Define path to directory containing docker configuration files.
+    export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
-    # Prefer `rg` over `ag`.
-      if type rg &> /dev/null; then
-          # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{node_modules/*,.git/*,target/*,*.pyc,__pycache__/*}"'
-          # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules/*,.git/*,target/*,*.pyc,__pycache__/*}"'
-          export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!{node_modules/*,.git/*,target/*,*.pyc,__pycache__/*}"'
-      fi
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ GPG                                                                       ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - TODO: Complete GPG setup.
 
-    # TODO prefer `fd` over `rg`
+  # Define path to GPG data files.
+    export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
-# TODO Various
-# =============================================================================
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Less                                                                      ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
 
-    # Source emsdk quietly.                                        TODO needed?
-      source $XDG_CONFIG_HOME/emsdk/emsdk_env.sh 2> /dev/null  
+  # Deactivate logging to history file.
+    export LESSHISTFILE=- # "$HOME/.cache/lesshst"
 
-    # TODO ... (description)
-      export PATH="$PATH:$HOME/.local/bin"  
-        # ^ added when installing virtualenv                       TODO needed?
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ CocoaPods                                                                 ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# - TODO: find out: is $XDG_CACHE_HOME the right place? $XDG_DATA_HOME instead?
 
-    # TODO ... (description)
-      export PATH="$PATH:$CARGO_HOME/bin"                          # <- both
-      . "/Users/vinc/.cache/cargo/env"                             # <- needed?
+  # Setup cocoapods repos & cache to not be saved in ~/.cocoapods
+    export CP_HOME_DIR="$XDG_CACHE_HOME/cocoapods"
 
-    # TODO ... (description)
-      if [[ "$OSTYPE" == "darwin"* ]]; then
-          eval $(/opt/homebrew/bin/brew shellenv)    # needed for brew
-          export PATH=$PATH:/opt/local/bin           # needed for macports
-      elif [[ "$OSTYPE" == "linux"* ]]; then
-          export XINITRC="$XDG_CONFIG_HOME/x/.xinitrc"
-      fi
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ TaskWarrior (inactive)                                                    ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
 
-    # Setup cocoapods repos & cache to not be saved in ~/.cocoapods
-    # TODO: find out: is $XDG_CACHE_HOME the right place? $XDG_DATA_HOME instead?
-      export CP_HOME_DIR="$XDG_CACHE_HOME/cocoapods"
-    
-    # Setup LaTeX (not working)
-    # if [ "$OS" = "macOS" ]; then
-    #     PATH=/usr/local/texlive/2019/bin/x86_64-darwin:"${PATH}"
-    # fi
+  # export TASKRC="$XDG_CONFIG_HOME/taskwarrior/taskrc"
+  # export TIMEWARRIORDB="$HOME/gtd/timewarrior"
+  # export WIKI="~/"
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ Various                                                                   ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+  # Define path to user's custom symlinks.
+    export CDPATH=".:$XDG_CONFIG_HOME/symlinks"
+
+  # TODO ... (description)
+    export PATH="$PATH:$HOME/.local/bin"  
+      # ^ added when installing virtualenv                       TODO needed?
+
+  # TODO ... (description)
+    export PATH="$PATH:$CARGO_HOME/bin"                          # <- both
+    . "/Users/vinc/.cache/cargo/env"                             # <- needed?
+
+  # TODO ... (description)
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        eval $(/opt/homebrew/bin/brew shellenv)    # needed for brew
+        export PATH=$PATH:/opt/local/bin           # needed for macports
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        export XINITRC="$XDG_CONFIG_HOME/x/.xinitrc"
+    fi
+
+  
+  # Setup LaTeX (not working)
+  # if [ "$OS" = "macOS" ]; then
+  #     PATH=/usr/local/texlive/2019/bin/x86_64-darwin:"${PATH}"
+  # fi
+
