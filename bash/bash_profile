@@ -1,9 +1,7 @@
 #!/bin/sh
-echo "Loading BASH_PROFILE..."
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                      $XDG_CONFIG_HOME/bash/bash_profile                   ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
 
-# -----------------------------------------------------------------------------
-# 	               $XDG_CONFIG_HOME/bash/bash_profile                     |
-# -----------------------------------------------------------------------------
-
-    # Source shell-independent (shared) profile config-file.
-      source "$HOME/.config/shell/profile"
+#   Source shell-independent (shared) profile configuration file.
+    source "$HOME/.config/shell/profile"
