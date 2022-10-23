@@ -1,0 +1,1 @@
+See [[https://stackoverflow.com/questions/16658087/automatically-add-gitignore-and-hooks-on-git-init][here]] for more information on git templates.
