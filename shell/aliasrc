@@ -16,7 +16,7 @@
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
 #   Source zsh configuration.
-    alias sozsh="source $XDG_CONFIG_HOME/zsh/zshrc"
+    alias sozsh="source \"$XDG_CONFIG_HOME/zsh/zshrc\""
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Directory listing                                                         │
@@ -45,8 +45,9 @@
 
 #   Define list of filenames to ignore in listing.
 #   - NOTE: Be careful to remember the escape-symbols at the end of the line.
-    EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|\
-        |.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
+    EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|
+        |.git|.gitignore|.git-credentials|.archey-ip|\
+        |__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
         |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|backups|\
         |.dart|.dartServer|.flutter-devtools|.pub-cache|.terminfo|.flutter|\
         |.cups|.gem|.mono|.putty|.swiftpm|.thumbnails|.docker"
@@ -63,7 +64,7 @@
 #   Show more-detailed directory listing using `exa`
 #   ───────────────────────────────────────────────────────────────────────────
   
-#   Display longer list view.                                      (-l = --long)
+#   Display longer list view.                                     (-l = --long)
     alias ll="ls -l --header --git"
     alias lla="lsa -l --header --git"
 
@@ -151,29 +152,35 @@
     alias ln="ln -v"
 
 #   Re-map `del` command to recursive `rmtrash`.
-    # alias del="rmtrash -r"                                           (unused)
-    # alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
+  # alias del="rmtrash -r"                                           (unused)
+  # alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
-# │ Most-used applications                                                    │
+# │ Text Editor: NeoVim                                                       │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
-    alias e="$EDITOR"
+#   Make nvim either...
+#   1. ...load a file (or multiple), 
+#         if specified via e.g. `nvim file_1 file_2`.
+#   2. ...load the file listing for the current directory, 
+#         if no file is specified, such that `nvim` behaves like `nvim ./`.
+    function nvim_func {
+        if [ "$#" -eq 0 ]; then
+            nvim ./
+        else
+            nvim $@
+        fi
+    }
+    alias nvim="nvim_func"
 
+#   Define shorter `nvim` command -> mapped to `v`.
     alias v="nvim"
-    alias v.="v ./"
-
-    alias qutebrowser="qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4"
-
-    alias r="ranger"
-
-  # alias z="zathura"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Version Control using Git                                                 │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
-#   Define shorter `git` command.
+#   Define shorter `git` command -> mapped to `g`
     alias g="git"
 
 #   Define shorter `git status` command(s).
@@ -284,24 +291,37 @@
   # alias ytdl="yes | pytube3 $1 -a -f -t='$XDG_CONFIG_HOME/symlinks/dl'"
 
 #   Define shortcut to instagram scraper.
-    alias instadl="instaloader --stories --highlights --igtv --no-captions --login vincent.mader"
+    alias instadl="instaloader\
+        --stories\
+        --highlights\
+        --igtv\
+        --no-captions\
+        --login vincent.mader"
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Browser: QuteBrowser                                                      │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Increase browser performance.
+    alias qutebrowser="qutebrowser\
+        --qt-flag ignore-gpu-blacklist\
+        --qt-flag enable-gpu-rasterization\
+        --qt-flag enable-native-gpu-memory-buffers\
+        --qt-flag num-raster-threads=4"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Rust alternatives to commonly used CLI tools                              │
 # ╰───────────────────────────────────────────────────────────────────────────╯
-#   NOTE: Also see `exa`, `zoxide`, & `sd`.
+#   NOTE: See also `exa`, `zoxide`, & `sd`.
 
   # RIP grep.
     alias grep="rg"
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
 
   # Concatenate: cat -> bat
     alias cat="bat"
     alias lc='lolcat'
 
-  # find
+  # Find.
     alias find="fd"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
@@ -315,6 +335,9 @@
         ffmpeg -i $in -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" $out
     }
 
+#   Define alias to web_search.
+    alias web="web_search"
+
 #   Make `archey` & `neofetch` clear the screen before printing.
     alias archey='clear && archey'
     alias neofetch="clear && neofetch"
@@ -326,11 +349,11 @@
     alias starwars="telnet towel.blinkenlights.nl"
 
 #   Various
-    alias lolcat='clear && lolcat -a'
+    # alias lolcat='clear && lolcat -a'
     alias fortunecow='fortune -s | cowsay'
     alias cmx="cmatrix -b"
     alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
-    # sl, cowsay, cowthink, figlet, fortune, sc-im
+    # sl, cowsay, cowthink, figlet, toilet, fortune, sc-im
     # wifi-password, tldr, watch, rtv, geoiplookup, links, tree, fuck
 
 # ╔═══════════════════════════════════════════════════════════════════════════╗
@@ -344,6 +367,7 @@
     alias diff='colordiff'  # or diff --color=auto
     alias gotop="gotop --color=monokai"
     alias dcup="docker compose up"
+    alias r="ranger"
 
     if [[ "$OSTYPE" == "darwin"* ]]; then
 
