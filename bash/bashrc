@@ -1,44 +1,19 @@
 #!/bin/sh
-echo "Loading BASHRC..."
-
-# -----------------------------------------------------------------------------
-# 	                $XDG_CONFIG_HOME/bash/bashrc                          |
-# -----------------------------------------------------------------------------
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                         $XDG_CONFIG_HOME/bash/bashrc                      ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
     
-# If not running interactively, don't do anything.
-# =============================================================================
+#   If not running interactively: Don't do anything.
+    [[ $- != *i* ]] && return
 
-    # [[ $- != *i* ]] && return
+#   If running on Arch Linux: 
+    if [[ "$OSTYPE" == "linux"* ]]; then
+#       Auto-start Docker on login.                         (TODO Set this up.)
+      # systemctl start docker  
 
-# Source ~/.config/zsh/pathrc.
-# =============================================================================
+#       Load desktop wallpaper.
+      # ~/.fehbg
 
-    # source ~/.config/zsh/pathrc.
-    # source /home/vinc/.config/zsh/zshenv
-
-# Source Cargo.
-# =============================================================================
-
-# . "$HOME/.cargo/env"
-
-# Auto-start XOrg on login.
-# =============================================================================
-
-    # if [[ "$OSTYPE" == "darwin"* ]]; then
-    #     printf ""
-    # elif [[ "$OSTYPE" == "linux"* ]]; then
-    #     exec startx
-    #     # ~/.fehbg
-    # fi
-
-# Auto-start Docker on login.
-# =============================================================================
-
-    # systemctl start docker  
-    
-# Auto-start Docker on login.
-# =============================================================================
-
-    # yabai
-    # TODO only start on macOS!
-    # TODO only start on login!
+#       Auto-start XOrg on login.
+        exec startx
+    fi
