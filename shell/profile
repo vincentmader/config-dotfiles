@@ -46,6 +46,9 @@
 #   This disables the creation of the `.zsh_sessions` file -> Cleaner home.
     export SHELL_SESSIONS_DISABLE=1
 
+#   Define path to shell-history
+    export HISTFILE="$XDG_CACHE_HOME/shell/history"
+
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Editor & Visual (vi/vim/neovim/neovide)                                   │
 # ╰───────────────────────────────────────────────────────────────────────────╯
@@ -240,8 +243,11 @@
 #                         ^ added when installing virtualenv       TODO needed?
 
 #   TODO ... (description)
-    export PATH="$PATH:$CARGO_HOME/bin"            # <- both
-    . "/Users/vinc/.cache/cargo/env"               # <- needed?
+    export PATH="$PATH:$CARGO_HOME/bin"            # <- all...
+    . "/Users/vinc/.cache/cargo/env"               # <- ...
+  # source $HOME/.cargo/env                        # <- ...
+  # source $HOME/.cargo/bin                        # <- ...
+  # source "/Users/vinc/.cache/cargo/env"          # <- ...needed?
 
 #   TODO ... (description)
     if [[ "$OSTYPE" == "darwin"* ]]; then
