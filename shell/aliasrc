@@ -156,8 +156,14 @@
   # alias rm="echo \"'rm' has been deactivated. use 'del' instead!\""
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
-# │ Text Editor: NeoVim                                                       │
+# │ Text Editor: Vim/Neovim                                                   │
 # ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Make vim use the configuration file `$XDG_CONFIG_HOME/vim/vimrc`.
+    alias vim="vim -u $XDG_CONFIG_HOME/vim/vimrc"
+
+#   Make nvim use the configuration file `$NVIMRC`.
+    alias nvim="nvim -u $NVIMRC"
 
 #   Make nvim either...
 #   1. ...load a file (or multiple), 
@@ -173,8 +179,9 @@
     }
     alias nvim="nvim_func"
 
-#   Define shorter `nvim` command -> mapped to `v`.
+#   Define shorter `nvim` commands -> mapped to `v` and `vi`.
     alias v="nvim"
+    alias vi="nvim"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Version Control using Git                                                 │

@@ -72,9 +72,9 @@
 #   If the shell is running inside an SSH connection: Use vanilla vim.
     if [[ -n $SSH_CONNECTION ]]; then
       export EDITOR="vim"; 
-#   Otherwise: Use neovim, & load my custom configuration.
+#   Otherwise: Use neovim.
     else
-      export EDITOR="nvim -u $NVIMRC"
+      export EDITOR="nvim"
     fi
 
 #   Configure $VISUAL to just use $EDITOR as well (both are vi/vim, anyway).
