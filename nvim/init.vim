@@ -1,21 +1,42 @@
 
-" -----------------------------------------------------------------------------
-" 				  neovim init.vim
-" -----------------------------------------------------------------------------
+" ╔═══════════════════════════════════════════════════════════════════════════╗
+" ║                       $XDG_CONFIG_HOME/nvim/init.vim                      ║
+" ╚═══════════════════════════════════════════════════════════════════════════╝
 
-"                                    GENERAL
+"                                     GENERAL
 " =============================================================================
 
-    "                              Leader Keys                              {{{
-    " -------------------------------------------------------------------------
+    "                                 General                               {{{
+    " =========================================================================
+
+    " Do NOT turn off all the improvements of "vi Improved" 
+    " by ensuring "vi" compatibility.
+      set nocompatible
+
+    " Set encoding.
+      set encoding=utf-8
+
+    " Automatically reload files from disk on change.
+      set autoread  
+
+    " Restore last cursor position & marks on open.
+      au BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+        \ |   exe "normal! g`\""
+        \ | endif
+    
+    " }}}
+    "                           General: Leader Keys                        {{{
+    " =========================================================================
     " Define main leader key.
       let mapleader="\<space>"
     " Define local leader key.               TODO: What's the difference again?
       let maplocalleader ="\<tab>"
 
     " }}}
-    "                             Plugin Manager                            {{{
-    " -------------------------------------------------------------------------
+    "
+    "                           Plugin Manager Setup                        {{{
+    " =========================================================================
     " Make sure plugin manager (junnegun/vim-plug) is installed.
       if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
           silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -25,7 +46,7 @@
 
     " }}}
     "                           Plugin Installation                         {{{
-    " -------------------------------------------------------------------------
+    " =========================================================================
 
     " Activate "detection", "plugin", and "indent".
       filetype indent plugin on
@@ -229,8 +250,8 @@
       
     " }}}
 
-"                                   Colorscheme                             {{{
-" =============================================================================
+    "                          Appearance: Colorscheme                      {{{
+    " =========================================================================
 
     " Specify name of colorscheme.
       colorscheme solarized
@@ -250,79 +271,123 @@
     " Use dark theme.
       map <leader>md :set bg=dark<CR>
 
-" }}}
-"                                    Fonts                                  {{{
-" =============================================================================
+    " }}}
+    "                            Appearance: Fonts                          {{{
+    " =========================================================================
 
     " Use Hack Nerd in GUI-vim as well.
       set guifont="Hack Nerd Font"
 
-" }}}
-"                                     Macros                                {{{
-" ============================================================================= 
-
-    " Execute last executed macro.
-      nnoremap Q @@
-
-    " Only redraw screen after macro is finished -> speed-up.
-      set lazyredraw
-
-    " Remap yanking until end of line.
-    " nnoremap Y y$
-
-" }}}
-"                           Navigation inside Files                         {{{
-" =============================================================================
-
-" }}}
-"                           Navigation between Files                        {{{
-" =============================================================================
-
-" }}}
-
-    "                                Appearance                             {{{
-    " -------------------------------------------------------------------------
+    " }}}
+    "                     Appearance: Syntax Highlighting                   {{{
+    " =========================================================================
 
     " Turn on syntax highlighting. 
     " - NOTE: needs to be up here in file, to not conflict with SignCol
       syntax on
+    
+    " }}}
+    "                           Appearance: Cursor                          {{{
+    " =========================================================================
+    
+    " Always have at least 5 lines above/below cursor on screen.
+      set scrolloff=12
 
+    " Show on which line the cursor is by highlighting the whole row.
+    " set cursorline
+
+    " }}}
+    "                         Appearance: Line Numbers                      {{{
+    " =========================================================================
+    " - Setup method of displaying line-numbers on the left side of the editor.
+
+    " Use relative numbers in normal mode.
+      set number relativenumber
+
+    " Switch to absolute line numbering when in insert mode. 
+      " augroup numbertoggle
+      "     autocmd!
+      "     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+      "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+      " augroup END
+
+    " Make background transparent.    TODO Why does this not affect the colors?
+      " highlight LineNr ctermbg=None ctermfg=None
+      " highlight LineNr ctermbg=red ctermfg=red    
+    
+    " }}}
+    "                         Appearance: Miscellaneous                     {{{
+    " =========================================================================
+    
     " Show typed commands in lower-right corner of editor window.
     " - TODO: Change `ctermfg` for `showcmd` display-text. -> Green?
       set showcmd
 
     " Deactivate welcome text by setting its color to background.
     " - NOTE: Welcome text is deactivated anyways. -> Not needed anymore.
-    " autocmd BufEnter * :highlight NonText guifg=bg<CR>
+      autocmd BufEnter * :highlight NonText guifg=bg<CR>
+    " - TODO: Now the message is there again. EVEN if I re-activate above...???
 
-    " CURSOR
-    " -------------------------------------------------------------------------
-    " Show on which line the cursor is by highlighting the whole row.
-    " set cursorline
+    " }}}
+    "
+    "                                  Macros                               {{{
+    " ========================================================================= 
 
-    " Always have at least 5 lines above/below cursor on screen.
-      set scrolloff=12
+    " Define shortcut to execute last executed macro.
+      nnoremap Q @@
 
-    " LINE NUMBERING
-    " -------------------------------------------------------------------------
-    " Setup method of displaying line-numbers on the left side of the editor.
-    " Use relative numbers in normal mode.
-      set number relativenumber
-    " Switch to absolute line numbering when in insert mode.
-      " augroup numbertoggle
-      "     autocmd!
-      "     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-      "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-      " augroup END
-    " Make background transparent. TODO Why does this not affect the colors?
-      " highlight LineNr ctermbg=None ctermfg=None
-      " highlight LineNr ctermbg=red ctermfg=red    
+    " Only redraw screen after macro is finished -> speed-up.
+      set lazyredraw
+
+    " Remap yanking until end of line.
+      " nnoremap Y y$
 
 " }}}
-"                                   Sign Column                             {{{
-" =============================================================================
+    "                         Navigation inside Files                       {{{
+    " =========================================================================
 
-    " SIGN COLUMN & COLOR COLUMN (left & 'right')
+    " Activate mouse.
+      set mouse=a  
+
+    " Move vertically by visual line.
+      nnoremap j gj
+      nnoremap k gk
+
+    " Confiure Intra-file Search.                                 (-> with "/")
+    " -------------------------------------------------------------------------
+    " Search incrementally as characters are entered, & highlight matches.
+      set incsearch hlsearch
+    " Make case-insensitive, except if capital letters are entered explicitly.
+      set ignorecase smartcase
+
+    " }}}
+    "                         Navigation between Files                      {{{
+    " =========================================================================
+
+    " Buffers
+    " -------------------------------------------------------------------------
+    " Switch between buffers.                  (Re-map: Use buffers, not tabs!)
+      map gn :bn<cr>
+      map gp :bp<cr>
+    " map gd :bd<cr> 
+
+" }}}
+    "                                Vim-Modes                              {{{
+    " =========================================================================
+
+    " Quick-exit insert mode with `jk`, and write to file.
+      inoremap jk <Esc>:w<cr>
+
+    " Quick-exit vim.
+      map zz :wq!<CR>
+
+" }}}
+"
+
+    "                           Sign & Color Columns                        {{{
+    " =========================================================================
+
+    " SIGN COLUMN:                                                       (left)
     " -------------------------------------------------------------------------
     " Always display sign-column where error symbols would be displayed.
       set signcolumn=yes
@@ -330,24 +395,23 @@
       highlight SignColumn ctermfg=none ctermbg=none guifg=none guibg=none
       "               ^ does nothing
 
-" }}}
-"                                  Color Column                             {{{
-" =============================================================================
-    " NOTE: deactivated
+    " COLOR COLUMN:                                                     (right)
+    " -------------------------------------------------------------------------
+    " - deactivated a.t.m.
 
-    " Method A: Display color-column to signify the 81st column.
-    " set textwidth=80
-    " set colorcolumn=81
-    " highlight ColorColumn ctermbg=235
+    " Method a: Display color-column to signify the 81st column.
+      " set textwidth=80
+      " set colorcolumn=81
+      " highlight ColorColumn ctermbg=235
 
-    " Method B: Color text after column 80 in e.g. red.
-    " au BufEnter *.wiki let b:is_wiki_file=1
-    " au BufEnter *.vimwiki let b:is_wiki_file=1
-    " if !exists("b:is_wiki_file")
-    "     " echo exists("b:is_wiki_file")
-    "     " echo b:is_wiki_file
-    "     autocmd BufEnter * match Error /\%>80c/
-    " endif
+    " Method b: Color text after column 80 in e.g. red.
+      " au BufEnter *.wiki let b:is_wiki_file=1
+      " au BufEnter *.vimwiki let b:is_wiki_file=1
+      " if !exists("b:is_wiki_file")
+      "     " echo exists("b:is_wiki_file")
+      "     " echo b:is_wiki_file
+      "     autocmd BufEnter * match Error /\%>80c/
+      " endif
 
 " }}}
 "                                  Status Bar                               {{{
@@ -473,6 +537,8 @@
 "                               Command-Bar/Line                              |
 " =============================================================================
 
+    " prevent vim from printing welcome message.   (todo: move, tgth. w/ below)
+      set shortmess=I
     " prevent Vim from echoing the current filename into the commandline.
       set shortmess+=F
 
@@ -588,21 +654,10 @@
 "                            General Vim Configuration                      {{{
 " =============================================================================
 
-    " Set encoding.
-      set encoding=utf-8
 
     " Increase :cmdline history size.
       set history=1000                            
       au FocusGained,BufEnter * :checktime
-
-    " Automatically reload files from disk on change.
-      set autoread  
-
-    " Restore last cursor position & marks on open.
-        au BufReadPost *
-            \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-            \ |   exe "normal! g`\""
-            \ | endif
 
     " allow backspace in insert mode
         " set backspace=indent,eol,start  
@@ -677,16 +732,17 @@
     " QuteBrowser
       map <leader>cqtb :tabnew $XDG_CONFIG_HOME/qutebrowser/config.py <CR>
     " Shell/Zsh
-      map <Leader>cali :tabnew $XDG_CONFIG_HOME/zsh/aliasrc <CR>
-      map <Leader>cxrc :tabnew $XINITRC <CR>
       map <Leader>czsh :tabnew $ZSHRC <CR>
-      map <Leader>cxrc :tabnew $XDG_CONFIG_HOME/x/xinitrc <CR>
+      map <Leader>cali :tabnew $XDG_CONFIG_HOME/shell/aliasrc <CR>
     " Suckless DWM
       map <Leader>cdwm :tabnew $XDG_CONFIG_HOME/dwm/config.h <CR>
     " Suckless Terminal
       map <Leader>cst :tabnew $XDG_CONFIG_HOME/st/config.h <CR>
     " TMUX
       map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
+    " XOrg
+      map <Leader>cxrc :tabnew $XINITRC <CR>
+      map <Leader>cxrc :tabnew $XDG_CONFIG_HOME/x/xinitrc <CR>
 
 " }}}
 "                                Quick-Move Lines                           {{{
@@ -697,24 +753,6 @@
       xnoremap <leader>k :m-2<cr>gv=gv
       nnoremap <leader>j :m+<cr>==
       xnoremap <leader>j :m'>+<cr>gv=gv
-
-" }}}
-"                              In-File Navigation                           {{{
-" ============================================================================= 
-
-    " Switch between editor modes.
-    " -------------------------------------------------------------------------
-    " Quick-exit insert mode with `jk`, and write to file.
-      inoremap jk <Esc>:w<cr>
-    " Quick-exit vim.
-      map zz :wq!<CR>
-    
-    " Switch between buffers.
-    " -------------------------------------------------------------------------
-    " Use buffers, not tabs.
-      map gn :bn<cr>
-      map gp :bp<cr>
-    " map gd :bd<cr> 
 
 " }}}
 "                                 Version Control                           {{{
@@ -779,21 +817,8 @@
       map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
 
 " }}}
-"                                             cursor movement inside buffer {{{
-" =============================================================================
-"                                                                activate mouse 
-set mouse=a  
-"                                                move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-
-" }}}
 "                                           searching and switching buffers {{{
 " =============================================================================
-"            search incrementally as characters are entered & highlight matches
-set incsearch hlsearch
-"             case insensitive except if capital letters are entered explicitly
-set ignorecase smartcase
 
 " }}}
 "                                                                vim splits {{{
@@ -855,17 +880,6 @@ nnoremap <C-L> <C-W><C-L>
       " autocmd BufLeave *.rs,*.toml execute "silent! CocEnable"
 
 " }}}
-
-    "                               Key Remaps                              {{{
-
-
-    " }}}
-    "                                   Title                             {{{
-    " }}}
-"                              Ttitle                          {{{
-" =============================================================================
-    
-    " }}}
 
 "                                    PLUGINS
 " =============================================================================
@@ -1237,54 +1251,58 @@ let g:ranger_command_override = 'ranger --confdir=$XDG_CONFIG_HOME/ranger'
 
 " }}}
 
+" =============================================================================
+
 "                                       SORT                                {{{
 " =============================================================================
 
-" source $XDG_CONFIG_HOME/nvim/ale.vim
-" source $XDG_CONFIG_HOME/nvim/gtd.vim
-
-" autocmd vimenter * FZF
-
-" set concealcursor=nc
-
-
-
-    """ Prompt for a command to run
-    ""map <Leader>vp :VimuxPromptCommand<CR>
-    """ Run last command executed by VimuxRunCommand
-    ""map <Leader>vl :VimuxRunLastCommand<CR>
-    """ Inspect runner pane
-    ""map <Leader>vi :VimuxInspectRunner<CR>
-    
-    """noremap <r> :so % <Enter>                   " reload vimrc (has lead to crash)
-    
-    " disables auto comment on new line
-    " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-    
-    "" table mode (activated with <Leader>tm)
-    "" ----------------------------------------------------------------------------
-    " alignment
-    let g:table_mode_align_char = ':'
-    " ReST compatible
-    " let g:table_mode_header_fillchar='='
-    " let g:table_mode_corner_corner='+'
-    
-    """ setup up of ALE
-    "" ----------------------------------------------------------------------------
-    """ Put these lines at the very end of your vimrc file.
-    """ Load all plugins now.
-    """ Plugins need to be added to runtimepath before helptags can be generated.
-    ""packloadall
-    """ Load all of the helptags now, after plugins have been loaded.
-    """ All messages and errors will be ignored.
-    ""silent! helptags ALL
-
-
-
-
-
-
-    " calendar
-    " let g:calendar_frame = 'default'
+      " source $XDG_CONFIG_HOME/nvim/ale.vim
+      " source $XDG_CONFIG_HOME/nvim/gtd.vim
+      
+      " autocmd vimenter * FZF
+      
+      " set concealcursor=nc
+  
+      """ Prompt for a command to run
+      ""map <Leader>vp :VimuxPromptCommand<CR>
+      """ Run last command executed by VimuxRunCommand
+      ""map <Leader>vl :VimuxRunLastCommand<CR>
+      """ Inspect runner pane
+      ""map <Leader>vi :VimuxInspectRunner<CR>
+      
+      """noremap <r> :so % <Enter>                   " reload vimrc (has lead to crash)
+      
+      " disables auto comment on new line
+      " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+      
+      "" table mode (activated with <Leader>tm)
+      "" ----------------------------------------------------------------------------
+      " alignment
+      let g:table_mode_align_char = ':'
+      " ReST compatible
+      " let g:table_mode_header_fillchar='='
+      " let g:table_mode_corner_corner='+'
+      
+      """ setup up of ALE
+      "" ----------------------------------------------------------------------------
+      """ Put these lines at the very end of your vimrc file.
+      """ Load all plugins now.
+      """ Plugins need to be added to runtimepath before helptags can be generated.
+      ""packloadall
+      """ Load all of the helptags now, after plugins have been loaded.
+      """ All messages and errors will be ignored.
+      ""silent! helptags ALL
+  
+      " calendar
+      " let g:calendar_frame = 'default'
 
 " }}}
+
+    "                                  Title                                {{{
+    " =========================================================================
+    
+    " }}}
+
+
+      set nowrap
+
