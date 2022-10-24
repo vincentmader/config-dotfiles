@@ -61,7 +61,10 @@
 #   Since I'm using vi anyways, both variables are the same.
 
 #   TODO Look-up re: Define $VIMRUNTIME variable as well?
-#   export VIMRUNTIME="$XDG_CONFIG_HOME/nvim/"
+  # export VIMRUNTIME="$XDG_CONFIG_HOME/nvim/"
+
+#   TODO Look-up re: Define $VIM variable as well?
+  # export VIM="$XDG_CONFIG_HOME/vim"
 
 #   Define path to neovim configuration file (init.vim).
     export NVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
