@@ -21,15 +21,31 @@ laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu,
 feugiat in, orci. In hac habitasse platea dictumst.
 endsnippet
 
-snippet comment_separator_1 "# ======..."
+snippet comment_separator_1 "# ══════..."
+# ═════════════════════════════════════════════════════════════════════════════
+endsnippet
+snippet comment_separator_2 "# ──────..."
+# ─────────────────────────────────────────────────────────────────────────────
+endsnippet
+snippet comment_separator_3 "# ======..."
 # =============================================================================
 endsnippet
-
-snippet comment_separator_2 "# ------..."
+snippet comment_separator_4 "# ------..."
 # -----------------------------------------------------------------------------
 endsnippet
-
-snippet box "Box"
+snippet box_1 "Box"
+`!p snip.rv = '╔' + '═' * (len(t[1]) + 2) + '╗'`
+║ $1 ║
+`!p snip.rv = '╚' + '═' * (len(t[1]) + 2) + '╝'`
+$0
+endsnippet
+snippet box_2 "Box"
+`!p snip.rv = '╭' + '─' * (len(t[1]) + 2) + '╮'`
+│ $1 │
+`!p snip.rv = '╰' + '─' * (len(t[1]) + 2) + '╯'`
+$0
+endsnippet
+snippet box_3 "Box"
 `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
 │ $1 │
 `!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
