@@ -34,7 +34,7 @@
 #   Define default exa flags.
 #   1. Show icons.
 #   2. Group directories first.
-    EXA_FLAGS="-a --icons --group-directories-first"
+    EXA_FLAGS="--icons --group-directories-first"
 
 #   Re-define `exa` command for prettier displaying.
 #   - Clear screen before showing listing.
@@ -53,9 +53,9 @@
         |.cups|.gem|.mono|.putty|.swiftpm|.thumbnails|.docker"
 
 #   Re-define `ls` command to ignore the just-defined list of files...
-    alias ls="exa -I \"$EXA_IGNORE\""
+    alias ls="exa -a -I \"$EXA_IGNORE\""
 #   ...except if running `lsa`.
-    alias lsa="exa"
+    alias lsa="exa -a"
  
 #   Show in a prettier way via 1-level-deep tree-view.            (-T = --tree)
     alias l="ls -T --level=1"
