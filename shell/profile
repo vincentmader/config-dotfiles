@@ -22,7 +22,7 @@
     export XDG_CACHE_HOME="$HOME/.cache"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
-# │ Locale Variables                                                          │
+# │ Locale Setup                                                              │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 #   These variables tell the OS how to display/output certain kinds of text.
 #
@@ -42,7 +42,7 @@
 # │ Shell                                                                     │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
-#   Deactive macOS's "Save/Restore Shell State" feature for Zsh.
+#   Deactivate macOS's "Save/Restore Shell State" feature for Zsh.
 #   This disables the creation of the `.zsh_sessions` file -> Cleaner home.
     export SHELL_SESSIONS_DISABLE=1
 

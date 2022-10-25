@@ -38,7 +38,9 @@
     setopt sharehistory
 
 #   Define path to command-history file.
-    HISTFILE="$XDG_CACHE_HOME/shell/history"
+    HISTFILE="$XDG_CACHE_HOME/zsh/history"
+#   NOTE: This is overwritten in `../zsh/zshrc` for zsh-specific history.
+#   TODO: Setup having only a single (shell-independent) history file?
 
 #   Define format of timestamps for command-history.
     HIST_STAMPS="yyyy-mm-dd"
@@ -47,7 +49,7 @@
     HISTSIZE=10000
 
 #   Define nr. of command-history entries saved to file.
-    SAVEHIST=5000
+    SAVEHIST=100000
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Command auto-suggest                                                      │
