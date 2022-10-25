@@ -293,6 +293,11 @@
 #   Re-define `wget` command to use custom history-file.
     alias wget="wget --hsts-file \"$XDG_CACHE_HOME/wget/wget-hsts\""
 
+#   Define shorter `web_search` command.
+#   NOTE: See `../zsh/zprofile` for search-engine definitions.
+    alias web="web_search"
+#   TODO Think re: Create a separate `zsh_aliasrc`?
+
 #   Define shortcut to youtube scraper.
     alias ytdl="youtube-dl"
   # alias ytdl="yes | pytube3 $1 -a -f -t='$XDG_CONFIG_HOME/symlinks/dl'"
@@ -332,36 +337,85 @@
     alias find="fd"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
-# │ Other fun stuff                                                           │
+# │ Disk utilities                                                    │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
-#   Define function to turn .gif file into video.
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+
+#       Configure macOS `diskutil` command to clear screen before printing.
+        alias diskutil="clear && diskutil"
+
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+
+#       Configure Linux' `fdisk` command to clear screen before printing.
+        alias fdisk="clear && fdisk"
+
+    fi
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Other useful CLI tools                                                    │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Define shorter command for `ranger`.
+    alias r="ranger"
+#   TODO: Decide re: Switch to `lf` or `nnn` instead?
+
+#   Activate color-support for `gotop` activity-monitor.
+    alias gotop="gotop --color=monokai"
+
+#   Use `colordiff` instead of default `diff` command -> color-support.
+    alias diff='colordiff'  
+#   TODO: Decide re: Use `diff --color=auto` instead? -> Uninstall `colordiff`.
+
+#   Define function/command to turn .gif file into video.
     function gif2vid {
         local in="$1"
         local out="$2"
         ffmpeg -i $in -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" $out
     }
 
-#   Define alias to web_search.
-    alias web="web_search"
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Other fun stuff                                                           │
+# ╰───────────────────────────────────────────────────────────────────────────╯
 
 #   Make `archey` & `neofetch` clear the screen before printing.
     alias archey='clear && archey'
     alias neofetch="clear && neofetch"
 
-#   Show a zoomable world-map in the terminal.
+#   Show a zoomable world-map in the terminal. (very impressive!)
     alias map="telnet mapscii.me"  # install telnetutils for this
 
 #   Watch StarWars in the terminal.
     alias starwars="telnet towel.blinkenlights.nl"
 
-#   Various
-    # alias lolcat='clear && lolcat -a'
-    alias fortunecow='fortune -s | cowsay'
+#   Configure `lolcat` to also animate colors, & clear screen before printing.
+    alias lolcat='clear && lolcat -a'
+
+#   Become a real hackerman.
     alias cmx="cmatrix -b"
+
+#   Get life-advice from fortune-cow.
+    alias fortunecow='fortune -s | cowsay'
+
+#   Show themes.
     alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
-    # sl, cowsay, cowthink, figlet, toilet, fortune, sc-im
-    # wifi-password, tldr, watch, rtv, geoiplookup, links, tree, fuck
+
+# Inspirations
+# - cowsay
+# - cowthink
+# - figlet
+# - fortune
+# - fuck
+# - geoiplookup
+# - links
+# - rtv
+# - sc-im
+# - sl
+# - tldr
+# - toilet
+# - tree
+# - watch
+# - wifi-password
 
 # ╔═══════════════════════════════════════════════════════════════════════════╗
 # ║                                                                           ║
@@ -369,41 +423,46 @@
 # ║                                                                           ║
 # ╚═══════════════════════════════════════════════════════════════════════════╝
 
-    alias smi="sudo make install"
-    alias smci="sudo make clean install"
-    alias diff='colordiff'  # or diff --color=auto
-    alias gotop="gotop --color=monokai"
     alias dcup="docker compose up"
-    alias r="ranger"
 
     if [[ "$OSTYPE" == "darwin"* ]]; then
 
+#       Define shorter `open` command.
         alias o="open"
-        alias diskutil="clear && diskutil"
+        alias o.="open ."
+
+#       Define global search command, similar to macOS' Spotlight.
         alias spot="mdfind -name"
-        # alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
-        # alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
+#       Various
+      # alias carla="sh $HOME/Documents/critical_driving_scenarios/project/carla/CarlaUE4.sh -opengl3 -quality-level=Low"
+      # alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
     elif [[ "$OSTYPE" == "linux"* ]]; then
-
-        alias fdisk="clear && fdisk"
-        alias zzz="sleep 1; xset dpms force off"
-        alias ip="ip -color=auto"
-        alias dwmr="sudo killall dwm && startx"
-        alias iwctl="clear && iwctl"
-        alias fehf='feh --full-screen'
-        # alias dwms="sudo killall xfwm4 && dwm"
-        # alias smidwmr="cd $XDG_CONFIG_HOME/dwm && sudo make install && killall dwm && dwm"
-        # alias smist="cd $XDG_CONFIG_HOME/st && sudo make install"
-        # alias yayus="yay --mflags --skipinteg"        # unsafe yay
 
 #       Source xorg key mappings.         
         alias xbindkeys="xbindkeys -f $XDG_CONFIG_HOME/x/xbindkeysrc"  
 
+#       Define shortcut for restarting `dwm` (suckless dynamic window manager).
+        alias dwmr="sudo killall dwm && startx"
+      # alias dwms="sudo killall xfwm4 && dwm"
+
+#       Various
+        alias zzz="sleep 1; xset dpms force off"
+        alias ip="ip -color=auto"
+        alias iwctl="clear && iwctl"
+        alias fehf='feh --full-screen'
+
+      # alias smidwmr="cd $XDG_CONFIG_HOME/dwm && sudo make install && killall dwm && dwm"
+      # alias smist="cd $XDG_CONFIG_HOME/st && sudo make install"
+      # alias yayus="yay --mflags --skipinteg"        # unsafe yay
+      # alias smi="sudo make install"
+      # alias smci="sudo make clean install"
+      # alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect Pingeling"
+
     fi
 
   # alias pdfl="pdflatex"
-  # alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect Pingeling"
   # alias speedtest="speedtest-cli"
   # alias top="gotop" 
   # alias wifi="iwctl station wlan0 disconnect; iwctl station wlan0 get-networks; iwctl station wlan0 connect o2-WLAN79"
