@@ -3,7 +3,8 @@
 " ║                       $XDG_CONFIG_HOME/nvim/init.vim                      ║
 " ╚═══════════════════════════════════════════════════════════════════════════╝
 
-"                                    GENERAL                                {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"                                    GENERAL:                               {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Do NOT ensure "vi" compatibility (since it would turn off "vim" features).
@@ -15,13 +16,23 @@
 "   Automatically reload files from disk on change.
     set autoread  
 
+"   Activate mouse.
+    set mouse=a  
+
 "   Restore last cursor position & marks on open.
     au BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
       \ |   exe "normal! g`\""
       \ | endif
 
-" }}}
+"   Turn off swap files.
+    set noswapfile
+
+"   Turn off backup.
+    set nobackup
+    set nowritebackup
+
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                             GENERAL: Leader Keys                          {{{
 " ═════════════════════════════════════════════════════════════════════════════
 "   TODO Look-up: What's the difference again btw. "leader" & "local-leader"?
@@ -32,16 +43,65 @@
 "   Define local leader key.               
     let maplocalleader ="\<tab>"
 
-" }}}
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               GENERAL: Macros                             {{{
+" ═════════════════════════════════════════════════════════════════════════════
 
-"                               PLUGINS: General                            {{{
+"   Define shortcut to re-run last-executed macro.
+    nnoremap Q @@
+
+"   Only redraw screen after macro is finished.                     -> speed-up
+    set lazyredraw
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                        GENERAL: Persistent Undo-History                   {{{ 
+" =============================================================================
+ 
+"   Save undo-history across sessions, by storing in file. 
+    if has('persistent_undo')
+        silent !mkdir $HOME/.config/nvim/backups > /dev/null 2>&1
+        set undodir=$HOME/.config/nvim/backups
+        set undofile
+    endif
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                              GENERAL: Vim-Modes                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Quick-exit insert mode with `jk`, & write to file.
+    inoremap jk <Esc>:w<cr>
+
+"   Quick-exit vim.
+    map zz :wq!<CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                           GENERAL: Vim Window-Splits                      {{{
+" =============================================================================
+
+"   Configure new vim window-splits to go to the right & below.
+    set splitbelow
+    set splitright
+
+"   Navigate vim splits via `C-hjkl`.
+    nnoremap <C-H> <C-W><C-H>
+    nnoremap <C-J> <C-W><C-J>
+    nnoremap <C-K> <C-W><C-K>
+    nnoremap <C-L> <C-W><C-L>
+
+" }}}
+"                                 GENERAL: ...                              {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+" ═════════════════════════════════════════════════════════════════════════════
+"                                 PLUGINS:                                  {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Activate "detection", "plugin", and "indent".
     filetype indent plugin on
 
-" }}}
-"                           PLUGINS: Plugin Manager                         {{{
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                         PLUGINS: Plugin Manager (vim-plug)                {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Make sure plugin manager (junnegun/vim-plug) is installed.
@@ -51,7 +111,7 @@
         autocmd VimEnter * PlugInstall --sync | source $NVIMRC
     endif
 
-" }}}
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                       PLUGINS: Plugin List Definition (TODO)              {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
@@ -259,75 +319,709 @@
   call plug#end()
   
 " }}}
+" ═════════════════════════════════════════════════════════════════════════════
+"                                 PLUGIN: Ag/Ack                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   Use case: Search for text in all files in the current directory.
 
+"   If the silver-searcher (a.k.a. `ag`) is installed, use it instead of `ack`.
+"   TODO: Install `ag`.
+"   TODO: Remove `--nocolor` flag.
+    if executable('ag')
+        let g:ackprg = 'ag --nogroup --nocolor --column'
+    endif
+    nnoremap <leader>a :Ack! -Q ""<Left>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               PLUGIN: Airline                             {{{
 " =============================================================================
 
-    "                          Appearance: Colorscheme                      {{{
-    " =========================================================================
+"   Define airline theme.
+"   ───────────────────────────────────────────────────────────────────────────
 
-    " Specify name of colorscheme.
-      colorscheme solarized
+"   Use Solarized theme.
+    let g:airline_theme = 'solarized' 
 
-    " Enable dark-mode.
-      set background=dark
+"   Use dark background.
+    let g:airline_solarized_bg = 'dark'
 
-    " Tell vim to use degraded colors.
-    " - Needs to be active for solarized-black iTerm profile.  TODO [#B] Really?
-    " - See: https://github.com/altercation/vim-colors-solarized#important-note-for-terminal-users
-      " let g:solarized_termcolors=256                      
+"   Configure tab-bar.
+"   ───────────────────────────────────────────────────────────────────────────
 
-    " Define keyboard short-cuts to toggle light-/dark-mode.
-    " -------------------------------------------------------------------------
-    " Use light theme.
-      map <leader>ml :set bg=light<CR>
-    " Use dark theme.
-      map <leader>md :set bg=dark<CR>
+"   Activate tab-line extension.
+    let g:airline_extensions = ["tabline"]                
 
-    " }}}
-    "                            Appearance: Fonts                          {{{
-    " =========================================================================
+"   Turn off triangle thingies.
+    let g:airline_right_sep=''
+  " let g:airline_left_sep=''
 
-    " Use Hack Nerd in GUI-vim as well.
-      set guifont="Hack Nerd Font"
+"   Use dark text in file-name (at left end of airline).
+    let g:airline_solarized_dark_text = 1
 
-    " }}}
-    "                     Appearance: Syntax Highlighting                   {{{
-    " =========================================================================
+"   Customize Colors of...                                  (for vanilla-vim)
+"   ...selected tab:
+  " hi TabLineSel ctermfg=Red ctermbg=Yellow
+"   ...unselected tab:
+  " hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+"   ...background of tabline:
+  " hi TabLine ctermfg=Blue ctermbg=Yellow
+"   ...window counter per tab (?)
+  " hi Title ctermfg=LightBlue ctermbg=Magenta
 
-    " Turn on syntax highlighting. 
-    " - NOTE: needs to be up here in file, to not conflict with SignCol
+"   Make tab-bar background invisible/black.
+    augroup HITABFILL
+        autocmd!
+
+"       Change `airline_tabfill` colors to black/transparent.
+        autocmd User AirlineAfterInit hi airline_tabfill ctermbg=black ctermfg=none
+
+"       The following options don't seem to affect status-bar colors... (?)
+      " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tabfill ctermbg=black ctermfg=none
+      " autocmd User AirlineAfterInit hi airline_tabhid_to_airline ctermbg=black ctermfg=none
+      " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tablabel_right ctermbg=None ctermfg=red
+      " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tabfill ctermbg=None ctermfg=red
+      " autocmd User AirlineAfterInit hi airline_tab_right ctermbg=None ctermfg=red
+      " autocmd User AirlineAfterInit hi airline_tabtype ctermbg=None ctermfg=red
+
+    augroup END
+
+"   Disable airline statusline.
+"   ---------------------------------------------------------------------------
+
+"   Disable statusline. (makes the following lines obsolete)
+    let w:airline_disable_statusline = 1
+
+"   Move status-line to bottom of editor window.
+  " let g:airline_statusline_ontop = 0
+
+"   Disable display of mode.
+  " let g:airline_section_a = ''
+
+"   Disable display of version control info.
+  " let g:airline_section_b = ''
+
+"   Disable display of file-name.
+  " let g:airline_section_c = ''
+
+"   Disable display of file-type.
+  " let g:airline_section_x = ''
+
+"   Disable display of file-encoding.
+  " let g:airline_section_y = ''
+
+"   Disable display of location in file.
+  " let g:airline_section_z = ''
+  " let g:airline_section_z = '%3p%% %3l/%L:%3v'
+
+"   Skip empty sections. (-> less separator-triangle thingies)
+  " let g:airline_skip_empty_sections = 1
+
+"   Configure default expected file-encoding 
+  " let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+  "  ^ -> file-encoding not displayed for utf-8 
+
+"   Various    
+"   ---------------------------------------------------------------------------
+
+"   Use powerline fonts.
+    let g:airline_powerline_fonts = 1
+
+"   Display CoC-info in statusbar.
+    let g:airline#extensions#coc#enabled = 1
+
+"   Deactivate tabline-labels for buffers & tabs.
+    let g:airline#extensions#tabline#tabs_label = ''
+    let g:airline#extensions#tabline#buffers_label = ''
+
+  " let g:airline_solarized_normal_green = 1
+  " let g:airline_solarized_dark_inactive_border = 1
+  " let g:airline#extensions#tabline#show_splits = 0
+  " let g:airline#extensions#tabline#show_buffers = 1
+  " let g:airline#extensions#tabline#show_tabs = 1
+  " let airline_solarized_enable_command_color = 1
+
+  " Use cache (should speed up vim).
+  " let g:airline_highlighting_cache = 0
+
+" }}}
+"                        PLUGIN: Conqueror of Completion                   {{{
+" ═════════════════════════════════════════════════════════════════════════════
+    
+"   Define list of CoC Extensions.
+    let g:coc_global_extensions = [
+        \ 'coc-docker',
+        \ 'coc-eslint',
+        \ 'coc-flutter',
+        \ 'coc-fzf-preview',
+        \ 'coc-html',
+        \ 'coc-jedi',
+        \ 'coc-json',
+        \ 'coc-pairs',
+        \ 'coc-prettier',
+        \ 'coc-pyright',
+        \ 'coc-rust-analyzer',
+        \ 'coc-rls',
+        \ 'coc-snippets',
+        \ 'coc-vimtex',
+    \ ]
+        " \ 'coc-css',
+        "     ^ -> not working anymore, for some reason...
+        " \ 'coc-python',  
+        "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
+        " \ 'coc-tsserver',
+        "     ^ -> not working anymore, for some reason...
+
+"   Code completion.
+"   ───────────────────────────────────────────────────────────────────────────
+
+"   Use <Tab> and <S-Tab> to navigate the completion list:
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"   Select first list item by default, confirm with <Return>.
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+"   Close the preview window when completion is done. 
+"   TODO: necessary?
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+  
+"   Decrease update-time for CursorHold & CursorHoldI.
+"   TODO: What does this do?
+    set updatetime=300
+
+"   Confirm completion with <Return>.
+  " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  
+"   Navigate diagnostics information.
+"   ───────────────────────────────────────────────────────────────────────────
+
+"   Use `[g` and `]g` keys to go to next/previous diagnostic info entry.
+    nmap <silent> [g <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+"   Show documentation for object under cursor.
+"   ───────────────────────────────────────────────────────────────────────────
+"   Use `K` key to show documentation in preview window.
+    function! s:show_documentation()
+        if (index(['vim', 'help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+"   Appearance
+"   ───────────────────────────────────────────────────────────────────────────
+
+  " Configure CoC error-window colors.
+    highlight FgCocErrorFloatBgCocFloating ctermfg=1 ctermbg=0
+    highlight CocFloating ctermbg=black ctermfg=white
+    highlight CocMenuSel ctermbg=white ctermfg=black
+  " highlight CocErrorFloat ctermbg=red ctermfg=green  
+      " highlight Pmenu guifg=#0000FF
+      " ^ not working
+      " hi CocListBgRed guibg=black guifg=red
+      " hi NvimInternalError guibg=black guifg=red
+
+"   Various
+"   ───────────────────────────────────────────────────────────────────────────
+
+"   Rename word under cursor with `F2`.
+"   TODO: Lookup: What does this do again?
+  " nmap <F2> <Plug>(coc-rename)
+
+  " python (?)
+  " set statusline^=%{coc#status()}
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                       PLUGIN: EasyMotion (inactive)                       {{{
+" =============================================================================
+
+"   Move to line
+  " map <Leader>L <Plug>(easymotion-bd-jk)
+  " nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+"   Move to word
+  " map  <Leader>w <Plug>(easymotion-bd-w)
+  " nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+  " <Leader>f{char} to move to {char}
+  " map  <Leader>f <Plug>(easymotion-bd-f)
+  " nmap <Leader>f <Plug>(easymotion-overwin-f)
+  " s{char}{char} to move to {char}{char}
+  " nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                PLUGIN: Fugitive                           {{{
+" ============================================================================= 
+
+"   Define keyboard shortcuts for `git add`, `git commit`, & `git push`.
+    map <Leader>va :Git add %<CR>
+    map <Leader>vc :Git commit<CR>
+    map <Leader>vp :Git push<CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                PLUGIN: FZF                                {{{
+" =============================================================================
+
+"   Use <leader>f to open fuzzy finder.
+"   - NOTE: Type ' next for exact search.
+    nnoremap <silent> <leader>ff :FZF <CR>
+  " nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
+  " nnoremap <silent> <leader>fg :FzfPreviewProjectFiles<CR>
+  " nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
+  " nnoremap <silent> <leader>fc :Commits<CR>
+  " nnoremap <silent> <leader>fbc :BCommits<CR>
+  " nnoremap <silent> <leader>fs :Snippets<CR>
+  " Search files by content.
+  " nnoremap <silent> <leader>ff :Rg<CR>  
+
+"   FuzzyFind flags:
+"   --column: Show column number
+"   --line-number: Show line number
+"   --no-heading: Do not show file headings in results
+"   --fixed-strings: Search term as a literal string
+"   --ignore-case: Case insensitive search
+"   --no-ignore: Do not respect .gitignore, etc...
+"   --hidden: Search hidden files and folders
+"   --follow: Follow symlinks
+"   --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+"   --color: Search color options
+
+    let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' 
+      \ }
+    
+    let g:fzf_colors =
+    \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] 
+      \ }
+      
+  " set rtp+=/usr/local/opt/fzf
+  " set rtp+=~/.fzf
+  " command! -bang -nargs=* Find call fzf#vim#grep('rg --column --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)" split/vsplit settings
+      
+  " floating fzf
+    " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+    " function! FloatingFZF()
+    "   let buf = nvim_create_buf(v:false, v:true)
+    "   call setbufvar(buf, '&signcolumn', 'no')
+    
+    "   let height = float2nr(30)
+    "   let width = float2nr(60)
+    "   let horizontal = float2nr((&columns - width) / 2)
+    "   let vertical = 1
+    
+    "   let opts = {
+    "         \ 'relative': 'editor',
+    "         \ 'row': vertical,
+    "         \ 'col': horizontal,
+    "         \ 'width': width,
+    "         \ 'height': height,
+    "         \ 'style': 'minimal'
+    "         \ }
+    
+    "   call nvim_open_win(buf, v:true, opts)
+    " endfunction
+
+" }}}
+"                          PLUGIN: Goyo & LimeLight                        {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Goyo
+"   ───────────────────────────────────────────────────────────────────────────
+
+    nmap <Leader>g :Goyo<CR>
+    xmap <Leader>g :Goyo<CR>
+
+"   LimeLight
+"   ───────────────────────────────────────────────────────────────────────────
+
+    nmap <Leader>l :Limelight!!<CR>
+    xmap <Leader>l :Limelight!!<CR>
+
+    function MinimalistSetupEnable()
+      " Limelight!
+        set nonumber norelativenumber
+    endfunction
+    autocmd! User GoyoEnter call MinimalistSetupEnable()
+
+    function MinimalistSetupDisable()
+      " Limelight!
+        set number relativenumber
+      " source $XDG_CONFIG_HOME/nvim/init.vim
+        quit
+    endfunction
+    autocmd! User GoyoLeave call MinimalistSetupDisable()
+
+  " let g:limelight_bop = '^\s'
+  " let g:limelight_eop = '\ze\n^\s'
+  " let g:limelight_paragraph_span = 2
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               PLUGIN: NERDTree                            {{{
+" =============================================================================
+
+"   Let files/directories be created/removed/modified.
+    set modifiable
+
+"   Change window size.
+  " let NERDTreeWinSize=33
+
+"   Only show relevant files, hide the rest.
+    let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules', '__pycache__', '.DS_Store', '\.aux', '\.fdb_latexmk', '\.fls', '\.log', '\.nav', '\.out', '\.snm', '\.gz', '\.toc', '\.lof', '\.dvi', 'target', 'Cargo.lock']
+"   But DO show hidden files (starting with colon).
+    let NERDTreeShowHidden=1
+
+"   Show bookmarks.
+    let NERDTreeShowBookmarks=1
+"   Don't show "Press ? for help" text.
+    let NERDTreeMinimalUI = 1
+
+"   Show little arrows for expandable directories (active by default anyways)
+  " let NERDTreeDirArrows = 1
+
+"   Remap jump to siblings to avoid conflict with tmux pane change
+    let g:NERDTreeMapJumpPreviousSibling = '<M-k>'
+    let g:NERDTreeMapJumpNextSibling = '<M-j>'
+
+"   Open tree automatically, but only if not invoked by Git.
+  " autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
+
+"   Close tree automatically, if only window open is tree.
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
+       
+"   Customize git symbols.
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
+      \ 'Modified'  : '✹',
+      \ 'Staged'    : '✚',
+      \ 'Untracked' : '✭',
+      \ 'Renamed'   : '➜',
+      \ 'Unmerged'  : '═',
+      \ 'Deleted'   : '✖',
+      \ 'Dirty'     : '✗',
+      \ 'Clean'     : '',
+      \ 'Ignored'   : '☒',
+      \ 'Unknown'   : '?',
+    \ }
+
+"   Open nerdtree in all tabs.
+  " autocmd VimEnter * NERDTree                 
+  " autocmd BufEnter * NERDTreeMirrorOpen
+  " autocmd VimEnter * wincmd w
+
+"   TODO: Sort.
+  " let NERDTreeAutoDeleteBuffer = 1
+  " let g:NERDTreeShowIgnoredStatus = 1
+    
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                 PLUGIN: Ranger                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Deactivate default mapping (<leader>f)
+    let g:ranger_map_keys = 0 
+
+"   Override default ranger command.
+    let g:ranger_command_override = 'ranger --confdir=$XDG_CONFIG_HOME/ranger'
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                           PLUGIN: UltiSnips (inactive)                   {{{
+" ═════════════════════════════════════════════════════════════════════════════
+" - NOTE: Deactivated -> Moved to loading snippets via COC.
+
+"   Define path to directory where snippets should be saved to.
+  " let g:UltiSnipsSnippetsDir='$XDG_CONFIG_HOME/nvim/UltiSnips/'
+
+"   Define path to directory where snippets should be loaded from.
+  " let g:UltiSnipsSnippetDirectory='$XDG_CONFIG_HOME/nvim/UltiSnips/'
+  " let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+    
+"   Open new tab when editing snippets via `:UltiSnipsEdit` in vim.
+  " let g:UltiSnipsEditSplit='tabdo'
+    
+" Trigger configuration: Do not use <tab> if you use YCM.
+  " let g:UltiSnipsExpandTrigger="<CR>"
+  " let g:UltiSnipsExpandTrigger="<c-space>"
+
+" Move through suggestions list via `ctrl-b` and `ctrl-z.`
+  " let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    
+" Use Python 3 for UltiSnips.
+  " let g:UltiSnipsUsePythonVersion=3
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                              PLUGIN: QuickTeX                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define QuickTEX templates for LaTeX normal-mode.
+    let g:quicktex_tex = {
+        \ ' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+    \}
+    
+"   Define QuickTEX templates for LaTeX math-mode.
+    let g:quicktex_math = {
+        \ ' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+        \ 'eq'   : '= ',
+        \ 'frac' : '\frac{<+++>}{<++>} <++>',
+        \ 'drv'  : '\frac{d<+++>}{d<++>} <++>',
+        \ 'pdrv' : '\frac{\partial<+++>}{\partial<++>} <++>',
+        \ 'in'   : '\in ',
+        \ 'bn'   : '\mathbb{N} ',
+        \ 'set'  : '\{ <+++> \} <++>',
+        \ 'tau'  : '\tau',
+    \}
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                            PLUGIN: TaskWarrior (inactive)                 {{{
+" =============================================================================
+
+    " NOTE: very messy
+
+    " Taskwarrior
+    " highlight taskwarrior_priority ctermbg=white ctermfg=green 
+    " let g:task_highlight_field=0
+    " let g:task_readonly=0
+    
+    " todoCheckbox
+    " if exists("b:current_syntax")
+    "   finish
+    " endif
+    
+    " Custom conceal
+    " syntax match todoCheckbox "\[\ \]" conceal cchar=
+    " syntax match todoCheckbox "\[X\]" conceal cchar=
+    " syntax match todoCheckbox "- \[\ \]" conceal cchar=
+    " syntax match todoCheckbox "- \[X\]" conceal cchar=
+    " syntax match todoCheckbox "* \[\ \]" conceal cchar=
+    " syntax match todoCheckbox "* \[X\]" conceal cchar=
+    " let b:current_syntax = "todo"
+    
+    " hi def link todoCheckbox Todo
+    " hi Conceal guibg=NONE
+
+    " nnoremap <leader>t :tabnew <bar> :TW<CR>
+    " map <leader>x :ChecklistToggleCheckbox<CR>
+    " map <leader>y :CalendarH<CR>
+
+" }}}
+"                         PLUGIN: TMUX-Line (inactive)                      {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Apply same theme for TMUX statusbar as for airline.           (deactivated)
+  " let g:tmuxline_preset = {
+  "     \'a'    : '#S',
+  "     \'b'    : '',
+  "     \'c'    : '',
+  "     \'win'  : '#I #W',
+  "     \'cwin' : '#I #W',
+  "     \'x'    : '',
+  "     \'y'    : '%a %d, %R',
+  "     \'z'    : ''}
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                       PLUGIN: ...              {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+" ═════════════════════════════════════════════════════════════════════════════
+"                               APPEARANCE: (TODO)                          {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                            APPEARANCE: Color-Scheme                       {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Specify name of colorscheme.
+    colorscheme solarized
+
+"   Enable dark-mode by default.
+    set background=dark
+
+"   Define keyboard short-cuts to toggle btw. light- & dark-mode.
+    map <leader>ml :set bg=light<CR>  
+    map <leader>md :set bg=dark<CR>
+
+"   Tell vim to use degraded colors.
+"   - Needs to be active for solarized-black iTerm profile.  TODO [#B] Really?
+"   - See: https://github.com/altercation/vim-colors-solarized#important-note-for-terminal-users
+  " let g:solarized_termcolors=256                      
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                             APPEARANCE: Cursor                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+    
+"   Always have at least 10 lines above/below cursor on screen.
+    set scrolloff=10
+
+"   Show on which line the cursor is by highlighting the whole row.
+  " set cursorline
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                              APPEARANCE: Fonts                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Use Hack Nerd in GUI-vim as well.
+    set guifont="Hack Nerd Font"
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                           APPEARANCE: Line Numbers                        {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   Setup method of displaying line-numbers on the left side of the editor.
+
+"   Use relative numbers in normal mode.
+    set number relativenumber
+
+"   Switch to absolute line numbering when in insert mode.          -> inactive
+  " augroup numbertoggle
+  "     autocmd!
+  "     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+  " augroup END
+
+"   Make background transparent.                      -> not even needed though
+  " highlight LineNr ctermbg=None ctermfg=None
+    
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                    APPEARANCE: Sign- & Color-Column                       {{{
+" ═════════════════════════════════════════════════════════════════════════════
+" - sign column     -> right edge of screen
+" - color column    ->  left edge of screen
+
+"   SIGN COLUMN:                                              
+"   ───────────────────────────────────────────────────────────────────────────
+"   Always display sign-column where error symbols would be displayed.
+    set signcolumn=yes
+    highlight clear SignColumn
+
+"   COLOR COLUMN:                                                 
+"   ───────────────────────────────────────────────────────────────────────────
+"   - deactivated at the moment
+
+"   Method b: Color text after column 80 in e.g. red.
+  " autocmd BufEnter * match Error /\%>80c/
+
+"   Method a: Display color-column to signify the 81st column.
+  " set textwidth=80
+  " set colorcolumn=81
+  " highlight ColorColumn ctermbg=235
+
+"   Method c: Display color-column only if text width is >80.
+"   TODO: Implement
+
+" }}}
+"                        APPEARANCE: Syntax Highlighting                    {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Turn on syntax highlighting. 
       syntax on
-    
-    " }}}
-    "                           Appearance: Cursor                          {{{
-    " =========================================================================
-    
-    " Always have at least 5 lines above/below cursor on screen.
-      set scrolloff=12
+"   NOTE: ^ needs to be up here in file, not to conflict with SignCol!
 
-    " Show on which line the cursor is by highlighting the whole row.
-    " set cursorline
+"   Highlight matching brackets for (), [], {}, and <>   
+"   - NOTE: Switch between them with %
+    set showmatch
+    set matchpairs+=<:>
 
-    " }}}
-    "                         Appearance: Line Numbers                      {{{
-    " =========================================================================
-    " - Setup method of displaying line-numbers on the left side of the editor.
+"   Use colorizer pugin to display RGBA hex-codes in corresponding color.
+  " autocmd BufEnter * :ColorHighlight <CR>
+  " lua require'colorizer'.setup()
 
-    " Use relative numbers in normal mode.
-      set number relativenumber
+"   Flag erroneous whitespace.
+  " au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-    " Switch to absolute line numbering when in insert mode. 
-      " augroup numbertoggle
-      "     autocmd!
-      "     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-      "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-      " augroup END
+"   Show indentation markers.
+"   TODO: Implement.
 
-    " Make background transparent.    TODO Why does this not affect the colors?
-      " highlight LineNr ctermbg=None ctermfg=None
-      " highlight LineNr ctermbg=red ctermfg=red    
-    
-    " }}}
+" }}}
+" ═════════════════════════════════════════════════════════════════════════════
+"                                NAVIGATION:                                {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Move vertically by visual line.
+    nnoremap j gj
+    nnoremap k gk
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                    NAVIGATION: Quick-Open Config Files                    {{{
+" ============================================================================= 
+
+"   NeoVim
+    map <Leader>cvim :tabnew $XDG_CONFIG_HOME/nvim/init.vim <CR>
+    command! -nargs=? Ftedit execute "tabe $XDG_CONFIG_HOME/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
+    map <Leader>cvft :Ftedit <CR>
+    map <Leader>ccoc :CocConfig <CR>
+    map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
+
+"   Pylint
+  " map <Leader>cpl :tabnew ~/.pylintrc <CR>
+
+"   QuteBrowser
+    map <leader>cqtb :tabnew $XDG_CONFIG_HOME/qutebrowser/config.py <CR>
+
+"   Shell/Zsh
+    map <Leader>czsh :tabnew $ZSHRC <CR>
+    map <Leader>cali :tabnew $XDG_CONFIG_HOME/shell/aliasrc <CR>
+
+"   Suckless DWM
+    map <Leader>cdwm :tabnew $XDG_CONFIG_HOME/dwm/config.h <CR>
+
+"   Suckless Terminal
+    map <Leader>cst :tabnew $XDG_CONFIG_HOME/st/config.h <CR>
+
+"   TMUX
+    map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
+
+"   Xorg (on Linux)
+    map <Leader>cxrc :tabnew $XINITRC <CR>
+    map <Leader>cxrc :tabnew $XDG_CONFIG_HOME/x/xinitrc <CR>
+
+" }}}
+"                         NAVIGATION: Search inside Files                   {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   Configure intra-file search.                                  (-> with "/")
+
+"   Search incrementally as characters are entered, & highlight matches.
+    set incsearch hlsearch
+
+"   Make case-insensitive, except if capital letters are entered explicitly.
+    set ignorecase smartcase
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                        NAVIGATION: Switch between files                   {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Switch between buffers.                    (Re-map: Use buffers, not tabs!)
+    map gn :bn<cr>
+    map gp :bp<cr>
+  " map gd :bd<cr> 
+
+" }}}
+"                                 NAVIGATION: ...                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+" =============================================================================
+" =                                                                           =
+" =                                                                           =
+" =                                                                           =
+" =                                                                           =
+" =                                                                           =
+" =============================================================================
     "                         Appearance: Miscellaneous                     {{{
     " =========================================================================
     
@@ -341,261 +1035,7 @@
     " - TODO: Now the message is there again. EVEN if I re-activate above...???
 
     " }}}
-    "                                  Macros                               {{{
-    " ========================================================================= 
-
-    " Define shortcut to execute last executed macro.
-      nnoremap Q @@
-
-    " Only redraw screen after macro is finished -> speed-up.
-      set lazyredraw
-
-    " Remap yanking until end of line.
-      " nnoremap Y y$
-
-" }}}
-    "                         Navigation inside Files                       {{{
-    " =========================================================================
-
-    " Activate mouse.
-      set mouse=a  
-
-    " Move vertically by visual line.
-      nnoremap j gj
-      nnoremap k gk
-
-    " Confiure Intra-file Search.                                 (-> with "/")
-    " -------------------------------------------------------------------------
-    " Search incrementally as characters are entered, & highlight matches.
-      set incsearch hlsearch
-    " Make case-insensitive, except if capital letters are entered explicitly.
-      set ignorecase smartcase
-
-    " }}}
-    "                         Navigation between Files                      {{{
-    " =========================================================================
-
-    " Buffers
-    " -------------------------------------------------------------------------
-    " Switch between buffers.                  (Re-map: Use buffers, not tabs!)
-      map gn :bn<cr>
-      map gp :bp<cr>
-    " map gd :bd<cr> 
-
-" }}}
-    "                                Vim-Modes                              {{{
-    " =========================================================================
-
-    " Quick-exit insert mode with `jk`, and write to file.
-      inoremap jk <Esc>:w<cr>
-
-    " Quick-exit vim.
-      map zz :wq!<CR>
-
-" }}}
-    "                           Sign & Color Columns                        {{{
-    " =========================================================================
-
-    " SIGN COLUMN:                                                       (left)
-    " -------------------------------------------------------------------------
-    " Always display sign-column where error symbols would be displayed.
-      set signcolumn=yes
-      highlight clear SignColumn
-      highlight SignColumn ctermfg=none ctermbg=none guifg=none guibg=none
-      "               ^ does nothing
-
-    " COLOR COLUMN:                                                     (right)
-    " -------------------------------------------------------------------------
-    " - deactivated a.t.m.
-
-    " Method a: Display color-column to signify the 81st column.
-      " set textwidth=80
-      " set colorcolumn=81
-      " highlight ColorColumn ctermbg=235
-
-    " Method b: Color text after column 80 in e.g. red.
-      " au BufEnter *.wiki let b:is_wiki_file=1
-      " au BufEnter *.vimwiki let b:is_wiki_file=1
-      " if !exists("b:is_wiki_file")
-      "     " echo exists("b:is_wiki_file")
-      "     " echo b:is_wiki_file
-      "     autocmd BufEnter * match Error /\%>80c/
-      " endif
-
-" }}}
-"                                  Status Bar                               {{{
-" =============================================================================
-
-" =============================================================================
-"                                   Theme
-" =============================================================================
-
-    "  Use Solarized theme.
-      let g:airline_theme = 'solarized' 
-
-    " Use dark background.
-      let g:airline_solarized_bg = 'dark'
-
-" =============================================================================
-"                                  Tab-Bar
-" =============================================================================
-
-    " Activate tab-line extension.
-      let g:airline_extensions = ["tabline"]                
-
-    " Turn off triangle thingies.
-      let g:airline_right_sep=''
-    " let g:airline_left_sep=''
-
-    " Use dark text in file-name (at left end of airline).
-      let g:airline_solarized_dark_text = 1
-
-    " Customize Colors of...                                  (for vanilla-vim)
-    " ...selected tab:
-    " hi TabLineSel ctermfg=Red ctermbg=Yellow
-    " ...unselected tab:
-    " hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
-    " ...background of tabline:
-    " hi TabLine ctermfg=Blue ctermbg=Yellow
-    " ...window counter per tab (?)
-    " hi Title ctermfg=LightBlue ctermbg=Magenta
-
-    " Make tab-bar bg invisible/black
-      augroup HITABFILL
-          autocmd!
-          " Change `airline_tabfill` colors to black/transparent.
-          autocmd User AirlineAfterInit hi airline_tabfill ctermbg=black ctermfg=none
-
-          " The following options don't seem to affect status-bar colors... (?)
-          " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tabfill ctermbg=black ctermfg=none
-          " autocmd User AirlineAfterInit hi airline_tabhid_to_airline ctermbg=black ctermfg=none
-          " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tablabel_right ctermbg=None ctermfg=red
-          " autocmd User AirlineAfterInit hi airline_tabfill_to_airline_tabfill ctermbg=None ctermfg=red
-          " autocmd User AirlineAfterInit hi airline_tab_right ctermbg=None ctermfg=red
-          " autocmd User AirlineAfterInit hi airline_tabtype ctermbg=None ctermfg=red
-      augroup END
-
-" =============================================================================
-"                                 Status-Bar
-" =============================================================================
-
-" Deactivate default vim status-line.
-" -----------------------------------------------------------------------------
-
-    " Don't show vim-mode.
-      set noshowmode 
-    " Don't show current location in file.
-      set noruler    
-    " Set colors of statusline. (invisible)
-      hi StatusLine ctermbg=None ctermfg=black
-
-" Disable airline statusline.
-" -----------------------------------------------------------------------------
-
-    " Disable statusline. (makes the following lines obsolete)
-      let w:airline_disable_statusline = 1
-
-" Configure statusline                              (obsolete, bc. deactivated)
-" -----------------------------------------------------------------------------
-
-    " Move status-line to bottom of editor window.
-    " let g:airline_statusline_ontop = 0
-
-    " Disable display of mode.
-    " let g:airline_section_a = ''
-
-    " Disable display of version control info.
-    " let g:airline_section_b = ''
-
-    " Disable display of file-name.
-    " let g:airline_section_c = ''
-
-    " Disable display of file-type.
-    " let g:airline_section_x = ''
-
-    " Disable display of file-encoding.
-    " let g:airline_section_y = ''
-
-    " Disable display of location in file.
-    " let g:airline_section_z = ''
-    " let g:airline_section_z = '%3p%% %3l/%L:%3v'
-
-    " Skip empty sections. (-> less separator-triangle thingies)
-    " let g:airline_skip_empty_sections = 1
-
-    " Configure default expected file-encoding 
-    " let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-    "  ^ -> file-encoding not displayed for utf-8 
-
-" =============================================================================
-" |                                 TMUX-Bar                                  |
-" =============================================================================
-
-    " Apply same theme for TMUX statusbar.                        (deactivated)
-    " let g:tmuxline_preset = {
-    "     \'a'    : '#S',
-    "     \'b'    : '',
-    "     \'c'    : '',
-    "     \'win'  : '#I #W',
-    "     \'cwin' : '#I #W',
-    "     \'x'    : '',
-    "     \'y'    : '%a %d, %R',
-    "     \'z'    : ''}
-
-" =============================================================================
-"                               Command-Bar/Line                              |
-" =============================================================================
-
-    " prevent vim from printing welcome message.   (todo: move, tgth. w/ below)
-      set shortmess=I
-    " prevent Vim from echoing the current filename into the commandline.
-      set shortmess+=F
-
-" =============================================================================
-" |                                 Various                                   |
-" =============================================================================
-
-    " Use powerline fonts.
-      let g:airline_powerline_fonts = 1
-
-    " Display CoC-info in statusbar.
-      let g:airline#extensions#coc#enabled = 1
-
-    " Deactivate tabline-labels for buffers & tabs.
-      let g:airline#extensions#tabline#tabs_label = ''
-      let g:airline#extensions#tabline#buffers_label = ''
-
-    " let g:airline_solarized_normal_green = 1
-    " let g:airline_solarized_dark_inactive_border = 1
-    " let g:airline#extensions#tabline#show_splits = 0
-    " let g:airline#extensions#tabline#show_buffers = 1
-    " let g:airline#extensions#tabline#show_tabs = 1
-    " let airline_solarized_enable_command_color = 1
-
-    " Use cache (should speed up vim).
-    " let g:airline_highlighting_cache = 0
-
-" }}}
-"                               Syntax Highlighting                         {{{
-" =============================================================================
-
-     " Highlight matching brackets for (), [], {}, and <>   
-    " - NOTE: Switch between them with %
-      set showmatch
-      set matchpairs+=<:>
-
-    " Use colorizer pugin to display RGBA hex-codes in corresponding color.
-      " autocmd BufEnter * :ColorHighlight <CR>
-      " lua require'colorizer'.setup()
-
-    " Flag erroneous whitespace.
-    " au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-    " Show indentation markers.
-    " NOTE: todo
-
-" }}}
-"                                  Transparency                             {{{
+"                                  Minimalism                             {{{
 " =============================================================================
     " TODO: Clean up!
 
@@ -625,6 +1065,29 @@
     " hi NormalFloat guibg=NONE
     " hi Folded guibg=NONE
     " highlight Insert ctermfg=None ctermbg=None
+
+" Deactivate default vim status-line.
+" -----------------------------------------------------------------------------
+
+"   Don't show vim-mode.
+    set noshowmode 
+"   Don't show current location in file.
+    set noruler    
+"   Set colors of statusline. (invisible)
+    hi StatusLine ctermbg=None ctermfg=black
+
+"   Configure startup-screen.
+"   ---------------------------------------------------------------------------
+"   TODO: Check if true, how does this work exactly?
+
+"   TODO: Add description.
+    set shortmess=""
+
+"   Prevent vim from printing welcome message.            
+    set shortmess+=I
+
+"   Prevent Vim from echoing the current filename into the commandline.
+    set shortmess+=F
 
 " }}}
 "                             Code Collapsing & Folds                       {{{
@@ -726,33 +1189,6 @@
       let g:limelight_conceal_ctermfg = "239"  
     
 " }}}
-"                             Quick-Open Config Files                       {{{
-" ============================================================================= 
-
-    " NeoVim
-      map <Leader>cvim :tabnew $XDG_CONFIG_HOME/nvim/init.vim <CR>
-      command! -nargs=? Ftedit execute "tabe $XDG_CONFIG_HOME/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
-      map <Leader>cvft :Ftedit <CR>
-      map <Leader>ccoc :CocConfig <CR>
-      map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
-    " Pylint
-    " map <Leader>cpl :tabnew ~/.pylintrc <CR>
-    " QuteBrowser
-      map <leader>cqtb :tabnew $XDG_CONFIG_HOME/qutebrowser/config.py <CR>
-    " Shell/Zsh
-      map <Leader>czsh :tabnew $ZSHRC <CR>
-      map <Leader>cali :tabnew $XDG_CONFIG_HOME/shell/aliasrc <CR>
-    " Suckless DWM
-      map <Leader>cdwm :tabnew $XDG_CONFIG_HOME/dwm/config.h <CR>
-    " Suckless Terminal
-      map <Leader>cst :tabnew $XDG_CONFIG_HOME/st/config.h <CR>
-    " TMUX
-      map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
-    " XOrg
-      map <Leader>cxrc :tabnew $XINITRC <CR>
-      map <Leader>cxrc :tabnew $XDG_CONFIG_HOME/x/xinitrc <CR>
-
-" }}}
 "                                Quick-Move Lines                           {{{
 " ============================================================================= 
 
@@ -761,15 +1197,6 @@
       xnoremap <leader>k :m-2<cr>gv=gv
       nnoremap <leader>j :m+<cr>==
       xnoremap <leader>j :m'>+<cr>gv=gv
-
-" }}}
-"                                 Version Control                           {{{
-" ============================================================================= 
-
-    " Add, commit, & push.
-      map <Leader>va :Git add %<CR>
-      map <Leader>vc :Git commit<CR>
-      map <Leader>vp :Git push<CR>
 
 " }}}
 "                                     Various                               {{{
@@ -825,47 +1252,6 @@
       map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
 
 " }}}
-"                                           searching and switching buffers {{{
-" =============================================================================
-
-" }}}
-"                                                                vim splits {{{
-" =============================================================================
-"                                        new vim splits go to the right & below
-set splitbelow
-set splitright
-"                                               navigate vim splits with C-hjkl
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-
-" }}}
-"                                Version Control                            {{{ 
-" =============================================================================
-
-    " Backup & Swap
-    " -------------------------------------------------------------------------
-    " Turn off swap files.
-      set noswapfile
-    " Turn off backup.
-      set nobackup
-      set nowritebackup
-    
-    " Vim Undo
-    " ------------------------------------------------------------------------
-      " Save undo-history across sessions, by storing in file. 
-      if has('persistent_undo')
-          silent !mkdir $HOME/.config/nvim/backups > /dev/null 2>&1
-          set undodir=$HOME/.config/nvim/backups
-          set undofile
-      endif
-    
-    " Git
-    " -------------------------------------------------------------------------
-    " TODO: setup
-
-" }}}
 "                                                                   Various {{{
 " =============================================================================
 
@@ -891,369 +1277,6 @@ nnoremap <C-L> <C-W><C-L>
 "                                    PLUGINS
 " =============================================================================
 
-"                                ag/silver searcher (find file by c-string) {{{
-" =============================================================================
-" use the silver searcher (a.k.a. ag) instead of ack (only if installed)
-if executable('ag')
-    let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
-nnoremap <leader>a :Ack! -Q ""<Left>
-
-" }}}
-"                                                       ConquerOfCompletion {{{
-" ============================================================================= 
-    
-    " Define list of CoC Extensions.
-    " -------------------------------------------------------------------------
-    let g:coc_global_extensions = [
-        \ 'coc-docker',
-        \ 'coc-eslint',
-        \ 'coc-flutter',
-        \ 'coc-fzf-preview',
-        \ 'coc-html',
-        \ 'coc-jedi',
-        \ 'coc-json',
-        \ 'coc-pairs',
-        \ 'coc-prettier',
-        \ 'coc-pyright',
-        \ 'coc-rust-analyzer',
-        \ 'coc-rls',
-        \ 'coc-snippets',
-        \ 'coc-vimtex',
-    \ ]
-        " \ 'coc-python',  
-        "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
-        " \ 'coc-css',
-        " \ 'coc-tsserver',
-
-    " Code completion.
-    " -------------------------------------------------------------------------
-    " Use <Tab> and <S-Tab> to navigate the completion list:
-      inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-      inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-    " Select first list item by default, confirm with <Return>.
-      inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-    " Confirm completion with <Return>.
-    " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-    " Close the preview window when completion is done. 
-    " - TODO: necessary?
-      autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-    
-    " Decrease update-time for CursorHold & CursorHoldI.
-    " - TODO: What does this do?
-      set updatetime=300
-    
-    " Documentation for object under cursor.
-    " -------------------------------------------------------------------------
-    " Use K to show documentation in preview window.
-      function! s:show_documentation()
-          if (index(['vim', 'help'], &filetype) >= 0)
-              execute 'h '.expand('<cword>')
-          else
-              call CocAction('doHover')
-          endif
-      endfunction
-      nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-    " Various
-    " -------------------------------------------------------------------------
-
-    " Remap for renaming current word
-    " - TODO: Lookup: What does this do again?
-      nmap <F2> <Plug>(coc-rename)
-
-    " Configure CoC error-window colors.
-      highlight FgCocErrorFloatBgCocFloating ctermfg=1 ctermbg=0
-      highlight CocFloating ctermbg=black ctermfg=white
-      highlight CocMenuSel ctermbg=white ctermfg=black
-    " highlight CocErrorFloat ctermbg=red ctermfg=green  
-        " highlight Pmenu guifg=#0000FF
-        " ^ not working
-        " hi CocListBgRed guibg=black guifg=red
-        " hi NvimInternalError guibg=black guifg=red
-
-    " python (?)
-    " set statusline^=%{coc#status()}
-
-    "
-    "" Use `[g` and `]g` to navigate diagnostics.
-    " nmap <silent> [g <Plug>(coc-diagnostic-prev)
-    " nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" }}}
-"                                               easymotion quick-navigation {{{
-" =============================================================================
-"<Leader>f{char} to move to {char}
-"map  <Leader>f <Plug>(easymotion-bd-f)
-"nmap <Leader>f <Plug>(easymotion-overwin-f)
-" s{char}{char} to move to {char}{char}
-"nmap <Leader>s <Plug>(easymotion-overwin-f2)
-" Move to line
-"map <Leader>L <Plug>(easymotion-bd-jk)
-"nmap <Leader>L <Plug>(easymotion-overwin-line)
-" Move to word
-" map  <Leader>w <Plug>(easymotion-bd-w)
-" nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-" }}}
-"                                       FZF                                 {{{
-" =============================================================================
-
-      let g:fzf_action = {
-        \ 'ctrl-t': 'tab split',
-        \ 'ctrl-x': 'split',
-        \ 'ctrl-v': 'vsplit' 
-        \ }
-      
-      let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-        \ 'bg':      ['bg', 'Normal'],
-        \ 'hl':      ['fg', 'Comment'],
-        \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-        \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-        \ 'hl+':     ['fg', 'Statement'],
-        \ 'info':    ['fg', 'PreProc'],
-        \ 'border':  ['fg', 'Ignore'],
-        \ 'prompt':  ['fg', 'Conditional'],
-        \ 'pointer': ['fg', 'Exception'],
-        \ 'marker':  ['fg', 'Keyword'],
-        \ 'spinner': ['fg', 'Label'],
-        \ 'header':  ['fg', 'Comment'] 
-        \ }
-      
-      " set rtp+=/usr/local/opt/fzf
-      " set rtp+=~/.fzf
-      " command! -bang -nargs=* Find call fzf#vim#grep('rg --column --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)" split/vsplit settings
-      
-    " floating fzf
-      " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-      " function! FloatingFZF()
-      "   let buf = nvim_create_buf(v:false, v:true)
-      "   call setbufvar(buf, '&signcolumn', 'no')
-      
-      "   let height = float2nr(30)
-      "   let width = float2nr(60)
-      "   let horizontal = float2nr((&columns - width) / 2)
-      "   let vertical = 1
-      
-      "   let opts = {
-      "         \ 'relative': 'editor',
-      "         \ 'row': vertical,
-      "         \ 'col': horizontal,
-      "         \ 'width': width,
-      "         \ 'height': height,
-      "         \ 'style': 'minimal'
-      "         \ }
-      
-      "   call nvim_open_win(buf, v:true, opts)
-      " endfunction
-
-    " Fuzzy Find
-    " -------------------------------------------------------------------------
-    " Use <leader>f to open fuzzy finder.
-    " - NOTE: Type ' next for exact search.
-      nnoremap <silent> <leader>f :FZF <CR>
-    " nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
-    " nnoremap <silent> <leader>fg :FzfPreviewProjectFiles<CR>
-    " nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
-    " nnoremap <silent> <leader>fc :Commits<CR>
-    " nnoremap <silent> <leader>fbc :BCommits<CR>
-    " nnoremap <silent> <leader>fs :Snippets<CR>
-    " Search files by content.
-    " nnoremap <silent> <leader>ff :Rg<CR>  
-    " Fuzzy Find Flags:
-    " --column: Show column number
-    " --line-number: Show line number
-    " --no-heading: Do not show file headings in results
-    " --fixed-strings: Search term as a literal string
-    " --ignore-case: Case insensitive search
-    " --no-ignore: Do not respect .gitignore, etc...
-    " --hidden: Search hidden files and folders
-    " --follow: Follow symlinks
-    " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-    " --color: Search color options
-
-" }}}
-"                               Goyo & LimeLight                            {{{
-" ============================================================================= 
-
-    " Goyo
-    " -------------------------------------------------------------------------
-      nmap <Leader>g :Goyo<CR>
-      xmap <Leader>g :Goyo<CR>
-
-    " LimeLight
-    " -------------------------------------------------------------------------
-      function MinimalistSetupEnable()
-          " Limelight!
-          set nonumber norelativenumber
-      endfunction
-      autocmd! User GoyoEnter call MinimalistSetupEnable()
-
-      function MinimalistSetupDisable()
-          " Limelight!
-          set number relativenumber
-          quit
-          " source $XDG_CONFIG_HOME/nvim/init.vim
-      endfunction
-      autocmd! User GoyoLeave call MinimalistSetupDisable()
-
-      nmap <Leader>l :Limelight!!<CR>
-    " nmap <Leader>l <Plug>(Limelight)
-    " xmap <Leader>l <Plug>(Limelight)
-    " let g:limelight_bop = '^\s'
-    " let g:limelight_eop = '\ze\n^\s'
-    " let g:limelight_paragraph_span = 2
-
-" }}}
-"                         NERDTree (visual file manager)                    {{{
-" =============================================================================
-
-    " Let files/directories be created/removed/modified.
-      set modifiable
-
-    " Change window size.
-    "let NERDTreeWinSize=33
-
-    " Only show relevant files, hide the rest.
-      let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules', '__pycache__', '.DS_Store', '\.aux', '\.fdb_latexmk', '\.fls', '\.log', '\.nav', '\.out', '\.snm', '\.gz', '\.toc', '\.lof', '\.dvi', 'target', 'Cargo.lock']
-    " But DO show hidden files (starting with colon).
-      let NERDTreeShowHidden=1
-
-    " Show bookmarks.
-      let NERDTreeShowBookmarks=1
-    " Don't show "Press ? for help" text.
-      let NERDTreeMinimalUI = 1
-
-    " Show little arrows for expandable directories (active by default anyways)
-    " let NERDTreeDirArrows = 1
-
-    " Remap jump to siblings to avoid conflict with tmux pane change
-      let g:NERDTreeMapJumpPreviousSibling = '<M-k>'
-      let g:NERDTreeMapJumpNextSibling = '<M-j>'
-
-    " Open tree automatically, but only if not invoked by Git.
-    " autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
-
-    " Close tree automatically, if only window open is tree.
-      autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
-    
-    " let NERDTreeAutoDeleteBuffer = 1
-    " let g:NERDTreeShowIgnoredStatus = 1
-
-    " Open nerdtree in all tabs.
-    " autocmd VimEnter * NERDTree                 
-    " autocmd BufEnter * NERDTreeMirrorOpen
-    " autocmd VimEnter * wincmd w
-    
-    " Customize git symbols.
-    let g:NERDTreeGitStatusIndicatorMapCustom = {
-      \ 'Modified'  : '✹',
-      \ 'Staged'    : '✚',
-      \ 'Untracked' : '✭',
-      \ 'Renamed'   : '➜',
-      \ 'Unmerged'  : '═',
-      \ 'Deleted'   : '✖',
-      \ 'Dirty'     : '✗',
-      \ 'Clean'     : '',
-      \ 'Ignored'   : '☒',
-      \ 'Unknown'   : '?',
-      \ }
-    
-" }}}
-"                                                                    ranger {{{
-" =============================================================================
-" deactivate default mapping (<leader>f)
-let g:ranger_map_keys = 0 
-" change default ranger command
-let g:ranger_command_override = 'ranger --confdir=$XDG_CONFIG_HOME/ranger'
-
-" }}}
-"                                   TaskWarrior                             {{{
-" =============================================================================
-
-    " NOTE: very messy
-
-    " Taskwarrior
-    " highlight taskwarrior_priority ctermbg=white ctermfg=green 
-    " let g:task_highlight_field=0
-    " let g:task_readonly=0
-    
-    " todoCheckbox
-    " if exists("b:current_syntax")
-    "   finish
-    " endif
-    
-    " Custom conceal
-    " syntax match todoCheckbox "\[\ \]" conceal cchar=
-    " syntax match todoCheckbox "\[X\]" conceal cchar=
-    " syntax match todoCheckbox "- \[\ \]" conceal cchar=
-    " syntax match todoCheckbox "- \[X\]" conceal cchar=
-    " syntax match todoCheckbox "* \[\ \]" conceal cchar=
-    " syntax match todoCheckbox "* \[X\]" conceal cchar=
-    " let b:current_syntax = "todo"
-    
-    " hi def link todoCheckbox Todo
-    " hi Conceal guibg=NONE
-
-" }}}
-"                              TaskWarrior & VimWiki                        {{{
-" ============================================================================= 
-    " NOTE: Deactivated.
-
-    " nnoremap <leader>t :tabnew <bar> :TW<CR>
-    " map <leader>x :ChecklistToggleCheckbox<CR>
-    " map <leader>y :CalendarH<CR>
-
-" }}}
-"                                                                 UltiSnips {{{
-" =============================================================================
-" - NOTE: Deactivated -> Moved to loading snippets via COC.
-
-    " Define path to directory where snippets should be saved to.
-    " let g:UltiSnipsSnippetsDir='$XDG_CONFIG_HOME/nvim/UltiSnips/'
-
-    " Define path to directory where snippets should be loaded from.
-    " let g:UltiSnipsSnippetDirectory='$XDG_CONFIG_HOME/nvim/UltiSnips/'
-    " let g:UltiSnipsSnippetDirectories = ['UltiSnips']
-    
-    " Open new tab when editing snippets via `:UltiSnipsEdit` in vim.
-    " let g:UltiSnipsEditSplit='tabdo'
-    
-    " Trigger configuration: Do not use <tab> if you use YCM.
-    " let g:UltiSnipsExpandTrigger="<CR>"
-    " let g:UltiSnipsExpandTrigger="<c-space>"
-
-    " Move through suggestions list via `ctrl-b` and `ctrl-z.`
-    " let g:UltiSnipsJumpForwardTrigger="<c-b>"
-    " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-    
-    " Use Python 3 for UltiSnips.
-    " let g:UltiSnipsUsePythonVersion=3
-
-" }}}
-"                                                                  QuickTEX {{{
-" =============================================================================
-
-    " Define QuickTEX templates for LaTeX normal mode.
-      let g:quicktex_tex = {
-          \ ' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
-      \}
-    
-    " Define QuickTEX templates for LaTeX math mode.
-      let g:quicktex_math = {
-          \ ' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
-          \ 'eq'   : '= ',
-          \ 'frac' : '\frac{<+++>}{<++>} <++>',
-          \ 'drv'  : '\frac{d<+++>}{d<++>} <++>',
-          \ 'pdrv' : '\frac{\partial<+++>}{\partial<++>} <++>',
-          \ 'in'   : '\in ',
-          \ 'bn'   : '\mathbb{N} ',
-          \ 'set'  : '\{ <+++> \} <++>',
-          \ 'tau'  : '\tau',
-      \}
-
-" }}}
 
 " =============================================================================
 
@@ -1300,6 +1323,22 @@ let g:ranger_command_override = 'ranger --confdir=$XDG_CONFIG_HOME/ranger'
       " calendar
       " let g:calendar_frame = 'default'
 
+
+"   Only highlight text after col-80 in red if file is *.wiki
+"   ----------------------------------------------------------------------------
+    " au BufEnter *.wiki let b:is_wiki_file=1
+    " au BufEnter *.vimwiki let b:is_wiki_file=1
+    " if !exists("b:is_wiki_file")
+    "     " echo exists("b:is_wiki_file")
+    "     " echo b:is_wiki_file
+    "     autocmd BufEnter * match Error /\%>80c/
+    " endif
+
+
+"   Remap yanking until end of line.
+  " nnoremap Y y$
+
     set nowrap
 
 " }}}
+
