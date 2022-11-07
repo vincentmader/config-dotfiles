@@ -955,10 +955,11 @@ nnoremap <leader>a :Ack! -Q ""<Left>
     " - TODO: Lookup: What does this do again?
       nmap <F2> <Plug>(coc-rename)
 
-    " Configure CoC error-window colors."
+    " Configure CoC error-window colors.
       highlight FgCocErrorFloatBgCocFloating ctermfg=1 ctermbg=0
-        " highlight CocFloating ctermbg=Black ctermfg=Green
-        " highlight CocErrorFloat ctermbg=Green  
+      highlight CocFloating ctermbg=black ctermfg=white
+      highlight CocMenuSel ctermbg=white ctermfg=black
+    " highlight CocErrorFloat ctermbg=red ctermfg=green  
         " highlight Pmenu guifg=#0000FF
         " ^ not working
         " hi CocListBgRed guibg=black guifg=red
