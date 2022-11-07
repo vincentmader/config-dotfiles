@@ -24,6 +24,8 @@
   // "css",
   // "typescript",
 
+  // Setup Snippet Directory(ies).
+  "snippets.ultisnips.directories": ["UltiSnips", "snippets"],
   // Setup Snippet Filetype Extensions.
   "snippets.extends": {
     "cpp": ["c"],
