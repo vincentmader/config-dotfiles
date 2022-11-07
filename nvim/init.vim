@@ -1207,25 +1207,25 @@ let g:ranger_command_override = 'ranger --confdir=$XDG_CONFIG_HOME/ranger'
 " - NOTE: Deactivated -> Moved to loading snippets via COC.
 
     " Define path to directory where snippets should be saved to.
-      let g:UltiSnipsSnippetsDir='$XDG_CONFIG_HOME/nvim/UltiSnips/'
+    " let g:UltiSnipsSnippetsDir='$XDG_CONFIG_HOME/nvim/UltiSnips/'
 
     " Define path to directory where snippets should be loaded from.
-      " let g:UltiSnipsSnippetDirectory='$XDG_CONFIG_HOME/nvim/UltiSnips/'
-      " let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+    " let g:UltiSnipsSnippetDirectory='$XDG_CONFIG_HOME/nvim/UltiSnips/'
+    " let g:UltiSnipsSnippetDirectories = ['UltiSnips']
     
     " Open new tab when editing snippets via `:UltiSnipsEdit` in vim.
-      " let g:UltiSnipsEditSplit='tabdo'
+    " let g:UltiSnipsEditSplit='tabdo'
     
     " Trigger configuration: Do not use <tab> if you use YCM.
-      " let g:UltiSnipsExpandTrigger="<CR>"
-      " let g:UltiSnipsExpandTrigger="<c-space>"
+    " let g:UltiSnipsExpandTrigger="<CR>"
+    " let g:UltiSnipsExpandTrigger="<c-space>"
 
     " Move through suggestions list via `ctrl-b` and `ctrl-z.`
-      " let g:UltiSnipsJumpForwardTrigger="<c-b>"
-      " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    " let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
     
     " Use Python 3 for UltiSnips.
-      " let g:UltiSnipsUsePythonVersion=3
+    " let g:UltiSnipsUsePythonVersion=3
 
 " }}}
 "                                                                  QuickTEX {{{
