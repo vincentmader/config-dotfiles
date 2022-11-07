@@ -137,7 +137,7 @@
         cd "$1";
     }
     alias md=func_mkcdir
-    alias mkdir=mkdir
+    alias mkdir=func_mkcdir
 
 #   Re-define `mv` command to ask before overwriting an existing file.
     alias mv="mv -i"
