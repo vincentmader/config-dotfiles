@@ -3,252 +3,264 @@
 " ║                       $XDG_CONFIG_HOME/nvim/init.vim                      ║
 " ╚═══════════════════════════════════════════════════════════════════════════╝
 
-"                                     GENERAL
+"                                    GENERAL                                {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Do NOT ensure "vi" compatibility (since it would turn off "vim" features).
+    set nocompatible
+
+"   Set encoding.
+    set encoding=utf-8
+
+"   Automatically reload files from disk on change.
+    set autoread  
+
+"   Restore last cursor position & marks on open.
+    au BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
+" }}}
+"                             GENERAL: Leader Keys                          {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   TODO Look-up: What's the difference again btw. "leader" & "local-leader"?
+
+"   Define (main/gobal) leader key.
+    let mapleader="\<space>"
+
+"   Define local leader key.               
+    let maplocalleader ="\<tab>"
+
+" }}}
+
+"                               PLUGINS: General                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Activate "detection", "plugin", and "indent".
+    filetype indent plugin on
+
+" }}}
+"                           PLUGINS: Plugin Manager                         {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Make sure plugin manager (junnegun/vim-plug) is installed.
+    if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
+        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $NVIMRC
+    endif
+
+" }}}
+"                       PLUGINS: Plugin List Definition (TODO)              {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define list of plugins to install.
+    call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
+
+"   SYNTAX-HIGHLIGHTING
+"   ───────────────────────────────────────────────────────────────────────────
+
+"   Highlight yanked portions of text.
+    Plug 'machakann/vim-highlightedyank'
+
+"   Colorize everything that has the format #rgb or #rrggbb.
+  " Plug 'chrisbra/colorizer'
+  " Plug 'norcalli/nvim-colorizer.lua'
+
+"   Show indentation markers.
+  " Plug 'yggdroot/indentline', {'for': ['python', 'javascript', 'tex', 'c', 'html']}
+
+"   Various
+  " Plug 'vim-syntastic/syntastic'
+  " Plug 'sheerun/vim-polyglot'
+
+"   LINTING & AUTO-COMPLETION
+"   ───────────────────────────────────────────────────────────────────────────
+
+"   CoC Completion Engine:
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}   
+
+"   ALE:
+  " Plug 'dense-analysis/ale'
+  " Plug 'maximbaz/lightline-ale'
+
+"   SNIPPETS
+"   ───────────────────────────────────────────────────────────────────────────
+
+  " Plug 'SirVer/ultisnips'               (inactive, using CoC now instead)
+  " Plug 'ycm-core/YouCompleteMe'         (inactive, using CoC now instead)
+  " Plug 'honza/vim-snippets'
+
+"   NAVIGATION                                    (file-to-file & intra-file)
+"   -------------------------------------------------------------------------
+
+"   Silver Searcher: Find files w/ c-string.
+    Plug 'mileszs/ack.vim'
+
+"   FZF: Fuzzy-File Search
+"   TODO: Think re: Use telescope instead?
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf'
+    " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
+    " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
+
+"   NERDTree:
+    Plug 'scrooloose/nerdtree'
+    Plug 'jistr/vim-nerdtree-tabs'         " -> same NERDTree across vim-tabs
+    Plug 'ivalkeen/nerdtree-execute'       " -> m-x in NERDTree to quick-open
+    Plug 'Xuyuanp/nerdtree-git-plugin'     " -> git-status in NerdTree
+
+"   Ranger:
+    " Plug 'francoiscabrol/ranger.vim'
+
+"   EasyMotion: vim motions on speed!
+    " Plug 'easymotion/vim-easymotion'
+
+"   Tags:
+    " Plug 'vim-scripts/taglist.vim'
+    " Plug 'ludovicchabant/vim-gutentags'
+
+
+"   PROGRAMMING LANGUAGE SPECIFIC
+"   -------------------------------------------------------------------------
+"   - CoC took over a lot of the language-specific setup.
+
+"   Python:
+    " Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+    " Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+    " Plug 'nvie/vim-flake8'                        
+
+"   LaTeX:
+    Plug 'lervag/vimtex', {'for': 'tex'}               
+    " Plug 'brennier/quicktex', {'for': 'tex'}
+
+"   Hypertext Markup Language:
+    " Plug 'Valloric/MatchTagAlways', {'for': 'html'}
+
+"   TOML:
+    " Plug 'cespare/vim-toml'     
+
+"   Markdown:
+"   Enable markdown folding by section.
+    Plug 'masukomi/vim-markdown-folding', {'for': 'markdown'}
+"   Preview markdown                             
+    " Plug 'kannokanno/previm'                     " -> automatic reloads (?)
+"   Enable nicer tables                       
+    " Plug 'dhruvasagar/vim-table-mode'          " ->  activate w/ <leader>tm
+    " Plug 'coderifous/textobj-word-column.vim'
+
+
+"   VERSION CONTROL
+"   -------------------------------------------------------------------------
+
+"   Fugitive:                    -> do everything git-related from inside vim
+    Plug 'tpope/vim-fugitive'
+"   Extension of fugitive, compatible.               TODO compatible w/ what?
+    Plug 'gregsexton/gitv'                
+"   Enable display of git status in sign-column.
+    Plug 'airblade/vim-gitgutter'
+
+
+"   TMUX
+"   -------------------------------------------------------------------------
+
+"   Make all words on screen available in auto-complete.
+    Plug 'wellle/tmux-complete.vim'
+"   Treat TMUX- & vim-panes equally.             -> navigate with c-a h/j/k/l
+    Plug 'christoomey/vim-tmux-navigator' 
+
+
+"   THEMES & GENERAL APPEARANCE
+"   -------------------------------------------------------------------------
+
+"   Solarized:
+    Plug 'altercation/vim-colors-solarized'
+    " Plug 'lifepillar/vim-solarized8'
+    " Plug 'tomasiser/vim-code-dark'
+    " Plug 'morhetz/gruvbox'
+"   Devicons:
+    Plug 'ryanoasis/vim-devicons'
+
+
+"   MINIMALISM
+"   -------------------------------------------------------------------------
+
+"   Goyo: Clean up editor.
+    Plug 'junegunn/goyo.vim'
+
+"   LimeLight: Highlight only relevant sections.
+    Plug 'junegunn/limelight.vim'
+
+
+"   STATUS BAR
+"   -------------------------------------------------------------------------
+
+"   Airline:
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'edkolev/tmuxline.vim'
+
+
+"   G.T.D.                                       (-> moved to Emacs Org-Mode)
+"   -------------------------------------------------------------------------
+
+    Plug 'mattn/calendar-vim', { 'for': 'vimwiki' }
+    " Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+    " Plug 'BlindFS/vim-taskwarrior'
+    " Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
+    " Plug 'itchyny/calendar.vim'
+    " Plug 'evansalter/vim-checklist'
+    " Plug 'jceb/vim-orgmode'
+
+
+"   VARIOUS
+"   -------------------------------------------------------------------------
+
+"   Floating Terminal:
+    Plug 'voldikss/vim-floaterm'
+
+"   UndoTree: Visualize undo-history in navigable tree.
+    Plug 'mbbill/undotree'
+
+"   Various nice plugins by tpope speeding up vim-workflow
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-speeddating'
+    Plug 'tpope/vim-unimpaired'
+
+"   Indentation based folding:
+    " Plug 'tmhedberg/SimpylFold', {'for': 'python'}  
+"   Faster folds:
+    " Plug 'Konfekt/FastFold', {'for': 'python'}      
+
+"   Unsorted:
+    " Plug 'thalesmello/vim-textobj-multiline-str'
+    " Plug 'rbgrouleff/bclose.vim'
+    " Plug 'Konfekt/vim-CtrlXA'
+    " Plug 'takac/vim-hardtime'
+    " Plug 'greyblake/vim-esperanto'
+    " Plug 'yuttie/comfortable-motion.vim'
+    " Plug 'godlygeek/tabular'
+    " Plug 'severin-lemaignan/vim-minimap' " not working TODO
+    " Plug 'townk/vim-autoclose'
+    " Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
+"   No line numbers where they don't belong:
+    " Plug 'myusuf3/numbers.vim'
+"   Preview range, pattern and substitute:
+    " Plug 'markonm/traces.vim'
+
+"   Ideas:
+    " matchit.vim 
+    " snipmate.vim
+    " a.vim
+  
+  call plug#end()
+  
+" }}}
+
 " =============================================================================
-
-    "                                 General                               {{{
-    " =========================================================================
-
-    " Do NOT turn off all the improvements of "vi Improved" 
-    " by ensuring "vi" compatibility.
-      set nocompatible
-
-    " Set encoding.
-      set encoding=utf-8
-
-    " Automatically reload files from disk on change.
-      set autoread  
-
-    " Restore last cursor position & marks on open.
-      au BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-        \ |   exe "normal! g`\""
-        \ | endif
-    
-    " }}}
-    "                           General: Leader Keys                        {{{
-    " =========================================================================
-    " Define main leader key.
-      let mapleader="\<space>"
-    " Define local leader key.               TODO: What's the difference again?
-      let maplocalleader ="\<tab>"
-
-    " }}}
-    "
-    "                           Plugin Manager Setup                        {{{
-    " =========================================================================
-    " Make sure plugin manager (junnegun/vim-plug) is installed.
-      if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
-          silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-      	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-          autocmd VimEnter * PlugInstall --sync | source $NVIMRC
-      endif
-
-    " }}}
-    "                           Plugin Installation                         {{{
-    " =========================================================================
-
-    " Activate "detection", "plugin", and "indent".
-      filetype indent plugin on
-
-    " Define list of plugins to install.
-      call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
-
-
-    " SYNTAX-HIGHLIGHTING, LINTING, & AUTO-COMPLETION
-    " -------------------------------------------------------------------------
-
-    " Synax Highlighting:
-      " Plug 'vim-syntastic/syntastic'
-      " Plug 'sheerun/vim-polyglot'
-    " Highlight yanked portions of text.
-      Plug 'machakann/vim-highlightedyank'
-    " Colorize everything that has the format #rgb or #rrggbb.
-      " Plug 'chrisbra/colorizer'
-      " Plug 'norcalli/nvim-colorizer.lua'
-    " Show indentation markers.
-      " Plug 'yggdroot/indentline', {'for': ['python', 'javascript', 'tex', 'c', 'html']}
-
-    " ALE:
-      " Plug 'dense-analysis/ale'
-      " Plug 'maximbaz/lightline-ale'
-
-    " CoC Completion Engine:
-      Plug 'neoclide/coc.nvim', {'branch': 'release'}   
-
-    " SNIPPETS:
-      " Plug 'SirVer/ultisnips'               (inactive, using CoC now instead)
-      " Plug 'ycm-core/YouCompleteMe'         (inactive, using CoC now instead)
-      " Plug 'honza/vim-snippets'
-
-
-    " NAVIGATION                                    (file-to-file & intra-file)
-    " -------------------------------------------------------------------------
-
-    " Silver Searcher: Find files w/ c-string.
-      Plug 'mileszs/ack.vim'
-
-    " FZF: Fuzzy-File Search
-      " TODO use telescope instead?
-      Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
-      Plug 'junegunn/fzf'
-      " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
-      " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
-
-    " NERDTree:
-      Plug 'scrooloose/nerdtree'
-      Plug 'jistr/vim-nerdtree-tabs'         " -> same NERDTree across vim-tabs
-      Plug 'ivalkeen/nerdtree-execute'       " -> m-x in NERDTree to quick-open
-      Plug 'Xuyuanp/nerdtree-git-plugin'     " -> git-status in NerdTree
-
-    " Ranger:
-      " Plug 'francoiscabrol/ranger.vim'
-
-    " EasyMotion: vim motions on speed!
-      " Plug 'easymotion/vim-easymotion'
-
-    " Tags:
-      " Plug 'vim-scripts/taglist.vim'
-      " Plug 'ludovicchabant/vim-gutentags'
-
-
-    " PROGRAMMING LANGUAGE SPECIFIC
-    " -------------------------------------------------------------------------
-    " - CoC took over a lot of the language-specific setup.
-
-    " Python:
-      " Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
-      " Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
-      " Plug 'nvie/vim-flake8'                        
-
-    " LaTeX:
-      Plug 'lervag/vimtex', {'for': 'tex'}               
-      " Plug 'brennier/quicktex', {'for': 'tex'}
-
-    " Hypertext Markup Language:
-      " Plug 'Valloric/MatchTagAlways', {'for': 'html'}
-
-    " TOML:
-      " Plug 'cespare/vim-toml'     
-
-    " Markdown:
-    " Enable markdown folding by section.
-      Plug 'masukomi/vim-markdown-folding', {'for': 'markdown'}
-    " Preview markdown                             
-      " Plug 'kannokanno/previm'                     " -> automatic reloads (?)
-    " Enable nicer tables                       
-      " Plug 'dhruvasagar/vim-table-mode'          " ->  activate w/ <leader>tm
-      " Plug 'coderifous/textobj-word-column.vim'
-
-
-    " VERSION CONTROL
-    " -------------------------------------------------------------------------
-
-    " Fugitive:                    -> do everything git-related from inside vim
-      Plug 'tpope/vim-fugitive'
-    " Extension of fugitive, compatible.               TODO compatible w/ what?
-      Plug 'gregsexton/gitv'                
-    " Enable display of git status in sign-column.
-      Plug 'airblade/vim-gitgutter'
-
-
-    " TMUX
-    " -------------------------------------------------------------------------
-
-    " Make all words on screen available in auto-complete.
-      Plug 'wellle/tmux-complete.vim'
-    " Treat TMUX- & vim-panes equally.             -> navigate with c-a h/j/k/l
-      Plug 'christoomey/vim-tmux-navigator' 
-
-
-    " THEMES & GENERAL APPEARANCE
-    " -------------------------------------------------------------------------
-
-    " Solarized:
-      Plug 'altercation/vim-colors-solarized'
-      " Plug 'lifepillar/vim-solarized8'
-      " Plug 'tomasiser/vim-code-dark'
-      " Plug 'morhetz/gruvbox'
-    " Devicons:
-      Plug 'ryanoasis/vim-devicons'
- 
-
-    " MINIMALISM
-    " -------------------------------------------------------------------------
-
-    " Goyo: Clean up editor.
-      Plug 'junegunn/goyo.vim'
-
-    " LimeLight: Highlight only relevant sections.
-      Plug 'junegunn/limelight.vim'
-
-
-    " STATUS BAR
-    " -------------------------------------------------------------------------
-
-    " Airline:
-      Plug 'vim-airline/vim-airline'
-      Plug 'vim-airline/vim-airline-themes'
-      " Plug 'edkolev/tmuxline.vim'
-
-
-    " G.T.D.                                       (-> moved to Emacs Org-Mode)
-    " -------------------------------------------------------------------------
-
-      Plug 'mattn/calendar-vim', { 'for': 'vimwiki' }
-      " Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-      " Plug 'BlindFS/vim-taskwarrior'
-      " Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
-      " Plug 'itchyny/calendar.vim'
-      " Plug 'evansalter/vim-checklist'
-      " Plug 'jceb/vim-orgmode'
-
-
-    " VARIOUS
-    " -------------------------------------------------------------------------
-
-    " Floating Terminal:
-      Plug 'voldikss/vim-floaterm'
-
-    " UndoTree: Visualize undo-history in navigable tree.
-      Plug 'mbbill/undotree'
-
-    " Various nice plugins by tpope speeding up vim-workflow
-      Plug 'tpope/vim-commentary'
-      Plug 'tpope/vim-repeat'
-      Plug 'tpope/vim-surround'
-      Plug 'tpope/vim-speeddating'
-      Plug 'tpope/vim-unimpaired'
-
-    " Indentation based folding:
-      " Plug 'tmhedberg/SimpylFold', {'for': 'python'}  
-    " Faster folds:
-      " Plug 'Konfekt/FastFold', {'for': 'python'}      
-
-    " Unsorted:
-      " Plug 'thalesmello/vim-textobj-multiline-str'
-      " Plug 'rbgrouleff/bclose.vim'
-      " Plug 'Konfekt/vim-CtrlXA'
-      " Plug 'takac/vim-hardtime'
-      " Plug 'greyblake/vim-esperanto'
-      " Plug 'yuttie/comfortable-motion.vim'
-      " Plug 'godlygeek/tabular'
-      " Plug 'severin-lemaignan/vim-minimap' " not working TODO
-      " Plug 'townk/vim-autoclose'
-      " Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
-    " No line numbers where they don't belong:
-      " Plug 'myusuf3/numbers.vim'
-    " Preview range, pattern and substitute:
-      " Plug 'markonm/traces.vim'
-
-    " Ideas:
-      " matchit.vim 
-      " snipmate.vim
-      " a.vim
-      
-      call plug#end()
-      
-    " }}}
 
     "                          Appearance: Colorscheme                      {{{
     " =========================================================================
@@ -329,7 +341,6 @@
     " - TODO: Now the message is there again. EVEN if I re-activate above...???
 
     " }}}
-    "
     "                                  Macros                               {{{
     " ========================================================================= 
 
@@ -382,8 +393,6 @@
       map zz :wq!<CR>
 
 " }}}
-"
-
     "                           Sign & Color Columns                        {{{
     " =========================================================================
 
@@ -650,7 +659,6 @@
     " set foldtext=NeatFoldText()
 
 " }}}
-
 "                            General Vim Configuration                      {{{
 " =============================================================================
 
@@ -880,7 +888,6 @@ nnoremap <C-L> <C-W><C-L>
       " autocmd BufLeave *.rs,*.toml execute "silent! CocEnable"
 
 " }}}
-
 "                                    PLUGINS
 " =============================================================================
 
@@ -1041,10 +1048,6 @@ nnoremap <leader>a :Ack! -Q ""<Left>
       "   call nvim_open_win(buf, v:true, opts)
       " endfunction
 
-" }}}
-"                                    FuzzyFind                              {{{
-" ============================================================================= 
-
     " Fuzzy Find
     " -------------------------------------------------------------------------
     " Use <leader>f to open fuzzy finder.
@@ -1203,7 +1206,7 @@ let g:ranger_command_override = 'ranger --confdir=$XDG_CONFIG_HOME/ranger'
     " map <leader>y :CalendarH<CR>
 
 " }}}
-"                                                                 Ultisnips {{{
+"                                                                 UltiSnips {{{
 " =============================================================================
 " - NOTE: Deactivated -> Moved to loading snippets via COC.
 
@@ -1297,13 +1300,6 @@ let g:ranger_command_override = 'ranger --confdir=$XDG_CONFIG_HOME/ranger'
       " calendar
       " let g:calendar_frame = 'default'
 
+    set nowrap
+
 " }}}
-
-    "                                  Title                                {{{
-    " =========================================================================
-    
-    " }}}
-
-
-      set nowrap
-
