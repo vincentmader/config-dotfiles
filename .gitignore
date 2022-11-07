@@ -1,6 +1,5 @@
 .DS_Store
 /coc/
-/coc/extensions/node_modules
 /dmenu/
 /docker/
 /doom

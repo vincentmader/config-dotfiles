@@ -899,7 +899,6 @@ nnoremap <leader>a :Ack! -Q ""<Left>
     " Define list of CoC Extensions.
     " -------------------------------------------------------------------------
     let g:coc_global_extensions = [
-        \ 'coc-css',
         \ 'coc-docker',
         \ 'coc-eslint',
         \ 'coc-flutter',
@@ -913,11 +912,12 @@ nnoremap <leader>a :Ack! -Q ""<Left>
         \ 'coc-rust-analyzer',
         \ 'coc-rls',
         \ 'coc-snippets',
-        \ 'coc-tsserver',
         \ 'coc-vimtex',
     \ ]
         " \ 'coc-python',  
         "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
+        " \ 'coc-css',
+        " \ 'coc-tsserver',
 
     " Code completion.
     " -------------------------------------------------------------------------
