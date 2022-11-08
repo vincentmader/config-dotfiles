@@ -129,7 +129,7 @@
     source "$XDG_CONFIG_HOME/shell/aliasrc"
 
 #   Source prompter.
-    source "$XDG_CONFIG_HOME/zsh/prompter"
+    source "$XDG_CONFIG_HOME/zsh/prompter.sh"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Various                                                                   │
