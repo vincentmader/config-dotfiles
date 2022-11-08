@@ -45,12 +45,12 @@
 
 #   Define list of filenames to ignore in listing.
 #   - NOTE: Be careful to remember the escape-symbols at the end of the line.
-    EXA_IGNORE=".DS_Store|.CFUserTextEncoding|.ssh|
-        |.git|.gitignore|.git-credentials|.archey-ip|\
-        |__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
-        |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|backups|\
-        |.dart|.dartServer|.flutter-devtools|.pub-cache|.terminfo|.flutter|\
-        |.cups|.gem|.mono|.putty|.swiftpm|.thumbnails|.docker"
+    EXA_IGNORE="\
+        |.DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|\
+        |.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
+        |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|backups|.dart|\
+        |.dartServer|.flutter-devtools|.pub-cache|.terminfo|.flutter|.cups|\
+        |.gem|.mono|.putty|.swiftpm|.thumbnails|.docker"
 
 #   Re-define `ls` command to ignore the just-defined list of files...
     alias ls="exa -a -I \"$EXA_IGNORE\""
