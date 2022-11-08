@@ -41,7 +41,7 @@
 #   - Add an empty line, then print the present working directory.
 #   - Add another empty line,
 #   - Tell `exa` to use the flags defined above, & finally show the listing. 
-    alias exa="clear && echo && pwd && echo && exa $EXA_FLAGS"
+    alias exa="clear && pwd && echo && exa $EXA_FLAGS"
 
 #   Define list of filenames to ignore in listing.
 #   - NOTE: Be careful to remember the escape-symbols at the end of the line.
