@@ -66,6 +66,9 @@
 #   TODO Look-up re: Define $VIM variable as well?
   # export VIM="$XDG_CONFIG_HOME/vim"
 
+#   Define path to neovim log file.                 (useless, does nothing ???)
+    export NVIM_LOG_FILE="$XDG_CACHE_HOME/nvim/log"   
+
 #   Define path to neovim configuration file (init.vim).
     export NVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
 
@@ -78,7 +81,7 @@
     fi
 
 #   Configure $VISUAL to just use $EDITOR as well (both are vi/vim, anyway).
-    export VISUAL="$EDITOR"
+    export VISUAL="$EDITOR"     
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Browser                                                                   │
@@ -247,7 +250,7 @@
 
 #   TODO ... (description)
     export PATH="$PATH:$CARGO_HOME/bin"            # <- all...
-    . "/Users/vinc/.cache/cargo/env"               # <- ...
+  # . "/Users/vinc/.cache/cargo/env"               # <- ...
   # source $HOME/.cargo/env                        # <- ...
   # source $HOME/.cargo/bin                        # <- ...
   # source "/Users/vinc/.cache/cargo/env"          # <- ...needed?
