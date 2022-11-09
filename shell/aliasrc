@@ -109,7 +109,8 @@
 #   FuzzyFind
 #   ───────────────────────────────────────────────────────────────────────────
 
-    alias fzf="fzf --preview='head -$LINES {}'"
+    alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+  # alias fzf="fzf --preview='head -$LINES {}'"
 
   # alias fe="fzf --exact"
   # alias fv="v $(fzf --height 40%)"
@@ -163,13 +164,18 @@
     alias vim="vim -u $XDG_CONFIG_HOME/vim/vimrc"
 
 #   Make nvim use the configuration file `$NVIMRC`.
-    alias nvim="nvim -u $NVIMRC"
+  # alias nvim="nvim -u $NVIMRC"
+  # alias nvim="nvim -i NONE"
 
 #   Make nvim either...
 #   1. ...load a file (or multiple), 
 #         if specified via e.g. `nvim file_1 file_2`.
 #   2. ...load the file listing for the current directory, 
 #         if no file is specified, such that `nvim` behaves like `nvim ./`.
+#
+#   NOTE: Inactive at the moment, instead auto-start fuzzy-find on start-up.
+#         ^ false, now it's active again
+#
     function nvim_func {
         if [ "$#" -eq 0 ]; then
             nvim ./
