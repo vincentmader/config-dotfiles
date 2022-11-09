@@ -14,3 +14,6 @@
 
 "   Activate syntax highlighting.
     syntax on
+
+"   Deactivate writing to viminfo file.
+    set viminfo="NONE"
