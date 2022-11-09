@@ -19,12 +19,6 @@
 "   Activate mouse.
     set mouse=a  
 
-"   Restore last cursor position & marks on open.
-    au BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-      \ |   exe "normal! g`\""
-      \ | endif
-
 "   Turn off swap files.
     set noswapfile
 
@@ -160,10 +154,12 @@
 
 "   FZF: Fuzzy-File Search
 "   TODO: Think re: Use telescope instead?
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf'
     " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
     " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
+    " Plug 'yuki-yano/fzf-preview.vim'   " TODO setup
+    " Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
 "   NERDTree:
     Plug 'scrooloose/nerdtree'
@@ -574,6 +570,7 @@
   " nnoremap <silent> <leader>fc :Commits<CR>
   " nnoremap <silent> <leader>fbc :BCommits<CR>
   " nnoremap <silent> <leader>fs :Snippets<CR>
+
   " Search files by content.
   " nnoremap <silent> <leader>ff :Rg<CR>  
 
@@ -589,11 +586,11 @@
 "   --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 "   --color: Search color options
 
-    let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
-      \ 'ctrl-v': 'vsplit' 
-      \ }
+    " let g:fzf_action = {
+    "   \ 'ctrl-t': 'tab split',
+    "   \ 'ctrl-x': 'split',
+    "   \ 'ctrl-v': 'vsplit' 
+    "   \ }
     
     let g:fzf_colors =
     \ { 'fg':      ['fg', 'Normal'],
@@ -610,33 +607,37 @@
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'] 
       \ }
+
+    " Use vim-devicons
+    " let g:fzf_preview_use_dev_icons = 1
+
       
   " set rtp+=/usr/local/opt/fzf
   " set rtp+=~/.fzf
   " command! -bang -nargs=* Find call fzf#vim#grep('rg --column --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)" split/vsplit settings
       
-  " floating fzf
-    " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-    " function! FloatingFZF()
-    "   let buf = nvim_create_buf(v:false, v:true)
-    "   call setbufvar(buf, '&signcolumn', 'no')
-    
-    "   let height = float2nr(30)
-    "   let width = float2nr(60)
-    "   let horizontal = float2nr((&columns - width) / 2)
-    "   let vertical = 1
-    
-    "   let opts = {
-    "         \ 'relative': 'editor',
-    "         \ 'row': vertical,
-    "         \ 'col': horizontal,
-    "         \ 'width': width,
-    "         \ 'height': height,
-    "         \ 'style': 'minimal'
-    "         \ }
-    
-    "   call nvim_open_win(buf, v:true, opts)
-    " endfunction
+"   Floating fzf
+  " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+  " function! FloatingFZF()
+  "   let buf = nvim_create_buf(v:false, v:true)
+  "   call setbufvar(buf, '&signcolumn', 'no')
+  
+  "   let height = float2nr(30)
+  "   let width = float2nr(60)
+  "   let horizontal = float2nr((&columns - width) / 2)
+  "   let vertical = 1
+  
+  "   let opts = {
+  "         \ 'relative': 'editor',
+  "         \ 'row': vertical,
+  "         \ 'col': horizontal,
+  "         \ 'width': width,
+  "         \ 'height': height,
+  "         \ 'style': 'minimal'
+  "         \ }
+  
+  "   call nvim_open_win(buf, v:true, opts)
+  " endfunction
 
 " }}}
 "                          PLUGIN: Goyo & LimeLight                        {{{
@@ -886,6 +887,16 @@
 
 "   Use relative numbers in normal mode.
     set number relativenumber
+  " set numberwidth=5
+  " set nonumber
+
+"   Toggle relative line numbers
+    nnoremap <leader>ln :set number! relativenumber!<cr>
+  " nnoremap <leader>rln :set relativenumber!<cr>
+  " nnoremap <leader>ln :set number!<cr>
+
+  " nnoremap d :set number relativenumber<cr>
+
 
 "   Switch to absolute line numbering when in insert mode.          -> inactive
   " augroup numbertoggle
@@ -997,6 +1008,7 @@
 
 "   Search incrementally as characters are entered, & highlight matches.
     set incsearch hlsearch
+  " set nohlsearch
 
 "   Make case-insensitive, except if capital letters are entered explicitly.
     set ignorecase smartcase
@@ -1340,5 +1352,16 @@
 
     set nowrap
 
+"   Turn off writing of shared-date files.
+    set shada="NONE"
+
+    "   Restore last cursor position & marks on open.
+    au BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
 " }}}
 
+"   Define code skeletons.
+    autocmd BufNewFile *.sh     0r      ~/.config/nvim/skeletons/script.sh
