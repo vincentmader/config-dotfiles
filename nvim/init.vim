@@ -48,13 +48,23 @@
     set lazyredraw
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                        GENERAL: Persistent Undo-History                   {{{ 
+"                             GENERAL: Editing History                      {{{ 
 " =============================================================================
  
+"   Restore last cursor position & marks on open.
+    au BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
+"   Increase :cmdline history size.
+    set history=1000                            
+    au FocusGained,BufEnter * :checktime
+
 "   Save undo-history across sessions, by storing in file. 
     if has('persistent_undo')
-        silent !mkdir $HOME/.config/nvim/backups > /dev/null 2>&1
-        set undodir=$HOME/.config/nvim/backups
+        silent !mkdir $XDG_DATA_HOME/nvim/backups > /dev/null 2>&1
+        set undodir=$XDG_DATA_HOME/nvim/backups
         set undofile
     endif
 
@@ -69,7 +79,7 @@
     map zz :wq!<CR>
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                           GENERAL: Vim Window-Splits                      {{{
+"                             GENERAL: Window-Splits                        {{{
 " =============================================================================
 
 "   Configure new vim window-splits to go to the right & below.
@@ -99,9 +109,10 @@
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Make sure plugin manager (junnegun/vim-plug) is installed.
-    if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
-        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    if empty(glob("$XDG_DATA_HOME/nvim/site/autoload/plug.vim"))
+        silent !curl -fLo 
+        \ "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" --create-dirs
+    	\ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
         autocmd VimEnter * PlugInstall --sync | source $NVIMRC
     endif
 
@@ -110,207 +121,206 @@
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Define list of plugins to install.
-    call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
+    call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 
 "   SYNTAX-HIGHLIGHTING
 "   ───────────────────────────────────────────────────────────────────────────
 
-"   Highlight yanked portions of text.
-    Plug 'machakann/vim-highlightedyank'
+"       Highlight yanked portions of text.
+        Plug 'machakann/vim-highlightedyank'
 
-"   Colorize everything that has the format #rgb or #rrggbb.
-  " Plug 'chrisbra/colorizer'
-  " Plug 'norcalli/nvim-colorizer.lua'
+"       Colorize everything that has the format #rgb or #rrggbb.
+      " Plug 'chrisbra/colorizer'
+      " Plug 'norcalli/nvim-colorizer.lua'
 
-"   Show indentation markers.
-  " Plug 'yggdroot/indentline', {'for': ['python', 'javascript', 'tex', 'c', 'html']}
+"       Show indentation markers.
+      " Plug 'yggdroot/indentline', {'for': ['python', 'javascript', 'tex', 'c', 'html']}
 
-"   Various
-  " Plug 'vim-syntastic/syntastic'
-  " Plug 'sheerun/vim-polyglot'
+"       Various
+      " Plug 'vim-syntastic/syntastic'
+      " Plug 'sheerun/vim-polyglot'
 
 "   LINTING & AUTO-COMPLETION
 "   ───────────────────────────────────────────────────────────────────────────
 
-"   CoC Completion Engine:
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}   
+"       CoC Completion Engine
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}   
 
-"   ALE:
-  " Plug 'dense-analysis/ale'
-  " Plug 'maximbaz/lightline-ale'
+"       ALE
+      " Plug 'dense-analysis/ale'
+      " Plug 'maximbaz/lightline-ale'
 
 "   SNIPPETS
 "   ───────────────────────────────────────────────────────────────────────────
 
-  " Plug 'SirVer/ultisnips'               (inactive, using CoC now instead)
-  " Plug 'ycm-core/YouCompleteMe'         (inactive, using CoC now instead)
-  " Plug 'honza/vim-snippets'
+      " Plug 'SirVer/ultisnips'               (inactive, using CoC now instead)
+      " Plug 'ycm-core/YouCompleteMe'         (inactive, using CoC now instead)
+      " Plug 'honza/vim-snippets'
 
 "   NAVIGATION                                    (file-to-file & intra-file)
 "   -------------------------------------------------------------------------
 
-"   Silver Searcher: Find files w/ c-string.
-    Plug 'mileszs/ack.vim'
+"       Silver-searcher: Find files w/ c-string.
+        Plug 'mileszs/ack.vim'
 
-"   FZF: Fuzzy-File Search
-"   TODO: Think re: Use telescope instead?
-    Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf'
-    " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
-    " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
-    " Plug 'yuki-yano/fzf-preview.vim'   " TODO setup
-    " Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+"       Fuzzy-Find File Search
+"       TODO: Think re: Use telescope instead?
+        Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf'
+      " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
+      " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
+      " Plug 'yuki-yano/fzf-preview.vim'   " TODO setup
+      " Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-"   NERDTree:
-    Plug 'scrooloose/nerdtree'
-    Plug 'jistr/vim-nerdtree-tabs'         " -> same NERDTree across vim-tabs
-    Plug 'ivalkeen/nerdtree-execute'       " -> m-x in NERDTree to quick-open
-    Plug 'Xuyuanp/nerdtree-git-plugin'     " -> git-status in NerdTree
+"       NERDTree
+        Plug 'scrooloose/nerdtree'
+        Plug 'jistr/vim-nerdtree-tabs'         " -> same NERDTree across vim-tabs
+        Plug 'ivalkeen/nerdtree-execute'       " -> m-x in NERDTree to quick-open
+        Plug 'Xuyuanp/nerdtree-git-plugin'     " -> git-status in NerdTree
 
-"   Ranger:
-    " Plug 'francoiscabrol/ranger.vim'
+"       Ranger
+      " Plug 'francoiscabrol/ranger.vim'
 
-"   EasyMotion: vim motions on speed!
-    " Plug 'easymotion/vim-easymotion'
+"       EasyMotion (vim motions on speed!)
+      " Plug 'easymotion/vim-easymotion'
 
-"   Tags:
-    " Plug 'vim-scripts/taglist.vim'
-    " Plug 'ludovicchabant/vim-gutentags'
-
+"       Tags
+      " Plug 'vim-scripts/taglist.vim'
+      " Plug 'ludovicchabant/vim-gutentags'
 
 "   PROGRAMMING LANGUAGE SPECIFIC
 "   -------------------------------------------------------------------------
 "   - CoC took over a lot of the language-specific setup.
 
-"   Python:
-    " Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
-    " Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
-    " Plug 'nvie/vim-flake8'                        
+"       Python
+      " Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+      " Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+      " Plug 'nvie/vim-flake8'                        
 
-"   LaTeX:
-    Plug 'lervag/vimtex', {'for': 'tex'}               
-    " Plug 'brennier/quicktex', {'for': 'tex'}
+"       LaTeX
+        Plug 'lervag/vimtex', {'for': 'tex'}               
+      " Plug 'brennier/quicktex', {'for': 'tex'}
 
-"   Hypertext Markup Language:
-    " Plug 'Valloric/MatchTagAlways', {'for': 'html'}
+"       Hypertext Markup Language
+      " Plug 'Valloric/MatchTagAlways', {'for': 'html'}
 
-"   TOML:
-    " Plug 'cespare/vim-toml'     
+"       TOML
+      " Plug 'cespare/vim-toml'     
 
-"   Markdown:
-"   Enable markdown folding by section.
-    Plug 'masukomi/vim-markdown-folding', {'for': 'markdown'}
-"   Preview markdown                             
-    " Plug 'kannokanno/previm'                     " -> automatic reloads (?)
-"   Enable nicer tables                       
-    " Plug 'dhruvasagar/vim-table-mode'          " ->  activate w/ <leader>tm
-    " Plug 'coderifous/textobj-word-column.vim'
-
+"       Markdown
+"       Enable markdown folding by section.
+        Plug 'masukomi/vim-markdown-folding', {'for': 'markdown'}
+"       Preview markdown                             
+      " Plug 'kannokanno/previm'                   " -> automatic reloads (?)
+"       Enable nicer tables                       
+      " Plug 'dhruvasagar/vim-table-mode'        " ->  activate w/ <leader>tm
+      " Plug 'coderifous/textobj-word-column.vim'
 
 "   VERSION CONTROL
 "   -------------------------------------------------------------------------
 
-"   Fugitive:                    -> do everything git-related from inside vim
-    Plug 'tpope/vim-fugitive'
-"   Extension of fugitive, compatible.               TODO compatible w/ what?
-    Plug 'gregsexton/gitv'                
-"   Enable display of git status in sign-column.
-    Plug 'airblade/vim-gitgutter'
-
+"       Fugitive                 -> do everything git-related from inside vim
+        Plug 'tpope/vim-fugitive'
+"       Extension of fugitive, compatible.           TODO compatible w/ what?
+        Plug 'gregsexton/gitv'                
+"       Enable display of git status in sign-column.
+        Plug 'airblade/vim-gitgutter'
 
 "   TMUX
 "   -------------------------------------------------------------------------
 
-"   Make all words on screen available in auto-complete.
-    Plug 'wellle/tmux-complete.vim'
-"   Treat TMUX- & vim-panes equally.             -> navigate with c-a h/j/k/l
-    Plug 'christoomey/vim-tmux-navigator' 
-
+"       Make all words on screen available in auto-complete.
+        Plug 'wellle/tmux-complete.vim'
+"       Treat TMUX- & vim-panes equally.         -> navigate with c-a h/j/k/l
+        Plug 'christoomey/vim-tmux-navigator' 
 
 "   THEMES & GENERAL APPEARANCE
 "   -------------------------------------------------------------------------
 
-"   Solarized:
-    Plug 'altercation/vim-colors-solarized'
-    " Plug 'lifepillar/vim-solarized8'
-    " Plug 'tomasiser/vim-code-dark'
-    " Plug 'morhetz/gruvbox'
-"   Devicons:
-    Plug 'ryanoasis/vim-devicons'
+"       Solarized
+        Plug 'altercation/vim-colors-solarized'
+      " Plug 'lifepillar/vim-solarized8'
+      " Plug 'tomasiser/vim-code-dark'
+      " Plug 'morhetz/gruvbox'
 
+"       Devicons
+        Plug 'ryanoasis/vim-devicons'
 
 "   MINIMALISM
 "   -------------------------------------------------------------------------
 
-"   Goyo: Clean up editor.
-    Plug 'junegunn/goyo.vim'
+"       Goyo -> Clean up editor.
+        Plug 'junegunn/goyo.vim'
 
-"   LimeLight: Highlight only relevant sections.
-    Plug 'junegunn/limelight.vim'
-
+"       LimeLight -> Highlight only relevant sections.
+        Plug 'junegunn/limelight.vim'
 
 "   STATUS BAR
 "   -------------------------------------------------------------------------
 
-"   Airline:
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    " Plug 'edkolev/tmuxline.vim'
-
+"       Airline
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+      " Plug 'edkolev/tmuxline.vim'
 
 "   G.T.D.                                       (-> moved to Emacs Org-Mode)
 "   -------------------------------------------------------------------------
 
-    Plug 'mattn/calendar-vim', { 'for': 'vimwiki' }
-    " Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-    " Plug 'BlindFS/vim-taskwarrior'
-    " Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
-    " Plug 'itchyny/calendar.vim'
-    " Plug 'evansalter/vim-checklist'
-    " Plug 'jceb/vim-orgmode'
+        Plug 'mattn/calendar-vim', { 'for': 'vimwiki' }
+      " Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+      " Plug 'BlindFS/vim-taskwarrior'
+      " Plug 'tools-life/taskwiki', { 'for': 'vimwiki' }
+      " Plug 'itchyny/calendar.vim'
+      " Plug 'evansalter/vim-checklist'
+      " Plug 'jceb/vim-orgmode'
 
+"   CODE FOLDING
+"   -------------------------------------------------------------------------
+
+"       Indentation based folding:
+      " Plug 'tmhedberg/SimpylFold', {'for': 'python'}  
+
+"       Faster folds:
+      " Plug 'Konfekt/FastFold', {'for': 'python'}      
 
 "   VARIOUS
 "   -------------------------------------------------------------------------
 
-"   Floating Terminal:
-    Plug 'voldikss/vim-floaterm'
+"       Floating Terminal:
+        Plug 'voldikss/vim-floaterm'
 
-"   UndoTree: Visualize undo-history in navigable tree.
-    Plug 'mbbill/undotree'
+"       UndoTree: Visualize undo-history in navigable tree.
+        Plug 'mbbill/undotree'
 
-"   Various nice plugins by tpope speeding up vim-workflow
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-speeddating'
-    Plug 'tpope/vim-unimpaired'
+"       Various nice plugins by tpope speeding up vim-workflow
+        Plug 'tpope/vim-commentary'
+        Plug 'tpope/vim-repeat'
+        Plug 'tpope/vim-surround'
+        Plug 'tpope/vim-speeddating'
+        Plug 'tpope/vim-unimpaired'
 
-"   Indentation based folding:
-    " Plug 'tmhedberg/SimpylFold', {'for': 'python'}  
-"   Faster folds:
-    " Plug 'Konfekt/FastFold', {'for': 'python'}      
+"       Unsorted:
+      " Plug 'thalesmello/vim-textobj-multiline-str'
+      " Plug 'rbgrouleff/bclose.vim'
+      " Plug 'Konfekt/vim-CtrlXA'
+      " Plug 'takac/vim-hardtime'
+      " Plug 'greyblake/vim-esperanto'
+      " Plug 'yuttie/comfortable-motion.vim'
+      " Plug 'godlygeek/tabular'
+      " Plug 'severin-lemaignan/vim-minimap' " not working TODO
+      " Plug 'townk/vim-autoclose'
+      " Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
 
-"   Unsorted:
-    " Plug 'thalesmello/vim-textobj-multiline-str'
-    " Plug 'rbgrouleff/bclose.vim'
-    " Plug 'Konfekt/vim-CtrlXA'
-    " Plug 'takac/vim-hardtime'
-    " Plug 'greyblake/vim-esperanto'
-    " Plug 'yuttie/comfortable-motion.vim'
-    " Plug 'godlygeek/tabular'
-    " Plug 'severin-lemaignan/vim-minimap' " not working TODO
-    " Plug 'townk/vim-autoclose'
-    " Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
-"   No line numbers where they don't belong:
-    " Plug 'myusuf3/numbers.vim'
-"   Preview range, pattern and substitute:
-    " Plug 'markonm/traces.vim'
+"       No line numbers where they don't belong:
+      " Plug 'myusuf3/numbers.vim'
 
-"   Ideas:
-    " matchit.vim 
-    " snipmate.vim
-    " a.vim
+"       Preview range, pattern and substitute:
+      " Plug 'markonm/traces.vim'
+
+"       Ideas:
+      " matchit.vim 
+      " snipmate.vim
+      " a.vim
   
   call plug#end()
   
@@ -563,7 +573,7 @@
 
 "   Use <leader>f to open fuzzy finder.
 "   - NOTE: Type ' next for exact search.
-    nnoremap <silent> <leader>ff :FZF <CR>
+    nnoremap <silent> <leader>ff :FZF<CR>
   " nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
   " nnoremap <silent> <leader>fg :FzfPreviewProjectFiles<CR>
   " nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
@@ -1137,11 +1147,6 @@
 "                            General Vim Configuration                      {{{
 " =============================================================================
 
-
-    " Increase :cmdline history size.
-      set history=1000                            
-      au FocusGained,BufEnter * :checktime
-
     " allow backspace in insert mode
         " set backspace=indent,eol,start  
 
@@ -1353,15 +1358,13 @@
     set nowrap
 
 "   Turn off writing of shared-date files.
-    set shada="NONE"
-
-    "   Restore last cursor position & marks on open.
-    au BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-      \ |   exe "normal! g`\""
-      \ | endif
+    " set shada="NONE"
+    " set shada="$XDG_DATA_HOME/nvim/shada"
+  " set shada="~/.cache/nvim"
+  " set shada='1000
 
 " }}}
 
 "   Define code skeletons.
     autocmd BufNewFile *.sh     0r      ~/.config/nvim/skeletons/script.sh
+
