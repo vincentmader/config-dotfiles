@@ -1,0 +1,19 @@
+" ╔═══════════════════════════════════════════════════════════════════════════╗
+" ║                        $XDG_CONFIG_HOME/vim/vimrc                         ║
+" ╚═══════════════════════════════════════════════════════════════════════════╝
+
+"   Deactivate creation of `~/viminfo` file. Instead, store in cache.
+    set nocompatible
+    set viminfofile=~/.cache/vim/viminfo
+
+"   Active line numbering.
+    set number relativenumber
+
+"   Activate mouse.
+    set mouse=a
+
+"   Activate syntax highlighting.
+    syntax on
+
+"   Deactivate writing to viminfo file.
+    set viminfo="NONE"
