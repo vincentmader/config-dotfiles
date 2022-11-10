@@ -48,7 +48,7 @@
     EXA_IGNORE="\
         |.DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|\
         |.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
-        |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|backups|.dart|\
+        |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|.dart|\
         |.dartServer|.flutter-devtools|.pub-cache|.terminfo|.flutter|.cups|\
         |.gem|.mono|.putty|.swiftpm|.thumbnails|.docker"
 
@@ -161,11 +161,13 @@
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
 #   Make vim use the configuration file `$XDG_CONFIG_HOME/vim/vimrc`.
-    alias vim="vim -u $XDG_CONFIG_HOME/vim/vimrc"
+  # alias vim="vim -u $XDG_CONFIG_HOME/vim/vimrc"
 
 #   Make nvim use the configuration file `$NVIMRC`.
   # alias nvim="nvim -u $NVIMRC"
-  # alias nvim="nvim -i NONE"
+
+#   Make nvim NOT use a shared data file.
+  # alias nvim="nvim -i NONE"  # -> not working
 
 #   Make nvim either...
 #   1. ...load a file (or multiple), 
@@ -176,18 +178,18 @@
 #   NOTE: Inactive at the moment, instead auto-start fuzzy-find on start-up.
 #         ^ false, now it's active again
 #
-    function nvim_func {
-        if [ "$#" -eq 0 ]; then
-            nvim ./
-        else
-            nvim $@
-        fi
-    }
-    alias nvim="nvim_func"
+  # function nvim_func {
+  #     if [ "$#" -eq 0 ]; then
+  #         nvim ./
+  #     else
+  #         nvim $@
+  #     fi
+  # }
+  # alias nvim="nvim_func"
 
-#   Define shorter `nvim` commands -> mapped to `v` and `vi`.
+#   Define shorter `nvim` commands.
     alias v="nvim"
-    alias vi="nvim"
+  # alias vi="nvim"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Version Control using Git                                                 │
