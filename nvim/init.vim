@@ -1386,12 +1386,11 @@
 
     set nowrap
 
-
 "   Turn off writing of shared-date files.
   " set shadafile="$XDG_DATA_HOME/nvim/shada/main.shada"
   " set shadafile="NONE"  " -> not working
-    set shada="NONE"
-    set viminfo="NONE"
+  " set shada="NONE"
+    " set viminfo="NONE"
   " set shada="$XDG_DATA_HOME/nvim/shada"
   " set shada="~/.cache/nvim"
   " set shada='1000
@@ -1399,5 +1398,10 @@
 " }}}
 
 "   Define code skeletons.
-    autocmd BufNewFile *.sh     0r      ~/.config/nvim/skeletons/script.sh
+    " autocmd BufNewFile *.sh     0r      ~/.config/nvim/skeletons/script.sh
 
+    " autocmd VimEnter !rm ./nvim/log
+    " autocmd VimEnter !echo "Hey"
+    " autocmd VimEnter :!mkdir ./aaaa
+
+    " set verbosefile=log.txt
