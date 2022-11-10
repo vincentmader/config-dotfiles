@@ -16,16 +16,6 @@
 "   Automatically reload files from disk on change.
     set autoread  
 
-"   Activate mouse.
-    set mouse=a  
-
-"   Turn off swap files.
-    set noswapfile
-
-"   Turn off backup.
-    set nobackup
-    set nowritebackup
-
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             GENERAL: Leader Keys                          {{{
 " ═════════════════════════════════════════════════════════════════════════════
@@ -36,16 +26,6 @@
 
 "   Define local leader key.               
     let maplocalleader ="\<tab>"
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                               GENERAL: Macros                             {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Define shortcut to re-run last-executed macro.
-    nnoremap Q @@
-
-"   Only redraw screen after macro is finished.                     -> speed-up
-    set lazyredraw
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             GENERAL: Editing History                      {{{ 
@@ -63,10 +43,17 @@
 
 "   Save undo-history across sessions, by storing in file. 
     if has('persistent_undo')
-        silent !mkdir $XDG_DATA_HOME/nvim/backups > /dev/null 2>&1
-        set undodir=$XDG_DATA_HOME/nvim/backups
+        silent !mkdir "$XDG_DATA_HOME/nvim/backups" > /dev/null 2>&1
+        set undodir="$XDG_DATA_HOME/nvim/backups"
         set undofile
     endif
+
+"   Turn off swap files.
+    set noswapfile
+
+"   Turn off backup.
+    set nobackup
+    set nowritebackup
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                              GENERAL: Vim-Modes                           {{{
@@ -113,11 +100,15 @@
         silent !curl -fLo 
         \ "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" --create-dirs
     	\ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    endif
+
+"   Auto-install plugins.
+    if empty(glob("$XDG_DATA_HOME/nvim/plugged"))
         autocmd VimEnter * PlugInstall --sync | source $NVIMRC
     endif
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                       PLUGINS: Plugin List Definition (TODO)              {{{
+"                         PLUGINS: Plugin List Definition                   {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Define list of plugins to install.
@@ -334,6 +325,8 @@
     if executable('ag')
         let g:ackprg = 'ag --nogroup --nocolor --column'
     endif
+
+"   Map `<Leader> + a` to intra-text search.
     nnoremap <leader>a :Ack! -Q ""<Left>
 
 " }}} ═════════════════════════════════════════════════════════════════════════
@@ -343,7 +336,7 @@
 "   Define airline theme.
 "   ───────────────────────────────────────────────────────────────────────────
 
-"   Use Solarized theme.
+"   Define theme: `solarized`.
     let g:airline_theme = 'solarized' 
 
 "   Use dark background.
@@ -848,9 +841,12 @@
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 " ═════════════════════════════════════════════════════════════════════════════
-"                               APPEARANCE: (TODO)                          {{{
+"                                  APPEARANCE:                              {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
+"   Show typed commands in lower-right corner of editor window.
+"   TODO: Change `ctermfg` for `showcmd` display-text. -> Green?
+    set showcmd
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                            APPEARANCE: Color-Scheme                       {{{
@@ -967,9 +963,26 @@
 "   TODO: Implement.
 
 " }}}
+"                            APPEARANCE: Welcome Screen                     {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Deactivate welcome text by setting its color to background.
+"   NOTE: Welcome text is deactivated anyways. -> Not needed anymore.
+"   TODO: Now the message is there again. EVEN if I re-activate below...???
+"   NOTE: Now it's gone again...
+    autocmd BufEnter * :highlight NonText guifg=bg<CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                 APPEARANCE: ...                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+" }}} 
 " ═════════════════════════════════════════════════════════════════════════════
 "                                NAVIGATION:                                {{{
 " ═════════════════════════════════════════════════════════════════════════════
+
+"   Activate mouse.
+    set mouse=a  
 
 "   Move vertically by visual line.
     nnoremap j gj
@@ -1036,25 +1049,66 @@
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 " =============================================================================
+"                               EDITING: Comments                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Enable autocomment on newline.
+    set formatoptions+=r
+        
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Indentation                        {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define default indentation settings.
+    set softtabstop=4
+    set shiftwidth=4
+    set expandtab
+    set autoindent
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Macros                             {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define shortcut to re-run last-executed macro.
+    nnoremap Q @@
+
+"   Only redraw screen after macro is finished.                     -> speed-up
+    set lazyredraw
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                             EDITING: Quick-Move Lines                     {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"    TODO Add description.
+     nnoremap <leader>k :m-2<cr>==
+     xnoremap <leader>k :m-2<cr>gv=gv
+     nnoremap <leader>j :m+<cr>==
+     xnoremap <leader>j :m'>+<cr>gv=gv
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Wrapping                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Disable wrapping for long lines.
+    set nowrap
+    set formatoptions-=t
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                   EDITING: ...                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                   EDITING: ...                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+" }}} 
+" =============================================================================
 " =                                                                           =
 " =                                                                           =
 " =                                                                           =
 " =                                                                           =
 " =                                                                           =
 " =============================================================================
-    "                         Appearance: Miscellaneous                     {{{
-    " =========================================================================
-    
-    " Show typed commands in lower-right corner of editor window.
-    " - TODO: Change `ctermfg` for `showcmd` display-text. -> Green?
-      set showcmd
-
-    " Deactivate welcome text by setting its color to background.
-    " - NOTE: Welcome text is deactivated anyways. -> Not needed anymore.
-      autocmd BufEnter * :highlight NonText guifg=bg<CR>
-    " - TODO: Now the message is there again. EVEN if I re-activate above...???
-
-    " }}}
 "                                  Minimalism                             {{{
 " =============================================================================
     " TODO: Clean up!
@@ -1160,26 +1214,13 @@
         endif
         vnoremap <C-c> :w !pbcopy<CR><CR>
         noremap <C-v> :r !pbpaste<CR><CR>
-    
-    " Define default indentation settings.
-      set softtabstop=4
-      set shiftwidth=4
-      set expandtab
-      set autoindent
-    
-    " Disable wrapping for long lines.
-      set nowrap
-      set formatoptions-=t
-
-    " Enable autocomment on newline.
-      set formatoptions+=r
-        
+     
     " Remove trailing whitespaces.
       command! FixWhitespace :%s/\s\+$//e
     
-    if expand('%:e')=='tera'
-        set syntax=html
-    endif
+      if expand('%:e')=='tera'
+          set syntax=html
+      endif
 
 " }}}
 "                               TODO                           {{{
@@ -1203,16 +1244,6 @@
     " This color is used by solarized for comments.
       let g:limelight_conceal_ctermfg = "239"  
     
-" }}}
-"                                Quick-Move Lines                           {{{
-" ============================================================================= 
-
-    " TODO Add description.
-      nnoremap <leader>k :m-2<cr>==
-      xnoremap <leader>k :m-2<cr>gv=gv
-      nnoremap <leader>j :m+<cr>==
-      xnoremap <leader>j :m'>+<cr>gv=gv
-
 " }}}
 "                                     Various                               {{{
 " ============================================================================= 
@@ -1355,9 +1386,13 @@
 
     set nowrap
 
+
 "   Turn off writing of shared-date files.
-    " set shada="NONE"
-    " set shada="$XDG_DATA_HOME/nvim/shada"
+  " set shadafile="$XDG_DATA_HOME/nvim/shada/main.shada"
+  " set shadafile="NONE"  " -> not working
+    set shada="NONE"
+    set viminfo="NONE"
+  " set shada="$XDG_DATA_HOME/nvim/shada"
   " set shada="~/.cache/nvim"
   " set shada='1000
 
