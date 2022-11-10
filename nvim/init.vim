@@ -156,6 +156,7 @@
       " Plug 'SirVer/ultisnips'               (inactive, using CoC now instead)
       " Plug 'ycm-core/YouCompleteMe'         (inactive, using CoC now instead)
       " Plug 'honza/vim-snippets'
+      " snipmate.vim
 
 "   NAVIGATION                                    (file-to-file & intra-file)
 "   -------------------------------------------------------------------------
@@ -286,10 +287,10 @@
 "   VARIOUS
 "   -------------------------------------------------------------------------
 
-"       Floating Terminal:
+"       Floating terminal:
         Plug 'voldikss/vim-floaterm'
 
-"       UndoTree: Visualize undo-history in navigable tree.
+"       Undo-Tree: Visualize undo-history in navigable tree.
         Plug 'mbbill/undotree'
 
 "       Various nice plugins by tpope speeding up vim-workflow
@@ -299,7 +300,13 @@
         Plug 'tpope/vim-speeddating'
         Plug 'tpope/vim-unimpaired'
 
-"       Unsorted:
+"       No line numbers where they don't belong:
+      " Plug 'myusuf3/numbers.vim'
+
+"       Preview range, pattern and substitute:
+      " Plug 'markonm/traces.vim'
+
+"       Unsorted/Ideas:
       " Plug 'thalesmello/vim-textobj-multiline-str'
       " Plug 'rbgrouleff/bclose.vim'
       " Plug 'Konfekt/vim-CtrlXA'
@@ -310,16 +317,7 @@
       " Plug 'severin-lemaignan/vim-minimap' " not working TODO
       " Plug 'townk/vim-autoclose'
       " Plug 'vim-scripts/camelcasemotion'  " usage e.g.: ,w or ,b or ,e
-
-"       No line numbers where they don't belong:
-      " Plug 'myusuf3/numbers.vim'
-
-"       Preview range, pattern and substitute:
-      " Plug 'markonm/traces.vim'
-
-"       Ideas:
       " matchit.vim 
-      " snipmate.vim
       " a.vim
   
   call plug#end()
