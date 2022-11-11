@@ -642,6 +642,9 @@
 
 "   Enable autocomment on newline.
     set formatoptions+=r
+
+"   Disable auto comment on new line.
+  " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
         
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                            EDITING: Copy & Paste                          {{{
@@ -1326,6 +1329,15 @@
   " map <leader>x :ChecklistToggleCheckbox<CR>
   " map <leader>y :CalendarH<CR>
 
+"   Only highlight text after col-80 in red if file is *.wiki
+  " au BufEnter *.wiki let b:is_wiki_file=1
+  " au BufEnter *.vimwiki let b:is_wiki_file=1
+  " if !exists("b:is_wiki_file")
+  "     " echo exists("b:is_wiki_file")
+  "     " echo b:is_wiki_file
+  "     autocmd BufEnter * match Error /\%>80c/
+  " endif
+
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                         PLUGIN: TMUX-Line (inactive)                      {{{
 " ═════════════════════════════════════════════════════════════════════════════
@@ -1361,15 +1373,15 @@
 "                           Unused / Unsorted / Old                         {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
-    " TODO: What does this do? Do I need it?
+"   TODO: What does this do? Do I need it?
   " augroup colorscheme_coc_setup | au!
   "     au ColorScheme * call s:my_colors_setup()
   " augroup END
     
-    " TODO: What does this do? Do I need it?
+"   TODO: What does this do? Do I need it?
   " setlocal cole=1
     
-    " Turn off indent lines by default.
+"   Turn off indent lines by default.
   " autocmd BufEnter * IndentLinesDisable
 
 "   TODO: What do these do? 
@@ -1395,55 +1407,37 @@
   " hi Folded guibg=NONE
   " highlight Insert ctermfg=None ctermbg=None
     
-    " Reload current file from disk.
-    " map <M-r> :e % <CR>
-    "
-    " Check spelling. (Orthography?)
-    " map <leader>o: :setlocal spell! spelllang=en_US<CR>
+"   Reload current file from disk.
+  " map <M-r> :e % <CR>
 
-    " Sort (?)
-    " map <Leader>ss :sort<CR>
+"   Check spelling. (Orthography?)
+  " map <leader>o: :setlocal spell! spelllang=en_US<CR>
 
-    " Make command-mode file auto-completion prettier.
-      " set wildmode=longest,list,full  " TODO: Really necessary? I also have COC...
-    
-      " allow backspace in insert mode
-      " set backspace=indent,eol,start  
+"   Sort (?)
+  " map <Leader>ss :sort<CR>
 
-      " source $XDG_CONFIG_HOME/nvim/ale.vim
-      " source $XDG_CONFIG_HOME/nvim/gtd.vim
-      
-      " set concealcursor=nc
+"   Make command-mode file auto-completion prettier.
+  " set wildmode=longest,list,full  " TODO: Really necessary? I also have COC...
   
-      """ Prompt for a command to run
-      ""map <Leader>vp :VimuxPromptCommand<CR>
-      """ Run last command executed by VimuxRunCommand
-      ""map <Leader>vl :VimuxRunLastCommand<CR>
-      """ Inspect runner pane
-      ""map <Leader>vi :VimuxInspectRunner<CR>
-      
-      """noremap <r> :so % <Enter>                   " reload vimrc (has lead to crash)
-      
-      " disables auto comment on new line
-      " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-        
-      " calendar
-      " let g:calendar_frame = 'default'
+"   Allow backspace in insert mode
+  " set backspace=indent,eol,start  
 
-"   Only highlight text after col-80 in red if file is *.wiki
-"   ----------------------------------------------------------------------------
-    " au BufEnter *.wiki let b:is_wiki_file=1
-    " au BufEnter *.vimwiki let b:is_wiki_file=1
-    " if !exists("b:is_wiki_file")
-    "     " echo exists("b:is_wiki_file")
-    "     " echo b:is_wiki_file
-    "     autocmd BufEnter * match Error /\%>80c/
-    " endif
+  " set concealcursor=nc
 
-    " autocmd VimEnter !rm ./nvim/log
-    " autocmd VimEnter !echo "Hey"
-    " autocmd VimEnter :!mkdir ./aaaa
+"   Prompt for a command to run
+  " map <Leader>vp :VimuxPromptCommand<CR>
 
-    " set verbosefile=log.txt
+"   Run last command executed by VimuxRunCommand
+  " map <Leader>vl :VimuxRunLastCommand<CR>
+
+"   Inspect runner pane
+  " map <Leader>vi :VimuxInspectRunner<CR>
+    
+  " noremap <r> :so % <Enter>                   " reload vimrc (has lead to crash)
+          
+"   Calendar
+  " let g:calendar_frame = 'default'
+
+  " set verbosefile=log.txt
 
 " }}}
