@@ -230,6 +230,16 @@
     export CP_HOME_DIR="$XDG_CACHE_HOME/cocoapods"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Printers                                                                  │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+#   Make sure that the file `~/.cups/lpoptions` is not be generated anymore.
+#   See `https://www.cups.org/doc/man-cups.html` for more info.
+#   -> TODO: Check whether the above works.
+
+    export CUPS_CACHEDIR="$XDG_CACHE_HOME/cups"
+    export CUPS_DATADIR="$XDG_DATA_HOME/cups"
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
 # │ TaskWarrior (inactive)                                                    │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
