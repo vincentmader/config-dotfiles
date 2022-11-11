@@ -10,17 +10,18 @@
   "coc.preferences.messageLevel": "error",
 
   // Setup Filetype-Specific Auto-Linting.
-  "coc.preferences.formatOnSaveFiletypes": [
-    "dart",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "markdown",
-    "python",
-    "rust",
-    "toml",
-    "typescriptreact"
-  ],
+  "coc.preferences.formatOnSave": true,
+  // "coc.preferences.formatOnSaveFiletypes": [
+  //   "dart",
+  //   "javascript",
+  //   "javascriptreact",
+  //   "json",
+  //   "markdown",
+  //   "python",
+  //   "rust",
+  //   "toml",
+  //   "typescriptreact"
+  // ],
   // "css",
   // "typescript",
 

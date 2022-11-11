@@ -46,6 +46,7 @@
 #   Define list of filenames to ignore in listing.
 #   - NOTE: Be careful to remember the escape-symbols at the end of the line.
     EXA_IGNORE="\
+        |nvim|\
         |.DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|\
         |.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
         |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|.dart|\
@@ -178,14 +179,15 @@
 #   NOTE: Inactive at the moment, instead auto-start fuzzy-find on start-up.
 #         ^ false, now it's active again
 #
-  # function nvim_func {
-  #     if [ "$#" -eq 0 ]; then
-  #         nvim ./
-  #     else
-  #         nvim $@
-  #     fi
-  # }
-  # alias nvim="nvim_func"
+  function nvim_func {
+      if [ "$#" -eq 0 ]; then
+          # nvim ./
+          nvim +FZF
+      else
+          nvim $@
+      fi
+  }
+  alias nvim="nvim_func"
 
 #   Define shorter `nvim` commands.
     alias v="nvim"

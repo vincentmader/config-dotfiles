@@ -17,19 +17,15 @@
     set autoread  
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                             GENERAL: Leader Keys                          {{{
+"                                GENERAL: Buffers                           {{{
 " ═════════════════════════════════════════════════════════════════════════════
-"   TODO Look-up: What's the difference again btw. "leader" & "local-leader"?
 
-"   Define (main/gobal) leader key.
-    let mapleader="\<space>"
-
-"   Define local leader key.               
-    let maplocalleader ="\<tab>"
+"   Configure buffers to be able to exist in background.
+    set hidden  
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                             GENERAL: Editing History                      {{{ 
-" =============================================================================
+"                            GENERAL: Editing History                       {{{ 
+" ═════════════════════════════════════════════════════════════════════════════
  
 "   Restore last cursor position & marks on open.
     au BufReadPost *
@@ -55,19 +51,57 @@
     set nobackup
     set nowritebackup
 
+"   Turn off writing of shared-data files.
+  " set shadafile="$XDG_DATA_HOME/nvim/shada/main.shada"
+  " set shadafile="NONE"  " -> not working
+  " set shada="NONE"
+  " set viminfo="NONE"
+  " set shada="$XDG_DATA_HOME/nvim/shada"
+  " set shada="~/.cache/nvim"
+  " set shada='1000
+
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                              GENERAL: Vim-Modes                           {{{
+"                             GENERAL: File Types                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Configure `.tera` files to be handled as if they were `.html` files.
+    if expand('%:e')=='tera'
+        set syntax=html
+    endif
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                             GENERAL: Leader Keys                          {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   TODO Look-up: What's the difference again btw. "leader" & "local-leader"?
+
+"   Define (main/gobal) leader key.
+    let mapleader="\<space>"
+
+"   Define local leader key.               
+    let maplocalleader ="\<tab>"
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               GENERAL: Vim Config                         {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Source vim config.
+"   TODO: Fix: This currently leads to weird behavior.
+  " map <leader>rcv :source $XDG_CONFIG_HOME/nvim/init.vim<CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               GENERAL: Vim Modes                          {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Quick-exit insert mode with `jk`, & write to file.
     inoremap jk <Esc>:w<cr>
 
 "   Quick-exit vim.
-    map zz :wq!<CR>
+  " map zz :wq!<CR>
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             GENERAL: Window-Splits                        {{{
-" =============================================================================
+" ═════════════════════════════════════════════════════════════════════════════
+" NOTE: Unused at the moment. -> Using TMUX splits instead.
 
 "   Configure new vim window-splits to go to the right & below.
     set splitbelow
@@ -79,20 +113,21 @@
     nnoremap <C-K> <C-W><C-K>
     nnoremap <C-L> <C-W><C-L>
 
-" }}}
-"                                 GENERAL: ...                              {{{
-" ═════════════════════════════════════════════════════════════════════════════
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                    GENERAL: ...                           {{{
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 " ═════════════════════════════════════════════════════════════════════════════
 "                                 PLUGINS:                                  {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
-"   Activate "detection", "plugin", and "indent".
-    filetype indent plugin on
+"   Activate "filteype detection", "plugin", and "indent".
+    filetype on
+    filetype plugin on
+    filetype indent on
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                         PLUGINS: Plugin Manager (vim-plug)                {{{
+"                             PLUGINS: Plugin Manager                       {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Make sure plugin manager (junnegun/vim-plug) is installed.
@@ -313,7 +348,390 @@
   
   call plug#end()
   
-" }}}
+" }}} ═════════════════════════════════════════════════════════════════════════
+" ═════════════════════════════════════════════════════════════════════════════
+"                                  APPEARANCE:                              {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Show typed commands in lower-right corner of editor window.
+"   TODO: Change `ctermfg` for `showcmd` display-text. -> Green?
+    set showcmd
+
+"   TODO: What does this do? Do I need it?
+  " hi PmenuSel ctermfg=black ctermbg=red
+  " hi PmenuSbar ctermfg=black ctermbg=red
+  " hi PmenuThumb ctermfg=black ctermbg=red
+    hi Pmenu ctermfg=black ctermbg=gray
+    " -> needed for e.g. FloatTerm borders
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                            APPEARANCE: Color-Scheme                       {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Specify name of colorscheme.
+    colorscheme solarized
+
+"   Enable dark-mode by default.
+    set background=dark
+
+"   Define keyboard short-cuts to toggle btw. light- & dark-mode.
+    map <leader>ml :set bg=light<CR>  
+    map <leader>md :set bg=dark<CR>
+
+"   Tell vim to use degraded colors.
+"   - Needs to be active for solarized-black iTerm profile.  TODO [#B] Really?
+"   - See: https://github.com/altercation/vim-colors-solarized#important-note-for-terminal-users
+  " let g:solarized_termcolors=256                      
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                             APPEARANCE: Cursor                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+    
+"   Always have at least 10 lines above/below cursor on screen.
+    set scrolloff=10
+
+"   Show on which line the cursor is by highlighting the whole row.
+  " set cursorline
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                              APPEARANCE: Fonts                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Use Hack Nerd in GUI-vim as well.
+    set guifont="Hack Nerd Font"
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                          APPEARANCE: Intra-Text Search                    {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Turn off search match highlighting.
+    nnoremap <leader>/ :nohlsearch<CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                           APPEARANCE: Line Numbers                        {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   Setup method of displaying line-numbers on the left side of the editor.
+
+"   Use relative numbers in normal mode.
+    set number relativenumber
+  " set numberwidth=5
+  " set nonumber
+
+"   Toggle relative line numbers
+    nnoremap <leader>ln :set number! relativenumber!<cr>
+  " nnoremap <leader>rln :set relativenumber!<cr>
+  " nnoremap <leader>ln :set number!<cr>
+
+  " nnoremap d :set number relativenumber<cr>
+
+
+"   Switch to absolute line numbering when in insert mode.          -> inactive
+  " augroup numbertoggle
+  "     autocmd!
+  "     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+  " augroup END
+
+"   Make background transparent.                      -> not even needed though
+  " highlight LineNr ctermbg=None ctermfg=None
+    
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                    APPEARANCE: Sign- & Color-Column                       {{{
+" ═════════════════════════════════════════════════════════════════════════════
+" - sign column   ->   left edge of screen
+" - color column  ->  right edge of screen
+
+"   SIGN COLUMN:                                              
+"   ───────────────────────────────────────────────────────────────────────────
+
+"       Always display sign-column where error symbols would be displayed.
+        set signcolumn=yes
+        highlight clear SignColumn
+
+"       Deactivate tildes on the left side of the screen
+        highlight Normal ctermbg=None  
+        highlight EndOfBuffer ctermfg=0 ctermbg=none
+
+"   COLOR COLUMN:                                                 
+"   ───────────────────────────────────────────────────────────────────────────
+"   - deactivated at the moment
+
+"       Method b: Color text after column 80 in e.g. red.
+      " autocmd BufEnter * match Error /\%>80c/
+
+"       Method a: Display color-column to signify the 81st column.
+      " set textwidth=80
+      " set colorcolumn=81
+      " highlight ColorColumn ctermbg=235
+
+"       Method c: Display color-column only if text width is >80.
+"       TODO: Implement
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                           APPEARANCE: Status Line                         {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Don't show vim-mode.
+    set noshowmode 
+
+"   Don't show current location in file.
+    set noruler    
+
+"   Set colors of statusline. (invisible)
+    hi StatusLine ctermbg=None ctermfg=black
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                        APPEARANCE: Syntax Highlighting                    {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Turn on syntax highlighting. 
+      syntax on
+"   NOTE: ^ needs to be up here in file, not to conflict with SignCol!
+
+"   Highlight matching brackets for (), [], {}, and <>   
+"   - NOTE: Switch between them with %
+    set showmatch
+    set matchpairs+=<:>
+
+"   Use colorizer pugin to display RGBA hex-codes in corresponding color.
+  " autocmd BufEnter * :ColorHighlight <CR>
+  " lua require'colorizer'.setup()
+
+"   Flag erroneous whitespace.
+  " au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"   Show indentation markers.
+"   TODO: Implement.
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                            APPEARANCE: Welcome Screen                     {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   TODO: Check if correct, how does this work exactly?
+
+"   Deactivate welcome text by setting its color to background.
+"   NOTE: Welcome text is deactivated anyways. -> Not needed anymore.
+"   TODO: Now the message is there again. EVEN if I re-activate below...???
+"   NOTE: Now it's gone again...
+    autocmd BufEnter * :highlight NonText guifg=bg<CR>
+
+"   TODO: Add description.
+    set shortmess=""
+
+"   Prevent vim from printing welcome message.            
+    set shortmess+=I
+
+"   Prevent Vim from echoing the current filename into the commandline.
+    set shortmess+=F
+
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                 APPEARANCE: ...                           {{{
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+" ═════════════════════════════════════════════════════════════════════════════
+"                                NAVIGATION:                                {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Activate mouse.
+    set mouse=a  
+
+"   Move vertically by visual line.
+    nnoremap j gj
+    nnoremap k gk
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                    NAVIGATION: Quick-Open Config Files                    {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   NeoVim
+    map <Leader>cvim :tabnew $XDG_CONFIG_HOME/nvim/init.vim <CR>
+    command! -nargs=? Ftedit execute "tabe $XDG_CONFIG_HOME/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
+    map <Leader>cvft :Ftedit <CR>
+    map <Leader>ccoc :CocConfig <CR>
+    map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
+
+"   Pylint
+  " map <Leader>cpl :tabnew ~/.pylintrc <CR>
+
+"   QuteBrowser
+    map <leader>cqtb :tabnew $XDG_CONFIG_HOME/qutebrowser/config.py <CR>
+
+"   Shell/Zsh
+    map <Leader>czsh :tabnew $ZSHRC <CR>
+    map <Leader>cali :tabnew $XDG_CONFIG_HOME/shell/aliasrc <CR>
+
+"   Suckless DWM
+    map <Leader>cdwm :tabnew $XDG_CONFIG_HOME/dwm/config.h <CR>
+
+"   Suckless Terminal
+    map <Leader>cst :tabnew $XDG_CONFIG_HOME/st/config.h <CR>
+
+"   TMUX
+    map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
+
+"   Xorg (on Linux)
+    map <Leader>cxrc :tabnew $XINITRC <CR>
+    map <Leader>cxrc :tabnew $XDG_CONFIG_HOME/x/xinitrc <CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                         NAVIGATION: Search inside Files                   {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   Configure intra-file search.                                  (-> with "/")
+
+"   Search incrementally as characters are entered, & highlight matches.
+    set incsearch hlsearch
+  " set nohlsearch
+
+"   Make case-insensitive, except if capital letters are entered explicitly.
+    set ignorecase smartcase
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                        NAVIGATION: Switch between files                   {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Go back to last opened file with backspace.
+    nmap <BS> <C-^>
+
+"   Switch between buffers.                    (Re-map: Use buffers, not tabs!)
+    map gn :bn<cr>
+    map gp :bp<cr>
+  " map gd :bd<cr> 
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                 NAVIGATION: ...                           {{{
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+" ═════════════════════════════════════════════════════════════════════════════
+"                           EDITING: Auto-Completion                        {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Automatically close brackets.
+"   NOTE: Unused, this is done by CoC now.
+  " inoremap ( ()<left>
+  " inoremap [ []<left>
+  " inoremap { {}<left>
+  " inoremap " ""<left>
+  " inoremap ' ''<left>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                        EDITING: Code Collapsing & Folds                   {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Enable folding.
+    set foldmethod=manual
+
+"   Fold all on file-open.
+    set foldlevel=99
+
+"   Make vim-folds less awful-looking.
+    highlight clear Folded
+
+"   Remove dots.
+    set fillchars=fold:\     
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                             EDITING: Code Skeletons                       {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define code skeletons.
+  " autocmd BufNewFile *.sh     0r      ~/.config/nvim/skeletons/script.sh
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Comments                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Enable autocomment on newline.
+    set formatoptions+=r
+        
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                            EDITING: Copy & Paste                          {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Copy & paste to system clipboard.
+    if has('clipboard')
+        set clipboard=unnamed
+        if has('unnamedplus')  " X11 support
+            set clipboard+=unnamedplus
+        endif
+    endif
+
+"   TODO: Add description.
+    vnoremap <C-c> :w !pbcopy<CR><CR>
+    noremap <C-v> :r !pbpaste<CR><CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Indentation                        {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define default indentation settings.
+    set softtabstop=4
+    set shiftwidth=4
+    set expandtab
+    set autoindent
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                      EDITING: Insert Date/Time String                     {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Paste date-string.
+  " map <Leader>sfd :pu=strftime('%Y-%m-%d')<CR>
+
+"   Paste time-string.
+  " map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Linting                            {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Remove trailing whitespaces.
+    command! FixWhitespace :%s/\s\+$//e
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Macros                             {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define shortcut to re-run last-executed macro.
+    nnoremap Q @@
+
+"   Only redraw screen after macro is finished.                     -> speed-up
+    set lazyredraw
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                        EDITING: Newline from Normal Mode                  {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Create newline below current line without entering insert mode.
+    nmap <CR> o<C-c>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                             EDITING: Quick-Move Lines                     {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"    TODO Add description.
+     nnoremap <leader>k :m-2<cr>==
+     xnoremap <leader>k :m-2<cr>gv=gv
+     nnoremap <leader>j :m+<cr>==
+     xnoremap <leader>j :m'>+<cr>gv=gv
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Wrapping                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Disable wrapping for long lines.
+    set nowrap
+    set formatoptions-=t
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                               EDITING: Yanking                             {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Define shortcut to yank until end of line.
+    nnoremap Y y$
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                   EDITING: ...                            {{{
+
+" }}} ═════════════════════════════════════════════════════════════════════════
 " ═════════════════════════════════════════════════════════════════════════════
 "                                 PLUGIN: Ag/Ack                           {{{
 " ═════════════════════════════════════════════════════════════════════════════
@@ -331,7 +749,7 @@
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                               PLUGIN: Airline                             {{{
-" =============================================================================
+" ═════════════════════════════════════════════════════════════════════════════
 
 "   Define airline theme.
 "   ───────────────────────────────────────────────────────────────────────────
@@ -440,100 +858,121 @@
   " Use cache (should speed up vim).
   " let g:airline_highlighting_cache = 0
 
-" }}}
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                            PLUGIN: Ale (inactive)                         {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Put these lines at the very end of your vimrc file.
+"   Load all plugins now.
+"   Plugins need to be added to runtimepath before helptags can be generated.
+  " packloadall
+
+"   Load all of the helptags now, after plugins have been loaded.
+"   All messages and errors will be ignored.
+  " silent! helptags ALL
+
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                        PLUGIN: Conqueror of Completion                   {{{
 " ═════════════════════════════════════════════════════════════════════════════
     
-"   Define list of CoC Extensions.
-    let g:coc_global_extensions = [
-        \ 'coc-docker',
-        \ 'coc-eslint',
-        \ 'coc-flutter',
-        \ 'coc-fzf-preview',
-        \ 'coc-html',
-        \ 'coc-jedi',
-        \ 'coc-json',
-        \ 'coc-pairs',
-        \ 'coc-prettier',
-        \ 'coc-pyright',
-        \ 'coc-rust-analyzer',
-        \ 'coc-rls',
-        \ 'coc-snippets',
-        \ 'coc-vimtex',
-    \ ]
-        " \ 'coc-css',
-        "     ^ -> not working anymore, for some reason...
-        " \ 'coc-python',  
-        "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
-        " \ 'coc-tsserver',
-        "     ^ -> not working anymore, for some reason...
+"   Extensions
+"   ───────────────────────────────────────────────────────────────────────────
+
+"       Define list of CoC Extensions.
+        let g:coc_global_extensions = [
+            \ 'coc-docker',
+            \ 'coc-eslint',
+            \ 'coc-flutter',
+            \ 'coc-fzf-preview',
+            \ 'coc-html',
+            \ 'coc-jedi',
+            \ 'coc-json',
+            \ 'coc-pairs',
+            \ 'coc-prettier',
+            \ 'coc-pyright',
+            \ 'coc-rust-analyzer',
+            \ 'coc-rls',
+            \ 'coc-snippets',
+            \ 'coc-vimtex',
+        \ ]
+          " \ 'coc-css',
+          "     ^ -> not working anymore, for some reason...
+          " \ 'coc-python',  
+          "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
+          " \ 'coc-tsserver',
+          "     ^ -> not working anymore, for some reason...
 
 "   Code completion.
 "   ───────────────────────────────────────────────────────────────────────────
 
-"   Use <Tab> and <S-Tab> to navigate the completion list:
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"       Use <Tab> and <S-Tab> to navigate the completion list:
+        inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+        inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-"   Select first list item by default, confirm with <Return>.
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+"       Select first list item by default, confirm with <Return>.
+        inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
-"   Close the preview window when completion is done. 
-"   TODO: necessary?
-    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"       Close the preview window when completion is done. 
+"       TODO: necessary?
+        autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
   
-"   Decrease update-time for CursorHold & CursorHoldI.
-"   TODO: What does this do?
-    set updatetime=300
+"       Decrease update-time for CursorHold & CursorHoldI.
+"       TODO: What does this do?
+        set updatetime=300
 
-"   Confirm completion with <Return>.
-  " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"       Confirm completion with <Return>.
+      " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
   
 "   Navigate diagnostics information.
 "   ───────────────────────────────────────────────────────────────────────────
 
-"   Use `[g` and `]g` keys to go to next/previous diagnostic info entry.
-    nmap <silent> [g <Plug>(coc-diagnostic-prev)
-    nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"       Use `[g` and `]g` keys to go to next/previous diagnostic info entry.
+        nmap <silent> [g <Plug>(coc-diagnostic-prev)
+        nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 "   Show documentation for object under cursor.
 "   ───────────────────────────────────────────────────────────────────────────
-"   Use `K` key to show documentation in preview window.
-    function! s:show_documentation()
-        if (index(['vim', 'help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-        else
-            call CocAction('doHover')
-        endif
-    endfunction
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+"       Use `K` key to show documentation in preview window.
+        function! s:show_documentation()
+            if (index(['vim', 'help'], &filetype) >= 0)
+                execute 'h '.expand('<cword>')
+            else
+                call CocAction('doHover')
+            endif
+        endfunction
+        nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 "   Appearance
 "   ───────────────────────────────────────────────────────────────────────────
 
-  " Configure CoC error-window colors.
-    highlight FgCocErrorFloatBgCocFloating ctermfg=1 ctermbg=0
-    highlight CocFloating ctermbg=black ctermfg=white
-    highlight CocMenuSel ctermbg=white ctermfg=black
-  " highlight CocErrorFloat ctermbg=red ctermfg=green  
-      " highlight Pmenu guifg=#0000FF
-      " ^ not working
+"       Configure CoC error-window colors.
+        highlight CocFloating ctermbg=black ctermfg=white
+        highlight CocMenuSel ctermbg=gray ctermfg=black 
+      " highlight CocErrorFloat ctermbg=black ctermfg=red       " -> not needed
+      " highlight Pmenu ctermbg=red ctermfg=green           " -> TODO What for?
+      " highlight FgCocErrorFloatBgCocFloating ctermfg=1 ctermbg=0
       " hi CocListBgRed guibg=black guifg=red
       " hi NvimInternalError guibg=black guifg=red
 
 "   Various
 "   ───────────────────────────────────────────────────────────────────────────
 
-"   Rename word under cursor with `F2`.
-"   TODO: Lookup: What does this do again?
-  " nmap <F2> <Plug>(coc-rename)
+"       Rename word under cursor with `F2`.
+"       TODO: Lookup: What does this do again?
+      " nmap <F2> <Plug>(coc-rename)
 
-  " python (?)
-  " set statusline^=%{coc#status()}
+      " python (?)
+      " set statusline^=%{coc#status()}
+
+"       Deactivate COC in .rs & .toml files. 
+"       RLS not available in non-nightly a.t.m. -> switched to nightly.
+      " autocmd BufNew,BufEnter *.rs,*.toml execute "silent! CocDisable"
+      " autocmd BufLeave *.rs,*.toml execute "silent! CocEnable"
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                       PLUGIN: EasyMotion (inactive)                       {{{
-" =============================================================================
+" ═════════════════════════════════════════════════════════════════════════════
 
 "   Move to line
   " map <Leader>L <Plug>(easymotion-bd-jk)
@@ -550,8 +989,26 @@
   " nmap <Leader>s <Plug>(easymotion-overwin-f2)
 
 " }}} ═════════════════════════════════════════════════════════════════════════
+"                           PLUGIN: Floating Terminal                       {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Open terminal in vim.
+  " nnoremap <silent> <leader>sh :terminal<CR>
+
+"   Open floating terminal in vim.
+    map <leader>ot :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center<CR>
+
+"   Open floating terminal and run ranger.
+  " map <leader>or :Ranger<CR>
+  " map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 ranger <CR>
+
+"   Open floating terminal and run python script.
+  " map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 python3 % <CR>
+
+
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                                PLUGIN: Fugitive                           {{{
-" ============================================================================= 
+" ═════════════════════════════════════════════════════════════════════════════
 
 "   Define keyboard shortcuts for `git add`, `git commit`, & `git push`.
     map <Leader>va :Git add %<CR>
@@ -560,7 +1017,11 @@
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                                PLUGIN: FZF                                {{{
-" =============================================================================
+" ═════════════════════════════════════════════════════════════════════════════
+      
+"   Auto-run FZF on vim-startup.
+"   NOTE: This functionality was moved to shell alias definition.
+  " autocmd vimenter * FZ
 
 "   Use <leader>f to open fuzzy finder.
 "   - NOTE: Type ' next for exact search.
@@ -640,7 +1101,7 @@
   "   call nvim_open_win(buf, v:true, opts)
   " endfunction
 
-" }}}
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                          PLUGIN: Goyo & LimeLight                        {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
@@ -653,15 +1114,18 @@
 "   LimeLight
 "   ───────────────────────────────────────────────────────────────────────────
 
+"   Define keyboard shortcut for toggling LimeLight.
     nmap <Leader>l :Limelight!!<CR>
     xmap <Leader>l :Limelight!!<CR>
 
+"   Define commands to be called on GoyoEnter.
     function MinimalistSetupEnable()
       " Limelight!
         set nonumber norelativenumber
     endfunction
     autocmd! User GoyoEnter call MinimalistSetupEnable()
 
+"   Define commands to be called on GoyoLeave.
     function MinimalistSetupDisable()
       " Limelight!
         set number relativenumber
@@ -670,13 +1134,20 @@
     endfunction
     autocmd! User GoyoLeave call MinimalistSetupDisable()
 
+"   This color is used by solarized for comments.
+"   TODO: What is this needed for?
+    let g:limelight_conceal_ctermfg = "239"  
+
   " let g:limelight_bop = '^\s'
   " let g:limelight_eop = '\ze\n^\s'
   " let g:limelight_paragraph_span = 2
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                               PLUGIN: NERDTree                            {{{
-" =============================================================================
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Toggle NerdTree.
+    map <leader>ont :NERDTreeTabsToggle<CR>
 
 "   Let files/directories be created/removed/modified.
     set modifiable
@@ -686,16 +1157,15 @@
 
 "   Only show relevant files, hide the rest.
     let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules', '__pycache__', '.DS_Store', '\.aux', '\.fdb_latexmk', '\.fls', '\.log', '\.nav', '\.out', '\.snm', '\.gz', '\.toc', '\.lof', '\.dvi', 'target', 'Cargo.lock']
+
 "   But DO show hidden files (starting with colon).
     let NERDTreeShowHidden=1
 
 "   Show bookmarks.
     let NERDTreeShowBookmarks=1
+
 "   Don't show "Press ? for help" text.
     let NERDTreeMinimalUI = 1
-
-"   Show little arrows for expandable directories (active by default anyways)
-  " let NERDTreeDirArrows = 1
 
 "   Remap jump to siblings to avoid conflict with tmux pane change
     let g:NERDTreeMapJumpPreviousSibling = '<M-k>'
@@ -725,6 +1195,9 @@
   " autocmd VimEnter * NERDTree                 
   " autocmd BufEnter * NERDTreeMirrorOpen
   " autocmd VimEnter * wincmd w
+
+"   Show little arrows for expandable directories (active by default anyways)
+  " let NERDTreeDirArrows = 1
 
 "   TODO: Sort.
   " let NERDTreeAutoDeleteBuffer = 1
@@ -767,6 +1240,13 @@
   " let g:UltiSnipsUsePythonVersion=3
 
 " }}} ═════════════════════════════════════════════════════════════════════════
+"                                PLUGIN: UndoTree                           {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Toggle UndoTree.
+    map <leader>out :UndotreeToggle <CR>
+
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                              PLUGIN: QuickTeX                            {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
@@ -789,38 +1269,64 @@
     \}
 
 " }}} ═════════════════════════════════════════════════════════════════════════
+"                         PLUGIN: SimpylFold (inactive)                     {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"   Preview docstrings in folded mode.
+  " let g:SimpylFold_docstring_preview = 1        
+  " let g:SimpylFold_fold_docstring=0
+  "
+"   Don't fold import statements.
+  " let g:SimpylFold_fold_import=0              
+    
+"   Nicer folding.
+  " function! NeatFoldText()
+  "     let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  "     let lines_count = v:foldend - v:foldstart + 1
+  "     let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  "     let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  "     let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  "     let foldtextend = lines_count_text . repeat(foldchar, 8)
+  "     let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  "     return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+  " endfunction
+  " set foldtext=NeatFoldText()
+
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                            PLUGIN: TaskWarrior (inactive)                 {{{
-" =============================================================================
+" ═════════════════════════════════════════════════════════════════════════════
+"   NOTE: Very messy...
 
-    " NOTE: very messy
+"   Taskwarrior
+  " highlight taskwarrior_priority ctermbg=white ctermfg=green 
+  " let g:task_highlight_field=0
+  " let g:task_readonly=0
 
-    " Taskwarrior
-    " highlight taskwarrior_priority ctermbg=white ctermfg=green 
-    " let g:task_highlight_field=0
-    " let g:task_readonly=0
+"   Define filetypes for checklist autocompletion on "- [ ] <CR>".
+  " let g:checklist_filetypes = ['markdown', 'text', 'org', 'wiki', 'vimwiki'] 
+      
+"   Custom conceal
+  " syntax match todoCheckbox "\[\ \]" conceal cchar=
+  " syntax match todoCheckbox "\[X\]" conceal cchar=
+  " syntax match todoCheckbox "- \[\ \]" conceal cchar=
+  " syntax match todoCheckbox "- \[X\]" conceal cchar=
+  " syntax match todoCheckbox "* \[\ \]" conceal cchar=
+  " syntax match todoCheckbox "* \[X\]" conceal cchar=
+  " let b:current_syntax = "todo"
+
+"   todoCheckbox
+  " if exists("b:current_syntax")
+  "   finish
+  " endif
     
-    " todoCheckbox
-    " if exists("b:current_syntax")
-    "   finish
-    " endif
-    
-    " Custom conceal
-    " syntax match todoCheckbox "\[\ \]" conceal cchar=
-    " syntax match todoCheckbox "\[X\]" conceal cchar=
-    " syntax match todoCheckbox "- \[\ \]" conceal cchar=
-    " syntax match todoCheckbox "- \[X\]" conceal cchar=
-    " syntax match todoCheckbox "* \[\ \]" conceal cchar=
-    " syntax match todoCheckbox "* \[X\]" conceal cchar=
-    " let b:current_syntax = "todo"
-    
-    " hi def link todoCheckbox Todo
-    " hi Conceal guibg=NONE
+  " hi def link todoCheckbox Todo
+  " hi Conceal guibg=NONE
 
-    " nnoremap <leader>t :tabnew <bar> :TW<CR>
-    " map <leader>x :ChecklistToggleCheckbox<CR>
-    " map <leader>y :CalendarH<CR>
+  " nnoremap <leader>t :tabnew <bar> :TW<CR>
+  " map <leader>x :ChecklistToggleCheckbox<CR>
+  " map <leader>y :CalendarH<CR>
 
-" }}}
+" }}} ═════════════════════════════════════════════════════════════════════════
 "                         PLUGIN: TMUX-Line (inactive)                      {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
@@ -836,433 +1342,59 @@
   "     \'z'    : ''}
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                       PLUGIN: ...              {{{
+"                        PLUGIN: Vim-Table-Mode (inactive)                  {{{
 " ═════════════════════════════════════════════════════════════════════════════
+" NOTE: activate with `<Leader>tm`
+
+"   Define alignment.
+    let g:table_mode_align_char = ':'
+
+"   Make ReST-compatible.
+  " let g:table_mode_header_fillchar='='
+  " let g:table_mode_corner_corner='+'
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                    PLUGIN: ...                            {{{
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 " ═════════════════════════════════════════════════════════════════════════════
-"                                  APPEARANCE:                              {{{
+"                           Unused / Unsorted / Old                         {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
-"   Show typed commands in lower-right corner of editor window.
-"   TODO: Change `ctermfg` for `showcmd` display-text. -> Green?
-    set showcmd
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                            APPEARANCE: Color-Scheme                       {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Specify name of colorscheme.
-    colorscheme solarized
-
-"   Enable dark-mode by default.
-    set background=dark
-
-"   Define keyboard short-cuts to toggle btw. light- & dark-mode.
-    map <leader>ml :set bg=light<CR>  
-    map <leader>md :set bg=dark<CR>
-
-"   Tell vim to use degraded colors.
-"   - Needs to be active for solarized-black iTerm profile.  TODO [#B] Really?
-"   - See: https://github.com/altercation/vim-colors-solarized#important-note-for-terminal-users
-  " let g:solarized_termcolors=256                      
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                             APPEARANCE: Cursor                            {{{
-" ═════════════════════════════════════════════════════════════════════════════
-    
-"   Always have at least 10 lines above/below cursor on screen.
-    set scrolloff=10
-
-"   Show on which line the cursor is by highlighting the whole row.
-  " set cursorline
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                              APPEARANCE: Fonts                            {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Use Hack Nerd in GUI-vim as well.
-    set guifont="Hack Nerd Font"
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                           APPEARANCE: Line Numbers                        {{{
-" ═════════════════════════════════════════════════════════════════════════════
-"   Setup method of displaying line-numbers on the left side of the editor.
-
-"   Use relative numbers in normal mode.
-    set number relativenumber
-  " set numberwidth=5
-  " set nonumber
-
-"   Toggle relative line numbers
-    nnoremap <leader>ln :set number! relativenumber!<cr>
-  " nnoremap <leader>rln :set relativenumber!<cr>
-  " nnoremap <leader>ln :set number!<cr>
-
-  " nnoremap d :set number relativenumber<cr>
-
-
-"   Switch to absolute line numbering when in insert mode.          -> inactive
-  " augroup numbertoggle
-  "     autocmd!
-  "     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+    " TODO: What does this do? Do I need it?
+  " augroup colorscheme_coc_setup | au!
+  "     au ColorScheme * call s:my_colors_setup()
   " augroup END
-
-"   Make background transparent.                      -> not even needed though
-  " highlight LineNr ctermbg=None ctermfg=None
-    
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                    APPEARANCE: Sign- & Color-Column                       {{{
-" ═════════════════════════════════════════════════════════════════════════════
-" - sign column     -> right edge of screen
-" - color column    ->  left edge of screen
-
-"   SIGN COLUMN:                                              
-"   ───────────────────────────────────────────────────────────────────────────
-"   Always display sign-column where error symbols would be displayed.
-    set signcolumn=yes
-    highlight clear SignColumn
-
-"   COLOR COLUMN:                                                 
-"   ───────────────────────────────────────────────────────────────────────────
-"   - deactivated at the moment
-
-"   Method b: Color text after column 80 in e.g. red.
-  " autocmd BufEnter * match Error /\%>80c/
-
-"   Method a: Display color-column to signify the 81st column.
-  " set textwidth=80
-  " set colorcolumn=81
-  " highlight ColorColumn ctermbg=235
-
-"   Method c: Display color-column only if text width is >80.
-"   TODO: Implement
-
-" }}}
-"                        APPEARANCE: Syntax Highlighting                    {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Turn on syntax highlighting. 
-      syntax on
-"   NOTE: ^ needs to be up here in file, not to conflict with SignCol!
-
-"   Highlight matching brackets for (), [], {}, and <>   
-"   - NOTE: Switch between them with %
-    set showmatch
-    set matchpairs+=<:>
-
-"   Use colorizer pugin to display RGBA hex-codes in corresponding color.
-  " autocmd BufEnter * :ColorHighlight <CR>
-  " lua require'colorizer'.setup()
-
-"   Flag erroneous whitespace.
-  " au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-"   Show indentation markers.
-"   TODO: Implement.
-
-" }}}
-"                            APPEARANCE: Welcome Screen                     {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Deactivate welcome text by setting its color to background.
-"   NOTE: Welcome text is deactivated anyways. -> Not needed anymore.
-"   TODO: Now the message is there again. EVEN if I re-activate below...???
-"   NOTE: Now it's gone again...
-    autocmd BufEnter * :highlight NonText guifg=bg<CR>
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                                 APPEARANCE: ...                           {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-" }}} 
-" ═════════════════════════════════════════════════════════════════════════════
-"                                NAVIGATION:                                {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Activate mouse.
-    set mouse=a  
-
-"   Move vertically by visual line.
-    nnoremap j gj
-    nnoremap k gk
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                    NAVIGATION: Quick-Open Config Files                    {{{
-" ============================================================================= 
-
-"   NeoVim
-    map <Leader>cvim :tabnew $XDG_CONFIG_HOME/nvim/init.vim <CR>
-    command! -nargs=? Ftedit execute "tabe $XDG_CONFIG_HOME/nvim/ftplugin/" . ("<args>" == "" ? &filetype : "<args>") . ".vim"
-    map <Leader>cvft :Ftedit <CR>
-    map <Leader>ccoc :CocConfig <CR>
-    map <leader>csnp :CocCommand snippets.openSnippetFiles <CR>
-
-"   Pylint
-  " map <Leader>cpl :tabnew ~/.pylintrc <CR>
-
-"   QuteBrowser
-    map <leader>cqtb :tabnew $XDG_CONFIG_HOME/qutebrowser/config.py <CR>
-
-"   Shell/Zsh
-    map <Leader>czsh :tabnew $ZSHRC <CR>
-    map <Leader>cali :tabnew $XDG_CONFIG_HOME/shell/aliasrc <CR>
-
-"   Suckless DWM
-    map <Leader>cdwm :tabnew $XDG_CONFIG_HOME/dwm/config.h <CR>
-
-"   Suckless Terminal
-    map <Leader>cst :tabnew $XDG_CONFIG_HOME/st/config.h <CR>
-
-"   TMUX
-    map <Leader>ctmx :tabnew $HOME/.tmux.conf <CR>
-
-"   Xorg (on Linux)
-    map <Leader>cxrc :tabnew $XINITRC <CR>
-    map <Leader>cxrc :tabnew $XDG_CONFIG_HOME/x/xinitrc <CR>
-
-" }}}
-"                         NAVIGATION: Search inside Files                   {{{
-" ═════════════════════════════════════════════════════════════════════════════
-"   Configure intra-file search.                                  (-> with "/")
-
-"   Search incrementally as characters are entered, & highlight matches.
-    set incsearch hlsearch
-  " set nohlsearch
-
-"   Make case-insensitive, except if capital letters are entered explicitly.
-    set ignorecase smartcase
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                        NAVIGATION: Switch between files                   {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Switch between buffers.                    (Re-map: Use buffers, not tabs!)
-    map gn :bn<cr>
-    map gp :bp<cr>
-  " map gd :bd<cr> 
-
-" }}}
-"                                 NAVIGATION: ...                           {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-" =============================================================================
-"                               EDITING: Comments                           {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Enable autocomment on newline.
-    set formatoptions+=r
-        
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                               EDITING: Indentation                        {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Define default indentation settings.
-    set softtabstop=4
-    set shiftwidth=4
-    set expandtab
-    set autoindent
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                               EDITING: Macros                             {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Define shortcut to re-run last-executed macro.
-    nnoremap Q @@
-
-"   Only redraw screen after macro is finished.                     -> speed-up
-    set lazyredraw
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                             EDITING: Quick-Move Lines                     {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"    TODO Add description.
-     nnoremap <leader>k :m-2<cr>==
-     xnoremap <leader>k :m-2<cr>gv=gv
-     nnoremap <leader>j :m+<cr>==
-     xnoremap <leader>j :m'>+<cr>gv=gv
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                               EDITING: Wrapping                           {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-"   Disable wrapping for long lines.
-    set nowrap
-    set formatoptions-=t
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                                   EDITING: ...                            {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-" }}} ═════════════════════════════════════════════════════════════════════════
-"                                   EDITING: ...                            {{{
-" ═════════════════════════════════════════════════════════════════════════════
-
-" }}} 
-" =============================================================================
-" =                                                                           =
-" =                                                                           =
-" =                                                                           =
-" =                                                                           =
-" =                                                                           =
-" =============================================================================
-"                                  Minimalism                             {{{
-" =============================================================================
-    " TODO: Clean up!
-
-    " Deactivate tildes on the left side of the screen
-      highlight Normal guibg=None ctermbg=None  
-      highlight EndOfBuffer guifg=None ctermfg=0 ctermbg=none
-
-    " TODO: What do these do? 
-    " highlight Normal guibg=None ctermbg=None  
-    " highlight Normal ctermfg=None ctermbg=000000
-    " highlight Normal ctermfg=None ctermbg=None
-    " hi Normal guibg=none ctermbg=NONE
-    " hi NonText guibg=green ctermbg=NONE
-    " hi Cursor guibg=red ctermbg=NONE
-    " hi ErrorMsg guibg=orange ctermbg=NONE
-    " hi Normal guibg=NONE
-    " hi NonText guibg=NONE
-    " hi ModeMsg guibg=NONE
-    " hi MoreMsg guibg=NONE
-    " hi ModeArea guibg=NONE
-    " hi ErrorMsg guibg=NONE
-    " hi Error guibg=NONE
-    " hi Directory guibg=NONE
-    " hi VertSplit guibg=NONE
-    " hi SignColumn ctermbg=red
-    " hi EndOfBuffer guibg=NONE
-    " hi NormalFloat guibg=NONE
-    " hi Folded guibg=NONE
-    " highlight Insert ctermfg=None ctermbg=None
-
-" Deactivate default vim status-line.
-" -----------------------------------------------------------------------------
-
-"   Don't show vim-mode.
-    set noshowmode 
-"   Don't show current location in file.
-    set noruler    
-"   Set colors of statusline. (invisible)
-    hi StatusLine ctermbg=None ctermfg=black
-
-"   Configure startup-screen.
-"   ---------------------------------------------------------------------------
-"   TODO: Check if true, how does this work exactly?
-
-"   TODO: Add description.
-    set shortmess=""
-
-"   Prevent vim from printing welcome message.            
-    set shortmess+=I
-
-"   Prevent Vim from echoing the current filename into the commandline.
-    set shortmess+=F
-
-" }}}
-"                             Code Collapsing & Folds                       {{{
-" =============================================================================
-
-    " Enable folding.
-      set foldmethod=manual
-    " Fold all on file-open.
-      set foldlevel=99
-    " Make vim-folds less awful-looking.
-      highlight clear Folded
-    " Remove dots.
-      set fillchars=fold:\     
-
-    " Preview docstrings in folded mode.
-    " let g:SimpylFold_docstring_preview = 1        
-    " let g:SimpylFold_fold_docstring=0
-    " " don't fold import statements
-    " let g:SimpylFold_fold_import=0              
-    
-    " Nicer folding.
-    " function! NeatFoldText()
-    "     let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-    "     let lines_count = v:foldend - v:foldstart + 1
-    "     let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-    "     let foldchar = matchstr(&fillchars, 'fold:\zs.')
-    "     let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-    "     let foldtextend = lines_count_text . repeat(foldchar, 8)
-    "     let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-    "     return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-    " endfunction
-    " set foldtext=NeatFoldText()
-
-" }}}
-"                            General Vim Configuration                      {{{
-" =============================================================================
-
-    " allow backspace in insert mode
-        " set backspace=indent,eol,start  
-
-    " Configure buffers to be able to exist in background.
-      set hidden  
-    
-    " Copy & paste to system clipboard.
-        if has('clipboard')
-            set clipboard=unnamed
-            if has('unnamedplus')  " X11 support
-                set clipboard+=unnamedplus
-            endif
-        endif
-        vnoremap <C-c> :w !pbcopy<CR><CR>
-        noremap <C-v> :r !pbpaste<CR><CR>
-     
-    " Remove trailing whitespaces.
-      command! FixWhitespace :%s/\s\+$//e
-    
-      if expand('%:e')=='tera'
-          set syntax=html
-      endif
-
-" }}}
-"                               TODO                           {{{
-" =============================================================================
-
-    " TODO: What does this do? Do I need it?
-    hi Pmenu ctermfg=Black ctermbg=White guifg=Black guibg=White
-    hi PmenuSel ctermfg=White ctermbg=Black guifg=White guibg=Black
-
-    " TODO: What does this do? Do I need it?
-    " augroup colorscheme_coc_setup | au!
-    "     au ColorScheme * call s:my_colors_setup()
-    " augroup END
     
     " TODO: What does this do? Do I need it?
-    " setlocal cole=1
+  " setlocal cole=1
     
     " Turn off indent lines by default.
-    " autocmd BufEnter * IndentLinesDisable
+  " autocmd BufEnter * IndentLinesDisable
 
-    " This color is used by solarized for comments.
-      let g:limelight_conceal_ctermfg = "239"  
+"   TODO: What do these do? 
+  " highlight Normal guibg=None ctermbg=None  
+  " highlight Normal ctermfg=None ctermbg=000000
+  " highlight Normal ctermfg=None ctermbg=None
+  " hi Normal guibg=none ctermbg=NONE
+  " hi NonText guibg=green ctermbg=NONE
+  " hi Cursor guibg=red ctermbg=NONE
+  " hi ErrorMsg guibg=orange ctermbg=NONE
+  " hi Normal guibg=NONE
+  " hi NonText guibg=NONE
+  " hi ModeMsg guibg=NONE
+  " hi MoreMsg guibg=NONE
+  " hi ModeArea guibg=NONE
+  " hi ErrorMsg guibg=NONE
+  " hi Error guibg=NONE
+  " hi Directory guibg=NONE
+  " hi VertSplit guibg=NONE
+  " hi SignColumn ctermbg=red
+  " hi EndOfBuffer guibg=NONE
+  " hi NormalFloat guibg=NONE
+  " hi Folded guibg=NONE
+  " highlight Insert ctermfg=None ctermbg=None
     
-" }}}
-"                                     Various                               {{{
-" ============================================================================= 
-
-    " Source vim config.
-      map <leader>rcv :source $XDG_CONFIG_HOME/nvim/init.vim<CR>
-
-    " Open UndoTree.
-      map <leader>u :UndotreeToggle <CR>
-    
-    " Open NerdTree.
-      map <leader>nt :NERDTreeTabsToggle<CR>
-
-    " Create newline below current line without entering insert mode.
-      nmap <CR> o<C-c>
-
-    " Go back to last opened file with backspace.
-      nmap <BS> <C-^>
-
     " Reload current file from disk.
     " map <M-r> :e % <CR>
     "
@@ -1272,67 +1404,14 @@
     " Sort (?)
     " map <Leader>ss :sort<CR>
 
-    " Re-Maps
-    " -------------------------------------------------------------------------
-    " Turn off search match highlighting.
-      nnoremap <leader>/ :nohlsearch<CR>
-
-    " Floating Terminal
-    " -------------------------------------------------------------------------
-    " Open terminal in vim.
-    " nnoremap <silent> <leader>sh :terminal<CR>
-    " Open floating terminal in vim.
-      map <leader>ot :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center<CR>
-    " Open floating terminal and run ranger.
-    " map <leader>or :Ranger<CR>
-    " map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 ranger <CR>
-    " Open floating terminal and run python script.
-    " map <leader>r :FloatermNew --height=0.8 --width=0.8 --wintype=floating --name=zsh --position=center --autoclose=2 python3 % <CR>
-
-
-    " Date Formatting
-    " -------------------------------------------------------------------------
-    " Paste date-string.
-      map <Leader>sfd :pu=strftime('%Y-%m-%d')<CR>
-    " Paste time-string.
-      map <Leader>sft :pu=strftime('%H:%M:%S')<CR>
-
-" }}}
-"                                                                   Various {{{
-" =============================================================================
-
-    " Define filetypes for checklist autocompletion on "- [ ] <CR>".
-      " let g:checklist_filetypes = ['markdown', 'text', 'org', 'wiki', 'vimwiki'] 
-
-    " Automatically close brackets.
-      " inoremap ( ()<left>
-      " inoremap [ []<left>
-      " inoremap { {}<left>
-      " inoremap " ""<left>
-      " inoremap ' ''<left>
-    
     " Make command-mode file auto-completion prettier.
       " set wildmode=longest,list,full  " TODO: Really necessary? I also have COC...
     
-    " Deactivate COC in .rs & .toml files. 
-    " RLS not available in non-nightly a.t.m. -> switched to nightly.
-      " autocmd BufNew,BufEnter *.rs,*.toml execute "silent! CocDisable"
-      " autocmd BufLeave *.rs,*.toml execute "silent! CocEnable"
-
-" }}}
-"                                    PLUGINS
-" =============================================================================
-
-
-" =============================================================================
-
-"                                       SORT                                {{{
-" =============================================================================
+      " allow backspace in insert mode
+      " set backspace=indent,eol,start  
 
       " source $XDG_CONFIG_HOME/nvim/ale.vim
       " source $XDG_CONFIG_HOME/nvim/gtd.vim
-      
-      " autocmd vimenter * FZF
       
       " set concealcursor=nc
   
@@ -1347,28 +1426,9 @@
       
       " disables auto comment on new line
       " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-      
-      "" table mode (activated with <Leader>tm)
-      "" ----------------------------------------------------------------------------
-      " alignment
-      let g:table_mode_align_char = ':'
-      " ReST compatible
-      " let g:table_mode_header_fillchar='='
-      " let g:table_mode_corner_corner='+'
-      
-      """ setup up of ALE
-      "" ----------------------------------------------------------------------------
-      """ Put these lines at the very end of your vimrc file.
-      """ Load all plugins now.
-      """ Plugins need to be added to runtimepath before helptags can be generated.
-      ""packloadall
-      """ Load all of the helptags now, after plugins have been loaded.
-      """ All messages and errors will be ignored.
-      ""silent! helptags ALL
-  
+        
       " calendar
       " let g:calendar_frame = 'default'
-
 
 "   Only highlight text after col-80 in red if file is *.wiki
 "   ----------------------------------------------------------------------------
@@ -1380,28 +1440,10 @@
     "     autocmd BufEnter * match Error /\%>80c/
     " endif
 
-
-"   Remap yanking until end of line.
-  " nnoremap Y y$
-
-    set nowrap
-
-"   Turn off writing of shared-date files.
-  " set shadafile="$XDG_DATA_HOME/nvim/shada/main.shada"
-  " set shadafile="NONE"  " -> not working
-  " set shada="NONE"
-    " set viminfo="NONE"
-  " set shada="$XDG_DATA_HOME/nvim/shada"
-  " set shada="~/.cache/nvim"
-  " set shada='1000
-
-" }}}
-
-"   Define code skeletons.
-    " autocmd BufNewFile *.sh     0r      ~/.config/nvim/skeletons/script.sh
-
     " autocmd VimEnter !rm ./nvim/log
     " autocmd VimEnter !echo "Hey"
     " autocmd VimEnter :!mkdir ./aaaa
 
     " set verbosefile=log.txt
+
+" }}}
