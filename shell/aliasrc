@@ -46,7 +46,6 @@
 #   Define list of filenames to ignore in listing.
 #   - NOTE: Be careful to remember the escape-symbols at the end of the line.
     EXA_IGNORE="\
-        |nvim|\
         |.DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|\
         |.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
         |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|.dart|\
@@ -162,7 +161,7 @@
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
 #   Make vim use the configuration file `$XDG_CONFIG_HOME/vim/vimrc`.
-  # alias vim="vim -u $XDG_CONFIG_HOME/vim/vimrc"
+    alias vim="vim -u $XDG_CONFIG_HOME/vim/vimrc"
 
 #   Make nvim use the configuration file `$NVIMRC`.
   # alias nvim="nvim -u $NVIMRC"

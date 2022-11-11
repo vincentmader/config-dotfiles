@@ -52,21 +52,33 @@
     set nowritebackup
 
 "   Turn off writing of shared-data files.
+    set viminfo+=n~/.local/share/nvim/shada/main.shada"       
+"              ^ Do NOT get rid of this line, 
+"                it took me hours to figure this out...
+"                Without it, `nvim/shada/main.shada` is created EVERYWHERE...
+"                (...where nvim is started.)
+"   See below for my other attempts:
+"   1. This should be working, 
+"      after all I AM talking about nvim's `shada`, not vim's `viminfo`,
+"      but:  -> NOT working!
   " set shadafile="~/.local/share/nvim/shada/main.shada"
-  " set shadafile="NONE"  " -> not working
-  " set shada="NONE"
-  " set viminfo="NONE"
+"      Maybe because of the apostrophes?
+"      Or because there is no `+=`?
+"      Or because of the missing `n`?
+"   2. But then at least this should be working, 
+"      since it is the same as the solution above, only using shell-variables,
+"      but:  -> NOT working!
+  " set viminfo+="$XDG_DATA_HOME/nvim/shada/main.shada"
+"   3. I tried around with a lot of other things as well...
+"      but:  ->  NOT working!
+  " set shadafile="NONE"
   " set shada="$XDG_DATA_HOME/nvim/shada"
   " set shada="~/.cache/nvim"
   " set shada='1000
-
-  if !has('nvim')
-    set viminfo+=n$XDG_DATA_HOME/vim/viminfo
-  else
-    " Do nothing here to use the neovim default
-    " or do soemething like:
-    " set viminfo+=n~/.shada
-  endif
+"   In the end, if all else fails, 
+"   one can always just deactivate writing to SHADA entirely:
+  " set shada="NONE"
+  " set viminfo="NONE"
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             GENERAL: File Types                           {{{
