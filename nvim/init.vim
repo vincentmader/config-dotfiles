@@ -52,13 +52,21 @@
     set nowritebackup
 
 "   Turn off writing of shared-data files.
-  " set shadafile="$XDG_DATA_HOME/nvim/shada/main.shada"
+  " set shadafile="~/.local/share/nvim/shada/main.shada"
   " set shadafile="NONE"  " -> not working
   " set shada="NONE"
   " set viminfo="NONE"
   " set shada="$XDG_DATA_HOME/nvim/shada"
   " set shada="~/.cache/nvim"
   " set shada='1000
+
+  if !has('nvim')
+    set viminfo+=n$XDG_DATA_HOME/vim/viminfo
+  else
+    " Do nothing here to use the neovim default
+    " or do soemething like:
+    " set viminfo+=n~/.shada
+  endif
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             GENERAL: File Types                           {{{
