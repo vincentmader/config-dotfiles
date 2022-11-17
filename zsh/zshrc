@@ -156,7 +156,7 @@
 
 #   Check if tmux is running.
 #   If not: start it!                       (and define default sessions: misc)
-    [ -z "${TMUX}" ] && tmux new-session -A -s "    misc     "
+    [ -z "${TMUX}" ] && tmux new-session -A -s "    miscellaneous   "
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Startup                                                                   │
