@@ -1,0 +1,352 @@
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                      Imports from Standard Library                        ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# DATETIME
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_datetime ""
+import datetime
+endsnippet
+snippet from_datetime_import_datetime_as_dt ""
+from datetime import datetime as dt
+endsnippet
+snippet from_datetime_import_timedelta_as_td ""
+from datetime import timedelta as td
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                        Imports from Other Sources                         ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# BOKEH
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_bokeh ""
+import bokeh
+endsnippet
+snippet from_bokeh.plotting_import_figure ""
+from bokeh.plotting import figure
+endsnippet
+snippet from_bokeh.models_import_Square ""
+from bokeh.models import Square
+endsnippet
+snippet from_bokeh.models_import_Line ""
+from bokeh.models import Line
+endsnippet
+snippet from_bokeh.models_import_Circle ""
+from bokeh.models import Circle
+endsnippet
+snippet from_bokeh.models_import_ColumnDataSource ""
+from bokeh.models import ColumnDataSource
+endsnippet
+snippet from_bokeh.embed_import_components ""
+from bokeh.embed import components
+endsnippet
+
+# MATPLOTLIB
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_matplotlib_as_mpl ""
+import matplotlib as mpl
+endsnippet
+snippet import_matplotlib.pyplot_as_plt ""
+import matplotlib.pyplot as plt
+endsnippet
+
+# NUMPY
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_numpy_as_np ""
+import numpy as np
+endsnippet
+
+# SCIPY
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_scipy ""
+import scipy
+endsnippet
+# ─────────────────────────────────────────────────────────────────────────────
+
+# TOML
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_toml ""
+import toml
+endsnippet
+
+# TQDM
+# ─────────────────────────────────────────────────────────────────────────────
+snippet from_tqdm_import_tqdm ""
+from tqdm import tqdm
+endsnippet
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║                         Imports from Own Modules                           ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+# CONFIG
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_config ""
+import config
+endsnippet
+snippet from_config_import_PATH... ""
+from config import PATH_$0
+endsnippet
+
+# UTILS
+# ─────────────────────────────────────────────────────────────────────────────
+snippet import_utils ""
+import utils
+endsnippet
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║                                    Loops                                   ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+snippet for_i_in ""
+for ${0:i} in ${1:range(10)}:
+    ${2:pass}
+endsnippet
+snippet for_i_in_range ""
+for ${0:i} in range(${1:10}):
+    ${2:pass}
+endsnippet
+snippet while ""
+while ${0:True}:
+    ${1:pass}
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                            Function Definitions                           ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+snippet def_f ""
+def ${0:f}($1):
+    ${2:pass}
+endsnippet
+snippet def_main ""
+def main():
+    $0
+if __name__ == "__main__":
+    main()
+endsnippet
+snippet if__name__==__main__ ""
+if __name__ == "__main__":
+    main()
+endsnippet
+
+snippet docstring_for_function ""
+"""
+$1
+
+Parameters:
+-----------
+x: type
+Description
+
+Returns:
+--------
+y: type
+Description
+
+"""
+endsnippet
+
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                             Method Definitions                            ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+snippet def_init ""
+def __init__(self):
+    $0
+endsnippet
+
+# ─────────────────────────────────────────────────────────────────────────────
+
+snippet func
+def ${1:funcname}(${2:arg1}$3)
+"""${1:Does something}
+Args:
+    ${2:arg1} (${3:type}): $4
+
+Return:
+    ${5:type}. ${6:description}
+"""
+$0
+endsnippet
+
+snippet funcfile "structure for function in new file"
+
+#!/usr/local/bin/python3
+# -*- coding: utf8 -*-
+
+
+def main($1):
+    """
+
+    Parameters
+    ----------
+
+    Returns
+    --------
+
+
+    """
+
+    pass
+
+
+if __name__ == '__main__':
+    main()
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                             Class Definitions                             ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+snippet class "Description"
+class $1():
+    def __init__(self):
+        pass
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                            Exception Handling                             ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+snippet try "try: ... except ..."
+try:
+    pass
+except $1:
+    pass
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                               Matplotlib                                  ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# New Figure
+# ─────────────────────────────────────────────────────────────────────────────
+snippet figure ""
+plt.figure(figsize=(5, 5))
+endsnippet
+snippet subplot ""
+plt.subplot($1)
+endsnippet
+
+# Plotting
+# ─────────────────────────────────────────────────────────────────────────────
+snippet plot ""
+plt.plot($1)
+endsnippet
+snippet scatter ""
+plt.scatter($1)
+endsnippet
+
+# Axes
+# ─────────────────────────────────────────────────────────────────────────────
+snippet plt.gca().ticklabel_format(style='sci') "scientific y-labels"
+plt.gca().ticklabel_format(style='sci', scilimits=(0, 0), axis='y')
+endsnippet
+
+# Legend
+# ─────────────────────────────────────────────────────────────────────────────
+snippet plt.legend ""
+plt.legend(loc='best')
+endsnippet
+
+# Saving
+# ─────────────────────────────────────────────────────────────────────────────
+snippet plt.savefig ""
+plt.savefig('$1')
+endsnippet
+
+# X-Label
+# ─────────────────────────────────────────────────────────────────────────────
+snippet xlabel ""
+plt.xlabel($1)
+endsnippet
+snippet ylabel ""
+plt.ylabel($1)
+endsnippet
+
+# X-Lim
+# ─────────────────────────────────────────────────────────────────────────────
+snippet xlim ""
+plt.xlim($1)
+endsnippet
+snippet ylim ""
+plt.ylim($1)
+endsnippet
+
+# X-Ticks
+# ─────────────────────────────────────────────────────────────────────────────
+snippet xticks ""
+plt.xticks($1)
+endsnippet
+snippet yticks ""
+plt.yticks($1)
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                  Numpy                                    ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# Linspace
+# ─────────────────────────────────────────────────────────────────────────────
+snippet linspace ""
+np.linspace($1)
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                Debugging                                  ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# Hello, World!
+snippet hw
+print("Hello, World!")
+endsnippet
+
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                    ...                                    ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# error handling
+snippet tryexcept "try ... except"
+try:
+    $1
+except Exception:
+    pass
+endsnippet
+
+# hashbang
+snippet hashbang "hashbang"
+#!/usr/bin/env python3
+endsnippet
+
+# hashbang & encoding
+snippet hashbang_encoding "hashbang & encoding"
+#!/usr/local/bin/python3
+# -*- coding: utf8 -*-
+endsnippet
+
+# print
+snippet print "print()"
+print($1)
+endsnippet
+
+# code readability and doc strings
+snippet docstr "doc string"
+"""${1:description}
+
+Parameters:
+    ${2:parameter 1}
+    ${3:parameter 1}
+Returns:
+    ${4:return value}
+endsnippet
+
+# with ... as
+snippet with_open_as_fp "with open(...) as fp:"
+with open($1) as fp:
+    content = fp.readlines()
+endsnippet
+
