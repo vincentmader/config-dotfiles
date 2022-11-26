@@ -1,18 +1,150 @@
 {
-  // Setup Diagnostic Symbols & Indicators.
-  "diagnostic.errorSign": "✘",
-  "diagnostic.infoSign": "ℹ",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.hintSign": "➤",
-  "suggest.snippetIndicator": " ►",
-
-  // ...
+  // GENERAL CoC Preferences
+  // ══════════════════════════════════════════════════════════════════════════
+  "coc.preferences.formatOnSave": true,
   "coc.preferences.messageLevel": "error",
 
-  // Setup Filetype-Specific Auto-Linting.
-  "coc.preferences.formatOnSave": true,
+  // DIAGNOSTIC SYMBOLS & INDICATORS
+  // ══════════════════════════════════════════════════════════════════════════
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.errorSign": "✘",
+  "diagnostic.hintSign": "➤",
+  "suggest.snippetIndicator": " ►",
+  // ...
+
+  // COMPLETION LIST
+  // ══════════════════════════════════════════════════════════════════════════
+  "coc.source.around.enable": true, //                                  default
+  "coc.source.buffer.enable": true, //                                  default
+  "coc.source.file.enable": true, //                                    default
+  "coc.source.tmuxcomplete.enable": true, //                            default
+  "coc.source.vimtex.enable": true, //                                  default
+  "coc.source.around.priority": 1, //                                   default
+  "coc.source.buffer.priority": 1, //                                   default
+  "coc.source.file.priority": 10, //                                    default
+  "coc.source.tmuxcomplete.priority": 1, //                             default
+  "coc.source.vimtex.priority": 99, //                                  default
+  // ...
+
+  // SNIPPETS
+  // ══════════════════════════════════════════════════════════════════════════
+  "snippets.priority": 90, //                                           default
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "tera": ["html"],
+    "typescript": ["javascript"]
+  },
+  "snippets.ultisnips.enable": true, //                                 default
+  "snippets.ultisnips.directories": ["snips", "UltiSnips", "snippets"],
+  "snippets.snipmate.enable": true, //                                  default
+  // ...
+
+  // PYTHON
+  // ══════════════════════════════════════════════════════════════════════════
+  "python.analysis.autoImportCompletions": true, //                     default
+  "python.analysis.autoSearchPaths": true, //                           default
+  "python.analysis.diagnosticMode": "openFilesOnly", //                 default
+  "python.analysis.stubPath": "typings", //                             default
+  "python.analysis.typeshedPaths": [], //                               default
+  "python.analysis.diagnosticSeverityOverrides": {}, //                 default
+  "python.analysis.typeCheckingMode": "basic", //                       default
+  "python.analysis.useLibraryCodeForTypes": true, //                    default
+  "python.pythonPath": "python3",
+  "python.venvPath": "", //                                             default
+  "python.formatting.provider": "autopep8", //                          default
+  "python.formatting.blackPath": "black", //                            default
+  "python.formatting.blackArgs": [], //                                 default
+  "python.formatting.blackdPath": "blackd", //                          default
+  "python.formatting.blackdHTTPURL": "", //                             default
+  "python.formatting.blackdHTTPHeaders": {}, //                         default
+  "python.formatting.yapfPath": "yapf", //                              default
+  "python.formatting.yapfArgs": [], //                                  default
+  "python.formatting.autopep8Path": "autopep8", //                      default
+  "python.formatting.autopep8Args": [], //                              default
+  "python.linting.enabled": true, //                                    default
+  "python.linting.flake8Enabled": false, //                             default
+  "python.linting.banditEnabled": false, //                             default
+  "python.linting.mypyEnabled": false, //                               default
+  "python.linting.ruffEnabled": false, //                               default
+  "python.linting.pytypeEnabled": false, //                             default
+  "python.linting.pycodestyleEnabled": false, //                        default
+  "python.linting.prospectorEnabled": false, //                         default
+  "python.linting.pydocstyleEnabled": false, //                         default
+  "python.linting.pylamaEnabled": false, //                             default
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": ["--disable=C0103", "--disable=C0116"],
+  "python.linting.pyflakesEnabled": false, //                           default
+  "python.sortImports.path": "", //                                     default
+  "python.sortImports.args": [], //                                     default
+
+  // PYRIGHT
+  // ══════════════════════════════════════════════════════════════════════════
+  "pyright.enable": true, //                                            default
+  "pyright.server": "", //                                              default
+  "pyright.disableCompletion": true,
+  "pyright.disableDiagnostics": false, //                               default
+  "pyright.disableDocumentation": false, //                             default
+  "pyright.disableProgressNotifications": false, //                     default
+  "pyright.completion.importSupport": true, //                          default
+  "pyright.completion.snippetSupport": true, //                         default
+  "pyright.organizeimports.provider": "pyright", //                     default
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.testing.provider": "unittest", //                            default
+  "pyright.testing.unittestArgs": [], //                                default
+  "pyright.testing.pytestArgs": [], //                                  default
+
+  // RUST-ANALYZER
+  // ══════════════════════════════════════════════════════════════════════════
+  "rust-analyzer.enable": true, //                                      default
+  "rust-analyzer.terminal.startinsert": false, //                       default
+  "rust-analyzer.debug.runtime": "termdebug", //                        default
+  "rust-analyzer.debug.vimspector.configuration.name": "launch", //     default
+  "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
+  "rust-analyzer.server.extraEnv": null, //                             default
+  "rust-analyzer.restartServerOnConfigChange": false, //                default
+  "rust-analyzer.trace.server": "off", //                               default
+  "rust-analyzer.updates.prompt": true, //                              default
+  "rust-analyzer.updates.checkOnStartup": true, //                      default
+  "rust-analyzer.updates.channel": "nightly",
+  "rust-analyzer.assist.expressionFillDefault": "todo", //              default
+  "rust-analyzer.cachePriming.enable": true, //                         default
+  "rust-analyzer.cachePriming.numThreads": 0, //                        default
+  "rust-analyzer.cargo.autoreload": true, //                            default
+  // ...
+  "rust-analyzer.diagnostics.disabled": [], //                          default
+  "rust-analyzer.checkOnSave.enable": true, //                          default
+  // ...
+  "rust-analyzer.diagnostics.enable": false,
+  // ...
+  "rust-analyzer.inlayHints.bindingModeHints.enable": false, //         default
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": true, //         default
+  "rust-analyzer.inlayHints.closingBraceHints.minLines": 25, //         default
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "never", // default
+  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "never", //   default
+  // ...
+  "rust-analyzer.inlayHints.maxLength": 25, //                          default
+  "rust-analyzer.inlayHints.parameterHints.enable": true,
+  "rust-analyzer.inlayHints.reborrowHints.enable": "never", //          default
+  "rust-analyzer.inlayHints.renderColons": true, //                     default
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false, //  default
+  // ...
+
+  // ESLINT
+  // ══════════════════════════════════════════════════════════════════════════
+  "eslint.options": {
+    "configFile": "/home/vinc/.config/eslint/eslintrc"
+  }
+
+  // ...
+  // ══════════════════════════════════════════════════════════════════════════
+
   // "coc.preferences.formatOnSaveFiletypes": [
-  //   "dart",
+  // "dart"
   //   "javascript",
   //   "javascriptreact",
   //   "json",
@@ -25,51 +157,7 @@
   // "css",
   // "typescript",
 
-  // Setup Snippet Directory(ies).
-  "snippets.ultisnips.directories": ["UltiSnips", "snippets"],
-  // Setup Snippet Filetype Extensions.
-  "snippets.extends": {
-    "cpp": ["c"],
-    "javascriptreact": ["javascript"],
-    "tera": ["html"]
-  },
-  // "typescript": ["javascript"],
-
-  // Setup Python Linting.
-  "python.linting.enabled": true,
-  "python.linting.banditEnabled": false,
-  "python.linting.flake8Enabled": false,
-  "python.linting.mypyEnabled": false,
-  "python.linting.prospectorEnabled": false,
-  "python.linting.pycodestyleEnabled": false,
-  "python.linting.pydocstyleEnabled": false,
-  "python.linting.pylamaEnabled": false,
-  "python.linting.pylintEnabled": true,
-  "python.linting.pylintPath": "/opt/homebrew/bin/pylint",
-  "python.linting.pytypeEnabled": false,
-  "python.linting.pylintArgs": ["--disable=C0103", "--disable=C0116"],
-  "python.venvPath": "",
-  "python.pythonPath": "/opt/homebrew/bin/python3",
-  "pyright.inlayHints.functionReturnTypes": false,
-  "pyright.inlayHints.variableTypes": false,
-
-  // Setup Rust Linting.
-  "rust-analyzer.enable": true,
-  "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
-  "rust-analyzer.inlayHints.parameterHints.enable": true,
-  "rust-analyzer.inlayHints.typeHints.enable": true,
-  "rust-analyzer.inlayHints.chainingHints.enable": true,
-  "rust-analyzer.checkOnSave.enable": true,
-  "rust-analyzer.diagnostics.enable": false,
-
-  // Setup JS Linting.
-  "eslint.options": {
-    "configFile": "/home/vinc/.config/eslint/eslintrc"
-  }
-
-  // "rust-client.enable": true
   // "diagnostic.enable": true,
-  // "diagnostic.virtualText": false,
   // "diagnostic.joinMessageLines": true,
   // "diagnostic.checkCurrentLine": true,
   // "diagnostic.messageTarget": "float",
@@ -93,4 +181,5 @@
   // "suggest.autoTrigger": "none",
   // "signature.enable": false,
   // "coc.preferences.snippets.enable": false,
+  // "diagnostic.virtualText": true,
 }

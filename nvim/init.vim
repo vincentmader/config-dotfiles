@@ -898,23 +898,21 @@
 "                        PLUGIN: Conqueror of Completion                   {{{
 " ═════════════════════════════════════════════════════════════════════════════
     
-"   Extensions
+"   Define list of CoC extensions
 "   ───────────────────────────────────────────────────────────────────────────
 
-"       Define list of CoC Extensions.
         let g:coc_global_extensions = [
             \ 'coc-docker',
             \ 'coc-eslint',
             \ 'coc-flutter',
-            \ 'coc-fzf-preview',
             \ 'coc-html',
             \ 'coc-jedi',
             \ 'coc-json',
             \ 'coc-pairs',
             \ 'coc-prettier',
             \ 'coc-pyright',
-            \ 'coc-rust-analyzer',
             \ 'coc-rls',
+            \ 'coc-rust-analyzer',
             \ 'coc-snippets',
             \ 'coc-vimtex',
         \ ]
@@ -924,27 +922,36 @@
           "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
           " \ 'coc-tsserver',
           "     ^ -> not working anymore, for some reason...
+          " \ 'coc-fzf-preview',
+          "     ^ -> not working anymore, for some reason...
 
-"   Code completion.
+"   Code completion list
 "   ───────────────────────────────────────────────────────────────────────────
-
-"       Use <Tab> and <S-Tab> to navigate the completion list:
-        inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-        inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "       Select first list item by default, confirm with <Return>.
         inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
+"       Use `<Tab>` and `<S-Tab>` to go to next/previous completion list item:
+        inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+        inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 "       Close the preview window when completion is done. 
-"       TODO: necessary?
+"       TODO: Find out re: Is this even necessary?
         autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-  
+
 "       Decrease update-time for CursorHold & CursorHoldI.
 "       TODO: What does this do?
         set updatetime=300
 
 "       Confirm completion with <Return>.
       " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+"   Snippets
+"   ───────────────────────────────────────────────────────────────────────────
+
+"       Use `<Tab>` and `<S-Tab>` to go to next/previous snippet insert point:
+        let g:coc_snippet_next = '<Tab>'
+        let g:coc_snippet_prev = '<S-Tab>'
   
 "   Navigate diagnostics information.
 "   ───────────────────────────────────────────────────────────────────────────
