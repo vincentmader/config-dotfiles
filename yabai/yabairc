@@ -63,6 +63,7 @@
     yabai -m rule --add title='Preferences$' manage=off
     yabai -m rule --add title='Settings$' manage=off
     yabai -m rule --add title='FTL' manage=off
+  # yabai -m rule --add title='Preview' manage=off layer=above
   # yabai -m rule --add title='QuickTime Player' manage=off
   # yabai -m rule --add title='QuickTime' manage=off
   # yabai -m rule --add app="Chrome" manage=off
