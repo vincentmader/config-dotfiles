@@ -1,5 +1,5 @@
 
-snippet lorem "Lorem Ipsum - 50 Words" b
+snippet lorem "" b
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -21,33 +21,51 @@ laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu,
 feugiat in, orci. In hac habitasse platea dictumst.
 endsnippet
 
-snippet comment_separator_1 "# ══════..."
+snippet comment_separator_1 ""
 # ═════════════════════════════════════════════════════════════════════════════
 endsnippet
-snippet comment_separator_2 "# ──────..."
+snippet comment_separator_2 ""
 # ─────────────────────────────────────────────────────────────────────────────
 endsnippet
-snippet comment_separator_3 "# ======..."
+snippet comment_separator_3 ""
 # =============================================================================
 endsnippet
-snippet comment_separator_4 "# ------..."
+snippet comment_separator_4 ""
 # -----------------------------------------------------------------------------
 endsnippet
-snippet box_1 "Box"
+snippet box_1 ""
 `!p snip.rv = '╔' + '═' * (len(t[1]) + 2) + '╗'`
 ║ $1 ║
 `!p snip.rv = '╚' + '═' * (len(t[1]) + 2) + '╝'`
 $0
 endsnippet
-snippet box_2 "Box"
+snippet box_2 ""
 `!p snip.rv = '╭' + '─' * (len(t[1]) + 2) + '╮'`
 │ $1 │
 `!p snip.rv = '╰' + '─' * (len(t[1]) + 2) + '╯'`
 $0
 endsnippet
-snippet box_3 "Box"
+snippet box_3 ""
 `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
 │ $1 │
 `!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+snippet comment_box_1 ""
+`!p snip.rv = '# ╔' + '═' * (len(t[1]) + 2) + '╗'`
+# ║ $1 ║
+`!p snip.rv = '# ╚' + '═' * (len(t[1]) + 2) + '╝'`
+$0
+endsnippet
+snippet comment_box_2 ""
+`!p snip.rv = '# ╭' + '─' * (len(t[1]) + 2) + '╮'`
+# │ $1 │
+`!p snip.rv = '# ╰' + '─' * (len(t[1]) + 2) + '╯'`
+$0
+endsnippet
+snippet comment_box_3 ""
+`!p snip.rv = '# ┌' + '─' * (len(t[1]) + 2) + '┐'`
+# │ $1 │
+`!p snip.rv = '# └' + '─' * (len(t[1]) + 2) + '┘'`
 $0
 endsnippet
