@@ -118,6 +118,13 @@
 
 #   Define path to ipython cache files.
     export IPYTHONDIR="$XDG_DATA_HOME/ipython"
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Julia                                                                     │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Define path to julia files.
+    export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
     
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ JavaScript, NodeJS, & NPM                                                 │
