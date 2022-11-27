@@ -380,7 +380,6 @@
 "   TODO: What does this do? Do I need it?
   " hi PmenuSel ctermfg=black ctermbg=red
   " hi PmenuSbar ctermfg=black ctermbg=red
-  " hi PmenuThumb ctermfg=black ctermbg=red
     hi Pmenu ctermfg=black ctermbg=gray
     " -> needed for e.g. FloatTerm borders
 
@@ -898,7 +897,7 @@
 "                        PLUGIN: Conqueror of Completion                   {{{
 " ═════════════════════════════════════════════════════════════════════════════
     
-"   Define list of CoC extensions
+"   Define list of CoC extensions.
 "   ───────────────────────────────────────────────────────────────────────────
 
         let g:coc_global_extensions = [
@@ -907,6 +906,7 @@
             \ 'coc-flutter',
             \ 'coc-html',
             \ 'coc-jedi',
+            \ 'coc-julia',
             \ 'coc-json',
             \ 'coc-pairs',
             \ 'coc-prettier',
@@ -919,19 +919,19 @@
           " \ 'coc-css',
           "     ^ -> not working anymore, for some reason...
           " \ 'coc-python',  
-          "     ^ -> deprecated, use coc-jedi or coc-pyright instead (or -> and!)
+          "     ^ -> deprecated, use coc-jedi & coc-pyright instead.
           " \ 'coc-tsserver',
           "     ^ -> not working anymore, for some reason...
           " \ 'coc-fzf-preview',
           "     ^ -> not working anymore, for some reason...
 
-"   Code completion list
+"   Configure code completion/suggestion list.
 "   ───────────────────────────────────────────────────────────────────────────
 
-"       Select first list item by default, confirm with <Return>.
+"       Select first list item by default, confirm with `Return`.
         inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
-"       Use `<Tab>` and `<S-Tab>` to go to next/previous completion list item:
+"       Use `<Tab>` and `<S-Tab>` to go to next/previous completion list item.
         inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
         inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -939,31 +939,31 @@
 "       TODO: Find out re: Is this even necessary?
         autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-"       Decrease update-time for CursorHold & CursorHoldI.
+"       Decrease update-time for `CursorHold` & `CursorHoldI`.
 "       TODO: What does this do?
         set updatetime=300
 
 "       Confirm completion with <Return>.
       " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"   Snippets
+"   Configure Snippets.
 "   ───────────────────────────────────────────────────────────────────────────
 
 "       Use `<Tab>` and `<S-Tab>` to go to next/previous snippet insert point:
         let g:coc_snippet_next = '<Tab>'
         let g:coc_snippet_prev = '<S-Tab>'
   
-"   Navigate diagnostics information.
+"   Configure diagnostics information.
 "   ───────────────────────────────────────────────────────────────────────────
 
 "       Use `[g` and `]g` keys to go to next/previous diagnostic info entry.
         nmap <silent> [g <Plug>(coc-diagnostic-prev)
         nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-"   Show documentation for object under cursor.
+"   Configure documentation.
 "   ───────────────────────────────────────────────────────────────────────────
 
-"       Use `K` key to show documentation in preview window.
+"       Use `K` to show doc. for object under cursor in preview window.
         function! s:show_documentation()
             if (index(['vim', 'help'], &filetype) >= 0)
                 execute 'h '.expand('<cword>')
@@ -973,12 +973,21 @@
         endfunction
         nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-"   Appearance
+"   Configure CoC colors.
 "   ───────────────────────────────────────────────────────────────────────────
 
 "       Configure CoC error-window colors.
         highlight CocFloating ctermbg=black ctermfg=white
         highlight CocMenuSel ctermbg=gray ctermfg=black 
+
+"       Configure CoC inline-hint colors.
+"       NOTE: Strangely enough, only `CocInlayHint` has an effect,
+"             but does so on chaining-hints & rust-type hints as well.
+"             Still, I'm keeping the other two in here as well...
+        highlight CocInlayHint ctermfg=10
+        highlight CocRustChainingHint ctermfg=10
+        highlight CocRustTypeHint ctermfg=10
+
       " highlight CocErrorFloat ctermbg=black ctermfg=red       " -> not needed
       " highlight Pmenu ctermbg=red ctermfg=green           " -> TODO What for?
       " highlight FgCocErrorFloatBgCocFloating ctermfg=1 ctermbg=0
@@ -1468,3 +1477,13 @@
   " set verbosefile=log.txt
 
 " }}}
+
+    " hi PmenuThumb ctermfg=green ctermbg=green
+    " hi PmenuSbar ctermfg=red ctermbg=red
+    " hi PmenuThumb ctermfg=None ctermbg=None
+    " hi PmenuSbar ctermfg=None ctermbg=None
+
+    " hi clear PmenuThumb
+    " hi clear PmenuSbar
+
+    " hi PmenuSel ctermfg=red ctermbg=green
