@@ -46,11 +46,41 @@
 #   Define list of filenames to ignore in listing.
 #   - NOTE: Be careful to remember the escape-symbols at the end of the line.
     EXA_IGNORE="\
-        |.DS_Store|.CFUserTextEncoding|.ssh|.git|.gitignore|.git-credentials|\
-        |.archey-ip|__pycache__|*.pyc|*.pyo|venv|env|node_modules|Cargo.lock|\
-        |target|pkg|.viminfo|.ob-jupyter|.ipynb_checkpoints|.dart|\
-        |.dartServer|.flutter-devtools|.pub-cache|.terminfo|.flutter|.cups|\
-        |.gem|.mono|.putty|.swiftpm|.thumbnails|.docker"
+        |*.pyc|\
+        |*.pyo|\
+        |.CFUserTextEncoding|\
+        |.DS_Store|\
+        |.archey-ip|\
+        |.cups|\
+        |.dartServer|\
+        |.dart|\
+        |.docker|\
+        |.flutter-devtools|\
+        |.flutter|\
+        |.gem|\
+        |.git-credentials|\
+        |.gitignore|\
+        |.git|\
+        |.ipynb_checkpoints|\
+        |.mono|\
+        |.ob-jupyter|\
+        |.pub-cache|\
+        |.putty|\
+        |.ssh|\
+        |.swiftpm|\
+        |.terminfo|\
+        |.thumbnails|\
+        |.viminfo|\
+        |Cargo.lock|\
+        |__pycache__|\
+        |desktop.ini|\
+        |dist|\
+        |env|\
+        |node_modules|\
+        |pkg|\
+        |target|\
+        |venv|\
+        "
 
 #   Re-define `ls` command to ignore the just-defined list of files...
     alias ls="exa -a -I \"$EXA_IGNORE\""
@@ -74,7 +104,15 @@
 #   Show multi-level tree view.                                   (-T = --tree)
     alias lt="exa -T $EXA_FLAGS -I \"$EXA_IGNORE\""
     alias lta="exa -T $EXA_FLAGS"
-    MORE_EXA_IGNORE="$EXA_IGNORE|Cargo.toml|lib.rs|mod.rs|scripts|css|img"
+    MORE_EXA_IGNORE="\
+        $EXA_IGNORE|\
+        |Cargo.toml|\
+        |css|\
+        |img|\
+        |lib.rs|\
+        |mod.rs|\
+        |scripts|\
+        "
     alias ltt="exa -T $EXA_FLAGS -I \"$MORE_EXA_IGNORE\""
     alias ltta="exa -T $EXA_FLAGS"
     alias lt1="lt -L 1"
@@ -296,6 +334,13 @@
     alias jn="jupyter notebook"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
+# │ Julia                                                                     │
+# ╰───────────────────────────────────────────────────────────────────────────╯
+
+#   Define a shorter command for starting the Julia interpreter.
+    alias jl="julia"
+
+# ╭───────────────────────────────────────────────────────────────────────────╮
 # │ NodeJS & NPM                                                              │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
@@ -424,6 +469,9 @@
 
 #   Show themes.
     alias gogh='bash -c "$(curl -sLo- https://git.io/vQgMr)"'
+
+#   Show nr. of lines of code grouped by programming/mark-up language.
+    alias tokei="clear && echo && tokei"
 
 # Inspirations
 # - cowsay
