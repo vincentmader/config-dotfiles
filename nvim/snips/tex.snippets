@@ -1,99 +1,124 @@
-#								        imports 
-# =============================================================================
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                GENERAL                                    ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+snippet begin ""
+\begin{$1}
+    $2$
+\end{$1}
+endsnippet
+snippet newpage ""
+\newpage
+endsnippet
+snippet section ""
+\section{$1}
+endsnippet
+snippet subsection ""
+\subsection{$1}
+endsnippet
+snippet subsubsection ""
+\subsubsection{$1}
+endsnippet
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                            PACKAGE IMPORTS                                ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+snippet usepackage ""
+\usepackage{$1}
+endsnippet
 snippet usepackage_amsmath ""
 \usepackage{amsmath}
 endsnippet
-
 snippet usepackage_amsfonts ""
 \usepackage{amsfonts}
 endsnippet
-
 snippet usepackage_caption ""
 \usepackage{caption}
 endsnippet
-
 snippet usepackage_chemformula ""
 \usepackage{chemformula}
 endsnippet
-
 snippet usepackage_fancyhdr ""
 \usepackage{fancyhdr}
 endsnippet
-
 snippet usepackage_geometry ""
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 endsnippet
-
 snippet usepackage_graphicx ""
 \usepackage{graphicx}
 endsnippet
-
 snippet usepackage_hyperref ""
 \usepackage[hidelinks]{hyperref}
 endsnippet
-
 snippet usepackage_listings ""
 \usepackage{listings}
 endsnippet
-
-snippet  "usepackage_multicol"
+snippet usepackage_multicol ""
 \usepackage{multicol}
 endsnippet
-
 snippet usepackage_siunitx ""
 \usepackage{siunitx}
 endsnippet
-
 snippet usepackage_tikz ""
 \usepackage{tikz}
 endsnippet
-
 snippet usepackage_xcolor ""
 \usepackage{xcolor}
 endsnippet
-
-
-
-
-
-
-
-
-
-
-snippet author ""
-\author{$1}
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                 TABLES                                    ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+snippet table ""
+\begin{table}[h!]
+    \begin{center}
+	\caption{$1}
+	\begin{tabular}{$2}
+	    
+	\end{tabular}
+    \end{center}
+\end{table} \ \\\ 
 endsnippet
-
-snippet align ""
-\begin{align}
-    $1
-\end{align}
+snippet tabular ""
+\begin{center}
+    \begin{tabular}{$2}
+      	
+    \end{tabular}
+\end{center}
 endsnippet
-
-
-snippet autoref "autoref"
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                           TEX-FILE INCLUSION                              ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+snippet include ""
+\include{$1$}
+endsnippet
+snippet input ""
+\input{$1$}
+endsnippet
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                               TEXT COLORS                                 ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+snippet textcolor ""
+\textcolor{${1:color}}{${2:text}}
+endsnippet
+snippet red ""
+\red{${1:text}}
+endsnippet
+snippet blue ""
+\blue{${1:text}}
+endsnippet
+snippet green ""
+\green{${1:text}}
+endsnippet
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                          QUOTING & REFERENCES                             ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+snippet autoref ""
 \autoref{$1:}
 endsnippet
-
-
-snippet begin "begin and end tag"
-\begin{$1}
-    
-\end{$1}
+snippet bibitem ""
+\bibitem{${3:label}}
+\textit{${2:text}} \\\
+\url{${3:url}}
 endsnippet
-
-
-snippet bibitem "entry in bibliography"
-\bibitem{$1}
-\textit{Lorem ipsum dolor sit amet} \\\
-\url{https://www.youtube.com/watch?v=dQw4w9WgXcQ}
-
-endsnippet
-
-
-snippet bibliography "template for bibliography file"
-
+snippet bibliography ""
 \begin{thebibliography}{00}
 
     \bibitem{lorem}
@@ -101,116 +126,97 @@ snippet bibliography "template for bibliography file"
     \url{https://www.youtube.com/watch?v=dQw4w9WgXcQ}
 
 \end{thebibliography}
-
 endsnippet
-
-
-snippet blue "blue colored text"
-\blue{$1}
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                             VECTORS & MATRICES                            ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+snippet bmatrix ""
+\begin{bmatrix}
+    $1
+\end{bmatrix}
 endsnippet
-
-
-snippet pmatrix "pmatrix"
+snippet pmatrix ""
 \begin{pmatrix}
     $1
 \end{pmatrix}
 endsnippet
+snippet vmatrix ""
+\begin{pmatrix}
+    $1
 
-
-snippet bold "\textbf{}"
+endsnippet
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                  UNSORTED                                 ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# TODO Clean up
+snippet author ""
+\author{$1}
+endsnippet
+snippet align ""
+\begin{align}
+    $1
+\end{align}
+endsnippet
+snippet bold ""
 \textbf{$1}
 endsnippet
-
-
-snippet caption "caption"
+snippet caption ""
 \caption{$1}
 endsnippet
-
-
 snippet cases ""
 \begin{cases}
     $1
 \end{cases}
 endsnippet
-
-
-snippet center "center tag"
+snippet center ""
 \begin{center}
     $1
 \end{center}
 endsnippet
-
-
-snippet centering "centering"
+snippet centering ""
 \centering
 endsnippet
-
-
-snippet chapter "chapter"
+snippet chapter ""
 \chapter{$1}
 endsnippet
-
-
-snippet cite "cite"
+snippet cite ""
 \cite{$1}
 endsnippet
-
-
-snippet citeauthor "cite author"
+snippet citeauthor ""
 \citeauthor{$1}
 endsnippet
-
-
-snippet citeyear "cite year"
+snippet citeyear ""
 \citeyear{$1}
 endsnippet
-
-
-snippet citelater "red tag indicating missing citation"
+snippet citelater ""
 \red{[cite]}
 endsnippet
-
-
-snippet clearpage "clearpage"
+snippet clearpage ""
 \clearpage
 endsnippet
-
-
-snippet cmd "latex command"
+snippet cmd ""
 \\$1{}
 endsnippet
-
-
-snippet code "lstlisting"
+snippet code ""
 \begin{lstlisting}
     $1
 \end{lstlisting}
 endsnippet
-
-
-snippet lstinputlisting "lstinputlisting"
+snippet lstinputlisting ""
 \lstinputlisting{$1}
 endsnippet
-
-
-snippet code_inline "lstinline code"
+snippet code_inline ""
 \lstinline{$1}
 endsnippet
-
-
-snippet column "beamer column"
+snippet column ""
 \begin{column}{0.5\textwidth}
 
 \end{column}
 endsnippet
-
-
-snippet columnbreak "multicol break" b
+snippet columnbreak "" b
 \columnbreak
 endsnippet
-
-
-snippet doc_article "basic article document"
+snippet doc_article ""
 \documentclass[11 pt]{article}
 
 
@@ -220,9 +226,7 @@ snippet doc_article "basic article document"
 
 \end{document}
 endsnippet
-
-
-snippet doc_beamer "basic beamer document"
+snippet doc_beamer ""
 \documentclass[11pt]{beamer}
 
 
@@ -261,19 +265,13 @@ snippet doc_beamer "basic beamer document"
 
 \end{document}
 endsnippet
-
-
-snippet draw "tikz draw"
+snippet draw ""
 \draw
 endsnippet
-
-
-snippet end "end"
+snippet end ""
 \end{$1}
 endsnippet
-
-
-snippet enumerate "enumerate"
+snippet enumerate ""
 \begin{enumerate}
     \item $1
     \item
@@ -282,16 +280,12 @@ snippet enumerate "enumerate"
     \item
 \end{enumerate}
 endsnippet
-
-
-snippet equation "equation"
+snippet equation ""
 \begin{equation}
     $1
 \end{equation}
 endsnippet
-
-
-snippet figure "figure"
+snippet figure ""
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{$1}
@@ -299,40 +293,23 @@ snippet figure "figure"
     \label{$3}
 \end{figure} \ \\\ 
 endsnippet
-
-
-snippet footnote "footnote"
+snippet footnote ""
 \footnote{}
 endsnippet
-
-
-snippet frac "fraction"
+snippet frac ""
 \frac{$1}{}
 endsnippet
-
-
-snippet frame "beamer slide"
+snippet frame ""
 \begin{frame}
     \frametitle{$1}
 \end{frame}
 endsnippet
-
-
-snippet frametitle "frame title tag"
+snippet frametitle ""
 \frametitle{$1}
 endsnippet
-
-
-snippet graphics_path "Description"
+snippet graphics_path ""
 \graphicspath{{../figures/}}
 endsnippet
-
-
-snippet green "green colored text"
-\green{$1}
-endsnippet
-
-
 snippet header ""
 \pagestyle{fancy}
 \fancyhf{}
@@ -341,39 +318,25 @@ snippet header ""
 \rhead{}
 \setlength{\headheight}{15pt}
 endsnippet
-
-
-snippet hline "hline"
+snippet hline ""
 \hline
 endsnippet
-
-
-snippet indent "indent"
+snippet indent ""
 \indent 
 endsnippet
-
-
-snippet import "usepackage"
+snippet usepackage ""
 \usepackage{$1}
 endsnippet
-
-
-snippet input "input other tex file"
+snippet input ""
 \input{$1}
 endsnippet
-
-
-snippet italic "\textit{}"
+snippet italic ""
 \textit{$1}
 endsnippet
-
-
-snippet item "itemize entry"
+snippet item ""
 \item $1
 endsnippet
-
-
-snippet itemize "itemize"
+snippet itemize ""
 \begin{itemize}
     \item $1
     \item
@@ -382,29 +345,19 @@ snippet itemize "itemize"
     \item
 \end{itemize}
 endsnippet
-
-
-snippet label "label"
+snippet label ""
 \label{$1}
 endsnippet
-
-
-snippet larrow "left arrow"
+snippet larrow ""
 \Leftarrow 
 endsnippet
-
-
-snippet linewidth "linewidth"
+snippet linewidth ""
 \linewidth
 endsnippet
-
-
 snippet maketitle ""
 \maketitle
 endsnippet
-
-
-snippet minipage "mutiple figures in grid"
+snippet minipage ""
 \begin{figure}[h!]
     \centering
     \begin{minipage}{.5\linewidth}
@@ -429,173 +382,67 @@ snippet minipage "mutiple figures in grid"
     \label{}
 \end{figure} \ \\\
 endsnippet
-
-snippet multicol "multicol"
+snippet multicol ""
 \begin{multicol}{${1:cols}
     $2
 \end{multicol}
 endsnippet
-
-snippet newcommand "newcommand"
+snippet newcommand ""
 \newcommand{${1:name}[${2:arg_num}]{${3:definition}
 endsnippet
-
-snippet newpage "newpage"
-\newpage
-endsnippet
-
-
-snippet noindent "noindent"
+snippet noindent ""
 \noindent
 endsnippet
-
-
-snippet paragraph "paragraph"
+snippet paragraph ""
 \paragraph{$1}
 endsnippet
-
-snippet mparagraph "myparagraph snip"
+snippet mparagraph ""
 \myparagraph{$1}
-
 endsnippet
-
-
-snippet partial "partial"
+snippet partial ""
 \partial
 endsnippet
-
-
-snippet pause "beamer pause"
+snippet pause ""
 \pause
 endsnippet
-
-
-snippet permille "permille sign"
+snippet permille ""
 \text{\textperthousand}
 endsnippet
-
-
-snippet pmatrix "pmatrix"
-\begin{pmatrix}
-    $1
-\end{pmatrix}
-endsnippet
-
-
-snippet red "red colored text"
-\red{$1}
-endsnippet
-
-
-snippet rarrow "right arrow"
+snippet rarrow ""
 \Rightarrow 
 endsnippet
-
-
-snippet section "section tag"
-\section{$1}
-endsnippet
-
-
-snippet setcounter "setcounter command"
+snippet setcounter ""
 \setcounter{${1:countername}}{${2:value}}
 endsnippet
-
-
-snippet siunitx "\SI{}{}"
+snippet siunitx ""
 \SI{$1}{}
 endsnippet
-
-
-snippet subsection "subsection tag"
-\subsection{$1}
-endsnippet
-
-
-snippet subsubsection "subsubsection tag"
-\subsubsection{$1}
-endsnippet
-
-
-snippet sqrt "sqrt tag"
+snippet sqrt ""
 \sqrt{$1}
 endsnippet
-
-
-snippet table "table"
-\begin{table}[h!]
-    \begin{center}
-	\caption{$1}
-	\begin{tabular}{$2}
-	    
-	\end{tabular}
-    \end{center}
-\end{table} \ \\\ 
-endsnippet
-
-
-snippet tabular "tabular"
-\begin{center}
-    \begin{tabular}{$2}
-      	
-    \end{tabular}
-\end{center}
-endsnippet
-
-
 snippet text ""
 \text{$1}
 endsnippet
-
-
-snippet textcolor "\textcolor{}{}"
-\textcolor{red}{$1}
-endsnippet
-
-
 snippet textnormal ""
 \textnormal{$1}
 endsnippet
-
-
-snippet textwidth "textwidth"
+snippet textwidth ""
 \textwidth
 endsnippet
-
-
-snippet title "title"
+snippet title ""
 \title{$1}
 endsnippet
-
-
-snippet tikzpic "tikzpicture"
+snippet tikzpic ""
 \begin{tikzpicture}
     $1
 \end{tikzpicture}
 endsnippet
-
-
-snippet underline "\underline{}"
+snippet underline ""
 \underline{$1}
 endsnippet
-
-
-snippet usepackage "usepackage"
-\usepackage{$1}
-endsnippet
-
-
-snippet vmatrix "pmatrix"
-\begin{pmatrix}
-    $1
-\end{pmatrix}
-endsnippet
-
-
-snippet del "del"
+snippet del ""
 \del
 endsnippet
-
-snippet partial "partial"
+snippet partial ""
 \partial
 endsnippet
