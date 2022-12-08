@@ -1,0 +1,3 @@
+[submodule "tex/tex-headers"]
+	path = tex/tex-headers
+	url = https://github.com/vincentmader/tex-headers
