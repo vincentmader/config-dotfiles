@@ -426,6 +426,9 @@
 # │ Other useful CLI tools                                                    │
 # ╰───────────────────────────────────────────────────────────────────────────╯
 
+#   Re-define `make` command to not echo executed commands.
+    alias make="make -s"
+
 #   Define shorter command for `ranger`.
     alias r="ranger"
 #   TODO: Decide re: Switch to `lf` or `nnn` instead?
