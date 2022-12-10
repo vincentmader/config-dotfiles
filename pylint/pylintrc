@@ -1,0 +1,4 @@
+[MAIN]
+
+disable=
+    unnecessary-lambda-assignment
