@@ -49,6 +49,9 @@
 #   Define path to shell-history
     export HISTFILE="$XDG_CACHE_HOME/shell/history"
 
+#   Define command history file-size.
+    export HISTFILESIZE=10000000
+
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Editor & Visual (vi/vim/neovim/neovide)                                   │
 # ╰───────────────────────────────────────────────────────────────────────────╯
@@ -118,6 +121,9 @@
 
 #   Define path to ipython cache files.
     export IPYTHONDIR="$XDG_DATA_HOME/ipython"
+    
+#   Define path to pylint config file.
+    export PYLINTRC="$XDG_CONFIG_HOME/pylint/pylintrc"
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Julia                                                                     │
@@ -137,7 +143,7 @@
     export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 
 #   Define number of Node REPL history entries.
-    export NODE_REPL_HISTORY_SIZE=10000
+    export NODE_REPL_HISTORY_SIZE=10000000
 
 # ╭───────────────────────────────────────────────────────────────────────────╮
 # │ Go                                                                        │
