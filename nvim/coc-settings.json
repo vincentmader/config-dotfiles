@@ -64,6 +64,23 @@
   "julia.lint.pirates": true, //                                        default
   "julia.trace.server": "off", //                                       default
 
+  // PYRIGHT
+  // ══════════════════════════════════════════════════════════════════════════
+  "pyright.enable": true, //                                            default
+  "pyright.server": "", //                                              default
+  "pyright.disableCompletion": true,
+  "pyright.disableDiagnostics": false, //                               default
+  "pyright.disableDocumentation": false, //                             default
+  "pyright.disableProgressNotifications": false, //                     default
+  "pyright.completion.importSupport": true, //                          default
+  "pyright.completion.snippetSupport": true, //                         default
+  "pyright.organizeimports.provider": "pyright", //                     default
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.testing.provider": "unittest", //                            default
+  "pyright.testing.unittestArgs": [], //                                default
+  "pyright.testing.pytestArgs": [], //                                  default
+
   // PYTHON
   // ══════════════════════════════════════════════════════════════════════════
   "python.analysis.autoImportCompletions": true, //                     default
@@ -97,27 +114,14 @@
   "python.linting.pydocstyleEnabled": false, //                         default
   "python.linting.pylamaEnabled": false, //                             default
   "python.linting.pylintEnabled": true,
-  "python.linting.pylintArgs": ["--disable=C0103", "--disable=C0116"],
+  "python.linting.pylintArgs": [
+    "--disable=C0103",
+    "--disable=C0116",
+    "--disable=C3001"
+  ],
   "python.linting.pyflakesEnabled": false, //                           default
   "python.sortImports.path": "", //                                     default
   "python.sortImports.args": [], //                                     default
-
-  // PYRIGHT
-  // ══════════════════════════════════════════════════════════════════════════
-  "pyright.enable": true, //                                            default
-  "pyright.server": "", //                                              default
-  "pyright.disableCompletion": true,
-  "pyright.disableDiagnostics": false, //                               default
-  "pyright.disableDocumentation": false, //                             default
-  "pyright.disableProgressNotifications": false, //                     default
-  "pyright.completion.importSupport": true, //                          default
-  "pyright.completion.snippetSupport": true, //                         default
-  "pyright.organizeimports.provider": "pyright", //                     default
-  "pyright.inlayHints.functionReturnTypes": false,
-  "pyright.inlayHints.variableTypes": false,
-  "pyright.testing.provider": "unittest", //                            default
-  "pyright.testing.unittestArgs": [], //                                default
-  "pyright.testing.pytestArgs": [], //                                  default
 
   // RUST-ANALYZER
   // ══════════════════════════════════════════════════════════════════════════
