@@ -114,7 +114,9 @@
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Quick-exit insert mode with `jk`, & write to file.
-    inoremap jk <Esc>:w<cr>
+"   NOTE: Optionally add one more <CR> to circumvent annoying 
+"         message "Press ENTER or type command to continue".
+    inoremap jk <Esc>:silent w<cr>
 
 "   Quick-exit vim.
   " map zz :wq!<CR>
@@ -728,7 +730,7 @@
 " ═════════════════════════════════════════════════════════════════════════════
 
 "   Create newline below current line without entering insert mode.
-    nmap <CR> o<C-c>
+    " nmap <CR> o<C-c>
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             EDITING: Quick-Move Lines                     {{{
@@ -934,23 +936,22 @@
 "   Configure code completion/suggestion list.
 "   ───────────────────────────────────────────────────────────────────────────
 
-"       Select first list item by default, confirm with `Return`.
-        inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+"       Select first list item by default, confirm with `TAB`.
+        inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+      " inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "       Use `<Tab>` and `<S-Tab>` to go to next/previous completion list item.
-        inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-        inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+      " inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+      " inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "       Close the preview window when completion is done. 
 "       TODO: Find out re: Is this even necessary?
-        autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+      " autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "       Decrease update-time for `CursorHold` & `CursorHoldI`.
 "       TODO: What does this do?
-        set updatetime=300
+      " set updatetime=300
 
-"       Confirm completion with <Return>.
-      " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "   Configure Snippets.
 "   ───────────────────────────────────────────────────────────────────────────
@@ -974,7 +975,7 @@
             if (index(['vim', 'help'], &filetype) >= 0)
                 execute 'h '.expand('<cword>')
             else
-                call CocAction('doHover')
+                call CocActionAsync('doHover')
             endif
         endfunction
         nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -1492,5 +1493,14 @@
     " hi clear PmenuSbar
 
     " hi PmenuSel ctermfg=red ctermbg=green
+    " hi Normal ctermfg=white
+
+"   Deactivate interpretation of `CTRL-j` as <CR>. (not working :/)
+  " let g:BASH_Ctrl_j = 'off'
+  " let g:C_Ctrl_j = 'off'
+  " iunmap <C-J>
+  " iunmap <C-K>
+  " iunmap <buffer> <C-J>
+  " iunmap <buffer> <C-K>
 
 " }}}
