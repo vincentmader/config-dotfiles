@@ -937,12 +937,13 @@
 "   ───────────────────────────────────────────────────────────────────────────
 
 "       Select first list item by default, confirm with `TAB`.
-        inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+        inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+      " inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
       " inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "       Use `<Tab>` and `<S-Tab>` to go to next/previous completion list item.
-      " inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-      " inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+        inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+        inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "       Close the preview window when completion is done. 
 "       TODO: Find out re: Is this even necessary?
