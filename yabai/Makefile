@@ -9,5 +9,3 @@ restart:
 	brew services restart skhd
 show_windows:
 	yabai -m query --windows
-yabai:  # NOTE not needed anymore
-	yabai
