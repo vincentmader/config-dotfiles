@@ -350,6 +350,8 @@
         Plug 'tpope/vim-speeddating'
         Plug 'tpope/vim-unimpaired'
 
+        Plug 'lewis6991/impatient.nvim'
+
 "       No line numbers where they don't belong:
       " Plug 'myusuf3/numbers.vim'
 
@@ -396,7 +398,7 @@
     colorscheme solarized
 
 "   Enable dark-mode by default.
-    set background=dark
+  " set background=dark
 
 "   Define keyboard short-cuts to toggle btw. light- & dark-mode.
     map <leader>ml :set bg=light<CR>  
@@ -406,6 +408,13 @@
 "   - Needs to be active for solarized-black iTerm profile.  TODO [#B] Really?
 "   - See: https://github.com/altercation/vim-colors-solarized#important-note-for-terminal-users
   " let g:solarized_termcolors=256                      
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                             APPEARANCE: Background                        {{{
+" ═════════════════════════════════════════════════════════════════════════════
+
+"       Make background transparent.
+        highlight Normal ctermbg=None  
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             APPEARANCE: Cursor                            {{{
@@ -456,8 +465,8 @@
   "     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
   " augroup END
 
-"   Make background transparent.                      -> not even needed though
-  " highlight LineNr ctermbg=None ctermfg=None
+"   Make background transparent.                
+    highlight LineNr ctermbg=None 
     
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                    APPEARANCE: Sign- & Color-Column                       {{{
@@ -471,10 +480,11 @@
 "       Always display sign-column where error symbols would be displayed.
         set signcolumn=yes
         highlight clear SignColumn
+        " highlight SignColumn ctermfg=red ctermbg=none
 
 "       Deactivate tildes on the left side of the screen
-        highlight Normal ctermbg=None  
-        highlight EndOfBuffer ctermfg=0 ctermbg=none
+        let &fillchars='eob: '
+      " highlight EndOfBuffer ctermfg=0 ctermbg=none
 
 "   COLOR COLUMN:                                                 
 "   ───────────────────────────────────────────────────────────────────────────
@@ -653,7 +663,7 @@
     highlight clear Folded
 
 "   Remove dots.
-    set fillchars=fold:\     
+    set fillchars+=fold:\ 
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                             EDITING: Code Skeletons                       {{{
