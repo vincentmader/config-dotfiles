@@ -209,7 +209,7 @@
       " snipmate.vim
 
 "   NAVIGATION                                    (file-to-file & intra-file)
-"   -------------------------------------------------------------------------
+"   ───────────────────────────────────────────────────────────────────────────
 
 "       Silver-searcher: Find files w/ c-string.
         Plug 'mileszs/ack.vim'
@@ -226,6 +226,8 @@
 "       Telescope (FZF replacement)
         Plug 'nvim-lua/plenary.nvim'
         Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+        Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+        Plug 'cljoly/telescope-repo.nvim'
 
 "       NERDTree
         Plug 'scrooloose/nerdtree'
@@ -488,6 +490,7 @@
 
 "       Deactivate tildes on the left side of the screen
         let &fillchars='eob: '
+      " set fillchars=eob: 
       " highlight EndOfBuffer ctermfg=0 ctermbg=none
 
 "   COLOR COLUMN:                                                 
@@ -1395,6 +1398,53 @@
   "     " echo b:is_wiki_file
   "     autocmd BufEnter * match Error /\%>80c/
   " endif
+
+" }}} ═════════════════════════════════════════════════════════════════════════
+"                                PLUGIN: Telescope                          {{{
+" ═════════════════════════════════════════════════════════════════════════════
+"   TODO: Find out whether FZF extension is actually loaded & used.
+
+"   File search
+"   ───────────────────────────────────────────────────────────────────────────
+"   NOTE: All commands below respect `.gitignore`, if not specified otherwise.
+
+"       List files in your current working directory.
+        nnoremap <leader>ff <cmd>Telescope find_files<cr>
+
+"       Search for a string in $(pwd) and get results live as you type.
+        nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
+"       List previously open files.
+        nnoremap <leader>fr <cmd>Telescope oldfiles<cr>
+
+"       Fuzzy search through the output of git ls-files command.
+      " nnoremap <leader>fg <cmd>Telescope git_files<cr>
+
+"       Search for the string under your cursor in $(pwd).
+      " nnoremap <leader>fg <cmd>Telescope grep_string<cr>
+
+"   Other
+"   ───────────────────────────────────────────────────────────────────────────
+"   see more here:     https://github.com/nvim-telescope/telescope.nvim#pickers
+
+"       List open buffers in current neovim instance.
+        nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+"       List git commits with diff preview, checkout action <cr>, 
+"       reset mixed <C-r>m, reset soft <C-r>s and reset hard <C-r>h.
+        nnoremap <leader>fc <cmd>Telescope git_commits<cr>
+
+"       List manpage entries, opens them in a help window on <cr>.
+        nnoremap <leader>fm <cmd>Telescope man_pages<cr>
+
+"       List items in the quickfix list.
+        nnoremap <leader>fq <cmd>Telescope quickfix<cr>
+
+"       List Built-in pickers and run them on <cr>.
+        nnoremap <leader>fa <cmd>Telescope builtin<cr>
+
+"       List Built-in pickers and run them on <cr>.
+        " nnoremap <leader>fr <cmd>Telescope repo<cr>
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                         PLUGIN: TMUX-Line (inactive)                      {{{
