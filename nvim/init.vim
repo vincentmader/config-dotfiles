@@ -443,8 +443,11 @@
 "                          APPEARANCE: Intra-Text Search                    {{{
 " ═════════════════════════════════════════════════════════════════════════════
 
-"   Turn off search match highlighting.
+"   Configure shortcut for turning off search match highlighting.
     nnoremap <leader>/ :nohlsearch<CR>
+
+"   Configure color of highlighting of search matching.
+    hi Search ctermfg=4 ctermbg=white
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                           APPEARANCE: Line Numbers                        {{{
@@ -1187,6 +1190,7 @@
       " Limelight!
         " set nonumber norelativenumber
         set number relativenumber
+        set scrolloff=0
     endfunction
     autocmd! User GoyoEnter call MinimalistSetupEnable()
 
@@ -1405,7 +1409,7 @@
 " ═════════════════════════════════════════════════════════════════════════════
 "   TODO: Find out whether FZF extension is actually loaded & used.
 
-"   File search
+"   File Search Pickers
 "   ───────────────────────────────────────────────────────────────────────────
 "   NOTE: All commands below respect `.gitignore`, if not specified otherwise.
 
@@ -1424,9 +1428,9 @@
 "       Search for the string under your cursor in $(pwd).
       " nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 
-"   Other
+"   Other Telescope Pickers
 "   ───────────────────────────────────────────────────────────────────────────
-"   see more here:     https://github.com/nvim-telescope/telescope.nvim#pickers
+"   See more here:     https://github.com/nvim-telescope/telescope.nvim#pickers
 
 "       List open buffers in current neovim instance.
         nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -1446,6 +1450,17 @@
 
 "       List Built-in pickers and run them on <cr>.
         " nnoremap <leader>fr <cmd>Telescope repo<cr>
+
+"   Color Setup
+"   ───────────────────────────────────────────────────────────────────────────
+    
+  " hi TelescopeResultsNormal ctermfg=red
+    hi TelescopeMatching ctermfg=4
+    hi TelescopeTitle ctermfg=4
+    hi TelescopeSelection ctermfg=white ctermbg=4
+    hi TelescopeBorder ctermfg=4 ctermbg=none
+  " hi TelescopeSelectionCaret ctermfg=white ctermbg=4
+  " hi TelescopePromptBorder ctermfg=red
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                         PLUGIN: TMUX-Line (inactive)                      {{{
