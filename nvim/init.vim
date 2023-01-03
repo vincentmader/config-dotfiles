@@ -40,7 +40,7 @@
 
 "   Save undo-history across sessions, by storing in file. 
     if has('persistent_undo')
-        silent !mkdir "$XDG_DATA_HOME/nvim/backups" > /dev/null 2>&1
+        silent !mkdir -p "$XDG_DATA_HOME/nvim/backups" "> /dev/null 2>&1
         set undodir="$XDG_DATA_HOME/nvim/backups"
         set undofile
     endif
@@ -1185,7 +1185,7 @@
     nmap <Leader>l :Limelight!!<CR>
     xmap <Leader>l :Limelight!!<CR>
 
-"   Define commands to be called on GoyoEnter.
+" Define commands to be called on GoyoEnter.
     function MinimalistSetupEnable()
       " Limelight!
         " set nonumber norelativenumber
@@ -1194,7 +1194,7 @@
     endfunction
     autocmd! User GoyoEnter call MinimalistSetupEnable()
 
-"   Define commands to be called on GoyoLeave.
+" Define commands to be called on GoyoLeave.
     function MinimalistSetupDisable()
       " Limelight!
         " set number relativenumber
@@ -1590,4 +1590,6 @@
         Goyo
         Telescope find_files
     endfunction
+
+    " autocmd BufEnter * call MinimalistSetupEnable()
 
