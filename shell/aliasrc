@@ -219,9 +219,11 @@
     function nvim_func {
         if [ "$#" -eq 0 ]; then
           # nvim +FZF
-            nvim +"Telescope find_files"
+          # nvim +"Telescope find_files"
+            nvim +"call GoyoTelescope()"
         else
-            nvim $@
+          # nvim $@
+            nvim $@ +"Goyo"
         fi
     }
     alias nvim="nvim_func"

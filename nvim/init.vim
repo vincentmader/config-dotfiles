@@ -1185,14 +1185,15 @@
 "   Define commands to be called on GoyoEnter.
     function MinimalistSetupEnable()
       " Limelight!
-        set nonumber norelativenumber
+        " set nonumber norelativenumber
+        set number relativenumber
     endfunction
     autocmd! User GoyoEnter call MinimalistSetupEnable()
 
 "   Define commands to be called on GoyoLeave.
     function MinimalistSetupDisable()
       " Limelight!
-        set number relativenumber
+        " set number relativenumber
       " source $XDG_CONFIG_HOME/nvim/init.vim
         quit
     endfunction
@@ -1569,3 +1570,9 @@
   " iunmap <buffer> <C-K>
 
 " }}}
+
+    function GoyoTelescope()
+        Goyo
+        Telescope find_files
+    endfunction
+
