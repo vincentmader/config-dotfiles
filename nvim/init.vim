@@ -216,12 +216,16 @@
 
 "       Fuzzy-Find File Search
 "       TODO: Think re: Use telescope instead?
-        Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': { -> fzf#install() } }
-        Plug 'junegunn/fzf'
+        " Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': { -> fzf#install() } }
+        " Plug 'junegunn/fzf'
       " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
       " Plug 'yuki-ycino/fzf-preview.vim'   " TODO setup
       " Plug 'yuki-yano/fzf-preview.vim'   " TODO setup
       " Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+
+"       Telescope (FZF replacement)
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 "       NERDTree
         Plug 'scrooloose/nerdtree'
@@ -1073,7 +1077,7 @@
     map <Leader>vp :Git push<CR>
 
 " }}} ═════════════════════════════════════════════════════════════════════════
-"                                PLUGIN: FZF                                {{{
+"                                PLUGIN: FZF (inactive)                     {{{
 " ═════════════════════════════════════════════════════════════════════════════
       
 "   Auto-run FZF on vim-startup.
@@ -1082,7 +1086,7 @@
 
 "   Use <leader>f to open fuzzy finder.
 "   - NOTE: Type ' next for exact search.
-    nnoremap <silent> <leader>ff :FZF<CR>
+    " nnoremap <silent> <leader>ff :FZF<CR>
   " nnoremap <silent> <leader>f :FzfPreviewDirectoryFiles <CR>
   " nnoremap <silent> <leader>fg :FzfPreviewProjectFiles<CR>
   " nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
@@ -1111,21 +1115,21 @@
     "   \ 'ctrl-v': 'vsplit' 
     "   \ }
     
-    let g:fzf_colors =
-    \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] 
-      \ }
+    " let g:fzf_colors =
+    " \ { 'fg':      ['fg', 'Normal'],
+    "   \ 'bg':      ['bg', 'Normal'],
+    "   \ 'hl':      ['fg', 'Comment'],
+    "   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    "   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    "   \ 'hl+':     ['fg', 'Statement'],
+    "   \ 'info':    ['fg', 'PreProc'],
+    "   \ 'border':  ['fg', 'Ignore'],
+    "   \ 'prompt':  ['fg', 'Conditional'],
+    "   \ 'pointer': ['fg', 'Exception'],
+    "   \ 'marker':  ['fg', 'Keyword'],
+    "   \ 'spinner': ['fg', 'Label'],
+    "   \ 'header':  ['fg', 'Comment'] 
+    "   \ }
 
     " Use vim-devicons
     " let g:fzf_preview_use_dev_icons = 1

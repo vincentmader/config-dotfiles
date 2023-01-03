@@ -55,6 +55,8 @@
         |.dartServer|\
         |.dart|\
         |.docker|\
+        |.doom.d|\
+        |.emacs.d|\
         |.flutter-devtools|\
         |.flutter|\
         |.gem|\
@@ -216,7 +218,8 @@
 #   2. ...enter fuzzy-find, if no file is specified.
     function nvim_func {
         if [ "$#" -eq 0 ]; then
-            nvim +FZF
+          # nvim +FZF
+            nvim +"Telescope find_files"
         else
             nvim $@
         fi
