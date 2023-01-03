@@ -447,7 +447,7 @@
     nnoremap <leader>/ :nohlsearch<CR>
 
 "   Configure color of highlighting of search matching.
-    hi Search ctermfg=4 ctermbg=white
+    hi Search ctermfg=2 ctermbg=0
 
 " }}} ═════════════════════════════════════════════════════════════════════════
 "                           APPEARANCE: Line Numbers                        {{{
@@ -1457,8 +1457,8 @@
   " hi TelescopeResultsNormal ctermfg=red
     hi TelescopeMatching ctermfg=4
     hi TelescopeTitle ctermfg=4
-    hi TelescopeSelection ctermfg=white ctermbg=4
-    hi TelescopeBorder ctermfg=4 ctermbg=none
+    hi TelescopeSelection ctermfg=1 ctermbg=none
+  " hi TelescopeBorder ctermfg=4 ctermbg=none
   " hi TelescopeSelectionCaret ctermfg=white ctermbg=4
   " hi TelescopePromptBorder ctermfg=red
 
