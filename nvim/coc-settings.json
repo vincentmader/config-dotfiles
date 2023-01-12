@@ -10,13 +10,14 @@
   "diagnostic.warningSign": "⚠",
   "diagnostic.errorSign": "✘",
   "diagnostic.hintSign": "➤",
-  "suggest.snippetIndicator": " ►",
+  "suggest.snippetIndicator": " ➤",
+  // "suggest.snippetIndicator": " ►",
   // ...
 
   // COMPLETION LIST
   // ══════════════════════════════════════════════════════════════════════════
   "coc.source.around.enable": true, //                                  default
-  "suggest.maxCompleteItemCount": 16,
+  "suggest.maxCompleteItemCount": 8,
   "coc.source.buffer.enable": true, //                                  default
   "coc.source.file.enable": true, //                                    default
   "coc.source.tmuxcomplete.enable": true, //                            default

@@ -814,7 +814,8 @@
 "   ───────────────────────────────────────────────────────────────────────────
 
 "   Activate tab-line extension.
-    let g:airline_extensions = ["tabline"]                
+    let g:airline_extensions = []                
+  " let g:airline_extensions = ["tabline"]                
 
 "   Turn off triangle thingies.
     let g:airline_right_sep=''
