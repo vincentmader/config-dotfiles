@@ -82,6 +82,7 @@
         |pkg|\
         |target|\
         |venv|\
+        |.venv|\
         "
 
 #   Re-define `ls` command to ignore the just-defined list of files...
@@ -220,10 +221,11 @@
         if [ "$#" -eq 0 ]; then
           # nvim +FZF
           # nvim +"Telescope find_files"
-            nvim +"call GoyoTelescope()"
+          # nvim +"call GoyoTelescope()"
+            nvim $@
         else
-          # nvim $@
-            nvim $@ +"Goyo"
+            nvim $@
+            # nvim $@ +"Goyo"
         fi
     }
     alias nvim="nvim_func"
