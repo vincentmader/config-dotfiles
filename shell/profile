@@ -69,11 +69,11 @@
 #   TODO Look-up re: Define $VIM variable as well?
   # export VIM="$XDG_CONFIG_HOME/vim"
 
-#   Define path to neovim log file.                 (useless, does nothing ???)
+#   Define path to neovim log file.
     export NVIM_LOG_FILE="$XDG_CACHE_HOME/nvim/log"   
 
 #   Define path to neovim configuration file (init.vim).
-    export NVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
+   # export NVIMRC="$XDG_CONFIG_HOME/nvim/init.lua"
 
 #   If the shell is running inside an SSH connection: Use vanilla vim.
     if [[ -n $SSH_CONNECTION ]]; then
