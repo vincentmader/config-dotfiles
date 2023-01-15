@@ -270,6 +270,11 @@
 #   Define shorter `git clone` command.
     alias gcl="git clone -j8"
 
+#   Define shorter `git clone` command for my own repositories.
+    function gclvm {
+        git clone -j8 "https://github.com/vincentmader/$1"
+    }
+
 #   Define shorter commands for branch creation & checkout.
     alias gch="git checkout"
     alias gbr="git branch"
