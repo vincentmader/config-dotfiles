@@ -51,6 +51,7 @@
         |.CFUserTextEncoding|\
         |.DS_Store|\
         |.archey-ip|\
+        |.chatgpt|\
         |.cups|\
         |.dartServer|\
         |.dart|\
@@ -139,6 +140,8 @@
         # builtin cd "$@" && l
         z "$@" && l
     }
+
+    alias u="z -"
 
 #   Re-define `cd ..` command(s).
 #   TODO Decide re: Use history of `zoxide` instead?
