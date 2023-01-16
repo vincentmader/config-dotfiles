@@ -416,7 +416,7 @@
 
   # Concatenate: cat -> bat
     alias cat="bat"
-    alias cat*="cat **/*"
+    alias cat.="cat **/*"
     alias lc='lolcat'
 
   # Find.
