@@ -1,6 +1,6 @@
 #!/bin/sh
 # -----------------------------------------------------------------------------
-# 			   $XDG_CONFIG_HOME/zsh/zshrc
+# 			            $XDG_CONFIG_HOME/zsh/zprofile
 # -----------------------------------------------------------------------------
 
 #   Source shell-independent (shared) profile config-file.
@@ -8,6 +8,7 @@
  
 #   Define path to zsh config-file.
     export ZSHRC="$XDG_CONFIG_HOME/zsh/zshrc"
+    source "$ZSHRC"
 
 #   Define path to oh-my-zsh installation.
     export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
