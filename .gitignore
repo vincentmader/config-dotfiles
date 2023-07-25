@@ -7,6 +7,7 @@
 /emacs
 /filezilla/
 /flutter/tool_state
+/git/credentials
 /instaloader/
 /iterm2/
 /jupyter/migrated
@@ -18,9 +19,8 @@
 /tabbed/
 /tmux/plugins/
 /tmux/saved_sessions/
+/tool_state
 /wget/wget-hsts
 /zsh/oh-my-zsh/
 /zsh/zsh_history/
 __pycache__/
-/tool_state
-/git/credentials
