@@ -1,1 +1,1 @@
-/Users/vinc/org/Projects/Configure tmux.
+/Users/vinc/org/A_all/configure_tmux/tmux-config
