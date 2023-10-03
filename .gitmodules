@@ -7,3 +7,6 @@
 [submodule "lf"]
 	path = lf
 	url = https://github.com/vincentmader/lf-config
+[submodule "starship"]
+	path = starship
+	url = https://github.com/vincentmader/starship-config
