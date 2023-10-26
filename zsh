@@ -1,1 +1,1 @@
-/Users/vinc/org/A_all/configure_zsh/zsh-config
+/Users/vinc/org/library/links/project/all/configure_zsh/zsh-config
